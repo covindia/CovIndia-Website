@@ -14,10 +14,28 @@ body{
 	color: white;
 }
 
+@media (max-width: 1000px){
+	#text-data h3{
+		font-size: 16px;
+	}
+	#text-data h4{
+		font-size: 14px;
+	}
+}
+
+@media (min-width: 1000px){
+	#text-data h3{
+		font-size: 20px;
+	}
+	#text-data h4{
+		font-size: 16px;
+	}
+}
+
 /* Navbar */
 .navbar{
 	/* background-color: #292929e0 !important; */
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 1);
 }
 
 .navbar-brand{
