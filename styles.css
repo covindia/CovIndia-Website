@@ -10,8 +10,8 @@ html, body {
 body{
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-color: #ffffff;
-	color: black;
+	background-color: #000;
+	color: white;
 }
 
 /* Navbar */
