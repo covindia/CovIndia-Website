@@ -53,7 +53,6 @@
 			</defs>
 			<rect x="0" y="0" width="200" height="20" fill="url(#RYG)"></rect>
 			<!-- MAX VALUE EDIT -->
-			<text id="lowValue" x="5" y="16" text-anchor="start">14</text>
 			<text id="md" x="100" y="16" text-anchor="middle"></text>
 			<text id="hi" x="195" y="16" text-anchor="end">1</text>
 		</svg>
@@ -878,7 +877,7 @@
 		var GRADIENT = GRADIENTS.increasing;
 
 		// SPECIAL BOI - Data
-		var data = {'GBN Faridabad': {'infected': 1, 'dead': 0, 'value': 0.07142857142857142}, 'Gurgaon': {'infected': 14, 'dead': 0, 'value': 1.0}, 'Jaipur': {'infected': 3, 'dead': 0, 'value': 0.21428571428571427}, 'Lucknow': {'infected': 2, 'dead': 0, 'value': 0.14285714285714285}, 'Noida': {'infected': 1, 'dead': 0, 'value': 0.07142857142857142}, 'Ghaziabad': {'infected': 2, 'dead': 0, 'value': 0.14285714285714285}, 'Agra': {'infected': 7, 'dead': 0, 'value': 0.5}, 'Jammu': {'infected': 3, 'dead': 0, 'value': 0.21428571428571427}, 'Gulbarga': {'infected': 0, 'dead': 1, 'value': 0.0}, 'Kottayam': {'infected': 2, 'dead': 0, 'value': 0.14285714285714285}, 'Sri Potti Sriramulu Nellore': {'infected': 1, 'dead': 0, 'value': 0.07142857142857142}, 'Bangalore': {'infected': 5, 'dead': 0, 'value': 0.35714285714285715}, 'Nagpur': {'infected': 7, 'dead': 0, 'value': 0.5}, 'Mumbai': {'infected': 2, 'dead': 0, 'value': 0.14285714285714285}, 'Pathanamthitta': {'infected': 11, 'dead': 0, 'value': 0.7857142857142857}, 'Pune': {'infected': 4, 'dead': 0, 'value': 0.2857142857142857}, 'Ernakulam': {'infected': 3, 'dead': 0, 'value': 0.21428571428571427}, 'Hyderabad': {'infected': 2, 'dead': 0, 'value': 0.14285714285714285}, 'Kasargod': {'infected': 2, 'dead': 0, 'value': 0.14285714285714285}, 'Thrissur': {'infected': 1, 'dead': 0, 'value': 0.07142857142857142}, 'Chennai': {'infected': 1, 'dead': 0, 'value': 0.07142857142857142}, 'Delhi': {'infected': 7, 'dead': 1, 'value': 0.5}, 'Ladakh': {'infected': 1, 'dead': 0, 'value': 0.07142857142857142}, 'Thane': {'infected': 1, 'dead': 0, 'value': 0.07142857142857142}};
+		var data = {}
 
 		function renderData(data){
 			for (var key in data){
@@ -897,16 +896,13 @@
 
 
 				if (flag == 0){
-						// console.log($("$"+modKey).attr("data-orginal-text", key + ' | Infected: ' + data[key].infected + ' | Dead: ' + data[key].dead));
 					try{
 						var allClasses = document.getElementsByClassName(modKey)
 						for (var i = 0; i < allClasses.length; ++i){
-							
 							allClasses[i].style.fill = gradient(1-data[key].value, GRADIENT);
 							allClasses[i].childNodes[0].textContent = key + ' | Infected: ' + data[key].infected + ' | Dead: ' + data[key].dead;
 							allClasses[i].title = key + ' | Infected: ' + data[key].infected + ' | Dead: ' + data[key].dead;
 							$(allClasses[i]).attr('data-original-title', key + ' | Infected: ' + data[key].infected + ' | Dead: ' + data[key].dead);
-
 						}
 					}
 					catch (err){
