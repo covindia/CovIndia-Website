@@ -134,7 +134,10 @@ def do_thing():
 			districtsList = districtsAffected[0]
 			statesList = statesAffected[0]
 			for distNum in range(1, len(districtsAffected)):
-				districtsList += ", " + districtsAffected[distNum]
+				if districtsAffected[distNum].startswith("Aurangabad"):
+					districtsList += ", Aurangabad"
+				else:	
+					districtsList += ", " + districtsAffected[distNum]
 			for stateNum in range(1, len(statesAffected)):
 				statesList += ", " + statesAffected[stateNum]
 			newHTML.append("\t\t\t<p>Districts Affected: "+districtsList+"</p>"+"<br><p>States Affected: "+statesList+"</p>\n")
