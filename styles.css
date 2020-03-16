@@ -32,7 +32,7 @@ body{
 	}
 }
 
-@media (max-width: 768px){
+/* @media (max-width: 768px){
 	#legend-colorbar{
 		text-align: center;
 	}
@@ -42,7 +42,7 @@ body{
 	#legend-colorbar{
 		text-align: right;
 	}
-}
+} */
 
 /* Navbar */
 .navbar{
