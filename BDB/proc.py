@@ -1,6 +1,9 @@
 import gspread
 #Service client credential from oauth2client
 from oauth2client.service_account import ServiceAccountCredentials#Create scope
+from pandas import read_html
+from bs4 import BeautifulSoup as bs
+from requests import get
 
 def do_thing():
 	scope = ['https://spreadsheets.google.com/feeds']
@@ -17,7 +20,6 @@ def do_thing():
 	rowCount = False
 
 	data = sheet.get()
-	print (data)
 	for row in data:
 		if not rowCount:
 			rowCount = not rowCount
@@ -79,9 +81,20 @@ def do_thing():
 		infectedTotal += globalData[districtBoi]["infected"]
 		deadTotal += globalData[districtBoi]["dead"]
 		
+	mohfwURL = "https://www.mohfw.gov.in/"
 
-	print (infectedMax)
+	df = read_html(mohfwURL)
+	TotalIndianCases = df[0].iloc[[-1]][2].values[0] # TOTAL CONFIRMED CASES INDIAN
+	TotalForeignCases = df[0].iloc[[-1]][3].values[0] # TOTAL CONFIRMED CASES FOREIGN
+	TotalCured = df[0].iloc[[-1]][4].values[0] # CURED/DISCHARGED
+	TotalDeath = df[0].iloc[[-1]][5].values[0] # DEATH
 
+	page = get(mohfwURL)
+	soup = bs(page.text, "html.parser")
+
+	for line in soup.strings:
+		if "Total number of confirmed COVID 2019 cases across India" in line:
+			TotalNumberCases = int(line.split()[-1:][0])
 
 	for districtBoi in globalData:
 		globalData[districtBoi]["value"] = globalData[districtBoi]["infected"] / infectedMax
@@ -107,14 +120,13 @@ def do_thing():
 
 		if line == '\t\t\t<!-- MAX VALUE EDIT -->\n':
 			newHTML.append(line)
-			STRING = "\t\t\t<text id=\"lowValue\" x=\"5\" y=\"26\" text-anchor=\"start\">" + str(infectedMax) +  "</text>\n"
+			STRING = "\t\t\t<text id=\"lowValue\" x=\"175\" y=\"27\" text-anchor=\"start\">" + str(infectedMax) +  "</text>\n"
 			newHTML.append(STRING)
 			continue
 
 		if line == '\t\t\t\t<!-- INFECTED COUNT -->\n':
 			newHTML.append(line)
-			newHTML.append("\t\t\t<h2>Infected Count: "+"110"+"</h2>\n")
-			newHTML.append("\t\t\t<h2>Dead Count: "+str(deadTotal)+"</h2>\n")
+			newHTML.append("\t\t\t\t<h6 style=\"font-size: bold; font-size: 1.5em;\">Infected: "+str(TotalNumberCases)+" <span style=\"color: #A9A9A9\">|</span> Cured: "+str(TotalCured)+" <span style=\"color: #A9A9A9\">|</span> Deaths: "+str(TotalDeath)+"</h6>\n")
 			continue
 
 		if line == '\t\t\t<!-- LIST COUNT -->\n':
@@ -125,8 +137,7 @@ def do_thing():
 				districtsList += ", " + districtsAffected[distNum]
 			for stateNum in range(1, len(statesAffected)):
 				statesList += ", " + statesAffected[stateNum]
-			newHTML.append("\t\t\t<p>Districts Affected: "+districtsList+"</p>\n")
-			newHTML.append("\t\t\t<p>States Affected: "+statesList+"</p>\n")
+			newHTML.append("\t\t\t<p>Districts Affected: "+districtsList+"</p>"+"<br><p>States Affected: "+statesList+"</p>\n")
 			continue
 
 		if line == '\t\t// SPECIAL BOI - Data\n':
@@ -141,7 +152,7 @@ def do_thing():
 		newHTML.append(line)
 
 
-	with open("Testing/index.html", 'w') as FPtr:
+	with open("index.html", 'w') as FPtr:
 		FPtr.writelines(newHTML)
 
 if __name__ == '__main__':
