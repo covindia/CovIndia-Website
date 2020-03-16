@@ -32,6 +32,18 @@ body{
 	}
 }
 
+@media (max-width: 768px){
+	#legend-colorbar{
+		text-align: center;
+	}
+}
+
+@media (min-width: 768px){
+	#legend-colorbar{
+		text-align: right;
+	}
+}
+
 /* Navbar */
 .navbar{
 	/* background-color: #292929e0 !important; */
