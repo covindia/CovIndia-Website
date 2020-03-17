@@ -85,10 +85,10 @@ def do_thing():
 	mohfwURL = "https://www.mohfw.gov.in/"
 
 	df = read_html(mohfwURL)
-	TotalIndianCases = df[0].iloc[[-1]][2].values[0] # TOTAL CONFIRMED CASES INDIAN
-	TotalForeignCases = df[0].iloc[[-1]][3].values[0] # TOTAL CONFIRMED CASES FOREIGN
-	TotalCured = df[0].iloc[[-1]][4].values[0] # CURED/DISCHARGED
-	TotalDeath = df[0].iloc[[-1]][5].values[0] # DEATH
+	# TotalIndianCases = df[0].iloc[[-1]][2].values[0] # TOTAL CONFIRMED CASES INDIAN
+	TotalForeignCases = df[0].iloc[-1].values[3] # TOTAL CONFIRMED CASES FOREIGN
+	TotalCured = df[0].iloc[-1].values[4] # CURED/DISCHARGED
+	TotalDeath = df[0].iloc[-1].values[5] # DEATH
 
 	page = get(mohfwURL)
 	soup = bs(page.text, "html.parser")
