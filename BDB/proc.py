@@ -4,6 +4,7 @@ from oauth2client.service_account import ServiceAccountCredentials#Create scope
 from pandas import read_html
 from bs4 import BeautifulSoup as bs
 from requests import get
+from datetime import datetime
 
 def do_thing():
 	scope = ['https://spreadsheets.google.com/feeds']
@@ -111,22 +112,22 @@ def do_thing():
 			flagSkip = False
 			continue
 		
-		if line == '\t<!-- Custom Imports -->\n':
-			newHTML.append(line)
-			STRING = "\t<link rel=\"stylesheet\" href=\"../styles.css\" type=\"text/css\">\n"
-			newHTML.append(STRING)
-			flagSkip = True
-			continue
+		# if line == '\t<!-- Custom Imports -->\n':
+		# 	newHTML.append(line)
+		# 	# STRING = "\t<link rel=\"stylesheet\" href=\"../styles.css\" type=\"text/css\">\n"
+		# 	newHTML.append(STRING)
+		# 	flagSkip = True
+		# 	continue
 
 		if line == '\t\t\t<!-- MAX VALUE EDIT -->\n':
 			newHTML.append(line)
-			STRING = "\t\t\t<text id=\"lowValue\" x=\"175\" y=\"27\" text-anchor=\"start\">" + str(infectedMax) +  "</text>\n"
+			STRING = "\t\t\t<text id=\"lowValue\" x=\"175\" y=\"27\" font-weight=\"bold\" text-anchor=\"start\">" + str(infectedMax) +  "</text>\n"
 			newHTML.append(STRING)
 			continue
 
 		if line == '\t\t\t\t<!-- INFECTED COUNT -->\n':
 			newHTML.append(line)
-			newHTML.append("\t\t\t\t<h6 style=\"font-size: bold; font-size: 1.5em;\">Infected: "+str(TotalNumberCases)+" <span style=\"color: #A9A9A9\">|</span> Cured: "+str(TotalCured)+" <span style=\"color: #A9A9A9\">|</span> Deaths: "+str(TotalDeath)+"</h6>\n")
+			newHTML.append("\t\t\t\t<h6 style=\"font-size: bold; font-size: 1.5em;\">Infected: "+str(infectedTotal)+" <br><span style=\"font-size:0.725em;\"> Cured: "+str(TotalCured)+" <span style=\"color: #A9A9A9\">|</span> Deaths: "+str(TotalDeath)+"</span></h6>\n")
 			continue
 
 		if line == '\t\t\t<!-- LIST COUNT -->\n':
@@ -141,6 +142,12 @@ def do_thing():
 			for stateNum in range(1, len(statesAffected)):
 				statesList += ", " + statesAffected[stateNum]
 			newHTML.append("\t\t\t<p>Districts Affected: "+districtsList+"</p>"+"<br><p>States Affected: "+statesList+"</p>\n")
+			continue
+
+		
+		if line == '\t\t\t<!-- LAST UPDATED TIME -->\n':
+			newHTML.append(line)
+			newHTML.append("\t\t\t<h6 style=\"font-size: 0.75em;\" style=\"font-color: rgb(150,150,150);\">Last Updated: "+datetime.now().strftime("%d/%m/%Y - %H:%M"+"</h6>\n"))
 			continue
 
 		if line == '\t\t// SPECIAL BOI - Data\n':

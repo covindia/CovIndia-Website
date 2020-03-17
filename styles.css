@@ -10,8 +10,12 @@ html, body {
 body{
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-color: #000;
+	background-color: #3F0F3F;
 	color: white;
+}
+
+#map{
+	background-color: #3F0F3F;
 }
 
 @media (max-width: 1000px){
@@ -46,8 +50,7 @@ body{
 
 /* Navbar */
 .navbar{
-	/* background-color: #292929e0 !important; */
-	background-color: rgba(0, 0, 0, 1);
+	background-color: #260926;
 }
 
 .navbar-brand{
@@ -60,7 +63,7 @@ body{
 }
 
 .nav-link{
-	color: white !important;
+	color: #FFFFFF !important;
 	font-size: 1.2em;
 }
 
@@ -68,7 +71,7 @@ body{
 	padding-top: 5em;
 	margin-top: 5em;
 	width: 100%;
-	background-color: black;
+	background-color: #3F0F3F;
 	padding-bottom: 5em;
 }
 
