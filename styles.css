@@ -92,3 +92,30 @@ body{
 .footer-navigation a:hover{
 	color: rgba(255, 255, 255, 0.90);
 }
+
+.footer-icons a{
+	text-decoration: none;
+}
+
+.fa-whatsapp{
+	font-size: 2em;
+}
+
+.float{
+	position:fixed;
+	width:70px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	padding-bottom: 67px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	/* font-size:30px; */
+	z-index:100;
+}
+
+.my-float{
+	margin-top:16px;
+}
