@@ -98,9 +98,24 @@ body{
 }
 
 .fa-whatsapp{
-	color: white;
+	font-size: 2em;
 }
 
-.fa-whatsapp:hover{
-	color: #25d366;
+.float{
+	position:fixed;
+	width:70px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	padding-bottom: 67px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	/* font-size:30px; */
+	z-index:100;
+}
+
+.my-float{
+	margin-top:16px;
 }
