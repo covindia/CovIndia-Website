@@ -40,7 +40,7 @@ def do_thing():
 			except:
 				pass
 			try:
-				deadTotal] += int(row[5])
+				deadTotal += int(row[5])
 			except:
 				pass
 
