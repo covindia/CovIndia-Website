@@ -940,6 +940,9 @@
 				if ((modKey == "Aurangabad_Maharastra") || (modKey == "Aurangabad_Bihar")) {
 					keyShow = "Aurangabad";
 				}
+				if (modKey == "DIST_NA"){
+					continue;
+				}
 				var flag = 0;
 				try{
 					document.getElementById(modKey).style.fill = gradient(1-data[key].value, GRADIENT);

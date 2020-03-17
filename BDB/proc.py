@@ -20,6 +20,9 @@ def do_thing():
 	globalData = {}
 	rowCount = False
 
+	infectedTotal = 0
+	deadTotal = 0
+
 	data = sheet.get()
 	for row in data:
 		if not rowCount:
@@ -30,6 +33,16 @@ def do_thing():
 			districtBoi = row[3]
 		except:
 			pass
+
+		if districtBoi == "DIST_NA":
+			try:
+				infectedTotal += int(row[4])
+			except:
+				pass
+			try:
+				deadTotal] += int(row[5])
+			except:
+				pass
 
 		if districtBoi in globalData:
 			try:
@@ -62,8 +75,6 @@ def do_thing():
 	infectedMax = 0
 	deadMax = 0
 
-	infectedTotal = 0
-	deadTotal = 0
 	districtsAffected = []
 	statesAffected = []
 
