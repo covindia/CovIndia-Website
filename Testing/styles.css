@@ -93,23 +93,14 @@ body{
 	color: rgba(255, 255, 255, 0.90);
 }
 
-.whatsapp-share {
-	background-color: #25d366;
-	border-radius: 50px;
-	text-align: center;
-	height:60px;
-}
-
-.social-icon{
-	font-size: 18px;
-	color:#ffffff;
-}
-
-.social-icon:hover{
+.footer-icons a{
 	text-decoration: none;
+}
+
+.fa-whatsapp{
 	color: white;
 }
 
-.whatsapp-icon{
-	font-size:30px;
+.fa-whatsapp:hover{
+	color: #25d366;
 }
