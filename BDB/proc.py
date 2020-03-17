@@ -79,6 +79,8 @@ def do_thing():
 	statesAffected = []
 
 	for districtBoi in globalData:
+		if districtBoi == "DIST_NA":
+			continue
 		if globalData[districtBoi]["infected"] > infectedMax:
 			infectedMax = globalData[districtBoi]["infected"]
 		if globalData[districtBoi]["dead"] > deadMax:
