@@ -23,27 +23,28 @@
 	<link href="https://fonts.googleapis.com/css?family=Mina&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap" rel="stylesheet"> 
-    <script>
-    	// This is the "Offline page" service worker
 
-    	// Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+	<script>
+		// This is the "Offline page" service worker
 
-    	// Check compatibility for the browser we're running this in
-    	if ("serviceWorker" in navigator) {
-    		if (navigator.serviceWorker.controller) {
-    			console.log("[PWA Builder] active service worker found, no need to register");
-    		} else {
-    			// Register the service worker
-    			navigator.serviceWorker
-    				.register("sw.js", {
-    					scope: "./"
-    				})
-    				.then(function (reg) {
-    					console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-    				});
-    		}
-    	}
-    </script>
+		// Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+
+		// Check compatibility for the browser we're running this in
+		if ("serviceWorker" in navigator) {
+			if (navigator.serviceWorker.controller) {
+				console.log("[PWA Builder] active service worker found, no need to register");
+			} else {
+				// Register the service worker
+				navigator.serviceWorker
+					.register("sw.js", {
+						scope: "./"
+					})
+					.then(function (reg) {
+						console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+					});
+			}
+		}
+	</script>
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160619251-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-160619251-1');</script>
 </head>
@@ -76,7 +77,7 @@
 		<div class="container" style="margin-top: 2em;text-align: center;color:rgb(170, 170, 170);">
 			<h4>Tap on the map to get more information about each district.</h4>
 			<!-- LAST UPDATED TIME -->
-			<h6 style="font-size: 0.75em;" style="font-color: rgb(150,150,150);">Last Updated: 17/03/2020 - 15:05</h6>
+			<h6 style="font-size: 0.75em;" style="font-color: rgb(150,150,150);">Last Updated: 17/03/2020 - 16:50</h6>
 		</div>
 	</div>
 	<div class="container" id="legend-colorbar" style="text-align: right;">
