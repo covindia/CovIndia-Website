@@ -92,3 +92,20 @@ body{
 .footer-navigation a:hover{
 	color: rgba(255, 255, 255, 0.90);
 }
+
+.whatsapp-share {
+	background-color: #25d366;
+	border-radius: 50px;
+	text-align: center;
+	height:60px;
+}
+
+.social-icon{
+	font-size: 30px;
+	color:#ffffff;
+}
+
+.social-icon:hover{
+	text-decoration: none;
+	color: white;
+}
