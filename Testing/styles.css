@@ -50,8 +50,7 @@ body{
 
 /* Navbar */
 .navbar{
-	/* background-color: #3F0F3F; */
-	background-color: black;
+	background-color: #260926;
 }
 
 .navbar-brand{
@@ -64,7 +63,7 @@ body{
 }
 
 .nav-link{
-	color: rgb(170,170,170) !important;
+	color: #FFFFFF !important;
 	font-size: 1.2em;
 }
 
