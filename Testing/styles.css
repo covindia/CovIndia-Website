@@ -93,6 +93,7 @@ body{
 	color: rgba(255, 255, 255, 0.90);
 }
 
+<<<<<<< HEAD
 .whatsapp-share {
 	background-color: #25d366;
 	border-radius: 50px;
@@ -112,4 +113,16 @@ body{
 
 .whatsapp-icon{
 	font-size:30px;
+=======
+.footer-icons a{
+	text-decoration: none;
+}
+
+.fa-whatsapp{
+	color: white;
+}
+
+.fa-whatsapp:hover{
+	color: #25d366;
+>>>>>>> d6c47c3c579e30aa1a9f743a306d0739ca0783a5
 }

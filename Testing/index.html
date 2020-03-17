@@ -7,12 +7,17 @@
 	<meta name="description" content="This is a live visualization of the Covid-19 (Coronavirus) pandemic by district in India">
 	<meta name="keywords" content="Mahindra Ecole Centrale Coronavirus, Coronavirus Visualizer India, Coronavirus India District, Coronavirus India District,
 	Covid-19 Visualizer India, Covid-19 Visualizer India District, Corona India District Wise, Corona India Live, Covid India Live, Corona India Detailed, Maharastra Covid,
-	Maharastra Corona, Virus, Live Tracking"/>
+	Maharastra Corona, Virus, Live Tracking, Mahindra Ecole Centrale Koronavirus, Koronavirus Visualizer India, Koronavirus India District, Koronavirus India District,
+	Covid-19 Visualizer India, Covid-19 Visualizer India District, Korona India District Wise, Korona India Live, Covid India Live, Korona India Detailed, Maharastra Covid,
+	Maharastra Korona, Virus, Live Tracking"/>
+	<meta http-equiv="refresh" content="900">
+	<meta name="author" content="Covindia">
 
 	<title>Covindia</title>
 
 	<!-- Standard Includes -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -73,14 +78,14 @@
 		<div id="total-number-infected">
 			<div class="container" style="margin-top: 1em; text-align: center;">
 				<!-- INFECTED COUNT -->
-				<h6 style="font-size: bold; font-size: 1.5em;">Infected: 137 <br><span style="font-size:0.725em;"> Cured: 14 <span style="color: #A9A9A9">|</span> Deaths: 3</span></h6>
+				<h6 style="font-size: bold; font-size: 1.5em;">Infected: 139 <br><span style="font-size:0.725em;"> Cured: 14 <span style="color: #A9A9A9">|</span> Deaths: 3</span></h6>
 			</div>
 		</div>
 
 		<div class="container" style="margin-top: 2em;text-align: center;color:rgb(170, 170, 170);">
 			<h4>Tap on the map to get more information about each district.</h4>
 			<!-- LAST UPDATED TIME -->
-			<h6 style="font-size: 0.75em;" style="font-color: rgb(150,150,150);">Last Updated: 17/03/2020 - 19:25</h6>
+			<h6 style="font-size: 0.75em;" style="font-color: rgb(150,150,150);">Last Updated: 18/03/2020 - 00:30</h6>
 		</div>
 	</div>
 	<div class="container" id="legend-colorbar" style="text-align: right;">
@@ -861,6 +866,13 @@
 		</div>
 	</div>
 
+	<div class="footer-icons" style="text-align: center;">
+		<span style="color: white;font-size: 1.5em;">Share: </span>
+		<a href="whatsapp://send?text=CovIndia (hyperlinked) provides the latest district-wise updates on the spead of the coronavirus in India. Stay Safe. Stay Calm. Be Informed.   https://covindia.netlify.com/" data-action="share/whatsapp/share">
+			<i class="fab fa-whatsapp fa-2x"></i>
+		</a>
+	</div>
+
 	<div class="container" style="margin-top: 4em; text-align: center;">
 		<p>Click on "Add to home screen" button to install this page as a live app on your smartphone.</p>
 	</div>
@@ -868,7 +880,7 @@
 	<div id="total-number-list">
 		<div class="container" style="margin-top: 4em; text-align: center;">
 			<!-- LIST COUNT -->
-			<p>Districts Affected: GBN Faridabad, Gurgaon, Jaipur, Lucknow, Noida, Ghaziabad, Agra, Jammu, Gulbarga, Thiruvananthapuram, Sri Potti Sriramulu Nellore, Bangalore, Nagpur, Mumbai, Pathanamthitta, Pune, Ernakulam, Hyderabad, Kannur, Thrissur, Chennai, Delhi, Ladakh, Thane, Yavatmal, Buldana, Ahmadnagar, Amritsar, Raigarh, Dehradun, Aurangabad, Idukki, Kottayam, Khordha, Kasargod, Alappuzha, Malappuram, Kargil</p><br><p>States Affected: Uttar Pradesh, Haryana, Rajasthan, Jammu and Kashmir, Karnataka, Kerala, Andhra Pradesh, Maharashtra, Telangana, Tamil Nadu, Delhi, Punjab, Uttarakhand, Odisha</p>
+			<p>Districts Affected: GBN Faridabad, Gurgaon, Jaipur, Lucknow, Noida, Ghaziabad, Agra, Jammu, Gulbarga, Thiruvananthapuram, Sri Potti Sriramulu Nellore, Bangalore, Nagpur, Mumbai, Pathanamthitta, Pune, Ernakulam, Hyderabad, Kannur, Thrissur, Chennai, Delhi, Ladakh, Thane, Yavatmal, Buldana, Ahmadnagar, Amritsar, Raigarh, Dehradun, Aurangabad, Idukki, Kottayam, Khordha, Kasargod, Alappuzha, Malappuram, Kargil, Kolkata</p><br><p>States Affected: Uttar Pradesh, Haryana, Rajasthan, Jammu and Kashmir, Karnataka, Kerala, Andhra Pradesh, Maharashtra, Telangana, Tamil Nadu, Delhi, Punjab, Uttarakhand, Odisha, West Bengal</p>
 		</div>
 	</div>
 	
@@ -934,7 +946,7 @@
 		var GRADIENT = GRADIENTS.increasing;
 
 		// SPECIAL BOI - Data
-		var data = {'GBN Faridabad': {'infected': 3, 'dead': 0, 'state': 'Uttar Pradesh', 'value': 0.1875}, 'Gurgaon': {'infected': 15, 'dead': 0, 'state': 'Haryana', 'value': 0.9375}, 'Jaipur': {'infected': 4, 'dead': 0, 'state': 'Rajasthan', 'value': 0.25}, 'Lucknow': {'infected': 2, 'dead': 0, 'state': 'Uttar Pradesh', 'value': 0.125}, 'Noida': {'infected': 1, 'dead': 0, 'state': 'Uttar Pradesh', 'value': 0.0625}, 'Ghaziabad': {'infected': 2, 'dead': 0, 'state': 'Uttar Pradesh', 'value': 0.125}, 'Agra': {'infected': 7, 'dead': 0, 'state': 'Uttar Pradesh', 'value': 0.4375}, 'Jammu': {'infected': 3, 'dead': 0, 'state': 'Jammu and Kashmir', 'value': 0.1875}, 'Gulbarga': {'infected': 2, 'dead': 1, 'state': 'Karnataka', 'value': 0.125}, 'Thiruvananthapuram': {'infected': 4, 'dead': 0, 'state': 'Kerala', 'value': 0.25}, 'Sri Potti Sriramulu Nellore': {'infected': 1, 'dead': 0, 'state': 'Andhra Pradesh', 'value': 0.0625}, 'Bangalore': {'infected': 8, 'dead': 0, 'state': 'Karnataka', 'value': 0.5}, 'Nagpur': {'infected': 4, 'dead': 0, 'state': 'Maharashtra', 'value': 0.25}, 'Mumbai': {'infected': 7, 'dead': 1, 'state': 'Maharashtra', 'value': 0.4375}, 'Pathanamthitta': {'infected': 9, 'dead': 0, 'state': 'Kerala', 'value': 0.5625}, 'Pune': {'infected': 16, 'dead': 0, 'state': 'Maharashtra', 'value': 1.0}, 'Ernakulam': {'infected': 3, 'dead': 0, 'state': 'Kerala', 'value': 0.1875}, 'Hyderabad': {'infected': 4, 'dead': 0, 'state': 'Telangana', 'value': 0.25}, 'Kannur': {'infected': 1, 'dead': 0, 'state': 'Kerala', 'value': 0.0625}, 'Thrissur': {'infected': 2, 'dead': 0, 'state': 'Kerala', 'value': 0.125}, 'Chennai': {'infected': 1, 'dead': 0, 'state': 'Tamil Nadu', 'value': 0.0625}, 'Delhi': {'infected': 7, 'dead': 1, 'state': 'Delhi', 'value': 0.4375}, 'Ladakh': {'infected': 6, 'dead': 0, 'state': 'Jammu and Kashmir', 'value': 0.375}, 'Thane': {'infected': 6, 'dead': 0, 'state': 'Maharashtra', 'value': 0.375}, 'Yavatmal': {'infected': 3, 'dead': 0, 'state': 'Maharashtra', 'value': 0.1875}, 'Buldana': {'infected': 1, 'dead': 0, 'state': 'Maharashtra', 'value': 0.0625}, 'Ahmadnagar': {'infected': 1, 'dead': 0, 'state': 'Maharashtra', 'value': 0.0625}, 'Amritsar': {'infected': 1, 'dead': 0, 'state': 'Punjab', 'value': 0.0625}, 'Raigarh': {'infected': 1, 'dead': 0, 'state': 'Maharashtra', 'value': 0.0625}, 'Dehradun': {'infected': 1, 'dead': 0, 'state': 'Uttarakhand', 'value': 0.0625}, 'Aurangabad_Maharastra': {'infected': 1, 'dead': 0, 'state': 'Maharashtra', 'value': 0.0625}, 'Idukki': {'infected': 1, 'dead': 0, 'state': 'Kerala', 'value': 0.0625}, 'Kottayam': {'infected': 2, 'dead': 0, 'state': 'Kerala', 'value': 0.125}, 'Khordha': {'infected': 1, 'dead': 0, 'state': 'Odisha', 'value': 0.0625}, 'Kasargod': {'infected': 2, 'dead': 0, 'state': 'Kerala', 'value': 0.125}, 'Alappuzha': {'infected': 1, 'dead': 0, 'state': 'Kerala', 'value': 0.0625}, 'Malappuram': {'infected': 2, 'dead': 0, 'state': 'Kerala', 'value': 0.125}, 'Kargil': {'infected': 1, 'dead': 0, 'state': 'Jammu and Kashmir', 'value': 0.0625}};
+		var data = {'GBN Faridabad': {'infected': 3, 'dead': 0, 'state': 'Uttar Pradesh', 'source': 'https://www.hindustantimes.com/delhi-news/executive-of-noida-firm-living-in-delhi-tests-positive-for-coronavirus-official/story-QuRmbRHRT4OFRMsodyiaEP.html', 'value': 0.1875}, 'Gurgaon': {'infected': 15, 'dead': 0, 'state': 'Haryana', 'source': 'https://news.abplive.com/videos/news/haryana-govt-declares-coronavirus-as-epidemic-1174072', 'value': 0.9375}, 'Jaipur': {'infected': 4, 'dead': 0, 'state': 'Rajasthan', 'source': '', 'value': 0.25}, 'Lucknow': {'infected': 2, 'dead': 0, 'state': 'Uttar Pradesh', 'source': '', 'value': 0.125}, 'Noida': {'infected': 1, 'dead': 0, 'state': 'Uttar Pradesh', 'source': '', 'value': 0.0625}, 'Ghaziabad': {'infected': 2, 'dead': 0, 'state': 'Uttar Pradesh', 'source': '', 'value': 0.125}, 'Agra': {'infected': 7, 'dead': 0, 'state': 'Uttar Pradesh', 'source': '', 'value': 0.4375}, 'Jammu': {'infected': 3, 'dead': 0, 'state': 'Jammu and Kashmir', 'source': '', 'value': 0.1875}, 'Gulbarga': {'infected': 2, 'dead': 1, 'state': 'Karnataka', 'source': '', 'value': 0.125}, 'Thiruvananthapuram': {'infected': 4, 'dead': 0, 'state': 'Kerala', 'source': 'https://www.financialexpress.com/lifestyle/health/coronavirus-live-news-coronavirus-latest-updates-coronavirus-symptoms-visa-air-india-delhi-coronavirus-hyderabad-kerala-bangalore-coronavirus-symptoms-treatment/1895511/', 'value': 0.25}, 'Sri Potti Sriramulu Nellore': {'infected': 1, 'dead': 0, 'state': 'Andhra Pradesh', 'source': '', 'value': 0.0625}, 'Bangalore': {'infected': 8, 'dead': 0, 'state': 'Karnataka', 'source': '', 'value': 0.5}, 'Nagpur': {'infected': 4, 'dead': 0, 'state': 'Maharashtra', 'source': 'https://www.firstpost.com/health/coronavirus-outbreak-live-updates-covid-19-who-pandemic-quarantine-india-noida-bangalore-cases-alert-novel-latest-news-today-ipl-school-college-8138611.html', 'value': 0.25}, 'Mumbai': {'infected': 7, 'dead': 1, 'state': 'Maharashtra', 'source': '', 'value': 0.4375}, 'Pathanamthitta': {'infected': 9, 'dead': 0, 'state': 'Kerala', 'source': 'https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_India', 'value': 0.5625}, 'Pune': {'infected': 16, 'dead': 0, 'state': 'Maharashtra', 'source': 'https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_India', 'value': 1.0}, 'Ernakulam': {'infected': 3, 'dead': 0, 'state': 'Kerala', 'source': 'https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_India', 'value': 0.1875}, 'Hyderabad': {'infected': 5, 'dead': 0, 'state': 'Telangana', 'source': '', 'value': 0.3125}, 'Kannur': {'infected': 1, 'dead': 0, 'state': 'Kerala', 'source': 'http://dhs.kerala.gov.in/%e0%b4%a1%e0%b5%86%e0%b4%af%e0%b4%bf%e0%b4%b2%e0%b4%bf-%e0%b4%ac%e0%b5%81%e0%b4%b3%e0%b5%8d%e0%b4%b3%e0%b4%b1%e0%b5%8d%e0%b4%b1%e0%b4%bf%e0%b4%a8%e0%b5%8d%e2%80%8d/', 'value': 0.0625}, 'Thrissur': {'infected': 2, 'dead': 0, 'state': 'Kerala', 'source': 'http://dhs.kerala.gov.in/%e0%b4%a1%e0%b5%86%e0%b4%af%e0%b4%bf%e0%b4%b2%e0%b4%bf-%e0%b4%ac%e0%b5%81%e0%b4%b3%e0%b5%8d%e0%b4%b3%e0%b4%b1%e0%b5%8d%e0%b4%b1%e0%b4%bf%e0%b4%a8%e0%b5%8d%e2%80%8d/', 'value': 0.125}, 'Chennai': {'infected': 1, 'dead': 0, 'state': 'Tamil Nadu', 'source': '', 'value': 0.0625}, 'Delhi': {'infected': 7, 'dead': 1, 'state': 'Delhi', 'source': 'https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_India', 'value': 0.4375}, 'Ladakh': {'infected': 6, 'dead': 0, 'state': 'Jammu and Kashmir', 'source': 'https://economictimes.indiatimes.com/news/politics-and-nation/one-more-person-tests-positive-for-coronavirus-in-ladakh/articleshow/74593347.cms', 'value': 0.375}, 'Thane': {'infected': 6, 'dead': 0, 'state': 'Maharashtra', 'source': '', 'value': 0.375}, 'Yavatmal': {'infected': 3, 'dead': 0, 'state': 'Maharashtra', 'source': '', 'value': 0.1875}, 'Buldana': {'infected': 1, 'dead': 0, 'state': 'Maharashtra', 'source': 'https://www.pharmaceutical-technology.com/news/india-covid-19-coronavirus-updates-status-by-state/', 'value': 0.0625}, 'Ahmadnagar': {'infected': 1, 'dead': 0, 'state': 'Maharashtra', 'source': 'https://www.pharmaceutical-technology.com/news/india-covid-19-coronavirus-updates-status-by-state/', 'value': 0.0625}, 'Amritsar': {'infected': 1, 'dead': 0, 'state': 'Punjab', 'source': 'https://www.pharmaceutical-technology.com/news/india-covid-19-coronavirus-updates-status-by-state/', 'value': 0.0625}, 'Raigarh': {'infected': 1, 'dead': 0, 'state': 'Maharashtra', 'source': '', 'value': 0.0625}, 'Dehradun': {'infected': 1, 'dead': 0, 'state': 'Uttarakhand', 'source': 'https://www.livemint.com/news/india/first-case-of-novel-coronavirus-reported-from-uttarakhand-11584329175729.html', 'value': 0.0625}, 'Aurangabad_Maharastra': {'infected': 1, 'dead': 0, 'state': 'Maharashtra', 'source': 'https://www.indiatoday.in/india/story/maharashtra-woman-tests-positive-for-coronavirus-in-aurangabad-1655719-2020-03-15', 'value': 0.0625}, 'Idukki': {'infected': 1, 'dead': 0, 'state': 'Kerala', 'source': 'http://dhs.kerala.gov.in/%e0%b4%a1%e0%b5%86%e0%b4%af%e0%b4%bf%e0%b4%b2%e0%b4%bf-%e0%b4%ac%e0%b5%81%e0%b4%b3%e0%b5%8d%e0%b4%b3%e0%b4%b1%e0%b5%8d%e0%b4%b1%e0%b4%bf%e0%b4%a8%e0%b5%8d%e2%80%8d/', 'value': 0.0625}, 'Kottayam': {'infected': 2, 'dead': 0, 'state': 'Kerala', 'source': 'http://dhs.kerala.gov.in/%e0%b4%a1%e0%b5%86%e0%b4%af%e0%b4%bf%e0%b4%b2%e0%b4%bf-%e0%b4%ac%e0%b5%81%e0%b4%b3%e0%b5%8d%e0%b4%b3%e0%b4%b1%e0%b5%8d%e0%b4%b1%e0%b4%bf%e0%b4%a8%e0%b5%8d%e2%80%8d/', 'value': 0.125}, 'Khordha': {'infected': 1, 'dead': 0, 'state': 'Odisha', 'source': 'https://economictimes.indiatimes.com/news/politics-and-nation/odisha-reports-first-confirmed-case-of-novel-coronavirus/articleshow/74648134.cms?from=mdr', 'value': 0.0625}, 'Kasargod': {'infected': 2, 'dead': 0, 'state': 'Kerala', 'source': 'http://dhs.kerala.gov.in/%e0%b4%a1%e0%b5%86%e0%b4%af%e0%b4%bf%e0%b4%b2%e0%b4%bf-%e0%b4%ac%e0%b5%81%e0%b4%b3%e0%b5%8d%e0%b4%b3%e0%b4%b1%e0%b5%8d%e0%b4%b1%e0%b4%bf%e0%b4%a8%e0%b5%8d%e2%80%8d/', 'value': 0.125}, 'Alappuzha': {'infected': 1, 'dead': 0, 'state': 'Kerala', 'source': 'http://dhs.kerala.gov.in/%e0%b4%a1%e0%b5%86%e0%b4%af%e0%b4%bf%e0%b4%b2%e0%b4%bf-%e0%b4%ac%e0%b5%81%e0%b4%b3%e0%b5%8d%e0%b4%b3%e0%b4%b1%e0%b5%8d%e0%b4%b1%e0%b4%bf%e0%b4%a8%e0%b5%8d%e2%80%8d/', 'value': 0.0625}, 'Malappuram': {'infected': 2, 'dead': 0, 'state': 'Kerala', 'source': 'http://dhs.kerala.gov.in/2020/03/16/15-032020/', 'value': 0.125}, 'Kargil': {'infected': 1, 'dead': 0, 'state': 'Jammu and Kashmir', 'source': 'https://www.indiatoday.in/india/story/coronavirus-in-india-3-new-covid-19-cases-reported-in-ladakh-1656369-2020-03-17', 'value': 0.0625}, 'Kolkata': {'infected': 1, 'dead': 0, 'state': 'West Bengal', 'source': 'https://economictimes.indiatimes.com/news/politics-and-nation/coronavirus-cases-in-india-live-news-latest-updates-march17/liveblog/74664903.cms', 'value': 0.0625}};
 
 		function renderData(data){
 			for (var key in data){
@@ -1009,6 +1021,6 @@
 			}
 		};
 	</script>
-	<script src="js/custom.js"></script>
+<!-- <script src="js/custom.js"></script> -->
 </body>
 </html>
