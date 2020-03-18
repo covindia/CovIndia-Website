@@ -219,7 +219,7 @@ def do_thing():
 		newHTML.append(line)
 
 
-	with open("Testing/index.html", 'w') as FPtr:
+	with open("index.html", 'w') as FPtr:
 		FPtr.writelines(newHTML)
 
 	return (globalData, returnData)
@@ -244,17 +244,17 @@ def delta(diff, diffsList):
 				if diff[district]["infected"] == 1:
 					mUpdate += "<b>First</b> confirmed case in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
 				else:
-					mUpdate += district + "First <b>" + str(diff[district]["infected"]) + "</b> confirmed cases in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
+					mUpdate += "First <b>" + str(diff[district]["infected"]) + "</b> confirmed cases in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
 				if len(districtDataList) > 1:
 					mUpdate += "Sources: "
 					for entry in districtDataList:
 						if entry["infected"] >= 1:
-							mUpdate += "<a href=\"" + entry["source"] + "\">" + "Link" + "</a>, "
+							mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a>, "
 					mUpdate = mUpdate[:-2]
 					mUpdate += "<br> "
 				else:
 					entry = districtDataList[0]
-					mUpdate += "Source: <a href=\"" + entry["source"] + "\">" + "Link" + "</a><br> "
+					mUpdate += "Source: <a href=\"" + entry["source"] + "\">" + "[Link]" + "</a><br> "
 			
 			# DEAD
 			if diff[district]["dead"] >= 1:
@@ -266,12 +266,12 @@ def delta(diff, diffsList):
 					mUpdate += "Sources: "
 					for entry in districtDataList:
 						if entry["dead"] >= 1:
-							mUpdate += "<a href=\"" + entry["source"] + "\">" + "Link" + "</a>, "
+							mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a>, "
 					mUpdate = mUpdate[:-2]
 					mUpdate += "<br> "
 				else:
 					entry = districtDataList[0]
-					mUpdate += "Source: <a href=\"" + entry["source"] + "\">" + "Link" + "</a><br> "
+					mUpdate += "Source: <a href=\"" + entry["source"] + "\">" + "[Link]" + "</a><br> "
 
 		# Returning District
 		else:
@@ -297,14 +297,14 @@ def delta(diff, diffsList):
 					mUpdate += "Sources: "
 					for entry in entries:
 						if entry["infected"] >= 1:
-							mUpdate += "<a href=\"" + entry["source"] + "\">" + "Link" + "</a>, "
+							mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a>, "
 					mUpdate = mUpdate[:-2]
 					mUpdate += "<br> "
 				else:
 					mUpdate += "Source : "
 					entry = entries[0]
 					if entry["infected"] >= 1:
-						mUpdate += "<a href=\"" + entry["source"] + "\">" + "Link" + "</a><br> "
+						mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a><br> "
 
 			if diff[district]["dead"] >= 1:
 				if diff[district]["dead"] == 1:
@@ -328,14 +328,14 @@ def delta(diff, diffsList):
 					mUpdate += "Sources: "
 					for entry in entries:
 						if entry["dead"] >= 1:
-							mUpdate += "<a href=\"" + entry["source"] + "\">" + "Link" + "</a>, "
+							mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a>, "
 					mUpdate = mUpdate[:-2]
 					mUpdate += "<br> "
 				else:
 					mUpdate += "Source : "
 					entry = entries[0]
 					if entry["dead"] >= 1:
-						mUpdate += "<a href=\"" + entry["source"] + "\">" + "Link" + "</a><br> "
+						mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a><br> "
 
 
 		# Get Latest Time
@@ -357,7 +357,7 @@ def delta(diff, diffsList):
 	LiveUpdateString = ''.join(ov)
 	# EDIT HTML
 	rawHTML = []
-	with open("Testing/index.html", 'r') as FPtr:
+	with open("index.html", 'r') as FPtr:
 		for line in FPtr:
 			rawHTML.append(line)
 	newHTML = []
@@ -374,7 +374,7 @@ def delta(diff, diffsList):
 			continue
 			
 		newHTML.append(line)
-	with open("Testing/index.html", 'w') as FPtr:
+	with open("index.html", 'w') as FPtr:
 		FPtr.writelines(newHTML)
 
 if __name__ == '__main__':
