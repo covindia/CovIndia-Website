@@ -22,7 +22,7 @@ var millisTill20 =
 setTimeout(function() {
   displayNotification();
 }, millisTill20);
-
+Chart.defaults.global.defaultFontColor = "white";
 $.when(
   $.ajax("https://thevirustracker.com/free-api?countryTimeline=IN").then(
     response => {
@@ -45,39 +45,46 @@ $.when(
               data: mapTotalData.map(function(e) {
                 return e.y;
               }),
-              backgroundColor: "#FFF222"
+              backgroundColor: "rgba(240, 223, 135, 0.5)",
+              borderColor: "#FFF222",
+              borderWidth: 1
             }
           ]
         },
+        scaleFontColor: "#FFFFFF",
         options: {
           title: {
             display: true,
             text: "Date vs Cases"
           },
           animation: {
-            duration: 2000,
-            easing: "linear",
-            onProgress: function(animation) {
-              progress.value =
-                animation.animationObject.currentStep /
-                animation.animationObject.numSteps;
-            },
-            onComplete: function() {
-              progress.style.display = "none";
-            }
+            duration: 2000
+            // easing: "linear"
           },
           scales: {
             xAxes: [
               {
                 gridLines: {
-                  color: "rgba(0, 0, 0, 0)"
+                  color: "#660066",
+                  zeroLineColor: "white",
+                  zeroLineWidth: 4
+                },
+                ticks: {
+                  autoSkip: true,
+                  maxTicksLimit: 8
                 }
               }
             ],
             yAxes: [
               {
                 gridLines: {
-                  color: "rgba(255,255,255, 0.4)"
+                  color: "#660066",
+                  zeroLineColor: "white",
+                  zeroLineWidth: 4
+                },
+                ticks: {
+                  autoSkip: true,
+                  maxTicksLimit: 4
                 }
               }
             ]
@@ -96,7 +103,9 @@ $.when(
               data: dailyCases.map(function(e) {
                 return e.y;
               }),
-              backgroundColor: "#FFF222"
+              backgroundColor: "rgba(240, 223, 135, 0.5)",
+              borderColor: "#FFF222",
+              borderWidth: 1
             }
           ]
         },
@@ -106,29 +115,33 @@ $.when(
             text: "Date vs New Cases"
           },
           animation: {
-            duration: 2000,
-            easing: "linear",
-            onProgress: function(animation) {
-              progressDaily.value =
-                animation.animationObject.currentStep /
-                animation.animationObject.numSteps;
-            },
-            onComplete: function() {
-              progressDaily.style.display = "none";
-            }
+            duration: 2000
+            // easing: "linear"
           },
           scales: {
             xAxes: [
               {
                 gridLines: {
-                  color: "rgba(0, 0, 0, 0)"
+                  color: "#660066",
+                  zeroLineColor: "white",
+                  zeroLineWidth: 4
+                },
+                ticks: {
+                  autoSkip: true,
+                  maxTicksLimit: 8
                 }
               }
             ],
             yAxes: [
               {
                 gridLines: {
-                  color: "rgba(255,255,255, 0.4)"
+                  color: "#660066",
+                  zeroLineColor: "white",
+                  zeroLineWidth: 4
+                },
+                ticks: {
+                  autoSkip: true,
+                  maxTicksLimit: 4
                 }
               }
             ]
@@ -140,10 +153,8 @@ $.when(
 );
 
 var ctx = document.getElementById("myChart").getContext("2d");
-var progress = document.getElementById("animationProgress");
 
 var ctxDaily = document.getElementById("newDailyCases").getContext("2d");
-var progressDaily = document.getElementById("newDailyCasesAni");
 
 const createMapArr = queryParam => {
   var localMapData = [];
