@@ -153,10 +153,8 @@ $.when(
 );
 
 var ctx = document.getElementById("myChart").getContext("2d");
-var progress = document.getElementById("animationProgress");
 
 var ctxDaily = document.getElementById("newDailyCases").getContext("2d");
-var progressDaily = document.getElementById("newDailyCasesAni");
 
 const createMapArr = queryParam => {
   var localMapData = [];
