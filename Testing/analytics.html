@@ -49,19 +49,23 @@
 
 <body>
     <nav class="navbar navbar-custom navbar-expand-md fixed-top">
-        <a class="navbar-brand" style="font-family: 'Poppins', sans-serifs;padding-bottom: 0;" href="https://covindia.com">
+        <a class="navbar-brand" style="font-family: 'Poppins', sans-serifs;padding-bottom: 0;"
+            href="https://covindia.com">
             Covindia
         </a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="color: white;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+            style="color: white;">
             <span style="padding-top:7px;padding-left:0;"><b>Menu</b></span>
         </button>
 
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
             <ul class="nav navbar-nav navbar-item-center">
-                <li class="nav-item" role="presentation"><a class="nav-link active" style="font-weight: bold;padding-bottom:4px;" href="https://covindia.com/about">About</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link active" style="font-weight: bold;padding-bottom:4px;" href="analytics.html">Analytics</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active"
+                        style="font-weight: bold;padding-bottom:4px;" href="https://covindia.com/about">About</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active"
+                        style="font-weight: bold;padding-bottom:4px;" href="analytics.html">Analytics</a></li>
             </ul>
 
         </div>
@@ -71,12 +75,17 @@
 
     <div class="container" style="margin-top: 5em;text-align:justify;">
         <h1 style="border-bottom:solid;">Analytics</h1>
-        <div class="col-md-12">
-            <canvas id="myChart" width="100%" height="60px"></canvas>
-            <progress id="animationProgress" max="1" value="0" style="width: 100%"></progress>
-            <canvas id="newDailyCases" width="100%" height="60px"></canvas>
-            <progress id="newDailyCasesAni" max="1" value="0" style="width: 100%"></progress>
+        <div class="row">
+            <div class="col-md-6" style="display: flex;">
+                <canvas id="myChart" width="100%" height="50px"></canvas>
+                <progress id="animationProgress" max="1" value="0" style="width: 100%"></progress>
+            </div>
+            <div class="col-md-6">
+                <canvas id="newDailyCases" width="100%" height="50px"></canvas>
+                <progress id="newDailyCasesAni" max="1" value="0" style="width: 100%"></progress>
+            </div>
         </div>
+
     </div>
 
     <div class="container-fluid footer-dark" style="color: rgb(170, 170, 170);">
