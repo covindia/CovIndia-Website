@@ -47,7 +47,7 @@ $.when(
               }),
               backgroundColor: "rgba(240, 223, 135, 0.5)",
               borderColor: "#FFF222",
-              borderWidth: 2
+              borderWidth: 1
             }
           ]
         },
@@ -58,29 +58,33 @@ $.when(
             text: "Date vs Cases"
           },
           animation: {
-            duration: 2000,
-            easing: "linear",
-            onProgress: function(animation) {
-              progress.value =
-                animation.animationObject.currentStep /
-                animation.animationObject.numSteps;
-            },
-            onComplete: function() {
-              progress.style.display = "none";
-            }
+            duration: 2000
+            // easing: "linear"
           },
           scales: {
             xAxes: [
               {
                 gridLines: {
-                  color: "rgba(0, 0, 0, 0)"
+                  color: "#660066",
+                  zeroLineColor: "white",
+                  zeroLineWidth: 4
+                },
+                ticks: {
+                  autoSkip: true,
+                  maxTicksLimit: 8
                 }
               }
             ],
             yAxes: [
               {
                 gridLines: {
-                  color: "rgba(255,255,255, 0.4)"
+                  color: "#660066",
+                  zeroLineColor: "white",
+                  zeroLineWidth: 4
+                },
+                ticks: {
+                  autoSkip: true,
+                  maxTicksLimit: 4
                 }
               }
             ]
@@ -101,7 +105,7 @@ $.when(
               }),
               backgroundColor: "rgba(240, 223, 135, 0.5)",
               borderColor: "#FFF222",
-              borderWidth: 2
+              borderWidth: 1
             }
           ]
         },
@@ -111,29 +115,33 @@ $.when(
             text: "Date vs New Cases"
           },
           animation: {
-            duration: 2000,
-            easing: "linear",
-            onProgress: function(animation) {
-              progressDaily.value =
-                animation.animationObject.currentStep /
-                animation.animationObject.numSteps;
-            },
-            onComplete: function() {
-              progressDaily.style.display = "none";
-            }
+            duration: 2000
+            // easing: "linear"
           },
           scales: {
             xAxes: [
               {
                 gridLines: {
-                  color: "rgba(0, 0, 0, 0)"
+                  color: "#660066",
+                  zeroLineColor: "white",
+                  zeroLineWidth: 4
+                },
+                ticks: {
+                  autoSkip: true,
+                  maxTicksLimit: 8
                 }
               }
             ],
             yAxes: [
               {
                 gridLines: {
-                  color: "rgba(255,255,255, 0.4)"
+                  color: "#660066",
+                  zeroLineColor: "white",
+                  zeroLineWidth: 4
+                },
+                ticks: {
+                  autoSkip: true,
+                  maxTicksLimit: 4
                 }
               }
             ]
@@ -152,19 +160,11 @@ var progressDaily = document.getElementById("newDailyCasesAni");
 
 const createMapArr = queryParam => {
   var localMapData = [];
-  var index = 1;
   for (dataPoint in apiData) {
-    if (index++ % 3 === 0) {
-      localMapData.push({
-        x: dataPoint.replace("/2020", ""),
-        y: apiData[dataPoint][queryParam]
-      });
-    } else {
-      localMapData.push({
-        x: "",
-        y: apiData[dataPoint][queryParam]
-      });
-    }
+    localMapData.push({
+      x: dataPoint.replace("/2020", ""),
+      y: apiData[dataPoint][queryParam]
+    });
   }
   return localMapData;
 };
