@@ -119,3 +119,8 @@ body{
 .my-float{
 	margin-top:16px;
 }
+
+
+#latest-update a{
+	color: #CC99CC;
+}
