@@ -99,7 +99,9 @@ $.when(
               data: dailyCases.map(function(e) {
                 return e.y;
               }),
-              backgroundColor: "#FFF222"
+              backgroundColor: "rgba(240, 223, 135, 0.5)",
+              borderColor: "#FFF222",
+              borderWidth: 2
             }
           ]
         },
