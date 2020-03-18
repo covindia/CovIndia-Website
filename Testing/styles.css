@@ -1,42 +1,42 @@
 * {
-	font-family: 'Exo', 'Mina'sans-serif;
-	font-size: 16px;
+  font-family: "Exo", "Mina" sans-serif;
+  font-size: 16px;
 }
 
 html,
 body {
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 body {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	background-color: #3F0F3F;
-	color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #3f0f3f;
+  color: white;
 }
 
 #map {
-	background-color: #3F0F3F;
+  background-color: #3f0f3f;
 }
 
 @media (max-width: 1000px) {
-	#text-data h3 {
-		font-size: 16px;
-	}
+  #text-data h3 {
+    font-size: 16px;
+  }
 
-	#text-data h4 {
-		font-size: 14px;
-	}
+  #text-data h4 {
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 1000px) {
-	#text-data h3 {
-		font-size: 20px;
-	}
+  #text-data h3 {
+    font-size: 20px;
+  }
 
-	#text-data h4 {
-		font-size: 16px;
-	}
+  #text-data h4 {
+    font-size: 16px;
+  }
 }
 
 /* @media (max-width: 768px){
@@ -53,104 +53,117 @@ body {
 
 /* Navbar */
 .navbar {
-	background-color: #260926;
+  background-color: #260926;
 }
 
 .navbar-brand {
-	color: white !important;
+  color: white !important;
 }
 
 @media (min-width: 992px) {
-	.navbar-item-center {
-		margin-left: 2em;
-		margin-right: 3em;
-	}
+  .navbar-item-center {
+    margin-left: 2em;
+    margin-right: 3em;
+  }
 
-	.nav-item {
-		padding-left: 5em;
-	}
+  .nav-item {
+    padding-left: 5em;
+  }
 }
 
 .nav-link {
-	color: #FFFFFF !important;
-	font-size: 1.2em;
+  color: #ffffff !important;
+  font-size: 1.2em;
 }
 
 .footer-dark {
-	padding-top: 5em;
-	margin-top: 5em;
-	width: 100%;
-	background-color: #3F0F3F;
-	padding-bottom: 5em;
+  padding-top: 5em;
+  margin-top: 5em;
+  width: 100%;
+  background-color: #3f0f3f;
+  padding-bottom: 5em;
 }
 
 .footer-dark-heading {
-	text-align: center;
-	color: white;
+  text-align: center;
+  color: white;
 }
 
 .footer-navigation {
-	text-align: center;
+  text-align: center;
 }
 
 .footer-navigation a {
-	color: rgba(255, 255, 255, 0.60);
-	font-size: 1em;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1em;
 }
 
 .footer-navigation a:hover {
-	color: rgba(255, 255, 255, 0.90);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .footer-icons a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .fa-whatsapp {
-	font-size: 1.7em;
+  font-size: 1.7em;
 }
 
 .float {
-	position: fixed;
-	width: 40px;
-	height: 40px;
-	bottom: 20px;
-	right: 20px;
-	background-color: #CC99CC;
-	color: black;
-	border-radius: 50px;
-	text-align: center;
-
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #cc99cc;
+  color: black;
+  border-radius: 50px;
+  text-align: center;
 }
 
 .my-float {
-	margin-top: 5px;
+  margin-top: 5px;
 }
 
 #latest-update a {
-	color: #CC99CC;
+  color: #cc99cc;
 }
 
 @keyframes chartfix {
-	0% {
-		transform: scale(1.0);
-		-webkit-transform: scale(1.0);
-	}
+  0% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
 
-	50% {
-		transform: scale(1.01);
-		-webkit-transform: scale(1.01);
-	}
+  50% {
+    transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+  }
 
-	100% {
-		transform: scale(1.0);
-		-webkit-transform: scale(1.0);
-	}
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
 }
 
 .panel {
-	animation-delay: 3s;
-	-webkit-animation-delay: 3s;
-	animation: chartfix 5s;
-	-webkit-animation: chartfix 5s;
+  animation-delay: 3s;
+  -webkit-animation-delay: 3s;
+  animation: chartfix 5s;
+  -webkit-animation: chartfix 5s;
+}
+.phone {
+  display: none;
+}
+@media screen and (max-device-width: 375px) {
+  .desktop {
+    display: none;
+  }
+  .phone {
+    display: block;
+  }
+  nav.phone {
+    display: flex;
+  }
 }
