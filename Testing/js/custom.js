@@ -152,11 +152,19 @@ var progressDaily = document.getElementById("newDailyCasesAni");
 
 const createMapArr = queryParam => {
   var localMapData = [];
+  var index = 1;
   for (dataPoint in apiData) {
-    localMapData.push({
-      x: dataPoint.replace("/2020", ""),
-      y: apiData[dataPoint][queryParam]
-    });
+    if (index++ % 3 === 0) {
+      localMapData.push({
+        x: dataPoint.replace("/2020", ""),
+        y: apiData[dataPoint][queryParam]
+      });
+    } else {
+      localMapData.push({
+        x: "",
+        y: apiData[dataPoint][queryParam]
+      });
+    }
   }
   return localMapData;
 };
