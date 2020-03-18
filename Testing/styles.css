@@ -128,3 +128,25 @@ body{
 #latest-update a{
 	color: #CC99CC;
 }
+
+@keyframes chartfix {
+	0% {
+		transform: scale(1.0);
+		-webkit-transform: scale(1.0);
+	}
+	50% {
+		transform: scale(1.01);
+		-webkit-transform: scale(1.01);
+	}
+	100% {
+		transform: scale(1.0);
+		-webkit-transform: scale(1.0);
+	}
+}
+
+.panel {
+animation-delay: 3s;
+-webkit-animation-delay: 3s;
+animation: chartfix 5s;
+-webkit-animation: chartfix 5s;
+}
