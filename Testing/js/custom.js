@@ -22,6 +22,22 @@ var millisTill20 =
 setTimeout(function() {
   displayNotification();
 }, millisTill20);
+
+var ctx = document.getElementById("myChart").getContext("2d");
+
+var ctxDaily = document.getElementById("newDailyCases").getContext("2d");
+
+const createMapArr = queryParam => {
+  var localMapData = [];
+  for (dataPoint in apiData) {
+    localMapData.push({
+      x: dataPoint.replace("/2020", ""),
+      y: apiData[dataPoint][queryParam]
+    });
+  }
+  return localMapData;
+};
+
 Chart.defaults.global.defaultFontColor = "white";
 $.when(
   $.ajax("https://thevirustracker.com/free-api?countryTimeline=IN").then(
@@ -53,13 +69,14 @@ $.when(
         },
         scaleFontColor: "#FFFFFF",
         options: {
+          responsive: true,
           title: {
             display: true,
             text: "Date vs Cases"
           },
           animation: {
-            duration: 2000
-            // easing: "linear"
+            duration: 2000,
+            easing: "linear"
           },
           scales: {
             xAxes: [
@@ -91,6 +108,7 @@ $.when(
           }
         }
       });
+      Chart.helpers.retinaScale(myLineChart);
       var dailyChart = new Chart(ctxDaily, {
         type: "line",
         data: {
@@ -110,13 +128,14 @@ $.when(
           ]
         },
         options: {
+          responsive: true,
           title: {
             display: true,
             text: "Date vs New Cases"
           },
           animation: {
-            duration: 2000
-            // easing: "linear"
+            duration: 2000,
+            easing: "linear"
           },
           scales: {
             xAxes: [
@@ -151,18 +170,3 @@ $.when(
     }
   )
 );
-
-var ctx = document.getElementById("myChart").getContext("2d");
-
-var ctxDaily = document.getElementById("newDailyCases").getContext("2d");
-
-const createMapArr = queryParam => {
-  var localMapData = [];
-  for (dataPoint in apiData) {
-    localMapData.push({
-      x: dataPoint.replace("/2020", ""),
-      y: apiData[dataPoint][queryParam]
-    });
-  }
-  return localMapData;
-};
