@@ -22,7 +22,7 @@ var millisTill20 =
 setTimeout(function() {
   displayNotification();
 }, millisTill20);
-
+Chart.defaults.global.defaultFontColor = "white";
 $.when(
   $.ajax("https://thevirustracker.com/free-api?countryTimeline=IN").then(
     response => {
@@ -45,10 +45,13 @@ $.when(
               data: mapTotalData.map(function(e) {
                 return e.y;
               }),
-              backgroundColor: "#FFF222"
+              backgroundColor: "rgba(240, 223, 135, 0.5)",
+              borderColor: "#FFF222",
+              borderWidth: 2
             }
           ]
         },
+        scaleFontColor: "#FFFFFF",
         options: {
           title: {
             display: true,
