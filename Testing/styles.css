@@ -185,3 +185,12 @@ body {
     display: flex;
   }
 }
+
+.tooltip-inner {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.clickable title{
+  background-color: white;
+
+}
