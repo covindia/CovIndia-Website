@@ -120,6 +120,24 @@ body {
   color: black;
   border-radius: 50px;
   text-align: center;
+  z-index: 1;
+}
+
+.float-twitter {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  bottom: 20px;
+  right: 70px;
+  background-color: #cc99cc;
+  color: black;
+  border-radius: 50px;
+  text-align: center;
+  z-index: 1;
+}
+
+.fa-twitter {
+  font-size: 1.7em;
 }
 
 .my-float {
