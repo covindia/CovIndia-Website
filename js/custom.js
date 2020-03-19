@@ -101,7 +101,7 @@ $.when(
               },
               ticks: {
                 autoSkip: true,
-                maxTicksLimit: 8
+                maxTicksLimit: 4
               }
             }
           ],
@@ -163,7 +163,7 @@ $.when(
               },
               ticks: {
                 autoSkip: true,
-                maxTicksLimit: 8
+                maxTicksLimit: 4
               },
               scaleLabel: {
                 display: true,
