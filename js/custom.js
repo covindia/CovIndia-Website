@@ -320,3 +320,12 @@ $.when(
     });
   })
 );
+
+if (navigator.appVersion.indexOf("iPhone") != -1) {
+  jQuery(document).ready(function() {
+    jQuery('meta[name="viewport"]').attr(
+      "content",
+      "width=device-width, initial-scale=0.5"
+    );
+  });
+}
