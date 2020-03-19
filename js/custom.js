@@ -24,7 +24,7 @@ var hardStateCases = [
   { "West Bengal": 15 },
   { Odisha: 14 },
   { Uttarakhand: 13 },
-  { Karnataka: 11 },
+  { Karnataka: 15 },
   { Punjab: 11 },
   { "Jammu and Kashmir": 10 },
   { "Tamil Nadu": 9 },
