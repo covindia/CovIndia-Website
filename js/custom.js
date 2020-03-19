@@ -26,11 +26,26 @@ var ctxDaily = document.getElementById("newDailyCases").getContext("2d");
 const createMapArr = queryParam => {
   var localMapData = [];
   for (dataPoint in apiData) {
-    console.log(apiData[dataPoint]);
     localMapData.push({
       x: apiData[dataPoint]["day"].replace("2020-", ""),
       y: apiData[dataPoint]["summary"]["total"]
     });
+  }
+  return localMapData;
+};
+
+const createNewaDailyArr = () => {
+  var localMapData = [];
+  for (dataPoint in apiData) {
+    nextIndex = (parseInt(dataPoint) + 1).toString();
+    if (nextIndex !== "10") {
+      localMapData.push({
+        x: apiData[nextIndex]["day"].replace("2020-", ""),
+        y:
+          apiData[nextIndex]["summary"]["total"] -
+          apiData[dataPoint]["summary"]["total"]
+      });
+    }
   }
   return localMapData;
 };
@@ -40,6 +55,8 @@ $.when(
   $.ajax("https://api.rootnet.in/covid19-in/stats/daily").then(response => {
     apiData = response["data"];
     mapTotalData = createMapArr();
+    dailyCases = createNewaDailyArr();
+    console.log(dailyCases);
     var myLineChart = new Chart(ctx, {
       type: "line",
       data: {
@@ -108,72 +125,71 @@ $.when(
         }
       }
     });
-    // Chart.helpers.retinaScale(myLineChart);
-    // var dailyChart = new Chart(ctxDaily, {
-    //   type: "line",
-    //   data: {
-    //     labels: dailyCases.map(function(e) {
-    //       return e.x;
-    //     }),
-    //     datasets: [
-    //       {
-    //         label: "Daily New Cases",
-    //         data: dailyCases.map(function(e) {
-    //           return e.y;
-    //         }),
-    //         backgroundColor: "rgba(240, 223, 135, 0.5)",
-    //         borderColor: "#FFF222",
-    //         borderWidth: 1
-    //       }
-    //     ]
-    //   },
-    //   options: {
-    //     responsive: true,
-    //     title: {
-    //       display: true,
-    //       text: "Date vs New Cases in India"
-    //     },
-    //     animation: {
-    //       duration: 2000,
-    //       easing: "linear"
-    //     },
-    //     scales: {
-    //       xAxes: [
-    //         {
-    //           gridLines: {
-    //             color: "#660066",
-    //             zeroLineColor: "white",
-    //             zeroLineWidth: 2
-    //           },
-    //           ticks: {
-    //             autoSkip: true,
-    //             maxTicksLimit: 8
-    //           },
-    //           scaleLabel: {
-    //             display: true,
-    //             labelString: "Days"
-    //           }
-    //         }
-    //       ],
-    //       yAxes: [
-    //         {
-    //           gridLines: {
-    //             color: "#660066",
-    //             zeroLineColor: "white",
-    //             zeroLineWidth: 2
-    //           },
-    //           ticks: {
-    //             autoSkip: true,
-    //             maxTicksLimit: 4
-    //           },
-    //           scaleLabel: {
-    //             display: true,
-    //             labelString: "Daily Cases"
-    //           }
-    //         }
-    //       ]
-    //     }
-    //   }
-    // });
+    var dailyChart = new Chart(ctxDaily, {
+      type: "line",
+      data: {
+        labels: dailyCases.map(function(e) {
+          return e.x;
+        }),
+        datasets: [
+          {
+            label: "Daily New Cases",
+            data: dailyCases.map(function(e) {
+              return e.y;
+            }),
+            backgroundColor: "rgba(240, 223, 135, 0.5)",
+            borderColor: "#FFF222",
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: "Date vs New Cases in India"
+        },
+        animation: {
+          duration: 2000,
+          easing: "linear"
+        },
+        scales: {
+          xAxes: [
+            {
+              gridLines: {
+                color: "#660066",
+                zeroLineColor: "white",
+                zeroLineWidth: 2
+              },
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: 8
+              },
+              scaleLabel: {
+                display: true,
+                labelString: "Days"
+              }
+            }
+          ],
+          yAxes: [
+            {
+              gridLines: {
+                color: "#660066",
+                zeroLineColor: "white",
+                zeroLineWidth: 2
+              },
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: 4
+              },
+              scaleLabel: {
+                display: true,
+                labelString: "Daily Cases"
+              }
+            }
+          ]
+        }
+      }
+    });
   })
 );
