@@ -1051,7 +1051,23 @@
 			catch{
 				var a = 1;
 			}
+		
+			$('#Bangalore').tooltip().mouseover();
+			$('#Pune').tooltip().mouseover();
+			$('#Delhi-Unique').tooltip().mouseover();
 		};
+
+		$("#map").on("tap", function(){
+			$('#Bangalore').tooltip().mouseout();
+			$('#Pune').tooltip().mouseout();
+			$('#Delhi-Unique').tooltip().mouseout();
+		});
+
+		$("#map").on("click", function(){
+			$('#Bangalore').tooltip().mouseout();
+			$('#Pune').tooltip().mouseout();
+			$('#Delhi-Unique').tooltip().mouseout();
+		});
 	</script>
 <!-- <script src="js/custom.js"></script> -->
 </body>
