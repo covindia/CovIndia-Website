@@ -205,8 +205,7 @@ $.when(
       },
       scaleFontColor: "#FFFFFF",
       options: {
-        responsive: true,
-        responsive: true,
+        maintainAspectRatio: false,
         title: {
           display: true,
           text: "Total Cases in India"
@@ -272,7 +271,7 @@ $.when(
         ]
       },
       options: {
-        responsive: true,
+        maintainAspectRatio: false,
         title: {
           display: true,
           text: "Daily new cases in India"

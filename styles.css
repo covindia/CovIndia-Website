@@ -160,26 +160,17 @@ body {
 	#myChart {
 		background-color: #260926;
 		border-radius: 10px;
-		-moz-box-shadow: -10px 10px 187px -82px rgba(247, 220, 13, 0.66);
-		box-shadow: -10px 10px 187px -82px rgba(247, 220, 13, 0.66);
-		margin-right: 10px;
-		margin-bottom: 10px;
 	}
 
 	#newDailyCases {
 		background-color: #260926;
 		border-radius: 10px;
-		-moz-box-shadow: -10px 10px 187px -82px rgba(247, 220, 13, 0.66);
-		box-shadow: -10px 10px 187px -82px rgba(247, 220, 13, 0.66);
-		margin-right: 10px;
-		margin-bottom: 10px;
 	}
 
 
 	#stateCases {
 		background-color: #260926;
 		border-radius: 10px;
-
 	}
 }
 
