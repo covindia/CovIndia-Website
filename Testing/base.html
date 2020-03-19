@@ -7,20 +7,24 @@
 	<meta name="description" content="This is a live visualization of the Covid-19 (Coronavirus) pandemic by district in India">
 	<meta name="keywords" content="Mahindra Ecole Centrale Coronavirus, Coronavirus Visualizer India, Coronavirus India District, Coronavirus India District,
 	Covid-19 Visualizer India, Covid-19 Visualizer India District, Corona India District Wise, Corona India Live, Covid India Live, Corona India Detailed, Maharastra Covid,
-	Maharastra Corona, Virus, Live Tracking"/>
+	Maharastra Corona, Virus, Live Tracking, Mahindra Ecole Centrale Koronavirus, Koronavirus Visualizer India, Koronavirus India District, Koronavirus India District,
+	Covid-19 Visualizer India, Covid-19 Visualizer India District, Korona India District Wise, Korona India Live, Covid India Live, Korona India Detailed, Maharastra Covid,
+	Maharastra Korona, Virus, Live Tracking"/>
+	<meta http-equiv="refresh" content="900">
+	<meta name="author" content="Covindia">
 
 	<title>Covindia</title>
 
 	<!-- Standard Includes -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"> -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
 
-	<link rel="shortcut icon" href="Covindia.png">
+	<link rel="shortcut icon" href="icons/icon.png">
 
 	<!-- Custom Imports -->
 	<link rel="stylesheet" href="styles.css" type="text/css">
@@ -56,13 +60,24 @@
 <body>
 
 	<nav class="navbar navbar-custom navbar-expand-md fixed-top">
-		<a class="navbar-brand" style="font-family: 'Poppins', sans-serifs;padding-bottom: 0;" href="index.html">
+		<a class="navbar-brand" style="font-family: 'Poppins', sans-serifs;padding-bottom: 0;" href="https://covindia.com">
 			Covindia
 		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+			style="color: white;">
+			<span style="padding-top:7px;padding-left:0;"><b>Menu</b></span>
+		</button>
 
-		<ul class="nav navbar-nav navbar-item-center flex-grow-1 justify-content-between">
-			<li class="nav-item" role="presentation"><a class="nav-link active" style="font-weight: bold;padding-bottom:4px;" href="about.html">About</a></li>
-		</ul>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+			<ul class="nav navbar-nav navbar-item-center">
+				<li class="nav-item" role="presentation"><a class="nav-link active"
+						style="font-weight: bold;padding-bottom:4px;" href="https://covindia.com/analytics">Analytics</a>
+				</li>
+				<li class="nav-item" role="presentation"><a class="nav-link active"
+						style="font-weight: bold;padding-bottom:4px;" href="https://covindia.com/about">About</a></li>
+			</ul>
+
 		</div>
 	</nav>
 
@@ -859,7 +874,33 @@
 		</div>
 	</div>
 
-	<div class="container" style="margin-top: 4em; text-align: center;">
+	<a href="whatsapp://send?text=CovIndia provides the latest district-wise updates on the spead of the coronavirus in India. Stay Safe. Stay Calm. Be Informed.   https://covindia.netlify.com/" data-action="share/whatsapp/share" class="float">
+		<i class="fab fa-whatsapp my-float"></i>
+	</a>
+	<a href="https://twitter.com/intent/tweet?text=CovIndia provides the latest district-wise updates on the spead of the coronavirus in India. Stay Safe. Stay Calm. Be Informed.   https://covindia.netlify.com/" data-action="share/whatsapp/share"
+		class="float-twitter">
+		<i class="fab fa-twitter my-float"></i>
+	</a>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6" style="text-align:center; justify-content: center;">
+				<a href="https://covindia.com/analytics">
+					<img src="images/ss.png" alt="" class="img-fluid">
+				</a>
+				Click <a href="https://covindia.com/analytics" style="color: #CC99CC;">here</a> to see more daily trends.
+
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+
+	<div class="container" style="margin-top: 4em; text-align: center;" id="latest-update">
+		<h4>Latest Updates</h4><br>
+		<!-- LATEST UPDATE -->
+	</div>	
+
+	<div class="container" style="margin-top: 2em; text-align: center;">
 		<p>Click on "Add to home screen" button to install this page as a live app on your smartphone.</p>
 	</div>
 
@@ -871,9 +912,6 @@
 	
 	<div class="container-fluid footer-dark" style="color: rgb(170, 170, 170);">
 		<div class="row ">
-		<div class="col-md-12" style="text-align:center">
-			<button class="whatsapp-share"><a class= "social-icon" href="whatsapp://send?text=CovIndia (hyperlinked) provides the latest district-wise updates on the spead of the coronavirus in India. Stay Safe. Stay Calm. Be Informed.   https://covindia.netlify.com/" data-action="share/whatsapp/share">Share on Whatsapp <i class="fa fa-whatsapp whatsapp-icon"></i></a></button>
-		</div>
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
 				<h2 class="footer-dark-heading" style="font-family: 'Poppins', sans-serif;">Covindia</h2>
@@ -881,7 +919,7 @@
 				<div class="row">
 					<div class="col-md-4"></div>
 					<div class="col-md-4 footer-navigation add-footer-margin-below">
-						<a href="about.html">About</a><br>
+						<a href="https://covindia.com/about">About</a><br>
 					</div>
 					<div class="col-md-4"></div>
 				</div>
@@ -891,14 +929,20 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8" style="text-align: center;">
+				In case you find any error, please tweet out to: <a href="https://twitter.com/covindia" style="color:#CC99CC">covindia</a>.<br><br>
 				This is a visualization of the Covid-19 (Coronavirus) pandemic by district in India. This website is updated regularly
 				by a group of volunteer students. Our sources are The Ministry of Health and trustworthy news articles.
 				All our data is matched with ministry of health data for accuracy. We do not believe in spreading speculations by news outlets.<br><br>
 
-				<a href="https://www.mohfw.gov.in/">https://www.mohfw.gov.in/</a><br>
+				<a href="https://www.mohfw.gov.in/" style="color: #CC99CC;">https://www.mohfw.gov.in/</a><br>
 				The Helpline Number for corona-virus : +91-11-23978046
 			</div>
 			<div class="col-md-2"></div>
+		</div>
+		<div class="row" style="margin-top: 3em;">
+			<a href="https://www.netlify.com" style="margin-left: auto;margin-right: auto;display: block;">
+				<img src="https://www.netlify.com/img/global/badges/netlify-light.svg" alt="Deploys by Netlify"/>
+			</a>
 		</div>
 	</div>
 
