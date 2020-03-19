@@ -1022,6 +1022,8 @@
 			}
 		}
 
+		var initLoadTooltip = false;
+
 		window.onload = function() {
 			renderData(data);
 
@@ -1058,15 +1060,21 @@
 		};
 
 		$("#map").on("tap", function(){
-			$('#Bangalore').tooltip().mouseout();
-			$('#Pune').tooltip().mouseout();
-			$('#Delhi-Unique').tooltip().mouseout();
+			if (initLoadTooltip == false){
+				$('#Bangalore').tooltip().mouseout();
+				$('#Pune').tooltip().mouseout();
+				$('#Delhi-Unique').tooltip().mouseout();
+				initLoadTooltip = true;
+			} 
 		});
 
 		$("#map").on("click", function(){
-			$('#Bangalore').tooltip().mouseout();
-			$('#Pune').tooltip().mouseout();
-			$('#Delhi-Unique').tooltip().mouseout();
+			if (initLoadTooltip == false){
+				$('#Bangalore').tooltip().mouseout();
+				$('#Pune').tooltip().mouseout();
+				$('#Delhi-Unique').tooltip().mouseout();
+				initLoadTooltip = true;
+			} 
 		});
 	</script>
 <!-- <script src="js/custom.js"></script> -->
