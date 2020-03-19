@@ -111,6 +111,7 @@ Chart.defaults.global.defaultFontColor = "white";
 
 stateCases = createTempGraph();
 stateCases = sort_by_key(stateCases, "y");
+stateCases.splice(0, 9);
 var myLineChart = new Chart(stateCtx, {
   type: "bar",
   data: {
