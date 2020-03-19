@@ -136,7 +136,7 @@ var myLineChart = new Chart(stateCtx, {
     maintainAspectRatio: false,
     title: {
       display: true,
-      text: "State vs Total Cases in India"
+      text: "Most affected states"
     },
     animation: {
       duration: 2000,
@@ -209,7 +209,7 @@ $.when(
         responsive: true,
         title: {
           display: true,
-          text: "Date vs Total Cases in India"
+          text: "Total Cases in India"
         },
         animation: {
           duration: 2000,
@@ -275,7 +275,7 @@ $.when(
         responsive: true,
         title: {
           display: true,
-          text: "Date vs New Cases in India"
+          text: "Daily new cases in India"
         },
         animation: {
           duration: 2000,

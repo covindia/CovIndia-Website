@@ -180,18 +180,20 @@ body {
 		background-color: #260926;
 		border-radius: 10px;
 
+	}
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
 	.tooltip-inner {
 		background-color: rgba(0, 0, 0, 0.6);
 	}
+
 	.tooltip-inner {
 		font-size: 10px;
 	}
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
 	.tooltip-inner {
 		background-color: rgba(0, 0, 0, 0.8);
 	}
