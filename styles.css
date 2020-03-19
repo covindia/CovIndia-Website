@@ -174,4 +174,9 @@ body {
 		margin-right: 10px;
 		margin-bottom: 10px;
 	}
+
+	#stateCases {
+		background-color: #260926;
+		border-radius: 10px;
+	}
 }
