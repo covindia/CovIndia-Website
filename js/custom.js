@@ -321,7 +321,28 @@ $.when(
   })
 );
 
-if (navigator.appVersion.indexOf("iPhone") != -1) {
+function iOS() {
+  var iDevices = [
+    "iPad Simulator",
+    "iPhone Simulator",
+    "iPod Simulator",
+    "iPad",
+    "iPhone",
+    "iPod"
+  ];
+
+  if (!!navigator.platform) {
+    while (iDevices.length) {
+      if (navigator.platform === iDevices.pop()) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+if (iOS()) {
   jQuery(document).ready(function() {
     jQuery('meta[name="viewport"]').attr(
       "content",
