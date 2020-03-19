@@ -70,9 +70,10 @@ $.when(
         scaleFontColor: "#FFFFFF",
         options: {
           responsive: true,
+          responsive: true,
           title: {
             display: true,
-            text: "Date vs Cases"
+            text: "Date vs Total Cases in India"
           },
           animation: {
             duration: 2000,
@@ -81,10 +82,14 @@ $.when(
           scales: {
             xAxes: [
               {
+                scaleLabel: {
+                  display: true,
+                  labelString: "Days"
+                },
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 4
+                  zeroLineWidth: 2
                 },
                 ticks: {
                   autoSkip: true,
@@ -97,7 +102,11 @@ $.when(
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 4
+                  zeroLineWidth: 2
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Total Cases"
                 },
                 ticks: {
                   autoSkip: true,
@@ -117,7 +126,7 @@ $.when(
           }),
           datasets: [
             {
-              label: "Total New Cases",
+              label: "Daily New Cases",
               data: dailyCases.map(function(e) {
                 return e.y;
               }),
@@ -131,7 +140,7 @@ $.when(
           responsive: true,
           title: {
             display: true,
-            text: "Date vs New Cases"
+            text: "Date vs New Cases in India"
           },
           animation: {
             duration: 2000,
@@ -143,11 +152,15 @@ $.when(
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 4
+                  zeroLineWidth: 2
                 },
                 ticks: {
                   autoSkip: true,
                   maxTicksLimit: 8
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Days"
                 }
               }
             ],
@@ -156,11 +169,15 @@ $.when(
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 4
+                  zeroLineWidth: 2
                 },
                 ticks: {
                   autoSkip: true,
                   maxTicksLimit: 4
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Daily Cases"
                 }
               }
             ]
