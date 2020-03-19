@@ -19,9 +19,21 @@ var millisTill20 =
   new Date(now.getFullYear(), now.getMonth(), now.getDate(), 19, 45, 0, 0) -
   now;
 
-setTimeout(function() {
-  displayNotification();
-}, millisTill20);
+var ctx = document.getElementById("myChart").getContext("2d");
+
+var ctxDaily = document.getElementById("newDailyCases").getContext("2d");
+
+const createMapArr = queryParam => {
+  var localMapData = [];
+  for (dataPoint in apiData) {
+    localMapData.push({
+      x: dataPoint.replace("/2020", ""),
+      y: apiData[dataPoint][queryParam]
+    });
+  }
+  return localMapData;
+};
+
 Chart.defaults.global.defaultFontColor = "white";
 $.when(
   $.ajax("https://thevirustracker.com/free-api?countryTimeline=IN").then(
@@ -53,21 +65,27 @@ $.when(
         },
         scaleFontColor: "#FFFFFF",
         options: {
+          responsive: true,
+          responsive: true,
           title: {
             display: true,
-            text: "Date vs Cases in India"
+            text: "Date vs Total Cases in India"
           },
           animation: {
-            duration: 2000
-            // easing: "linear"
+            duration: 2000,
+            easing: "linear"
           },
           scales: {
             xAxes: [
               {
+                scaleLabel: {
+                  display: true,
+                  labelString: "Days"
+                },
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 4
+                  zeroLineWidth: 2
                 },
                 ticks: {
                   autoSkip: true,
@@ -80,7 +98,11 @@ $.when(
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 4
+                  zeroLineWidth: 2
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Total Cases"
                 },
                 ticks: {
                   autoSkip: true,
@@ -91,6 +113,7 @@ $.when(
           }
         }
       });
+      Chart.helpers.retinaScale(myLineChart);
       var dailyChart = new Chart(ctxDaily, {
         type: "line",
         data: {
@@ -99,7 +122,7 @@ $.when(
           }),
           datasets: [
             {
-              label: "Total New Cases",
+              label: "Daily New Cases",
               data: dailyCases.map(function(e) {
                 return e.y;
               }),
@@ -110,13 +133,14 @@ $.when(
           ]
         },
         options: {
+          responsive: true,
           title: {
             display: true,
             text: "Date vs New Cases in India"
           },
           animation: {
-            duration: 2000
-            // easing: "linear"
+            duration: 2000,
+            easing: "linear"
           },
           scales: {
             xAxes: [
@@ -124,11 +148,15 @@ $.when(
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 4
+                  zeroLineWidth: 2
                 },
                 ticks: {
                   autoSkip: true,
                   maxTicksLimit: 8
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Days"
                 }
               }
             ],
@@ -137,11 +165,15 @@ $.when(
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 4
+                  zeroLineWidth: 2
                 },
                 ticks: {
                   autoSkip: true,
                   maxTicksLimit: 4
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Daily Cases"
                 }
               }
             ]
@@ -151,18 +183,3 @@ $.when(
     }
   )
 );
-
-var ctx = document.getElementById("myChart").getContext("2d");
-
-var ctxDaily = document.getElementById("newDailyCases").getContext("2d");
-
-const createMapArr = queryParam => {
-  var localMapData = [];
-  for (dataPoint in apiData) {
-    localMapData.push({
-      x: dataPoint.replace("/2020", ""),
-      y: apiData[dataPoint][queryParam]
-    });
-  }
-  return localMapData;
-};
