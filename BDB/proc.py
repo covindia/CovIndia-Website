@@ -184,7 +184,7 @@ def do_thing():
 
 		if line == '\t\t\t\t<!-- INFECTED COUNT -->\n':
 			newHTML.append(line)
-			newHTML.append("\t\t\t\t<h6 style=\"font-size: bold; font-size: 1.5em;\">Infected: "+str(infectedTotal)+" <br><span style=\"font-size:0.725em;\"> Cured: "+str(TotalCured)+" <span style=\"color: #A9A9A9\">|</span> Deaths: "+str(TotalDeath)+"</span></h6>\n")
+			newHTML.append("\t\t\t\t<h6 style=\"font-size: bold; font-size: 1.5em;\">Infected: "+str(infectedTotal)+" <br><span style=\"font-size:0.725em;\"> Cured: "+str(TotalCured)+" <span style=\"color: #A9A9A9\">|</span> Deaths: "+str(deadTotal)+"</span></h6>\n")
 			continue
 
 		if line == '\t\t\t<!-- LIST COUNT -->\n':
