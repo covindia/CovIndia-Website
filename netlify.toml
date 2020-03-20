@@ -1,0 +1,4 @@
+[build]
+base = "corona-visualiser/"
+publish = "corona-visualiser/build/"
+command = "yarn build"
