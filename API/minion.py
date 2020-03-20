@@ -1,7 +1,5 @@
 import gspread
-#Service client credential from oauth2client
 from oauth2client.service_account import ServiceAccountCredentials#Create scope
-from bs4 import BeautifulSoup as bs
 from datetime import datetime
 from json import dump
 
