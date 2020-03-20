@@ -1,7 +1,6 @@
 import flask
 from flask import jsonify
 from json import load
-from minion import do_your_work
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -19,10 +18,25 @@ def states():
 	return jsonify(statesJSON)
 
 @app.route('/dailygraphdata', methods=['GET'])
-def states():
+def dailygraphdata():
 	statesJSON = {}
 	with open("cachedBoi/dailygraphdata.json", 'r') as FPtr:
 		statesJSON = load(FPtr)
 	return jsonify(statesJSON)
+
+@app.route('/generaldata', methods=['GET'])
+def states():
+	generalJSON = {}
+	with open("cachedBoi/general.json", 'r') as FPtr:
+		generalJSON = load(FPtr)
+	return jsonify(generalJSON)
+
+@app.route('/latestupdates', methods=['GET'])
+def states():
+	latestUpdatesJSON = {}
+	with open("cachedBoi/latestupdates.json", 'r') as FPtr:
+		latestUpdatesJSON = load(FPtr)
+	return jsonify(latestUpdatesJSON)
+
 
 app.run(host='0.0.0.0', port=5000, debug=True)

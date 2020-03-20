@@ -1,8 +1,139 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials#Create scope
 from datetime import datetime
-from json import dump
+from json import dump, load
+from pandas import read_html
 
+def delta(diff, diffsList):
+	individualUpdates = []
+	for district in diff:
+		if district == "DIST_NA":
+			continue
+		districtDataList = diffsList[district]
+
+		diffInfected = diff[district]["infected"]
+		diffDead = diff[district]["dead"]
+
+		mUpdate = ""
+		if diff[district]["status"] == "NEW":
+			# INF
+			if diff[district]["infected"] >= 1:
+				if diff[district]["infected"] == 1:
+					mUpdate += "<b>First</b> confirmed case in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
+				else:
+					mUpdate += "First <b>" + str(diff[district]["infected"]) + "</b> confirmed cases in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
+				if len(districtDataList) > 1:
+					mUpdate += "Sources: "
+					for entry in districtDataList:
+						if entry["infected"] >= 1:
+							mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a>, "
+					mUpdate = mUpdate[:-2]
+					mUpdate += "<br> "
+				else:
+					entry = districtDataList[0]
+					mUpdate += "Source: <a href=\"" + entry["source"] + "\">" + "[Link]" + "</a><br> "
+			
+			# DEAD
+			if diff[district]["dead"] >= 1:
+				if diff[district]["dead"] == 1:
+					mUpdate += "<b>First</b> death reported in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
+				else:
+					mUpdate += "<b>" + str(diff[district]["dead"]) + "</b> deaths reported in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
+				if len(districtDataList) > 1:
+					mUpdate += "Sources: "
+					for entry in districtDataList:
+						if entry["dead"] >= 1:
+							mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a>, "
+					mUpdate = mUpdate[:-2]
+					mUpdate += "<br> "
+				else:
+					entry = districtDataList[0]
+					mUpdate += "Source: <a href=\"" + entry["source"] + "\">" + "[Link]" + "</a><br> "
+
+		# Returning District
+		else:
+			districtDataList.reverse()
+			if diff[district]["infected"] >= 1:
+				if diff[district]["infected"] == 1:
+					mUpdate += "<b>1</b> more case reported in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
+				else:
+					mUpdate += "<b>" + str(diff[district]["infected"]) + "</b> more cases reported in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
+				entries = []
+				# NOTE: Local here refers to the loop and not something regional
+				local_infected = 0
+				# DON'T TOUCH THIS VARIABLE. The logic may be bad, but I can't think of anything else right now
+				infectedSources_Count = 0
+				for entry in districtDataList:
+					local_infected += entry["infected"]
+					entries.append(entry)
+					if local_infected >= int(diff[district]["infected"]):
+						break
+				infectedSources_Count = len(entries)
+				
+				if infectedSources_Count > 1:
+					mUpdate += "Sources: "
+					for entry in entries:
+						if entry["infected"] >= 1:
+							mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a>, "
+					mUpdate = mUpdate[:-2]
+					mUpdate += "<br> "
+				else:
+					mUpdate += "Source : "
+					entry = entries[0]
+					if entry["infected"] >= 1:
+						mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a><br> "
+
+			if diff[district]["dead"] >= 1:
+				if diff[district]["dead"] == 1:
+					mUpdate += "1 death in reported in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
+				else:
+					mUpdate += str(diff[district]["dead"]) + " deaths reported in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
+				
+				entries = []
+				# NOTE: Local here refers to the loop and not something regional
+				local_dead = 0
+				# DON'T TOUCH THIS VARIABLE. The logic may be bad, but I can't think of anything else right now
+				deadSources_Count = 0
+				for entry in districtDataList:
+					local_dead += entry["dead"]
+					entries.append(entry)
+					if local_dead >= diff[district]["dead"]:
+						break
+				deadSources_Count = len(entries)
+				
+				if deadSources_Count > 1:
+					mUpdate += "Sources: "
+					for entry in entries:
+						if entry["dead"] >= 1:
+							mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a>, "
+					mUpdate = mUpdate[:-2]
+					mUpdate += "<br> "
+				else:
+					mUpdate += "Source : "
+					entry = entries[0]
+					if entry["dead"] >= 1:
+						mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a><br> "
+
+
+		# Get Latest Time
+		latestTime = datetime.strptime(districtDataList[0]["time"], "%d/%m/%Y %H:%M")
+		for entry in districtDataList:
+			newTime = datetime.strptime(entry["time"], "%d/%m/%Y %H:%M")
+			if newTime > latestTime:
+				latestTime = newTime
+
+		if len(mUpdate) > 1:
+			individualUpdates.append([mUpdate, latestTime])
+
+	if len(individualUpdates) > 5:
+		individualUpdates.sort(key = lambda x: x[1], reverse=True)
+		individualUpdates = individualUpdates[:5]
+
+	latestUpdates = {}
+	for i in range(len(individualUpdates)):
+		latestUpdates[str(i)] = individualUpdates[i][0]
+
+	return (latestUpdates)
 
 def do_your_work():
 	scope = ['https://spreadsheets.google.com/feeds']
@@ -12,11 +143,17 @@ def do_your_work():
 		URL = F.read()
 	sheet = client.open_by_url(URL).worksheet('Sheet1')
 
-	# cachedBoi data
+	# For analytics.html
 	statesBoi = {}	# States
 	dgdBoi = {}	# Daily Graph Data
 
 	firstRowCount = False
+
+	# For index.html
+	infectedTotal = 0
+	deadTotal = 0
+	globalData = {}
+	returnData = {}
 
 	data = sheet.get()
 
@@ -25,6 +162,7 @@ def do_your_work():
 			firstRowCount = not firstRowCount
 			continue
 
+		# API - for analytics.html
 		try:
 			state = str(row[2])
 		except:
@@ -34,8 +172,6 @@ def do_your_work():
 			date = str(row[0])
 		except:
 			date = datetime.now().strftime("%d/%m/%Y")
-		
-		print (state, date)
 
 		try:
 			statesBoi[state] += int(row[4])
@@ -53,11 +189,185 @@ def do_your_work():
 			except:
 				dgdBoi[str(date)] = 0
 
+		### API - For index.html
+		try:
+			districtBoi = row[3]
+		except:
+			pass
+
+		if districtBoi == "DIST_NA":
+			try:
+				infectedTotal += int(row[4])
+			except:
+				pass
+			try:
+				deadTotal += int(row[5])
+			except:
+				pass
+
+		try:
+			TimeUpdated = str(row[1])
+		except:
+			TimeUpdated = "00:00"
+			pass
+		try:
+			DateUpdated = str(row[0])
+		except:
+			DateUpdated = datetime.now().strftime("%d/%m/%Y")
+			pass
+
+		returnDict = {}
+
+		if districtBoi in globalData:
+			try:
+				globalData[districtBoi]["infected"] += int(row[4])
+				returnDict["infected"] = int(row[4])
+			except:
+				returnDict["infected"] = 0
+				pass
+
+			try:
+				globalData[districtBoi]["dead"] += int(row[5])
+				returnDict["dead"] = int(row[5])
+			except:
+				returnDict["dead"] = 0
+				pass
+
+			try:
+				returnDict["state"] = str(row[2])
+			except:
+				returnDict["state"] = ""
+
+			try:
+				returnDict["source"] = str(row[6])
+			except:
+				returnDict["source"] = ""
+
+
+		else:
+			globalData[districtBoi] = {}
+			try:
+				globalData[districtBoi]["infected"] = int(row[4])
+				returnDict["infected"] = int(row[4])
+			except:
+				globalData[districtBoi]["infected"] = 0
+				returnDict["infected"] = 0
+
+			try:
+				globalData[districtBoi]["dead"] = int(row[5])
+				returnDict["dead"] = int(row[5])
+			except:
+				globalData[districtBoi]["dead"] = 0
+				returnDict["dead"] = 0
+			try:
+				globalData[districtBoi]["state"] = str(row[2])
+				returnDict["state"] = str(row[2])
+			except:
+				globalData[districtBoi]["state"] = ""
+				returnDict["state"] = ""
+
+			try:
+				globalData[districtBoi]["source"] = str(row[6])
+				returnDict["source"] = str(row[6])
+			except:
+				globalData[districtBoi]["source"] = ""
+				returnDict["source"] = ""
+
+		DateTime = DateUpdated +" "+ TimeUpdated
+		returnDict["time"] = DateTime
+
+		if districtBoi in returnData:
+			returnData[districtBoi].append(returnDict)
+		else:
+			returnData[districtBoi] = [returnDict]
+
 	with open("cachedBoi/states.json", 'w') as FPtr:
 		dump(statesBoi, FPtr)
 
-	with open("cachedBoi/dgd.json", 'w') as FPtr:
+	with open("cachedBoi/displaygraphdata.json", 'w') as FPtr:
 		dump(dgdBoi, FPtr)
+	
+	infectedMax = 0
+	deadMax = 0
+
+	districtsAffected = []
+	statesAffected = []
+
+	for districtBoi in globalData:
+		if districtBoi == "DIST_NA":
+			continue
+		if globalData[districtBoi]["infected"] > infectedMax:
+			infectedMax = globalData[districtBoi]["infected"]
+		if globalData[districtBoi]["dead"] > deadMax:
+			deadMax = globalData[districtBoi]["dead"]
+
+		if districtBoi not in districtsAffected:
+			districtsAffected.append(districtBoi)
+
+		if globalData[districtBoi]["state"] not in statesAffected:
+			statesAffected.append(globalData[districtBoi]["state"])
+
+		infectedTotal += globalData[districtBoi]["infected"]
+		deadTotal += globalData[districtBoi]["dead"]
+
+	mohfwURL = "https://www.mohfw.gov.in/"
+
+	df = read_html(mohfwURL)
+	TotalCured = df[0].iloc[-2].values[4] # CURED/DISCHARGED
+	TotalDeath = df[0].iloc[-2].values[5] # DEATH
+
+	for districtBoi in globalData:
+		globalData[districtBoi]["value"] = globalData[districtBoi]["infected"] / infectedMax
+
+	districtsList = districtsAffected[0]
+	statesList = statesAffected[0]
+	for distNum in range(1, len(districtsAffected)):
+		if districtsAffected[distNum].startswith("Aurangabad"):
+			districtsList += ", Aurangabad"
+		else:	
+			districtsList += ", " + districtsAffected[distNum]
+	for stateNum in range(1, len(statesAffected)):
+		statesList += ", " + statesAffected[stateNum]
+
+	generalData = {
+		"deathTotal" : deadTotal,
+		"districtList" : districtsList,
+		"infectedTotal" : infectedTotal,
+		"infectedMax" : infectedMax,
+		"lastUpdatedTime" : str(datetime.now()),
+		"statesList" : statesList,
+		"totalCured" : TotalCured
+	}
+
+	with open("cachedBoi/general.json", 'w') as FPtr:
+		dump(generalData, FPtr)
+
+	# API - Index.html - Latest Updates
+	with open("lastUpdate.json", 'r') as FPtr:
+		PrevData = load(FPtr)
+
+	LatestData = globalData
+	DiffsList = returnData
+
+	diff = {}
+	for district in LatestData:
+		new = {}
+		if district in PrevData:
+			for field in LatestData[district]:
+				if (field == "infected") or (field == "dead"):
+					new[field] = LatestData[district][field] - PrevData[district][field]
+				else:
+					new[field] = LatestData[district][field]
+			new["status"] = "OLD"
+		else:
+			new = LatestData[district]
+			new["status"] = "NEW"
+		diff[district] = new
+
+	latestUpdates = delta(diff, DiffsList)
+
+	with open("cachedBoi/latestupdates.json", 'w') as FPtr:
+		dump(latestUpdates, FPtr)
 
 	return True
 
