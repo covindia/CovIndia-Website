@@ -68,15 +68,12 @@ const createNewaDailyArr = () => {
     localCounter.push(Object.values(item)[0]);
     pureVals.push(localCounter.reduce((a, b) => a + b, 0));
   });
-
-  console.log(pureVals);
   arrayOfObj.forEach((item, index) => {
     localMapData.push({
       x: Object.keys(item)[0],
       y: pureVals[index]
     });
   });
-  console.log(localCounter);
   return localMapData;
 };
 
@@ -175,6 +172,8 @@ $.when(
     apiData = response;
     dailyCases = createMapArr();
     mapTotalData = createNewaDailyArr();
+    dailyCases.pop();
+    mapTotalData.pop();
     var myLineChart = new Chart(ctx, {
       type: "line",
       data: {
