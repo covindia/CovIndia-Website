@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description"
+        content="This is a live visualization of the Covid-19 (Coronavirus) pandemic by district in India">
+    <meta name="keywords" content="Mahindra Ecole Centrale Coronavirus, Coronavirus Visualizer India, Coronavirus India District, Coronavirus India District,
+	Covid-19 Visualizer India, Covid-19 Visualizer India District, Corona India District Wise, Corona India Live, Covid India Live, Corona India Detailed, Maharastra Covid,
+	Maharastra Corona, Virus, Live Tracking, Mahindra Ecole Centrale Koronavirus, Koronavirus Visualizer India, Koronavirus India District, Koronavirus India District,
+	Covid-19 Visualizer India, Covid-19 Visualizer India District, Korona India District Wise, Korona India Live, Covid India Live, Korona India Detailed, Maharastra Covid,
+	Maharastra Korona, Virus, Live Tracking" />
+    <meta http-equiv="refresh" content="900">
+    <meta name="author" content="Covindia">
+    <meta name="theme-color" content="#000000" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- Standard Includes -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+    <link rel="shortcut icon" href="icons/icon.png">
+
+    <!-- Custom Imports -->
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Mina&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap" rel="stylesheet">
+    <title>Covindia</title>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+</body>
+<script>
+    function _colornum(color) {
+        var l = color.length;
+        return [
+            parseInt(color.slice(l - 6, l - 4), 16),
+            parseInt(color.slice(l - 4, l - 2), 16),
+            (color.slice(l - 2, l - 0), 16)
+        ];
+    }
+
+    function gradient(x, ranges) {
+        if (x <= ranges[0][0]) {
+            return ranges[0][1];
+        }
+        if (x >= ranges[ranges.length - 1][0]) {
+            return ranges[ranges.length - 1][1];
+        }
+        for (var i = 0, range; range = ranges[i]; i++) {
+            var start = range[0],
+                color = range[1];
+            if (x < start) {
+                break;
+            }
+        }
+        var p = (x - ranges[i - 1][0]) / (ranges[i][0] - ranges[i - 1][0]);
+        var a = _colornum(ranges[i - 1][1]);
+        var b = _colornum(ranges[i][1]);
+        return 'rgb(' +
+            Math.round((a[0] * (1.0 - p) + b[0] * p)) + ',' +
+            Math.round((a[1] * (1.0 - p) + b[1] * p)) + ',' +
+            Math.round((a[2] * (1.0 - p) + b[2] * p)) + ')';
+    }
+
+    var GRADIENTS = {
+        'increasing': [
+            [0, '#ff4142'],
+            [0.5, '#ffd026'],
+            [1, '#aae817']
+        ],
+        'decreasing': [
+            [0, '#aae817'],
+            [0.5, '#ffd026'],
+            [1, '#ff4142']
+        ]
+    };
+    var GRADIENT = GRADIENTS.increasing;
+
+    // SPECIAL BOI - Data
+
+    function renderData(data) {
+        for (var key in data) {
+            var modKey = String(key);
+            modKey = modKey.split(' ').join('_');
+            keyShow = key;
+            if ((modKey == "Aurangabad_Maharastra") || (modKey == "Aurangabad_Bihar")) {
+                keyShow = "Aurangabad";
+            }
+            if (modKey == "DIST_NA") {
+                continue;
+            }
+            var flag = 0;
+            try {
+                document.getElementById(modKey).style.fill = gradient(1 - data[key].value, GRADIENT);
+                $("#" + modKey + " title").text(keyShow + ' | Infected: ' + data[key].infected + ' | Deaths: ' + data[
+                        key]
+                    .dead);
+                $("#" + modKey).attr("title", keyShow + ' | Infected: ' + data[key].infected + ' | Deaths: ' + data[key]
+                    .dead);
+                flag = 1;
+            } catch (err) {
+                var a = 1 + 1;
+            }
+
+
+            if (flag == 0) {
+                try {
+                    var allClasses = document.getElementsByClassName(modKey)
+                    for (var i = 0; i < allClasses.length; ++i) {
+
+                        allClasses[i].style.fill = gradient(1 - data[key].value, GRADIENT);
+                        allClasses[i].childNodes[0].textContent = key + ' | Infected: ' + data[key].infected +
+                            ' | Deaths: ' +
+                            data[key].dead;
+                        allClasses[i].title = key + ' | Infected: ' + data[key].infected + ' | Deaths: ' + data[key]
+                            .dead;
+                        $(allClasses[i]).attr('data-original-title', key + ' | Infected: ' + data[key].infected +
+                            ' | Deaths: ' +
+                            data[key].dead);
+
+                    }
+                } catch (err) {
+                    var a = 1;
+                }
+            }
+        }
+    }
+
+    var initLoadTooltip = false;
+
+    window.onload = function () {
+        renderData(data);
+
+        $('.clickable').tooltip();
+
+        $('.clickable').tooltip({
+            open: function (e, o) {
+                $(o.tooltip).mouseover(function (e) {
+                    $('.clickable').tooltip('close');
+                });
+                $(o.tooltip).mouseout(function (e) {});
+            },
+            close: function (e, o) {},
+            show: {
+                duration: 800
+            }
+        });
+
+        try {
+            $(".Delhi").attr('data-original-title', 'Delhi' + ' | Infected: ' + data['Delhi'].infected +
+                ' | Deaths: ' +
+                data['Delhi'].dead);
+        } catch {
+            var a = 1;
+        }
+        try {
+            $(".Mumbai").attr('data-original-title', 'Mumbai' + ' | Infected: ' + data['Mumbai'].infected +
+                ' | Deaths: ' +
+                data['Mumbai'].dead);
+        } catch {
+            var a = 1;
+        }
+
+        $('#Bangalore').tooltip().mouseover();
+        $('#Pune').tooltip().mouseover();
+        $('#Delhi-Unique').tooltip().mouseover();
+    };
+
+    $("#map").on("tap", function () {
+        if (initLoadTooltip == false) {
+            $('#Bangalore').tooltip().mouseout();
+            $('#Pune').tooltip().mouseout();
+            $('#Delhi-Unique').tooltip().mouseout();
+            initLoadTooltip = true;
+        }
+    });
+
+    $("#map").on("click", function () {
+        if (initLoadTooltip == false) {
+            $('#Bangalore').tooltip().mouseout();
+            $('#Pune').tooltip().mouseout();
+            $('#Delhi-Unique').tooltip().mouseout();
+            initLoadTooltip = true;
+        }
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+</html>
