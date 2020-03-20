@@ -82,7 +82,7 @@ const createNewaDailyArr = () => {
   var localMapData = [];
   for (dataPoint in apiData) {
     nextIndex = (parseInt(dataPoint) + 1).toString();
-    if (nextIndex !== "10") {
+    if (nextIndex !== "11") {
       localMapData.push({
         x: apiData[nextIndex]["day"].replace("2020-", ""),
         y:
@@ -109,76 +109,76 @@ const createStateArr = () => {
 
 Chart.defaults.global.defaultFontColor = "white";
 
-stateCases = createTempGraph();
-stateCases = sort_by_key(stateCases, "y");
-stateCases.splice(0, 9);
-var myLineChart = new Chart(stateCtx, {
-  type: "bar",
-  data: {
-    labels: stateCases.map(function(e) {
-      return e.x;
-    }),
-    datasets: [
-      {
-        label: "Total Cases",
-        data: stateCases.map(function(e) {
-          return e.y;
-        }),
-        backgroundColor: "rgba(240, 223, 135, 0.5)",
-        borderColor: "#FFF222",
-        borderWidth: 1
-      }
-    ]
-  },
-  scaleFontColor: "#FFFFFF",
-  options: {
-    // responsive: false,
-    maintainAspectRatio: false,
-    title: {
-      display: true,
-      text: "Most affected states"
-    },
-    animation: {
-      duration: 2000,
-      easing: "linear"
-    },
-    scales: {
-      xAxes: [
-        {
-          scaleLabel: {
-            display: true,
-            labelString: "State"
-          },
-          gridLines: {
-            color: "#660066",
-            zeroLineColor: "white",
-            zeroLineWidth: 2
-          },
-          ticks: {
-            autoSkip: true
-          }
-        }
-      ],
-      yAxes: [
-        {
-          gridLines: {
-            color: "#660066",
-            zeroLineColor: "white",
-            zeroLineWidth: 2
-          },
-          scaleLabel: {
-            display: true,
-            labelString: "Total Cases"
-          },
-          ticks: {
-            autoSkip: true,
-            maxTicksLimit: 4
-          }
-        }
-      ]
-    }
-  }
-});
+// stateCases = createTempGraph();
+// stateCases = sort_by_key(stateCases, "y");
+// stateCases.splice(0, 9);
+// var myLineChart = new Chart(stateCtx, {
+//   type: "bar",
+//   data: {
+//     labels: stateCases.map(function(e) {
+//       return e.x;
+//     }),
+//     datasets: [
+//       {
+//         label: "Total Cases",
+//         data: stateCases.map(function(e) {
+//           return e.y;
+//         }),
+//         backgroundColor: "rgba(240, 223, 135, 0.5)",
+//         borderColor: "#FFF222",
+//         borderWidth: 1
+//       }
+//     ]
+//   },
+//   scaleFontColor: "#FFFFFF",
+//   options: {
+//     // responsive: false,
+//     maintainAspectRatio: false,
+//     title: {
+//       display: true,
+//       text: "Most affected states"
+//     },
+//     animation: {
+//       duration: 2000,
+//       easing: "linear"
+//     },
+//     scales: {
+//       xAxes: [
+//         {
+//           scaleLabel: {
+//             display: true,
+//             labelString: "State"
+//           },
+//           gridLines: {
+//             color: "#660066",
+//             zeroLineColor: "white",
+//             zeroLineWidth: 2
+//           },
+//           ticks: {
+//             autoSkip: true
+//           }
+//         }
+//       ],
+//       yAxes: [
+//         {
+//           gridLines: {
+//             color: "#660066",
+//             zeroLineColor: "white",
+//             zeroLineWidth: 2
+//           },
+//           scaleLabel: {
+//             display: true,
+//             labelString: "Total Cases"
+//           },
+//           ticks: {
+//             autoSkip: true,
+//             maxTicksLimit: 4
+//           }
+//         }
+//       ]
+//     }
+//   }
+// });
 $.when(
   $.ajax("https://api.rootnet.in/covid19-in/stats/daily").then(response => {
     apiData = response["data"];
