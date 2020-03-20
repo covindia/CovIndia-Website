@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 Notification.requestPermission(function(status) {
   console.log("Notification permission status:", status);
 });
 
 function displayNotification() {
-  if (Notification.permission == "granted") {
+  if (Notification.permission === "granted") {
     navigator.serviceWorker.getRegistration().then(function(reg) {
       reg.showNotification("Thanks for subscribing for to our notifications.");
     });
