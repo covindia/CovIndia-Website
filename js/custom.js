@@ -15,27 +15,7 @@ var apiStateData = [];
 var mapTotalData = [];
 var dailyCases = [];
 var stateCases = [];
-var hardStateCases = [
-  { "Andhra Pradesh": 2 },
-  { Maharashtra: 49 },
-  { Chhattisgarh: 18 },
-  { Chandigarh: 17 },
-  { Pondicherry: 16 },
-  { "West Bengal": 15 },
-  { Odisha: 14 },
-  { Uttarakhand: 13 },
-  { Karnataka: 15 },
-  { Punjab: 11 },
-  { "Jammu and Kashmir": 10 },
-  { "Tamil Nadu": 9 },
-  { Ladakh: 8 },
-  { "Uttar Pradesh": 19 },
-  { Telangana: 13 },
-  { Rajasthan: 7 },
-  { Kerala: 28 },
-  { Haryana: 17 },
-  { Delhi: 12 }
-];
+var hardStateCases = [];
 
 var now = new Date();
 var millisTill20 =
@@ -52,8 +32,8 @@ const createTempGraph = () => {
   var localMapData = [];
   for (state in hardStateCases) {
     localMapData.push({
-      x: Object.keys(hardStateCases[state])[0],
-      y: Object.values(hardStateCases[state])[0]
+      x: state,
+      y: hardStateCases[state]
     });
   }
   return localMapData;
@@ -71,8 +51,8 @@ const createMapArr = queryParam => {
   var localMapData = [];
   for (dataPoint in apiData) {
     localMapData.push({
-      x: apiData[dataPoint]["day"].replace("2020-", ""),
-      y: apiData[dataPoint]["summary"]["total"]
+      x: dataPoint.replace("/2020", ""),
+      y: apiData[dataPoint]
     });
   }
   return localMapData;
@@ -80,17 +60,23 @@ const createMapArr = queryParam => {
 
 const createNewaDailyArr = () => {
   var localMapData = [];
-  for (dataPoint in apiData) {
-    nextIndex = (parseInt(dataPoint) + 1).toString();
-    if (nextIndex !== apiData.length.toString()) {
-      localMapData.push({
-        x: apiData[nextIndex]["day"].replace("2020-", ""),
-        y:
-          apiData[nextIndex]["summary"]["total"] -
-          apiData[dataPoint]["summary"]["total"]
-      });
-    }
-  }
+  var localCounter = [];
+  var pureVals = [];
+  objOfObjs = apiData;
+  const arrayOfObj = Object.entries(objOfObjs).map(e => ({ [e[0]]: e[1] }));
+  arrayOfObj.forEach((item, index) => {
+    localCounter.push(Object.values(item)[0]);
+    pureVals.push(localCounter.reduce((a, b) => a + b, 0));
+  });
+
+  console.log(pureVals);
+  arrayOfObj.forEach((item, index) => {
+    localMapData.push({
+      x: Object.keys(item)[0],
+      y: pureVals[index]
+    });
+  });
+  console.log(localCounter);
   return localMapData;
 };
 
@@ -98,7 +84,6 @@ const createStateArr = () => {
   var localData = [];
   for (dataPoint in apiStateData) {
     let data = apiStateData[dataPoint];
-    console.log(data);
     localData.push({
       x: data.loc,
       y: data.confirmedCasesIndian + data.confirmedCasesForeign
@@ -109,82 +94,87 @@ const createStateArr = () => {
 
 Chart.defaults.global.defaultFontColor = "white";
 
-stateCases = createTempGraph();
-stateCases = sort_by_key(stateCases, "y");
-stateCases.splice(0, 9);
-var myLineChart = new Chart(stateCtx, {
-  type: "bar",
-  data: {
-    labels: stateCases.map(function(e) {
-      return e.x;
-    }),
-    datasets: [
-      {
-        label: "Total Cases",
-        data: stateCases.map(function(e) {
-          return e.y;
-        }),
-        backgroundColor: "rgba(240, 223, 135, 0.5)",
-        borderColor: "#FFF222",
-        borderWidth: 1
-      }
-    ]
-  },
-  scaleFontColor: "#FFFFFF",
-  options: {
-    // responsive: false,
-    maintainAspectRatio: false,
-    title: {
-      display: true,
-      text: "Most affected states"
-    },
-    animation: {
-      duration: 2000,
-      easing: "linear"
-    },
-    scales: {
-      xAxes: [
-        {
-          scaleLabel: {
-            display: true,
-            labelString: "State"
-          },
-          gridLines: {
-            color: "#660066",
-            zeroLineColor: "white",
-            zeroLineWidth: 2
-          },
-          ticks: {
-            autoSkip: true
-          }
-        }
-      ],
-      yAxes: [
-        {
-          gridLines: {
-            color: "#660066",
-            zeroLineColor: "white",
-            zeroLineWidth: 2
-          },
-          scaleLabel: {
-            display: true,
-            labelString: "Total Cases"
-          },
-          ticks: {
-            autoSkip: true,
-            maxTicksLimit: 4
-          }
-        }
-      ]
-    }
-  }
-});
 $.when(
-  $.ajax("https://api.rootnet.in/covid19-in/stats/daily").then(response => {
-    apiData = response["data"];
-    mapTotalData = createMapArr();
-    dailyCases = createNewaDailyArr();
+  $.ajax("https://v1.api.covindia.com/states").then(response => {
+    hardStateCases = response;
+    stateCases = createTempGraph();
+    stateCases = sort_by_key(stateCases, "y");
+    stateCases.splice(0, 9);
+    var barGraph = new Chart(stateCtx, {
+      type: "bar",
+      data: {
+        labels: stateCases.map(function(e) {
+          return e.x;
+        }),
+        datasets: [
+          {
+            label: "Total Cases",
+            data: stateCases.map(function(e) {
+              return e.y;
+            }),
+            backgroundColor: "rgba(240, 223, 135, 0.5)",
+            borderColor: "#FFF222",
+            borderWidth: 1
+          }
+        ]
+      },
+      scaleFontColor: "#FFFFFF",
+      options: {
+        // responsive: false,
+        maintainAspectRatio: false,
+        title: {
+          display: true,
+          text: "Most affected states"
+        },
+        animation: {
+          duration: 2000,
+          easing: "linear"
+        },
+        scales: {
+          xAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: "State"
+              },
+              gridLines: {
+                color: "#660066",
+                zeroLineColor: "white",
+                zeroLineWidth: 2
+              },
+              ticks: {
+                autoSkip: true
+              }
+            }
+          ],
+          yAxes: [
+            {
+              gridLines: {
+                color: "#660066",
+                zeroLineColor: "white",
+                zeroLineWidth: 2
+              },
+              scaleLabel: {
+                display: true,
+                labelString: "Total Cases"
+              },
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: 4
+              }
+            }
+          ]
+        }
+      }
+    });
+  })
+);
 
+$.when(
+  $.ajax("https://v1.api.covindia.com/dailygraphdata").then(response => {
+    apiData = response;
+    dailyCases = createMapArr();
+    mapTotalData = createNewaDailyArr();
     var myLineChart = new Chart(ctx, {
       type: "line",
       data: {
