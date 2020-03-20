@@ -1,7 +1,7 @@
 BDB/*
 Trash/*
+node_modules
 
-# API
 API/URL
 API/*.json
 API/cachedBoi/*
