@@ -82,7 +82,7 @@ const createNewaDailyArr = () => {
   var localMapData = [];
   for (dataPoint in apiData) {
     nextIndex = (parseInt(dataPoint) + 1).toString();
-    if (nextIndex !== "11") {
+    if (nextIndex !== apiData.length.toString()) {
       localMapData.push({
         x: apiData[nextIndex]["day"].replace("2020-", ""),
         y:
