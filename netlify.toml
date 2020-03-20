@@ -1,4 +1,4 @@
 [build]
-base = "corona-visualiser/"
-publish = "corona-visualiser/build/"
+base = "/"
+publish = "build/"
 command = "yarn build"
