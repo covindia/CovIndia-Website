@@ -207,3 +207,7 @@ body {
 .fa-twitter {
 	font-size: 1.7em;
 }
+
+#body-about a{
+	color: #CC99CC;
+}
