@@ -1,10 +1,26 @@
+"""
+        Ah yes, the minion that quietly does it's work whenever called. This little bad boy of ours can crunch data and saves them
+        to our data/ directory. It also does the magic of inserting stuff into HTML
+
+        Author: IceCereal + achal.ochod
+"""
+
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials#Create scope
+from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 from json import dump, load
 from pandas import read_html
 
+# Directories
+DIR_DATA = "../data/"
+DIR_RES = "res/"
+DIR_PRODUCTION = "live/"
+
 def delta(diff, diffsList):
+	"""
+		Calculate the difference between old data and new data. Return some html looking thing
+	"""
+
 	individualUpdates = []
 	for district in diff:
 		if district == "DIST_NA":
@@ -32,7 +48,7 @@ def delta(diff, diffsList):
 				else:
 					entry = districtDataList[0]
 					mUpdate += "Source: <a href=\"" + entry["source"] + "\">" + "[Link]" + "</a><br> "
-			
+
 			# DEAD
 			if diff[district]["dead"] >= 1:
 				if diff[district]["dead"] == 1:
@@ -69,7 +85,7 @@ def delta(diff, diffsList):
 					if local_infected >= int(diff[district]["infected"]):
 						break
 				infectedSources_Count = len(entries)
-				
+
 				if infectedSources_Count > 1:
 					mUpdate += "Sources: "
 					for entry in entries:
@@ -80,7 +96,7 @@ def delta(diff, diffsList):
 				else:
 					mUpdate += "Source : "
 					entry = entries[0]
-					if entry["infected"] >= 1:
+				if entry["infected"] >= 1:
 						mUpdate += "<a href=\"" + entry["source"] + "\">" + "[Link]" + "</a><br> "
 
 			if diff[district]["dead"] >= 1:
@@ -88,7 +104,7 @@ def delta(diff, diffsList):
 					mUpdate += "1 death in reported in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
 				else:
 					mUpdate += str(diff[district]["dead"]) + " deaths reported in <b>" + district + "</b>, <b>" + diff[district]["state"] + "</b> | "
-				
+
 				entries = []
 				# NOTE: Local here refers to the loop and not something regional
 				local_dead = 0
@@ -100,7 +116,7 @@ def delta(diff, diffsList):
 					if local_dead >= diff[district]["dead"]:
 						break
 				deadSources_Count = len(entries)
-				
+
 				if deadSources_Count > 1:
 					mUpdate += "Sources: "
 					for entry in entries:
@@ -136,10 +152,15 @@ def delta(diff, diffsList):
 	return (latestUpdates)
 
 def do_your_work():
+	"""
+		Get the damn data from our google sheet and crunch these numbers.
+		Store the numbers in your data dir, slave
+	"""
+
 	scope = ['https://spreadsheets.google.com/feeds']
-	creds = ServiceAccountCredentials.from_json_keyfile_name('coronatracker-3b2e7c0f2396.json',scope)
+	creds = ServiceAccountCredentials.from_json_keyfile_name(DIR_RES + 'coronatracker-3b2e7c0f2396.json',scope)
 	client = gspread.authorize(creds)
-	with open("URL", 'r') as F:
+	with open(DIR_RES + "URL", 'r') as F:
 		URL = F.read()
 	sheet = client.open_by_url(URL).worksheet('Sheet1')
 
@@ -175,11 +196,11 @@ def do_your_work():
 
 		try:
 			statesBoi[state] += int(row[4])
-		except:
+		except Exception as e:
 			try:
 				statesBoi[state] += 0
 			except:
-				statesBoi[state] = 0
+				statesBoi[state] = int(row[4])
 
 		try:
 			dgdBoi[str(date)] += int(row[4])
@@ -281,12 +302,12 @@ def do_your_work():
 		else:
 			returnData[districtBoi] = [returnDict]
 
-	with open("cachedBoi/states.json", 'w') as FPtr:
+	with open(DIR_DATA + "APIData/states.json", 'w') as FPtr:
 		dump(statesBoi, FPtr)
 
-	with open("cachedBoi/displaygraphdata.json", 'w') as FPtr:
+	with open(DIR_DATA + "APIData/dailygraphdata.json", 'w') as FPtr:
 		dump(dgdBoi, FPtr)
-	
+
 	infectedMax = 0
 	deadMax = 0
 
@@ -313,8 +334,8 @@ def do_your_work():
 	mohfwURL = "https://www.mohfw.gov.in/"
 
 	df = read_html(mohfwURL)
-	TotalCured = df[0].iloc[-2].values[4] # CURED/DISCHARGED
-	TotalDeath = df[0].iloc[-2].values[5] # DEATH
+	TotalCured = df[1].iloc[-1].values[3] # CURED/DISCHARGED
+	TotalDeath = df[1].iloc[-1].values[4] # DEATH
 
 	for districtBoi in globalData:
 		globalData[districtBoi]["value"] = globalData[districtBoi]["infected"] / infectedMax
@@ -324,26 +345,28 @@ def do_your_work():
 	for distNum in range(1, len(districtsAffected)):
 		if districtsAffected[distNum].startswith("Aurangabad"):
 			districtsList += ", Aurangabad"
-		else:	
+		else:
 			districtsList += ", " + districtsAffected[distNum]
 	for stateNum in range(1, len(statesAffected)):
 		statesList += ", " + statesAffected[stateNum]
 
 	generalData = {
-		"deathTotal" : deadTotal,
+		"deathTotal" : int(deadTotal),
 		"districtList" : districtsList,
-		"infectedTotal" : infectedTotal,
-		"infectedMax" : infectedMax,
+		"infectedTotal" : int(infectedTotal),
+		"infectedMax" : int(infectedMax),
 		"lastUpdatedTime" : str(datetime.now()),
 		"statesList" : statesList,
-		"totalCured" : TotalCured
+		"totalCured" : int(TotalCured)
 	}
 
-	with open("cachedBoi/general.json", 'w') as FPtr:
+	# print (generalData)
+
+	with open(DIR_DATA + "APIData/general.json", 'w') as FPtr:
 		dump(generalData, FPtr)
 
 	# API - Index.html - Latest Updates
-	with open("lastUpdate.json", 'r') as FPtr:
+	with open(DIR_RES + "lastUpdate.json", 'r') as FPtr:
 		PrevData = load(FPtr)
 
 	LatestData = globalData
@@ -366,10 +389,37 @@ def do_your_work():
 
 	latestUpdates = delta(diff, DiffsList)
 
-	with open("cachedBoi/latestupdates.json", 'w') as FPtr:
+	with open(DIR_DATA + "APIData/latestupdates.json", 'w') as FPtr:
 		dump(latestUpdates, FPtr)
 
-	return True
+	# Do your magic
+	rawHTML = []
+	with open(DIR_RES + "base.html", 'r') as F:
+		for line in F:
+			rawHTML.append(line)
+
+	newHTML = []
+	flagSkip = False
+	for line in rawHTML:
+		if flagSkip:
+			flagSkip = False
+			continue
+
+		if line == '\t\t// SPECIAL BOI - Data\n':
+			newHTML.append(line)
+			addLine = '\t\tvar data = '
+			addLine += str(globalData)
+			addLine += ';\n'
+			newHTML.append(addLine)
+			flagSkip = True
+			continue
+
+		newHTML.append(line)
+
+	with open(DIR_PRODUCTION + "index.html", 'w') as FPtr:
+		FPtr.writelines(newHTML)
+
+	return (globalData, returnData)
 
 if __name__ == "__main__":
 	do_your_work()

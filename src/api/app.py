@@ -1,10 +1,12 @@
 import flask
 from flask import jsonify
 from json import load
+import os
+
+
+DIR_DATA = os.environ['DATA_REPO_PATH']
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
-
 
 @app.route('/', methods=['GET'])
 def home():
@@ -13,30 +15,27 @@ def home():
 @app.route('/states', methods=['GET'])
 def states():
 	statesJSON = {}
-	with open("cachedBoi/states.json", 'r') as FPtr:
+	with open(DIR_DATA + "/APIData/states.json", 'r') as FPtr:
 		statesJSON = load(FPtr)
 	return jsonify(statesJSON)
 
 @app.route('/dailygraphdata', methods=['GET'])
 def dailygraphdata():
 	statesJSON = {}
-	with open("cachedBoi/dailygraphdata.json", 'r') as FPtr:
+	with open(DIR_DATA + "/APIData/dailygraphdata.json", 'r') as FPtr:
 		statesJSON = load(FPtr)
 	return jsonify(statesJSON)
 
 @app.route('/generaldata', methods=['GET'])
-def states():
+def generaldata():
 	generalJSON = {}
-	with open("cachedBoi/general.json", 'r') as FPtr:
+	with open(DIR_DATA + "/APIData/general.json", 'r') as FPtr:
 		generalJSON = load(FPtr)
 	return jsonify(generalJSON)
 
 @app.route('/latestupdates', methods=['GET'])
-def states():
+def latestupdates():
 	latestUpdatesJSON = {}
-	with open("cachedBoi/latestupdates.json", 'r') as FPtr:
+	with open(DIR_DATA + "/APIData/latestupdates.json", 'r') as FPtr:
 		latestUpdatesJSON = load(FPtr)
 	return jsonify(latestUpdatesJSON)
-
-
-app.run(host='0.0.0.0', port=5000, debug=True)
