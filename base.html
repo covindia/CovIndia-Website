@@ -903,8 +903,7 @@
 
 	<div class="container" style="margin-top: 2em; text-align: center;" id="latest-update">
 		<h4>Latest Updates</h4><br>
-		<!-- <span id="latest-updates">Fetching</span> -->
-		<!-- LATEST UPDATES -->
+		<span id="latest-updates"></span>
 	</div>	
 
 	<div class="container" style="margin-top: 2em; text-align: center;">
@@ -1086,21 +1085,20 @@
 			} 
 		});
 
-		// $.when(
-		// 	$.ajax("https://v1.api.covindia.com/latestupdates").then(response =>{
-		// 		// $("#latest-updates")[0].innerHTML = response;
-		// 		// $("#deaths")[0].innerText = response.deathTotal;
-		// 		// $("#infected")[0].innerText = response.infectedTotal;
-		// 		console.log(response);
-		// 	})
-		// );
+		$.when(
+			$.ajax("https://v1.api.covindia.com/latestupdates").then(response =>{
+				for (i in response){
+					$("#latest-updates")[0].innerHTML += response[i];
+
+				}
+			})
+		);
 		$.when(
 			$.ajax("https://v1.api.covindia.com/generaldata").then(response =>{
 				$("#cured")[0].innerText = response.totalCured;
 				$("#deaths")[0].innerText = response.deathTotal;
 				$("#infected")[0].innerText = response.infectedTotal;
 				$("#max-infected")[0].innerText = response.infectedMax;
-				console.log(response);
 			})
 		);
 
