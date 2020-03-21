@@ -54,6 +54,7 @@ body {
 /* Navbar */
 .navbar {
 	background-color: #260926;
+	z-index: 10000;
 }
 
 .navbar-brand {
