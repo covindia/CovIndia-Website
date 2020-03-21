@@ -19,10 +19,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
 
 	<link rel="shortcut icon" href="icons/icon.png">
 
@@ -78,12 +74,20 @@
 						style="font-weight: bold;padding-bottom:4px;" href="about">About</a></li>
 			</ul>
 
-		</div>
+		</div>		
 	</nav>
 
 	<div id="text-data">
 		<div class="container" style="margin-top: 5em;text-align: center; color: rgb(180, 180, 180);">
-			<h4>The Covid-19 (Coronavirus) pandemic by district in India.</h4>
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<h4>The Covid-19 (Coronavirus) pandemic by district in India.</h4>
+				</div>
+				<div class="col-md-3">
+					<div id="google_translate_element" style="text-align: right;"></div>
+				</div>
+			</div>
 		</div>
 
 		<div id="total-number-infected" style="display:none;">
@@ -93,9 +97,9 @@
 		</div>
 		<div id="total-number-infected">
 			<div class="container" style="margin-top: 1em; text-align: center;">
-				<h6 style="font-size: bold; font-size: 1.5em;">Infected: <span id="infected">Fetching</span> <br><span
-						style="font-size:0.725em;"> Cured: <span id="cured">Fetching</span> <span style="color: #A9A9A9">|</span>
-						Deaths: <span id="deaths">Fetching</span></span></h6>
+				<h6 style="font-size: bold; font-size: 1.5em;">Infected: <span id="infected" style="font-size: inherit;"></span> <br><span
+						style="font-size:0.725em;"> Cured: <span id="cured"></span> <span style="color: #A9A9A9">|</span>
+						Deaths: <span id="deaths"></span></span></h6>
 				<a href="#latest-update" style="color: #EA00FF; font-size:1.2rem">[Our Sources]</a>
 			</div>
 		</div>
@@ -892,12 +896,11 @@
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6" style="text-align:center; justify-content: center;">
+				<p style="font-size:1.5rem;">Click <a href="https://covindia.com/analytics"
+						style="color: #CC99CC; font-size:1.5rem; ">here</a> to see daily trends.</p>
 				<a href="https://covindia.com/analytics">
 					<img src="images/ss.png" alt="" class="img-fluid">
-				</a>
-				<p style="font-size:1.5rem;">Click <a href="https://covindia.com/analytics"
-						style="color: #CC99CC; font-size:1.5rem; ">here</a> to see more daily trends.</p>
-				<br><br><br><br>
+				</a>				
 				<a href="https://twitter.com/covindia/status/1240565650495377410">
 					<img src="icons/feedbackIcon.png" alt="Feedback Image" width="150px">
 				</a><br>
@@ -960,7 +963,12 @@
 			</a>
 		</div>
 	</div>
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+	</script>
 	<script>
 		function _colornum(color) {
 			var l = color.length;
@@ -1100,7 +1108,12 @@
 				console.log(response)
 			})
 		)
-
+		function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+		pageLanguage: 'en',
+		includedLanguages: 'en,hi,te'
+		}, 'google_translate_element');
+		}
 	</script>
 <!-- <script src="js/custom.js"></script> -->
 </body>
