@@ -45,8 +45,8 @@ if __name__ == "__main__":
 			PrevData = load(F)
 
 		# Check if our code has changed from the git repository
-		# run(['git', 'fetch'])
-		# run(['git', 'pull', 'origin', branch])
+		run(['git', 'fetch'])
+		run(['git', 'pull', 'origin', branch])
 
 		# Make minion run and do our dirty work
 		Data, DiffsList = minion.do_your_work() # I know, cute right?
