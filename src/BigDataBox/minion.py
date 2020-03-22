@@ -158,7 +158,7 @@ def do_your_work():
 	"""
 
 	scope = ['https://spreadsheets.google.com/feeds']
-	creds = ServiceAccountCredentials.from_json_keyfile_name(DIR_RES + 'coronatracker-3b2e7c0f2396.json',scope)
+	creds = ServiceAccountCredentials.from_json_keyfile_name(DIR_RES + 'creds.json',scope)
 	client = gspread.authorize(creds)
 	with open(DIR_RES + "URL", 'r') as F:
 		URL = F.read()
