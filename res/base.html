@@ -4,7 +4,7 @@
 	<link rel="manifest" href="/manifest.json">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<meta name="description" content="This is a live visualization of the Covid-19 (Coronavirus) pandemic by district in India">
+	<meta name="description" content="A live visualization of the Covid-19 (Coronavirus) pandemic by district in India">
 	<meta name="keywords" content="Mahindra Ecole Centrale Coronavirus, Coronavirus Visualizer India, Coronavirus India District, Coronavirus India District,
 	Covid-19 Visualizer India, Covid-19 Visualizer India District, Corona India District Wise, Corona India Live, Covid India Live, Corona India Detailed, Maharastra Covid,
 	Maharastra Corona, Virus, Live Tracking, Mahindra Ecole Centrale Koronavirus, Koronavirus Visualizer India, Koronavirus India District, Koronavirus India District,
@@ -24,10 +24,10 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
 
-	<link rel="shortcut icon" href="icons/icon.png">
+	<link rel="shortcut icon" href="assets/icons/icon.png">
 
 	<!-- Custom Imports -->
-	<link rel="stylesheet" href="styles.css" type="text/css">
+	<link rel="stylesheet" href="assets/css/styles.css" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Mina&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap" rel="stylesheet"> 
@@ -44,7 +44,7 @@
 			} else {
 				// Register the service worker
 				navigator.serviceWorker
-					.register("sw.js", {
+					.register("assets/js/sw.js", {
 						scope: "./"
 					})
 					.then(function (reg) {
@@ -884,18 +884,18 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<img class="img" src="images/map.gif" alt="GIF" style="width:100%">
+				<img class="img" src="assets/img/map.gif" alt="GIF" style="width:100%">
 			</div>
 			<div class="col-md-3"></div>
 			<div class="col-md-6" style="text-align:center; justify-content: center;">
 								<p style="font-size:1.5rem;">Click <a href="https://covindia.com/analytics"
 										style="color: #CC99CC; font-size:1.5rem; ">here</a> to see daily trends.</p>
 				<a href="https://covindia.com/analytics">
-					<img src="images/ss.png" alt="" class="img-fluid">
+					<img src="assets/img/ss.png" alt="" class="img-fluid">
 				</a>
 				<br><br>
 				<a href="https://twitter.com/covindia/status/1240565650495377410">
-					<img src="icons/feedbackIcon.png" alt="Feedback Image" width="150px">
+					<img src="assets/img/icons/feedbackIcon.png" alt="Feedback Image" width="150px">
 				</a><br>
 				If you find any error in our data, please click <a href="https://twitter.com/covindia/status/1240565650495377410" style="color:#CC99CC; font-size: 1em;">here</a>.
 
@@ -1110,6 +1110,6 @@
 
 
 	</script>
-<!-- <script src="js/custom.js"></script> -->
+<!-- <script src="assets/js/custom.js"></script> -->
 </body>
 </html>
