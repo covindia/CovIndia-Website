@@ -5,3 +5,4 @@ node_modules
 API/URL
 API/*.json
 API/cachedBoi/*
+res/
