@@ -30,7 +30,7 @@ DIR_DATA = "../data/"
 if __name__ == "__main__":
 
 	# Set our working variables
-	branch = 'shift'
+	branch = 'master'
 	minutes = args.minutes[0]
 
 	# Dictionaries that'll help us calculate the delta (i.e. live updates)
