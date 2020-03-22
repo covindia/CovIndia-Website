@@ -7,3 +7,6 @@ API/*.json
 API/cachedBoi/*
 res/*.json
 res/URL
+
+src/BigDataBox/__pycache__/*
+

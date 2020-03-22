@@ -200,7 +200,10 @@ def do_your_work():
 			try:
 				statesBoi[state] += 0
 			except:
-				statesBoi[state] = int(row[4])
+				if row[4] == "":
+					statesBoi[state] = 0
+				else:
+					statesBoi[state] = int(row[4])
 
 		try:
 			dgdBoi[str(date)] += int(row[4])
