@@ -30,7 +30,7 @@ DIR_DATA = "../data/"
 if __name__ == "__main__":
 
 	# Set our working variables
-	branch = 'master'
+	branch = 'shift'
 	minutes = args.minutes[0]
 
 	# Dictionaries that'll help us calculate the delta (i.e. live updates)
@@ -71,9 +71,9 @@ if __name__ == "__main__":
 		minion.delta(diff, DiffsList)
 
 		# index.html got changed because of minion.do_your_work. Push it to origin for CD and deploying the build
-		# run(['git', 'add', PUBLISH_DIR + 'index.html'])
-		# run(['git', 'commit', '-m', '"Update ' + datetime.now().strftime("%Y-%m-%d %H:%M")+'"'])
-		# run(['git', 'push', 'origin', branch])
+		run(['git', 'add', DIR_PRODUCTION])
+		run(['git', 'commit', '-a', '-m', '"Update ' + datetime.now().strftime("%Y-%m-%d %H:%M")+'"'])
+		run(['git', 'push', 'origin', branch])
 
 		# Data needs to be distributed amongst droplets. Triggers through git hooks
 		run('git add .'.split(), cwd=DIR_DATA)
