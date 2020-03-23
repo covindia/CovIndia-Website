@@ -1071,7 +1071,7 @@
 		window.onload = function() {
 			var districtData;
 			$.ajax({
-				url: 'https://testing.api.covindia.com/district-values',
+				url: 'https://test.api.covindia.com/district-values',
 				dataType: 'json',
 				type: 'GET',
 				contentType: 'application/json',
@@ -1136,7 +1136,7 @@
 		});
 
 		$.when(
-			$.ajax("https://v1.api.covindia.com/latestupdates").then(response =>{
+			$.ajax("https://v1.api.covindia.com/latest-updates").then(response =>{
 				for (i in response){
 					$("#latest-updates")[0].innerHTML += response[i];
 
@@ -1144,7 +1144,7 @@
 			})
 		);
 		$.when(
-			$.ajax("https://v1.api.covindia.com/generaldata").then(response =>{
+			$.ajax("https://v1.api.covindia.com/general").then(response =>{
 				$("#cured")[0].innerText = response.totalCured;
 				$("#deaths")[0].innerText = response.deathTotal;
 				$("#infected")[0].innerText = response.infectedTotal;
