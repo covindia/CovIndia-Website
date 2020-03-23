@@ -1069,18 +1069,13 @@
 		var initLoadTooltip = false;
 
 		window.onload = function() {
-			var districtData;
-			$.ajax({
-				url: 'https://test.api.covindia.com/district-values',
-				dataType: 'json',
-				type: 'GET',
-				contentType: 'application/json',
-				success: function(data) {
-					districtData = data;
-				}
-			});
-
+			var districtData={};
+			$.when(
+			$.ajax("https://test.api.covindia.com/district-values").then(response =>{
+			districtData = response;
 			renderData(districtData);
+			})
+			);
 
 			$('.clickable').tooltip();
     
