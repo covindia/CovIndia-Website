@@ -1074,11 +1074,8 @@
 			$.ajax("https://v1.api.covindia.com/district-values").then(response =>{
 			districtData = response;
 			renderData(districtData);
-			})
-			);
-
 			$('.clickable').tooltip();
-    
+
 			$('.clickable').tooltip({
 			open: function(e,o){
 				$(o.tooltip).mouseover(function(e){
@@ -1103,11 +1100,13 @@
 			catch{
 				var a = 1;
 			}
-		
+
 			$('#Bangalore').tooltip().mouseover();
 			$('#Mumbai-Unique').tooltip().mouseover();
 			$('#Ladakh').tooltip().mouseover();
 			$('#Delhi-Unique').tooltip().mouseover();
+			})
+			);
 		};
 
 		$("#map").on("tap", function(){
