@@ -40,6 +40,13 @@ def latest_updates():
 		latestUpdatesJSON = load(FPtr)
 	return jsonify(latestUpdatesJSON)
 
+@app.route('/district-values', methods=['GET'])
+def district_values():
+	districtValuesJSON = {}
+	with open(DIR_DATA + "/APIData/district_values.json", 'r') as FPtr:
+		districtValuesJSON = load(FPtr)
+	return jsonify(districtValuesJSON)
+
 @app.route('/i-donated-a-rick-roll', methods=['GET'])
 def donated():
 	try:
