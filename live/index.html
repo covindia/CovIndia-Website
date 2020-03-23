@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="manifest" href="/manifest.json">
+	<link rel="manifest" href="/manifest.json">gitgit
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<meta name="description" content="A live visualization of the Covid-19 (Coronavirus) pandemic by district in India">
@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 
 
-	<link rel="shortcut icon" href="assets/icons/icon.png">
+	<link rel="shortcut icon" href="assets/img/icons/icon.png">
 
 	<!-- Custom Imports -->
 	<link rel="stylesheet" href="assets/css/styles.css" type="text/css">
@@ -69,7 +69,7 @@
 
 			<ul class="nav navbar-nav navbar-item-center">
 				<li class="nav-item" role="presentation"><a class="nav-link active"
-						style="font-weight: bold;padding-bottom:4px;" href="https://covindia.com/analytics">Analytics</a>
+						style="font-weight: bold;padding-bottom:4px;" href="analytics">Analytics</a>
 				</li>
 				<li class="nav-item" role="presentation"><a class="nav-link active"
 						style="font-weight: bold;padding-bottom:4px;" href="about">About</a></li>
@@ -909,7 +909,7 @@
 			</div>
 			<div class="col-md-3"></div>
 			<div class="col-md-6" style="text-align:center; justify-content: center;">
-					<p style="font-size:1.5rem;"><img src="assets/img/icons/graph.png" alt="graph icon" width="25px" style="padding-bottom: 10px;">&nbsp;Click <a href="https://covindia.com/analytics"
+					<p style="font-size:1.5rem;"><img src="assets/img/icons/graph.png" alt="graph icon" width="25px" style="padding-bottom: 10px;">&nbsp;Click <a href="analytics"
 						style="color: #CC99CC; font-size:1.5rem; ">here</a> to see daily trends. <br><small style="font-size: 0.75rem; color: #00ffff"><strong>Analytics page is back up!</strong></small></p>
 						<blockquote class="blockquote">
   							<p class="mb-0">"...district wise data is going to be phenomenally useful."</p>
@@ -1071,54 +1071,48 @@
 		window.onload = function() {
 			var districtData={};
 			$.when(
-			$.ajax("https://v1.api.covindia.com/district-values").then(response =>{
-			districtData = response;
-			renderData(districtData);
-			$('.clickable').tooltip();
+				$.ajax("https://v1.api.covindia.com/district-values").then(response =>{
+					districtData = response;
+					renderData(districtData);
+					$('.clickable').tooltip();
 
-			$('.clickable').tooltip({
-			open: function(e,o){
-				$(o.tooltip).mouseover(function(e){
-					$('.clickable').tooltip('close');
-				});
-				$(o.tooltip).mouseout(function(e){
-				});
-			},
-			close: function(e,o) {},
-			show: { duration: 800 }
-			});
+					$('.clickable').tooltip({
+					open: function(e,o){
+						$(o.tooltip).mouseover(function(e){
+							$('.clickable').tooltip('close');
+						});
+						$(o.tooltip).mouseout(function(e){
+						});
+					},
+					close: function(e,o) {},
+					show: { duration: 800 }
+					});
 
-			try{
-				$(".Delhi").attr('data-original-title', 'Delhi' + ' | Infected: ' + data['Delhi'].infected + ' | Deaths: ' + data['Delhi'].dead);
-			}
-			catch{
-				var a = 1;
-			}
-			try{
-				$(".Mumbai").attr('data-original-title', 'Mumbai' + ' | Infected: ' + data['Mumbai'].infected + ' | Deaths: ' + data['Mumbai'].dead);
-			}
-			catch{
-				var a = 1;
-			}
-
-			// $('#Bangalore').tooltip().mouseover();
-			// $('#Mumbai-Unique').tooltip().mouseover();
-			$('#Ladakh').tooltip().mouseover();
-			$('#Pune').tooltip().mouseover();
-			$('#Kasargod').tooltip().mouseover();
-
-			// $('#Delhi-Unique').tooltip().mouseover();
-			})
+					try{
+						$(".Delhi").attr('data-original-title', 'Delhi' + ' | Infected: ' + districtData['Delhi'].infected + ' | Deaths: ' + districtData['Delhi'].dead);
+					}
+					catch{
+						var a = 1;
+					}
+					try{
+						$(".Mumbai").attr('data-original-title', 'Mumbai' + ' | Infected: ' + districtData['Mumbai'].infected + ' | Deaths: ' + districtData['Mumbai'].dead);
+					}
+					catch{
+						var a = 1;
+					}
+					$('#Mumbai-Unique').tooltip().mouseover();
+					$('#Ladakh').tooltip().mouseover();
+					$('#Kasargod').tooltip().mouseover();
+					$('#Delhi-Unique').tooltip().mouseover();
+				})
 			);
 		};
 
 		$("#map").on("tap", function(){
 			if (initLoadTooltip == false){
-				// $('#Bangalore').tooltip().mouseout();
-				// $('#Mumbai-Unique').tooltip().mouseout();
-				// $('#Delhi-Unique').tooltip().mouseout();
+				$('#Mumbai-Unique').tooltip().mouseout();
+				$('#Delhi-Unique').tooltip().mouseout();
 				$('#Ladakh').tooltip().mouseout();
-				$('#Pune').tooltip().mouseout();
 				$('#Kasargod').tooltip().mouseout();
 				
 				initLoadTooltip = true;
@@ -1127,11 +1121,9 @@
 
 		$("#map").on("click", function(){
 			if (initLoadTooltip == false){
-				// $('#Bangalore').tooltip().mouseout();
-				// $('#Mumbai-Unique').tooltip().mouseout();
-				// $('#Delhi-Unique').tooltip().mouseout();
+				$('#Mumbai-Unique').tooltip().mouseout();
+				$('#Delhi-Unique').tooltip().mouseout();
 				$('#Ladakh').tooltip().mouseout();
-				$('#Pune').tooltip().mouseout();
 				$('#Kasargod').tooltip().mouseout();
 				initLoadTooltip = true;
 			} 
