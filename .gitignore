@@ -9,5 +9,4 @@ res/*.json
 res/URL
 res/assets/*
 
-src/BigDataBox/__pycache__/*
-
+__pycache__/
