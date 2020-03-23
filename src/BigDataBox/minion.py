@@ -207,7 +207,7 @@ def do_your_work():
 
 		try:
 			cutoff = datetime(2020, 3, 1)
-			if datetime.strptime(date, "%d%m%Y") > cutoff:
+			if datetime.strptime(date, "%d/%m/%Y") > cutoff:
 				dgdBoi[str(date)] += int(row[4])
 		except:
 			try:
