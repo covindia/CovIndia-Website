@@ -1068,14 +1068,22 @@
 
 		var initLoadTooltip = false;
 
-		window.onload = function() {
-			$.ajax({ 
-				type: 'GET', 
-				url: 'https://testing.api.covindia.com/district-values', 
-				data: { distData }, 
-			});
+		ajaxCall(result => {
+			renderData(result);
+		})
 
-			renderData(distData);
+		window.onload = function() {
+			function ajaxCall(callback){
+				$.ajax({
+					url: 'https://testing.api.covindia.com/district-values',
+					dataType: 'json',
+					type: 'GET',
+					contentType: 'application/json',
+					success: callback
+				});
+			}
+
+			// renderData(distData);
 
 			$('.clickable').tooltip();
     
