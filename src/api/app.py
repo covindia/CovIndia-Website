@@ -4,7 +4,7 @@ from json import load, dump
 import os
 
 
-# DIR_DATA = os.environ['DATA_REPO_PATH']
+DIR_DATA = os.environ['DATA_REPO_PATH']
 
 app = flask.Flask(__name__)
 

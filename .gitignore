@@ -8,5 +8,8 @@ API/cachedBoi/*
 res/*.json
 res/URL
 res/assets/*
+rick*son
 
 __pycache__/
+*__pycache__*
+*.pyc

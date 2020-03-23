@@ -18,11 +18,11 @@ from datetime import datetime
 from json import dump, load
 
 # Yes, the minion has it's own slaves to work.
-from utils.daily_dates.daily_dates import daily_dates
-from utils.latest_updates.latest_updates import latest_updates_V2
-from utils.general.general import general
-from utils.general.district_values import district_values
-from utils.states_affected_numbers.states_affected_numbers import states_affected_numbers
+from BigDataBox.utils.daily_dates.daily_dates import daily_dates
+from BigDataBox.utils.latest_updates.latest_updates import latest_updates_V2
+from BigDataBox.utils.general.general import general
+from BigDataBox.utils.general.district_values import district_values
+from BigDataBox.utils.states_affected_numbers.states_affected_numbers import states_affected_numbers
 
 # Directories
 DIR_DATA = "../data/"

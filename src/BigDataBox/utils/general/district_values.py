@@ -16,7 +16,7 @@ def district_values(globalData):
 		The API function for district-values. Saves output to DIR_DATA / APIData / district_values.json
 	"""
 	for district in globalData:
-		district.pop("source", None)
+		globalData[district].pop("source", None)
 
 	with open(DIR_DATA + "APIData/district_values.json", 'w') as FPtr:
 		dump(globalData, FPtr)
