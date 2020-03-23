@@ -247,7 +247,15 @@ a:hover {
 	color: #cc99cc ;
 }
 
-.no-dec a :hover {
+.no-dec a:hover {
 	text-decoration: none;
 	color: #7e4e8a;
+}
+
+.tweet a:hover {
+	text-decoration: none
+}
+
+.tweet a {
+	color: #cc99cc;
 }
