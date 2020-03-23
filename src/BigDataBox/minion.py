@@ -206,7 +206,9 @@ def do_your_work():
 					statesBoi[state] = int(row[4])
 
 		try:
-			dgdBoi[str(date)] += int(row[4])
+			cutoff = datetime(2020, 3, 1)
+			if datetime.strptime(date, "%d/%m/%Y") > cutoff:
+				dgdBoi[str(date)] += int(row[4])
 		except:
 			try:
 				dgdBoi[str(date)] += 0
