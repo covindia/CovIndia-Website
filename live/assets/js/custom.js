@@ -223,7 +223,7 @@ $.when(
                   if (index + 1 === values.length) {
                     return value;
                   }
-                  if (index % 5 === 0) {
+                  if (index % 4 === 0) {
                     return value;
                   }
                 }
@@ -291,7 +291,7 @@ $.when(
                   if (index + 1 === values.length) {
                     return value;
                   }
-                  if (index % 5 === 0) {
+                  if (index % 4 === 0) {
                     return value;
                   }
                 }
