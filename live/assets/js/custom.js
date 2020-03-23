@@ -51,7 +51,7 @@ const createMapArr = queryParam => {
   var localMapData = [];
   for (dataPoint in apiData) {
     localMapData.push({
-      x: dataPoint.replace("/2020", ""),
+      x: dataPoint.replace("/2020", "").replace("/03", " Mar"),
       y: apiData[dataPoint]
     });
   }
@@ -70,7 +70,9 @@ const createNewaDailyArr = () => {
   });
   arrayOfObj.forEach((item, index) => {
     localMapData.push({
-      x: Object.keys(item)[0],
+      x: Object.keys(item)[0]
+        .replace("/2020", "")
+        .replace("/03", " Mar"),
       y: pureVals[index]
     });
   });
@@ -208,16 +210,23 @@ $.when(
             {
               scaleLabel: {
                 display: true,
-                labelString: "Days"
+                labelString: "Date"
               },
               gridLines: {
                 color: "#660066",
                 zeroLineColor: "white",
-                zeroLineWidth: 2
+                zeroLineWidth: 2,
+                drawTicks: true
               },
               ticks: {
-                autoSkip: true,
-                maxTicksLimit: 4
+                callback: function(value, index, values) {
+                  if (index + 1 === values.length) {
+                    return value;
+                  }
+                  if (index % 4 === 0) {
+                    return value;
+                  }
+                }
               }
             }
           ],
@@ -278,12 +287,18 @@ $.when(
                 zeroLineWidth: 2
               },
               ticks: {
-                autoSkip: true,
-                maxTicksLimit: 4
+                callback: function(value, index, values) {
+                  if (index + 1 === values.length) {
+                    return value;
+                  }
+                  if (index % 4 === 0) {
+                    return value;
+                  }
+                }
               },
               scaleLabel: {
                 display: true,
-                labelString: "Days"
+                labelString: "Date"
               }
             }
           ],
