@@ -29,7 +29,7 @@ def daily_dates():
 @app.route('/general', methods=['GET'])
 def general():
 	generalJSON = {}
-	with open(DIR_DATA + "/APIData/general.json", 'r') as FPtr:
+	with open(DIR_DATA + "/APIData/index_general.json", 'r') as FPtr:
 		generalJSON = load(FPtr)
 	return jsonify(generalJSON)
 

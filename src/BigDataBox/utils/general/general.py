@@ -17,7 +17,7 @@ DIR_DATA = "../data/"
 
 def general(data):
 	"""
-		The API function for general.  Saves output to DIR_DATA / APIData / general.json
+		The API function for general.  Saves output to DIR_DATA / APIData / index_general.json
 	"""
 	infectedTotal = 0
 	deadTotal = 0
@@ -139,8 +139,8 @@ def general(data):
 
 	df = read_html(mohfwURL)
 
-	TotalCured = df[1].iloc[-1].values[4] # CURED/DISCHARGED
-	TotalDeath = df[1].iloc[-1].values[5] # DEATH
+	TotalCured = df[1].iloc[-1].values[3] # CURED/DISCHARGED
+	TotalDeath = df[1].iloc[-1].values[4] # DEATH
 
 	for districtBoi in globalData:
 		globalData[districtBoi]["value"] = globalData[districtBoi]["infected"] / infectedMax
@@ -165,7 +165,7 @@ def general(data):
 		"totalCured" : int(TotalCured)
 	}
 
-	with open(DIR_DATA + "APIData/general.json", 'w') as FPtr:
+	with open(DIR_DATA + "APIData/index_general.json", 'w') as FPtr:
 		dump(generalData, FPtr)
 
 	return (globalData, returnData)
