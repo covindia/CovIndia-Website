@@ -242,3 +242,12 @@ a:hover {
 .grow:hover {
    transform: scale(1.1);
 }
+
+.no-dec a {
+	color: #cc99cc ;
+}
+
+.no-dec a :hover {
+	text-decoration: none;
+	color: #7e4e8a;
+}
