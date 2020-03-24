@@ -1,14 +1,14 @@
-Notification.requestPermission(function(status) {
-  console.log("Notification permission status:", status);
-});
+// Notification.requestPermission(function(status) {
+//   console.log("Notification permission status:", status);
+// });
 
-function displayNotification() {
-  if (Notification.permission == "granted") {
-    navigator.serviceWorker.getRegistration().then(function(reg) {
-      reg.showNotification("Thanks for subscribing for to our notifications.");
-    });
-  }
-}
+// function displayNotification() {
+//   if (Notification.permission == "granted") {
+//     navigator.serviceWorker.getRegistration().then(function(reg) {
+//       reg.showNotification("Thanks for subscribing for to our notifications.");
+//     });
+//   }
+// }
 
 var apiData = [];
 var apiStateData = [];
@@ -27,6 +27,8 @@ var ctx = document.getElementById("myChart").getContext("2d");
 var ctxDaily = document.getElementById("newDailyCases").getContext("2d");
 
 var stateCtx = document.getElementById("stateCases").getContext("2d");
+
+console.log(ctx);
 
 const createTempGraph = () => {
   var localMapData = [];
@@ -99,7 +101,7 @@ $.when(
       hardStateCases = response;
       stateCases = createTempGraph();
       stateCases = sort_by_key(stateCases, "y");
-      stateCases.splice(0, 9);
+      stateCases.splice(0, 14);
       var barGraph = new Chart(stateCtx, {
         type: "bar",
         data: {
@@ -124,7 +126,8 @@ $.when(
           maintainAspectRatio: false,
           title: {
             display: true,
-            text: "Most affected states"
+            text: "Most affected states",
+            fontSize: 20
           },
           animation: {
             duration: 2000,
@@ -198,10 +201,12 @@ $.when(
       },
       scaleFontColor: "#FFFFFF",
       options: {
+        // responsive: true,
         maintainAspectRatio: false,
         title: {
           display: true,
-          text: "Total Cases in India"
+          text: "Total Cases in India",
+          fontSize: 20
         },
         animation: {
           duration: 2000,
@@ -274,7 +279,8 @@ $.when(
         maintainAspectRatio: false,
         title: {
           display: true,
-          text: "Daily new cases in India"
+          text: "Daily new cases in India",
+          fontSize: 20
         },
         animation: {
           duration: 2000,
@@ -348,11 +354,11 @@ function iOS() {
   return false;
 }
 
-if (iOS()) {
-  jQuery(document).ready(function() {
-    jQuery('meta[name="viewport"]').attr(
-      "content",
-      "width=device-width, initial-scale=0.5"
-    );
-  });
-}
+// if (iOS()) {
+//   jQuery(document).ready(function() {
+//     jQuery('meta[name="viewport"]').attr(
+//       "content",
+//       "width=device-width, initial-scale=0.5"
+//     );
+//   });
+// }

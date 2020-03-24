@@ -172,22 +172,7 @@ body {
    -webkit-animation: chartfix 5s;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
-   #myChart {
-      background-color: #260926;
-      border-radius: 10px;
-   }
 
-   #newDailyCases {
-      background-color: #260926;
-      border-radius: 10px;
-   }
-
-   #stateCases {
-      background-color: #260926;
-      border-radius: 10px;
-   }
-}
 
 @media (max-width: 768px) {
    .tooltip-inner {
@@ -239,25 +224,26 @@ a:hover {
 .grow {
    transition: all 0.2s ease-in-out;
 }
+
 .grow:hover {
    transform: scale(1.1);
 }
 
 .no-dec a {
-	color: #cc99cc ;
+   color: #cc99cc;
 }
 
 .no-dec a:hover {
-	text-decoration: none;
-	color: #7e4e8a;
+   text-decoration: none;
+   color: #7e4e8a;
 }
 
 .tweet a:hover {
-	text-decoration: none
+   text-decoration: none
 }
 
 .tweet a {
-	color: #cc99cc;
+   color: #cc99cc;
 }
 
 .donate {
@@ -271,4 +257,129 @@ a:hover {
    border-color: #cc99cc
 }
 
+.grad_card {
+   border-radius: 25px;
+   background: linear-gradient(#20033c 0%, #303 100%);
+   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.53);
+   margin: 10px;
+   height: 450px;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   align-items: center !important;
+   justify-content: center !important;
+}
 
+.gif-card {
+   padding: 15px;
+}
+
+.wrapper {
+   width: 100%;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+   #myChart {
+      background-color: #260926;
+      border-radius: 10px;
+   }
+
+   #newDailyCases {
+      background-color: #260926;
+      border-radius: 10px;
+   }
+
+   #stateCases {
+      background-color: #260926;
+      border-radius: 10px;
+   }
+
+   .grad_card {
+      display: none;
+   }
+}
+
+.stats {
+   display: flex;
+   flex-direction: row;
+}
+
+.stat-card {
+   flex: 1;
+   border-radius: 20px;
+   background: linear-gradient(#20033c 0%, #070000 100%);
+   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.53);
+   height: 150px;
+   margin: 10px;
+   width: 272px;
+}
+
+.stat-title {
+   font-family: 'Poppins';
+   font-weight: 600;
+   font-size: 1.0rem;
+   text-align: center;
+   color: #fff;
+   margin: 15px;
+   margin-top: 10px;
+   padding-top: 5px;
+   display: flex;
+}
+
+#infected-desk {
+   font-family: "Poppins";
+   font-weight: 300;
+   text-align: center;
+   color: #eada0a;
+   opacity: 0.64;
+   font-size: 2.5rem !important;
+   flex: 1;
+}
+
+.stat-image {
+   width: 60px;
+   height: 60px;
+   opacity: 0.65;
+}
+
+.stat-wrapper {
+   display: flex;
+   flex: 1;
+}
+
+
+#cured-desk {
+   flex: 1;
+   font-family: "Poppins";
+   font-weight: 300;
+   text-align: center;
+   color: #00EF00;
+   opacity: 0.64;
+   font-size: 2.5rem !important;
+}
+
+.death-title {
+   font-family: "Poppins";
+   font-weight: 600;
+   font-size: 1.0rem;
+   text-align: center;
+   color: #958686;
+   opacity: 0.69;
+   margin: 15px;
+   padding-top: 5px;
+   display: flex;
+}
+
+#deaths-desk {
+   font-family: "Poppins";
+   font-weight: 300;
+   font-size: 2.5rem !important;
+   text-align: center;
+   color: #958686;
+   opacity: 0.69;
+}
+
+.death-extra {
+   align-items: center !important;
+   justify-content: center !important;
+}
