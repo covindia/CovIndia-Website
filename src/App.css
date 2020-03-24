@@ -1,0 +1,302 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+* {
+  font-family: "Exo", "Mina"sans-serif;
+  font-size: 16px;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #3f0f3f;
+  color: white;
+}
+
+#map {
+  background-color: #3f0f3f;
+}
+
+@media (max-width: 1000px) {
+  #text-data h3 {
+    font-size: 16px;
+  }
+
+  #text-data h4 {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1000px) {
+  #text-data h3 {
+    font-size: 20px;
+  }
+
+  #text-data h4 {
+    font-size: 16px;
+  }
+}
+
+/* @media (max-width: 768px){
+	#legend-colorbar{
+		text-align: center;
+	}
+}
+
+@media (min-width: 768px){
+	#legend-colorbar{
+		text-align: right;
+	}
+} */
+
+/* Navbar */
+.navbar {
+  background-color: #260926;
+  z-index: 10000;
+}
+
+.navbar-brand {
+  color: white !important;
+}
+
+@media (min-width: 992px) {
+  .navbar-item-center {
+    margin-left: 2em;
+    margin-right: 3em;
+  }
+
+  .nav-item {
+    padding-left: 5em;
+  }
+}
+
+.nav-link {
+  color: #ffffff !important;
+  font-size: 1.2em;
+}
+
+.footer-dark {
+  padding-top: 5em;
+  margin-top: 5em;
+  width: 100%;
+  background-color: #3f0f3f;
+  padding-bottom: 5em;
+}
+
+.footer-dark-heading {
+  text-align: center;
+  color: white;
+}
+
+.footer-navigation {
+  text-align: center;
+}
+
+.footer-navigation a {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1em;
+}
+
+.footer-navigation a:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-icons a {
+  text-decoration: none;
+}
+
+.fa-whatsapp {
+  font-size: 1.7em;
+}
+
+.float {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #cc99cc;
+  color: #303030;
+  border-radius: 50px;
+  text-align: center;
+  z-index: 1;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  box-shadow: 3px 2px #6d506d;
+  transition: box-shadow 0.3s;
+}
+
+.fab {
+  text-shadow: 1px 1px #3f3f3f;
+}
+
+.my-float {
+  margin-top: 5px;
+}
+
+.my-float:hover {
+  color: #3f3f3f;
+}
+
+#latest-update a {
+  color: #cc99cc;
+}
+
+@keyframes chartfix {
+  0% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+  }
+
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+.panel {
+  animation-delay: 3s;
+  -webkit-animation-delay: 3s;
+  animation: chartfix 5s;
+  -webkit-animation: chartfix 5s;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #myChart {
+    background-color: #260926;
+    border-radius: 10px;
+  }
+
+  #newDailyCases {
+    background-color: #260926;
+    border-radius: 10px;
+  }
+
+  #stateCases {
+    background-color: #260926;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tooltip-inner {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .tooltip-inner {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .tooltip-inner {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.float-twitter {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  bottom: 20px;
+  right: 70px;
+  background-color: #cc99cc;
+  color: #303030;
+  border-radius: 50px;
+  text-align: center;
+  z-index: 1;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  box-shadow: 3px 2px #6d506d;
+}
+
+.fa-twitter {
+  font-size: 1.7em;
+}
+
+#body-about a {
+  color: #cc99cc;
+}
+
+a:hover {
+  color: #3f3f3f;
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}
+
+.no-dec a {
+  color: #cc99cc;
+}
+
+.no-dec a:hover {
+  text-decoration: none;
+  color: #7e4e8a;
+}
+
+.tweet a:hover {
+  text-decoration: none
+}
+
+.tweet a {
+  color: #cc99cc;
+}
