@@ -317,7 +317,7 @@ a:hover {
 .stat-title {
    font-family: 'Poppins';
    font-weight: 600;
-   font-size: 1.0rem;
+   font-size: 1.5rem;
    text-align: center;
    color: #fff;
    margin: 15px;
@@ -337,8 +337,8 @@ a:hover {
 }
 
 .stat-image {
-   width: 60px;
-   height: 60px;
+   width: 80px;
+   height: 70px;
    opacity: 0.65;
 }
 
