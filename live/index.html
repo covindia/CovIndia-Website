@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="manifest" href="/manifest.json">gitgit
+	<link rel="manifest" href="/manifest.json">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<meta name="description" content="A live visualization of the Covid-19 (Coronavirus) pandemic by district in India">
@@ -1143,6 +1143,9 @@
 				$("#deaths")[0].innerText = response.deathTotal;
 				$("#infected")[0].innerText = response.infectedTotal;
 				$("#max-infected")[0].innerText = response.infectedMax;
+				var strDate = response.lastUpdatedTime;
+				var objDate = new Date(strDate);
+				// TODO: add div with latest updates and parse time
 			})
 		);
 
