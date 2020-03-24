@@ -260,3 +260,13 @@ a:hover {
 	color: #cc99cc;
 }
 
+.donate {
+   border-color: #cc99cc;
+   color: #cc99cc;
+}
+
+.donate:hover {
+   background-color: #cc99cc;
+   color: #e5e5e5;
+   border-color: #cc99cc
+}

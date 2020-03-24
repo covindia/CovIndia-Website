@@ -1000,11 +1000,13 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
 	<script>
 		function donateClicked() {
-			// $.get("https://api.v1.covindia.com/i-donated-a-rick-roll", function (data, status) {
-			// 	console.log(HELLO)
-			// 	window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-			// })
-			window.location.href= "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+			fetch("https://api.v1.covindia.com/i-donated-a-rick-roll").then(res => res.json()).then(data => console.log(data))
+			//.then(window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+			.catch(err => {
+				console.log("error")
+				//window.location.href= "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+			})
+					
 		}
 
 		function _colornum(color) {
