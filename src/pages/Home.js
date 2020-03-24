@@ -167,7 +167,6 @@ const Home = () => {
                 </a>
               </footer>
             </blockquote>
-            {/* <img src="assets/img/tweet.PNG" alt="..." class="img-thumbnail"> */}
             <br />
             <br />
             <a href="https://twitter.com/covindia/status/1240565650495377410">
