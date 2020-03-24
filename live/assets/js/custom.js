@@ -354,11 +354,11 @@ function iOS() {
   return false;
 }
 
-if (iOS()) {
-  jQuery(document).ready(function() {
-    jQuery('meta[name="viewport"]').attr(
-      "content",
-      "width=device-width, initial-scale=0.5"
-    );
-  });
-}
+// if (iOS()) {
+//   jQuery(document).ready(function() {
+//     jQuery('meta[name="viewport"]').attr(
+//       "content",
+//       "width=device-width, initial-scale=0.5"
+//     );
+//   });
+// }
