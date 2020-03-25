@@ -5,8 +5,8 @@
 	<link rel="manifest" href="/manifest.json">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<meta name="description"
-		content="We provide reliable and live DISTRICT-WISE visualisations for Corona-Virus (CoVid 19) . Be Safe. Keep yourself informed">
+	<meta name="description" content="We provide reliable and live DISTRICT-WISE visualisations for Corona-Virus (CoVid 19) . Be Safe. Be Calm.
+		Stay Informed.">
 	<meta name="keywords" content="Mahindra Ecole Centrale Coronavirus, Coronavirus Visualizer India, Coronavirus India District, Coronavirus India District,
 	Covid-19 Visualizer India, Covid-19 Visualizer India District, Corona India District Wise, Corona India Live, Covid India Live, Corona India Detailed, Maharastra Covid,
 	Maharastra Corona, Virus, Live Tracking, Mahindra Ecole Centrale Koronavirus, Koronavirus Visualizer India, Koronavirus India District, Koronavirus India District,
@@ -94,9 +94,9 @@
 			<div class="row">
 				<div class="col-md-3">
 					<div class="grad_card p-3">
-						<h5 style="font-weight: 600;">Timelapse of Corona</h5>
-						<img class="img gif-card img-fluid" src="assets/img/16-24March.gif" alt="GIF Corona"
-							style=" margin-left:auto; margin-right: auto;display: block; height:350px;">
+						<h5>Timelapse of Corona</h5>
+						<img class="img gif-card img-fluid" src="assets/img/16-24March.gif" alt="GIF"
+							style=" margin-left:auto; margin-right: auto;display: block; height:80%;">
 					</div>
 					<div class="grad_card">
 						<div class="wrapper">
@@ -122,6 +122,11 @@
 										<span id="infected-desk" style="font-size: inherit;"></span>
 										<img src="assets/img/infected.png" alt="infected" class="stat-image">
 									</div>
+									<div class="container" style="text-align:left;">
+										<span id="infected-sub-title">
+											Be Safe
+										</span>
+									</div>
 								</div>
 								<div class="stat-card">
 									<span class="stat-title">Total Saved</span>
@@ -129,11 +134,22 @@
 										<span id="cured-desk" style="font-size: inherit;"></span>
 										<img src="assets/img/cured.png" alt="infected" class="stat-image">
 									</div>
+									<div class="container" style="text-align:left;">
+										<span id="saved-sub-title">
+											Be Calm
+										</span>
+									</div>
 								</div>
 								<div class="stat-card">
 									<span class="death-title">Total Deaths</span>
 									<div class="stat-wrapper death-extra">
 										<span id="deaths-desk" style="font-size: inherit;"></span>
+										<span class="stat-death">*</span>
+									</div>
+									<div class="container" style="text-align:left;">
+										<span id="informed-sub-title">
+											Stay Informed
+										</span>
 									</div>
 								</div>
 							</div>
@@ -3532,7 +3548,7 @@
 					<div class="col-md-4"></div>
 					<div class="col-md-4 ">
 						<p>The coronavirus in India over the past few days</p>
-						<img class="img" src="assets/img/16-23March.gif" alt="GIF"
+						<img class="img" src="assets/img/16-24March.gif" alt="GIF"
 							style="height:300px !important; margin-left:auto; margin-right: auto;display: block;">
 						<div class="row">
 						</div>
@@ -3878,8 +3894,8 @@
 				$("#deaths")[0].innerText = response.deathTotal;
 				$("#infected")[0].innerText = response.infectedTotal;
 				$("#max-infected")[0].innerText = response.infectedMax;
-				$("#cured-desk")[0].innerText = response.totalCured;
-				$("#deaths-desk")[0].innerText = response.deathTotal;
+				$("#cured-desk")[0].innerText = `0${response.totalCured}`;
+				$("#deaths-desk")[0].innerText = `0${response.deathTotal}`;
 				$("#infected-desk")[0].innerText = response.infectedTotal;
 				$("#max-infected-desk")[0].innerText = response.infectedMax;
 				var strDate = response.lastUpdatedTime;
