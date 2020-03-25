@@ -3938,8 +3938,8 @@
 				$("#deaths")[0].innerText = response.deathTotal;
 				$("#infected")[0].innerText = response.infectedTotal;
 				$("#max-infected")[0].innerText = response.infectedMax;
-				$("#cured-desk")[0].innerText = response.totalCured;
-				$("#deaths-desk")[0].innerText = response.deathTotal;
+				$("#cured-desk")[0].innerText = `0${response.totalCured}`;
+				$("#deaths-desk")[0].innerText = `0${response.deathTotal}`;
 				$("#infected-desk")[0].innerText = response.infectedTotal;
 				$("#max-infected-desk")[0].innerText = response.infectedMax;
 				var strDate = response.lastUpdatedTime;

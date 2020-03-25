@@ -321,7 +321,7 @@ a:hover {
    border-radius: 20px;
    background: linear-gradient(#20033c 0%, #070000 100%);
    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.53);
-   height: 170px;
+   height: 160px;
    margin: 10px;
    width: 272px;
 }
@@ -332,8 +332,8 @@ a:hover {
    font-size: 1.0rem;
    text-align: center;
    color: #fff;
-   margin: 15px;
    margin-top: 10px;
+   margin-left: 5px;
    padding-top: 5px;
    display: flex;
 }
@@ -344,19 +344,20 @@ a:hover {
    text-align: center;
    color: #eada0a;
    opacity: 0.64;
-   font-size: 2.5rem !important;
+   font-size: 3.5rem !important;
    flex: 1;
 }
 
 .stat-image {
-   width: 60px;
-   height: 60px;
+   width: 80px;
+   height: 80px;
    opacity: 0.65;
 }
 
 .stat-wrapper {
    display: flex;
    flex: 1;
+   height: 80px;
 }
 
 
@@ -367,7 +368,7 @@ a:hover {
    text-align: center;
    color: #00EF00;
    opacity: 0.64;
-   font-size: 2.5rem !important;
+   font-size: 3.5rem !important;
 }
 
 .death-title {
@@ -377,7 +378,8 @@ a:hover {
    text-align: center;
    color: #958686;
    opacity: 0.69;
-   margin: 15px;
+   margin-top: 10px;
+   margin-left: 5px;
    padding-top: 5px;
    display: flex;
 }
@@ -385,7 +387,7 @@ a:hover {
 #deaths-desk {
    font-family: "Poppins";
    font-weight: 300;
-   font-size: 2.5rem !important;
+   font-size: 3.5rem !important;
    text-align: center;
    color: #958686;
    opacity: 0.69;
