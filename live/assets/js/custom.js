@@ -562,7 +562,10 @@ $.when(
       infinite: true,
       speed: 500,
       fade: true,
-      cssEase: "linear"
+      cssEase: "linear",
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 1500
     });
   })
 );
