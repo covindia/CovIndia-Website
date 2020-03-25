@@ -564,8 +564,9 @@ $.when(
       fade: true,
       cssEase: "linear",
       arrows: false,
-      autoplay: true,
-      autoplaySpeed: 1500
+      centerMode: true
+      // autoplay: true,
+      // autoplaySpeed: 1500
     });
   })
 );
