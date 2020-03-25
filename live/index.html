@@ -156,7 +156,12 @@
 							<p style="float: right;"><span id="max-infected" style="margin-left:5px"></span></p>
 						</div>
 					</div>
-					<div class="container" style="margin-top: 2em;" id="map">
+					<div class="container" style="margin-top: 1em;" id="map">
+						<div class="row text-enter">
+							<!-- <div class="col">Last Updated</div> -->
+							<div class="col text-center" id="last-updated"
+								style="margin-bottom: 1em; color: #A9A9A9; font-style: italic;"></div>
+						</div>
 
 						<div style="padding:0.5em;">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="50 200 950 1100">
@@ -3521,6 +3526,8 @@
 			<small><em>As we can see from the map, most of India is relatively unaffected <br> and there is no need to
 					panic</em></small>
 			<!-- LAST UPDATED TIME -->
+
+
 		</div>
 	</div>
 	<br>
@@ -3835,6 +3842,21 @@
 		);
 		$.when(
 			$.ajax("https://v1.api.covindia.com/general").then(response => {
+				let rawDate = response.lastUpdatedTime
+				let parsedString = rawDate.split(" ")
+				let dateString = parsedString[0]
+				dateString = dateString.split("-").reverse().join("/")
+				let timeString = parsedString[1].split(":")
+				timeString.pop()
+				timeString = timeString.join(":")
+				console.log(timeString)
+				console.log(dateString)
+				let finalStr = dateString + " " + timeString
+				console.log(finalStr)
+				var finalDate = new Date(finalStr)
+				console.log(finalDate)
+				finalStr = finalStr.split(" ").reverse().join(", ")
+				$("#last-updated")[0].innerText = "Last updated: " + finalStr
 				$("#cured")[0].innerText = response.totalCured;
 				$("#deaths")[0].innerText = response.deathTotal;
 				$("#infected")[0].innerText = response.infectedTotal;
@@ -3844,6 +3866,7 @@
 				$("#infected-desk")[0].innerText = response.infectedTotal;
 				$("#max-infected-desk")[0].innerText = response.infectedMax;
 				var strDate = response.lastUpdatedTime;
+				//console.log(response.lastUpdatedTime)
 				var objDate = new Date(strDate);
 				// TODO: add div with latest updates and parse time
 			})
