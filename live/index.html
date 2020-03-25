@@ -68,7 +68,7 @@
 
 <body>
 
-	<nav class="navbar navbar-custom navbar-expand-md fixed-top">
+	<nav class="navbar navbar-custom navbar-expand-md fixed-top " style="align-content: space-between;">
 		<a class="navbar-brand" style="font-family: 'Poppins', sans-serifs;padding-bottom: 0;" href="/">
 			<span style="color: #CC99CC; font-size: 1em;font-family: Poppins;">Cov</span>India
 		</a>
@@ -81,10 +81,17 @@
 
 			<ul class="nav navbar-nav navbar-item-center">
 				<li class="nav-item" role="presentation"><a class="nav-link active"
-						style="font-weight: bold;padding-bottom:4px;" href="analytics">Analytics</a>
+						style="padding-bottom:4px; font-family: 'Poppins'; font-weight: 100 !important;"
+						href="analytics">Analytics</a>
 				</li>
 				<li class="nav-item" role="presentation"><a class="nav-link active"
-						style="font-weight: bold;padding-bottom:4px;" href="about">About</a></li>
+						style=" font-family: 'Poppins';padding-bottom:4px;" href="about">Sources</a></li>
+				<li class="nav-item" role="presentation"><a class="nav-link active"
+						style=" font-family: 'Poppins';padding-bottom:4px;" href="about">About</a></li>
+
+				<li class="nav-item float-right"><span class="nav-link" id="last-updated"
+						style="font-style: italic; font-family: 'Poppins'; color: #8c598c !important; font-size: 1em; font-weight: lighter;"></span>
+				</li>
 			</ul>
 
 		</div>
@@ -176,8 +183,7 @@
 					<div class="container" style="margin-top: 1em;" id="map">
 						<div class="row text-enter">
 							<!-- <div class="col">Last Updated</div> -->
-							<div class="col text-center" id="last-updated"
-								style="margin-bottom: 1em; color: #A9A9A9; font-style: italic;"></div>
+							<div class="col text-center" style="margin-bottom: 1em; color: #A9A9A9; font-style: italic;"></div>
 						</div>
 
 						<div style="padding:0.5em;">
