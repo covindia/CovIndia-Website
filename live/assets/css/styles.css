@@ -298,6 +298,14 @@ a:hover {
       border-radius: 10px;
    }
 
+   #legend {
+      height: 15px;
+   }
+
+   #max-infected {
+      font-size: 12px;
+   }
+
    .grad_card {
       display: none;
    }
