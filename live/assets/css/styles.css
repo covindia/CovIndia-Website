@@ -208,6 +208,44 @@ body {
    border-radius: 16px;
    box-shadow: 3px 2px #6d506d;
 }
+.float-twitter-2 {
+  
+   width: 40px;
+   height: 40px;
+   background-color: #cc99cc;
+   color: #303030;
+   border-radius: 50px;
+   text-align: center;
+   z-index: 1;
+   text-decoration: none;
+   display: inline-block;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 16px;
+   box-shadow: 3px 2px #6d506d;
+}
+
+.float-2 {
+
+
+      width: 40px;
+      height: 40px;
+      
+      background-color: #cc99cc;
+      color: #303030;
+      border-radius: 50px;
+      text-align: center;
+      z-index: 1;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 16px;
+      box-shadow: 3px 2px #6d506d;
+      transition: box-shadow 0.3s;
+   
+}
 
 .fa-twitter {
    font-size: 1.7em;
