@@ -284,14 +284,26 @@ a:hover {
       border-radius: 10px;
    }
 
-   #newDailyCases {
-      background-color: #260926;
+   #newDailyCases,
+   #myChartMobile,
+   #newDailyCasesMobile,
+   #stateGraphMobile {
+      background: linear-gradient(#20033c 0%, #303 100%);
+      box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.53);
       border-radius: 10px;
    }
 
    #stateCases {
       background-color: #260926;
       border-radius: 10px;
+   }
+
+   #legend {
+      height: 15px;
+   }
+
+   #max-infected {
+      font-size: 12px;
    }
 
    .grad_card {
@@ -309,7 +321,7 @@ a:hover {
    border-radius: 20px;
    background: linear-gradient(#20033c 0%, #070000 100%);
    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.53);
-   height: 150px;
+   height: 160px;
    margin: 10px;
    width: 272px;
 }
@@ -317,11 +329,11 @@ a:hover {
 .stat-title {
    font-family: 'Poppins';
    font-weight: 600;
-   font-size: 1.0rem;
+   font-size: 1.2rem;
    text-align: center;
    color: #fff;
-   margin: 15px;
    margin-top: 10px;
+   margin-left: 5px;
    padding-top: 5px;
    display: flex;
 }
@@ -332,19 +344,20 @@ a:hover {
    text-align: center;
    color: #eada0a;
    opacity: 0.64;
-   font-size: 2.5rem !important;
+   font-size: 3.5rem !important;
    flex: 1;
 }
 
 .stat-image {
-   width: 60px;
-   height: 60px;
+   width: 80px;
+   height: 80px;
    opacity: 0.65;
 }
 
 .stat-wrapper {
    display: flex;
    flex: 1;
+   height: 80px;
 }
 
 
@@ -355,7 +368,7 @@ a:hover {
    text-align: center;
    color: #00EF00;
    opacity: 0.64;
-   font-size: 2.5rem !important;
+   font-size: 3.5rem !important;
 }
 
 .death-title {
@@ -365,7 +378,8 @@ a:hover {
    text-align: center;
    color: #958686;
    opacity: 0.69;
-   margin: 15px;
+   margin-top: 10px;
+   margin-left: 5px;
    padding-top: 5px;
    display: flex;
 }
@@ -373,13 +387,60 @@ a:hover {
 #deaths-desk {
    font-family: "Poppins";
    font-weight: 300;
-   font-size: 2.5rem !important;
+   font-size: 3.5rem !important;
    text-align: center;
    color: #958686;
    opacity: 0.69;
 }
 
 .death-extra {
-   align-items: center !important;
+   /* align-items: center !important; */
    justify-content: center !important;
+}
+
+.slick-dots li button:before {
+   color: #cc99cc;
+}
+
+.slick-wrapper {
+   margin-top: 10px;
+}
+
+.slick-next:before,
+.slick-prev:before {
+   color: #cc99cc !important;
+}
+
+#infected-sub-title {
+   font-family: Arial;
+   font-weight: bold;
+   font-size: 24px;
+   text-align: left;
+   color: #9a8a0e;
+}
+
+#saved-sub-title {
+   font-family: Arial;
+   font-weight: bold;
+   font-size: 24px;
+   text-align: left;
+   color: #2f8b0a;
+}
+
+#informed-sub-title {
+   font-family: Arial;
+   font-weight: bold;
+   font-size: 24px;
+   text-align: left;
+   color: #6d5c66;
+}
+
+.stat-death {
+   font-family: "Poppins";
+   font-weight: 300;
+   font-size: 12px;
+   text-align: right;
+   color: #fff;
+   opacity: 0.99;
+   text-shadow: 0px 0px 2px #fff;
 }
