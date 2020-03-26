@@ -24,21 +24,21 @@ var millisTill20 =
 
 var ctx = document.getElementById("myChart").getContext("2d");
 
-var ctxMob = document.getElementById("myChartMobile").getContext("2d");
-
+var stateCtx = document.getElementById("stateCases").getContext("2d");
 var ctxDaily = document.getElementById("newDailyCases").getContext("2d");
 
-var ctxDailyMobile = document
-  .getElementById("newDailyCasesMobile")
-  .getContext("2d");
+try {
+  var ctxMob = document.getElementById("myChartMobile").getContext("2d");
+  var ctxDailyMobile = document
+    .getElementById("newDailyCasesMobile")
+    .getContext("2d");
 
-var stateCtx = document.getElementById("stateCases").getContext("2d");
-
-var stateCtxMobile = document
-  .getElementById("stateGraphMobile")
-  .getContext("2d");
-
-console.log(ctx);
+  var stateCtxMobile = document
+    .getElementById("stateGraphMobile")
+    .getContext("2d");
+} catch (err) {
+  console.log(err);
+}
 
 const createTempGraph = () => {
   var localMapData = [];
@@ -180,74 +180,78 @@ $.when(
           }
         }
       });
-      var barGraph = new Chart(stateGraphMobile, {
-        type: "bar",
-        data: {
-          labels: stateCases.map(function(e) {
-            return e.x;
-          }),
-          datasets: [
-            {
-              label: "Total Cases",
-              data: stateCases.map(function(e) {
-                return e.y;
-              }),
-              backgroundColor: "rgba(240, 223, 135, 0.5)",
-              borderColor: "#FFF222",
-              borderWidth: 1
-            }
-          ]
-        },
-        scaleFontColor: "#FFFFFF",
-        options: {
-          // responsive: false,
-          maintainAspectRatio: false,
-          title: {
-            display: true,
-            text: "Most affected states",
-            fontSize: 20
-          },
-          animation: {
-            duration: 2000,
-            easing: "linear"
-          },
-          scales: {
-            xAxes: [
+      try {
+        var barGraph = new Chart(stateGraphMobile, {
+          type: "bar",
+          data: {
+            labels: stateCases.map(function(e) {
+              return e.x;
+            }),
+            datasets: [
               {
-                scaleLabel: {
-                  display: true,
-                  labelString: "State"
-                },
-                gridLines: {
-                  color: "#660066",
-                  zeroLineColor: "white",
-                  zeroLineWidth: 2
-                },
-                ticks: {
-                  autoSkip: true
-                }
-              }
-            ],
-            yAxes: [
-              {
-                gridLines: {
-                  color: "#660066",
-                  zeroLineColor: "white",
-                  zeroLineWidth: 2
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: "Total Cases"
-                },
-                ticks: {
-                  autoSkip: true,
-                  maxTicksLimit: 4
-                }
+                label: "Total Cases",
+                data: stateCases.map(function(e) {
+                  return e.y;
+                }),
+                backgroundColor: "rgba(240, 223, 135, 0.5)",
+                borderColor: "#FFF222",
+                borderWidth: 1
               }
             ]
+          },
+          scaleFontColor: "#FFFFFF",
+          options: {
+            // responsive: false,
+            maintainAspectRatio: false,
+            title: {
+              display: true,
+              text: "Most affected states",
+              fontSize: 20
+            },
+            animation: {
+              duration: 2000,
+              easing: "linear"
+            },
+            scales: {
+              xAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: "State"
+                  },
+                  gridLines: {
+                    color: "#660066",
+                    zeroLineColor: "white",
+                    zeroLineWidth: 2
+                  },
+                  ticks: {
+                    autoSkip: true
+                  }
+                }
+              ],
+              yAxes: [
+                {
+                  gridLines: {
+                    color: "#660066",
+                    zeroLineColor: "white",
+                    zeroLineWidth: 2
+                  },
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Total Cases"
+                  },
+                  ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 4
+                  }
+                }
+              ]
+            }
           }
-        }
-      });
+        });
+      } catch (err) {
+        console.log(err);
+      }
     }
   )
 );
@@ -335,82 +339,86 @@ $.when(
         }
       }
     });
-    var myLineChart = new Chart(ctxMob, {
-      type: "line",
-      data: {
-        labels: mapTotalData.map(function(e) {
-          return e.x;
-        }),
-        datasets: [
-          {
-            label: "Total Cases",
-            data: mapTotalData.map(function(e) {
-              return e.y;
-            }),
-            backgroundColor: "rgba(240, 223, 135, 0.5)",
-            borderColor: "#FFF222",
-            borderWidth: 1
-          }
-        ]
-      },
-      scaleFontColor: "#FFFFFF",
-      options: {
-        // responsive: true,
-        maintainAspectRatio: false,
-        title: {
-          display: true,
-          text: "Total Cases in India",
-          fontSize: 20
-        },
-        animation: {
-          duration: 2000,
-          easing: "linear"
-        },
-        scales: {
-          xAxes: [
+    try {
+      var myLineChart = new Chart(ctxMob, {
+        type: "line",
+        data: {
+          labels: mapTotalData.map(function(e) {
+            return e.x;
+          }),
+          datasets: [
             {
-              scaleLabel: {
-                display: true,
-                labelString: "Date"
-              },
-              gridLines: {
-                color: "#660066",
-                zeroLineColor: "white",
-                zeroLineWidth: 2,
-                drawTicks: true
-              },
-              ticks: {
-                callback: function(value, index, values) {
-                  if (index + 1 === values.length) {
-                    return value;
-                  }
-                  if (index % 4 === 0) {
-                    return value;
+              label: "Total Cases",
+              data: mapTotalData.map(function(e) {
+                return e.y;
+              }),
+              backgroundColor: "rgba(240, 223, 135, 0.5)",
+              borderColor: "#FFF222",
+              borderWidth: 1
+            }
+          ]
+        },
+        scaleFontColor: "#FFFFFF",
+        options: {
+          // responsive: true,
+          maintainAspectRatio: false,
+          title: {
+            display: true,
+            text: "Total Cases in India",
+            fontSize: 20
+          },
+          animation: {
+            duration: 2000,
+            easing: "linear"
+          },
+          scales: {
+            xAxes: [
+              {
+                scaleLabel: {
+                  display: true,
+                  labelString: "Date"
+                },
+                gridLines: {
+                  color: "#660066",
+                  zeroLineColor: "white",
+                  zeroLineWidth: 2,
+                  drawTicks: true
+                },
+                ticks: {
+                  callback: function(value, index, values) {
+                    if (index + 1 === values.length) {
+                      return value;
+                    }
+                    if (index % 4 === 0) {
+                      return value;
+                    }
                   }
                 }
               }
-            }
-          ],
-          yAxes: [
-            {
-              gridLines: {
-                color: "#660066",
-                zeroLineColor: "white",
-                zeroLineWidth: 2
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Total Cases"
-              },
-              ticks: {
-                autoSkip: true,
-                maxTicksLimit: 4
+            ],
+            yAxes: [
+              {
+                gridLines: {
+                  color: "#660066",
+                  zeroLineColor: "white",
+                  zeroLineWidth: 2
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Total Cases"
+                },
+                ticks: {
+                  autoSkip: true,
+                  maxTicksLimit: 4
+                }
               }
-            }
-          ]
+            ]
+          }
         }
-      }
-    });
+      });
+    } catch (error) {
+      console.log(error);
+    }
     var dailyChart = new Chart(ctxDaily, {
       type: "line",
       data: {
@@ -484,90 +492,94 @@ $.when(
         }
       }
     });
-    var dailyChart = new Chart(ctxDailyMobile, {
-      type: "line",
-      data: {
-        labels: dailyCases.map(function(e) {
-          return e.x;
-        }),
-        datasets: [
-          {
-            label: "Daily New Cases",
-            data: dailyCases.map(function(e) {
-              return e.y;
-            }),
-            backgroundColor: "rgba(240, 223, 135, 0.5)",
-            borderColor: "#FFF222",
-            borderWidth: 1
-          }
-        ]
-      },
-      options: {
-        maintainAspectRatio: false,
-        title: {
-          display: true,
-          text: "Daily new cases in India",
-          fontSize: 20
-        },
-        animation: {
-          duration: 2000,
-          easing: "linear"
-        },
-        scales: {
-          xAxes: [
+    try {
+      var dailyChart = new Chart(ctxDailyMobile, {
+        type: "line",
+        data: {
+          labels: dailyCases.map(function(e) {
+            return e.x;
+          }),
+          datasets: [
             {
-              gridLines: {
-                color: "#660066",
-                zeroLineColor: "white",
-                zeroLineWidth: 2
-              },
-              ticks: {
-                callback: function(value, index, values) {
-                  if (index + 1 === values.length) {
-                    return value;
-                  }
-                  if (index % 4 === 0) {
-                    return value;
-                  }
-                }
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Date"
-              }
-            }
-          ],
-          yAxes: [
-            {
-              gridLines: {
-                color: "#660066",
-                zeroLineColor: "white",
-                zeroLineWidth: 2
-              },
-              ticks: {
-                autoSkip: true,
-                maxTicksLimit: 4
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Daily Cases"
-              }
+              label: "Daily New Cases",
+              data: dailyCases.map(function(e) {
+                return e.y;
+              }),
+              backgroundColor: "rgba(240, 223, 135, 0.5)",
+              borderColor: "#FFF222",
+              borderWidth: 1
             }
           ]
+        },
+        options: {
+          maintainAspectRatio: false,
+          title: {
+            display: true,
+            text: "Daily new cases in India",
+            fontSize: 20
+          },
+          animation: {
+            duration: 2000,
+            easing: "linear"
+          },
+          scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  color: "#660066",
+                  zeroLineColor: "white",
+                  zeroLineWidth: 2
+                },
+                ticks: {
+                  callback: function(value, index, values) {
+                    if (index + 1 === values.length) {
+                      return value;
+                    }
+                    if (index % 4 === 0) {
+                      return value;
+                    }
+                  }
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Date"
+                }
+              }
+            ],
+            yAxes: [
+              {
+                gridLines: {
+                  color: "#660066",
+                  zeroLineColor: "white",
+                  zeroLineWidth: 2
+                },
+                ticks: {
+                  autoSkip: true,
+                  maxTicksLimit: 4
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Daily Cases"
+                }
+              }
+            ]
+          }
         }
-      }
-    });
-    $(".slick-wrapper").slick({
-      dots: true,
-      infinite: true,
-      speed: 500,
-      fade: true,
-      cssEase: "linear",
-      arrows: false,
-      centerMode: true
-      // autoplay: true,
-      // autoplaySpeed: 1500
-    });
+      });
+      $(".slick-wrapper").slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: "linear",
+        arrows: false,
+        centerMode: true
+        // autoplay: true,
+        // autoplaySpeed: 1500
+      });
+    } catch (error) {
+      console.log(error);
+    }
   })
 );
 
