@@ -1,10 +1,3 @@
-// $("#states").DataTable({
-//   ajax: "https://test.api.covindia.com/daily-states-complete",
-//   columns: [{ data: "NewCases" }]
-// });
-
-console.log("Table JS");
-
 var stateData = [];
 $.when(
   $.ajax("https://test.api.covindia.com/daily-states-complete").then(
@@ -20,14 +13,17 @@ $.when(
           stateData[key].TotalDeaths
         ];
       });
-      console.log(data);
-      $("#states").DataTable({
+      var table = $("#states").DataTable({
         data: data,
         pageLength: 5,
         dom: "Bfrtip",
-        buttons: ["copyHtml5", "csvHtml5", "pdfHtml5", "excelHtml5"]
+        buttons: ["copyHtml5", "csvHtml5", "pdfHtml5", "excelHtml5"],
+        paging: false
       });
-      console.log(data);
+      table
+        .buttons()
+        .container()
+        .appendTo("#states_wrapper .col-md-6:eq(0)");
     }
   )
 );
