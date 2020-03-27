@@ -23,7 +23,9 @@ $.when(
       console.log(data);
       $("#states").DataTable({
         data: data,
-        pageLength: 5
+        pageLength: 5,
+        dom: "Bfrtip",
+        buttons: ["copyHtml5", "csvHtml5", "pdfHtml5", "excelHtml5"]
       });
       console.log(data);
     }
