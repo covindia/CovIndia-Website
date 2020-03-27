@@ -206,6 +206,7 @@ body {
   border-radius: 16px;
   box-shadow: 3px 2px #6d506d;
 }
+
 .float-twitter-2 {
   width: 40px;
   height: 40px;
@@ -353,14 +354,14 @@ a:hover {
   border-radius: 20px;
   background: linear-gradient(#20033c 0%, #070000 100%);
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.53);
-  height: 160px;
+  /* height: 160px; */
   margin: 10px;
   width: 272px;
 }
 
 .stat-title {
   font-family: "Poppins";
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.2rem;
   text-align: center;
   color: #fff;
@@ -376,7 +377,7 @@ a:hover {
   text-align: center;
   color: #eada0a;
   opacity: 0.64;
-  font-size: 3.5rem !important;
+  font-size: 3.2rem !important;
   flex: 1;
 }
 
@@ -399,7 +400,7 @@ a:hover {
   text-align: center;
   color: #00ef00;
   opacity: 0.64;
-  font-size: 3.5rem !important;
+  font-size: 3.2rem !important;
 }
 
 .death-title {
@@ -418,7 +419,7 @@ a:hover {
 #deaths-desk {
   font-family: "Poppins";
   font-weight: 300;
-  font-size: 3.5rem !important;
+  font-size: 3.2rem !important;
   text-align: center;
   color: #958686;
   opacity: 0.69;
