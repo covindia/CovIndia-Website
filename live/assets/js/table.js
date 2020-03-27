@@ -18,7 +18,8 @@ $.when(
         pageLength: 5,
         dom: "Bfrtip",
         buttons: ["copyHtml5", "csvHtml5", "pdfHtml5", "excelHtml5"],
-        paging: false
+        paging: false,
+        title: "Confirmed Cases and Deaths by state in India"
       });
       table
         .buttons()
