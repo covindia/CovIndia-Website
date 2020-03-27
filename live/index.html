@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
-
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 	<link rel="shortcut icon" href="assets/img/icons/icon.png">
 
 	<!-- Custom Imports -->
@@ -3613,7 +3613,24 @@
 			</div>
 		</div>
 		<div class="container" style="text-align: center; color: rgb(180, 180, 180);">
-			<!-- <h4>The Covid-19 (Coronavirus) pandemic by district in India.</h4> -->
+			<div class="row">
+				<div class="col-md-12">
+					<table id="states" class="table table-striped" style="color:white">
+						<thead>
+							<tr>
+								<th>State Name</th>
+								<th>New Cases</th>
+								<th>New Deaths</th>
+								<th>Total Cases</th>
+								<th>Total Deaths</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 
 
@@ -3788,6 +3805,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
 	<script>
 		function _colornum(color) {
@@ -3978,7 +3997,7 @@
 				$("#cured-desk")[0].innerText = `0${response.totalCured}`;
 				$("#deaths-desk")[0].innerText = `0${response.deathTotal}`;
 				$("#infected-desk")[0].innerText = response.infectedTotal;
-				$("#max-infected-desk")[0].innerText = response.infectedMax;
+				// $("#max-infected-desk")[0].innerText = response.infectedMax;
 				var strDate = response.lastUpdatedTime;
 				//console.log(response.lastUpdatedTime)
 				var objDate = new Date(strDate);
@@ -3987,6 +4006,7 @@
 		);
 	</script>
 	<script src="assets/js/custom.js"></script>
+	<script src="assets/js/table.js"></script>
 </body>
 
 </html>
