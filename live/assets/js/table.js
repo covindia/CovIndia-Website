@@ -7,10 +7,10 @@ $.when(
       const data = Object.keys(stateData).map(key => {
         return [
           key,
-          stateData[key].NewCases,
-          stateData[key].NewDeaths,
           stateData[key].TotalCases,
-          stateData[key].TotalDeaths
+          stateData[key].NewCases,
+          stateData[key].TotalDeaths,
+          stateData[key].NewDeaths
         ];
       });
       var table = $("#states").DataTable({
