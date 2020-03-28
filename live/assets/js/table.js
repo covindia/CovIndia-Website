@@ -1,6 +1,6 @@
 var stateData = [];
 $.when(
-  $.ajax("https://test.api.covindia.com/daily-states-complete").then(
+  $.ajax("https://v1.api.covindia.com/daily-states-complete").then(
     response => {
       console.log(response);
       stateData = response;
