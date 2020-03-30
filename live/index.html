@@ -3659,10 +3659,10 @@
 	<div class='container' style="margin-top: 2em; text-align: center">
 		<h3 style="font-weight:600;">How we do it</h3><br>
 		<p>We use <strong style=" color: #cc99cc">Artificial intelligence</strong> to retrieve the relevant information
-			as <strong style="color: #cc99cc">quickly</strong> as possible and use <strong style="color: #cc99cc">Human
+			as <strong style="color: #cc99cc">quickly</strong> as possible and use <strong style="color: #00ffff">Human
 				Intelligence</strong> (student volunteers) to ensure that all data is <strong
-				style="color: #cc99cc">verified</onfirmed> before we claim a new case has been reported. To ensure no
-				false reporting, we also encourage our users to report any error in our data.</p>
+				style="color: #cc99cc">verified</strong> before we claim a new case has been reported. To ensure no
+			false reporting, we also encourage our users to report any error in our data.</p>
 		<button type="button" class="btn btn-light no-dec" style="background-color:  #cc99cc !important;">
 			<a href="https://medium.com/@achalagrawal/how-a-bunch-of-students-worked-from-home-to-create-the-most-detailed-corona-virus-tracker-of-india-c748cd550a2b"
 				style="color: #3f3f3f; text-decoration: none"><strong>Read more on </strong><span
@@ -3846,7 +3846,7 @@
 			var districtData = {};
 			$.when(
 				$.ajax("https://v1.api.covindia.com/district-values").then(response => {
-					districtData = response;
+					districtData = response
 					renderData(districtData);
 					$('.clickable').tooltip();
 
