@@ -156,7 +156,7 @@
 									<span class="death-title">Total Deaths</span>
 									<div class="stat-wrapper death-extra">
 										<span id="deaths-desk" style="font-size: inherit;"></span>
-										<span class="stat-death">*</span>
+										<!-- <span class="stat-death">*</span> -->
 									</div>
 									<div class="container" style="text-align:left;">
 										<span id="informed-sub-title">
@@ -168,6 +168,11 @@
 						</div>
 					</div>
 					<div class="container" id="legend-colorbar" style="text-align: right;">
+						<div class="text-left p-3">
+							<button class="btn btn-outline-success donate" onclick="playbutton()">Play
+								<i class="fa fa-play" aria-hidden="true"></i>
+							</button>
+						</div>
 						<div class="desktop-wrapper">
 							<svg id="legend" width="200" height="30">
 								<defs>
@@ -3603,9 +3608,6 @@
 					<div class="slidecontainer">
 						<input type="range" class="slider" id="myRange">
 						<p>Date: <span id="demo"></span></p>
-						<button class="btn btn-outline-success donate" onclick="playbutton()">Play
-							<i class="fa fa-play" aria-hidden="true"></i>
-						</button>
 						<h3 class="text-right">Move the slider to see past information</h3>
 					</div>
 				</div>
