@@ -58,7 +58,6 @@ function clearData(data) {
     var flag = 0;
     try {
       document.getElementById(modKey).style.fill = "#FFF";
-      $("#" + modKey).tooltip("dispose");
       flag = 1;
     } catch (err) {
       var a = 1 + 1;
