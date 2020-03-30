@@ -242,6 +242,22 @@ body {
   border-radius: 50px;
 }
 
+.float-insta-2 {
+  width: 40px;
+  height: 40px;
+  background-color: #cc99cc;
+  color: #303030;
+  border-radius: 50px;
+  text-align: center;
+  z-index: 1;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+
 .float-2 {
   width: 40px;
   height: 40px;
