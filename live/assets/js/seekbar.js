@@ -41,7 +41,7 @@ function clearData(data) {
     // Cleaning ToolTips
     var flag = 0;
     try {
-      $("#" + modKey).tooltip.mouseout();
+      $("#" + modKey).tooltip('hide');
       flag = 1;
     } catch (err) {
       var a = 1 + 1;
@@ -49,11 +49,13 @@ function clearData(data) {
     if (flag == 0) {
       try {
         var allClasses = document.getElementsByClassName(modKey);
-        $(allClasses).tooltip.mouseout();
+        $(allClasses).tooltip('hide');
       } catch (err) {
         var a = 1 + 1;
       }
     }
+    $('#Mumbai-Unique').tooltip('hide');
+    $('#Delhi-Unique').tooltip('hide');
     // Clearing Colors
     var flag = 0;
     try {
