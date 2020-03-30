@@ -503,7 +503,7 @@ a:hover {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #3f0f3f;
+  background: #ffff33;
   cursor: pointer;
 }
 
@@ -511,6 +511,6 @@ a:hover {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #3f0f3f;
+  background: #ffff33;
   cursor: pointer;
 }
