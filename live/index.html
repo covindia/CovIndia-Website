@@ -3601,7 +3601,7 @@
 						</div>
 					</div>
 					<div class="slidecontainer">
-						<input type="range" min="1" max="100" value="10" class="slider" id="myRange">
+						<input type="range" class="slider" id="myRange">
 						<p>Date: <span id="demo"></span></p>
 					</div>
 				</div>
@@ -3886,6 +3886,7 @@
 				}
 				var flag = 0;
 				try {
+					$("#" + modKey).tooltip("enable");
 					document.getElementById(modKey).style.fill = gradient(1 - data[key].value, GRADIENT);
 					$("#" + modKey + " title").text(keyShow + ' | Infected: ' + data[key].infected + ' | Deaths: ' + data[key]
 						.dead);
@@ -3918,9 +3919,8 @@
 		}
 
 		var initLoadTooltip = false;
-
+		var districtData = {};
 		window.onload = function () {
-			var districtData = {};
 			$.when(
 				$.ajax("https://v1.api.covindia.com/district-values").then(response => {
 					districtData = response;
@@ -3998,12 +3998,8 @@
 				let timeString = parsedString[1].split(":")
 				timeString.pop()
 				timeString = timeString.join(":")
-				console.log(timeString)
-				console.log(dateString)
 				let finalStr = dateString + " " + timeString
-				console.log(finalStr)
 				var finalDate = new Date(finalStr)
-				console.log(finalDate)
 				finalStr = finalStr.split(" ").reverse().join(", ")
 				$("#last-updated")[0].innerText = "Last updated: " + finalStr
 				$("#cured")[0].innerText = response.totalCured;
@@ -4032,6 +4028,7 @@
 	</script>
 	<script src="assets/js/custom.js"></script>
 	<script src="assets/js/table.js"></script>
+	<script src="assets/js/seekbar.js"></script>
 </body>
 
 </html>
