@@ -19,12 +19,14 @@ $.when(
         dom: "Bfrtip",
         buttons: ["copyHtml5", "csvHtml5", "pdfHtml5", "excelHtml5"],
         paging: false,
-        title: "Confirmed Cases and Deaths by state in India"
+        title: "Confirmed Cases and Deaths by state in India",
+        "order": [[1, "desc"]]
       });
       table
         .buttons()
         .container()
         .appendTo("#states_wrapper .col-md-6:eq(0)");
+
     }
   )
 );
