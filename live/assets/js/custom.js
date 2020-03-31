@@ -63,7 +63,7 @@ const createMapArr = queryParam => {
   var localMapData = [];
   for (dataPoint in apiData) {
     localMapData.push({
-      x: dataPoint.replace("/2020", "").replace("/03", " Mar"),
+      x: dataPoint.replace("/2020", ""),
       y: apiData[dataPoint]
     });
   }
@@ -82,9 +82,7 @@ const createNewaDailyArr = () => {
   });
   arrayOfObj.forEach((item, index) => {
     localMapData.push({
-      x: Object.keys(item)[0]
-        .replace("/2020", "")
-        .replace("/03", " Mar"),
+      x: Object.keys(item)[0].replace("/2020", ""),
       y: pureVals[index]
     });
   });
