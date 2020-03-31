@@ -12,6 +12,8 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+    "react-simple-maps": "^2.0.0",
+    "recharts": "^1.8.5",
     "styled-components": "^5.0.1",
     "swr": "^0.2.0"
   },
@@ -35,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "2.0.2"
   }
 }
