@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <header className="App-header">
           <WorldStats/>
-          {/* <WorldGraphs /> */}
           <WorldTable/>
       </header>
     </div>
