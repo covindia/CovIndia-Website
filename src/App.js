@@ -1,18 +1,17 @@
 import React from "react";
 import "./App.css";
 import WorldStats from "./components/WorldStats";
-import WorldTable from "./components/WorldTable";
+import WorldTable from "./pages/WorldTable";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <WorldStats/>
-          <WorldTable/>
+        <WorldStats />
+        <WorldTable />
       </header>
     </div>
   );
 }
 
 export default App;
-
