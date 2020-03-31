@@ -1,4 +1,5 @@
 var sliderData = {};
+var slider = document.getElementById("myRange");
 
 $.when(
   $.ajax("https://v1.api.covindia.com/district-date-total-data").then(
@@ -23,6 +24,26 @@ $.when(
   )
 );
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function playbutton() {
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  slider.value = 0;
+  var sleepTimer = 10000 / slider.max;
+  console.log(sleepTimer);
+  for (var i = 0; i < slider.max; i++) {
+    slider.stepUp();
+    clearData(districtData);
+    renderData(sliderData[i].data);
+    setMaxLegend(sliderData[i].data["max-legend-value"]);
+    output.innerHTML = sliderData[i].date;
+    await sleep(sleepTimer);
+  }
+}
+
 function setMaxLegend(val) {
   $("#max-infected")[0].innerText = val;
 }
@@ -41,7 +62,7 @@ function clearData(data) {
     // Cleaning ToolTips
     var flag = 0;
     try {
-      $("#" + modKey).tooltip('hide');
+      $("#" + modKey).tooltip("hide");
       flag = 1;
     } catch (err) {
       var a = 1 + 1;
@@ -49,13 +70,13 @@ function clearData(data) {
     if (flag == 0) {
       try {
         var allClasses = document.getElementsByClassName(modKey);
-        $(allClasses).tooltip('hide');
+        $(allClasses).tooltip("hide");
       } catch (err) {
         var a = 1 + 1;
       }
     }
-    $('#Mumbai-Unique').tooltip('hide');
-    $('#Delhi-Unique').tooltip('hide');
+    $("#Mumbai-Unique").tooltip("hide");
+    $("#Delhi-Unique").tooltip("hide");
     // Clearing Colors
     var flag = 0;
     try {

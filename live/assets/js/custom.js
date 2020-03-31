@@ -63,7 +63,7 @@ const createMapArr = queryParam => {
   var localMapData = [];
   for (dataPoint in apiData) {
     localMapData.push({
-      x: dataPoint.replace("/2020", "").replace("/03", " Mar"),
+      x: dataPoint.replace("/2020", ""),
       y: apiData[dataPoint]
     });
   }
@@ -82,9 +82,7 @@ const createNewaDailyArr = () => {
   });
   arrayOfObj.forEach((item, index) => {
     localMapData.push({
-      x: Object.keys(item)[0]
-        .replace("/2020", "")
-        .replace("/03", " Mar"),
+      x: Object.keys(item)[0].replace("/2020", ""),
       y: pureVals[index]
     });
   });
@@ -261,8 +259,8 @@ $.when(
     apiData = response;
     dailyCases = createMapArr();
     mapTotalData = createNewaDailyArr();
-    dailyCases.pop();
-    mapTotalData.pop();
+    // dailyCases.pop();
+    // mapTotalData.pop();
     var myLineChart = new Chart(ctx, {
       type: "line",
       data: {
@@ -309,10 +307,10 @@ $.when(
               },
               ticks: {
                 callback: function(value, index, values) {
-                  if (index + 1 === values.length) {
+                  if (value === values[values.length - 1]) {
+                    console.log(value);
                     return value;
-                  }
-                  if (index % 4 === 0) {
+                  } else if (index % 4 === 0) {
                     return value;
                   }
                 }
