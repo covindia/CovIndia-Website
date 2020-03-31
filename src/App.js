@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import WorldStats from "./components/WorldStats";
+import WorldTable from "./components/WorldTable";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <header className="App-header">
           <WorldStats/>
           {/* <WorldGraphs /> */}
-          {/* <WorldTable /> */}
+          <WorldTable/>
       </header>
     </div>
   );
