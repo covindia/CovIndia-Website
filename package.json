@@ -1,5 +1,5 @@
 {
-  "name": "corona-world",
+  "name": "world-visualiser",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +8,8 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
