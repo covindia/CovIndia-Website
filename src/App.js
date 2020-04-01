@@ -1,14 +1,12 @@
 import React from "react";
 import "./App.css";
-import WorldStats from "./components/WorldStats";
-import WorldTable from "./pages/WorldTable";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <WorldStats />
-        <WorldTable />
+        <Home/>
       </header>
     </div>
   );
