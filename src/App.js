@@ -36,9 +36,9 @@ function App() {
             {`Your latitude is ${locationState.latitude}, longitude is ${locationState.longitude}`}
           </p>
         )}
-        <div className="container-fluid">
+        <div className="container">
           <div className="row">
-            <div className="col-md-6">
+            <div class="col-sm">
               <button
                 className="help-button"
                 id="Food"
@@ -52,8 +52,6 @@ function App() {
                 />
                 <h4>Food</h4>
               </button>
-            </div>
-            <div className="col-md-6">
               <button
                 className="help-button"
                 name="Doctor"
@@ -68,7 +66,9 @@ function App() {
                 <h4>Doctor</h4>
               </button>
             </div>
-            <div className="col-md-6">
+          </div>
+          <div className="row">
+            <div class="col-sm">
               <button
                 className="help-button"
                 name="Medicine"
@@ -82,8 +82,6 @@ function App() {
                 />
                 <h4>Medicine</h4>
               </button>
-            </div>
-            <div className="col-md-6">
               <button
                 className="help-button"
                 name="Mental"
