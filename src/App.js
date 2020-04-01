@@ -19,6 +19,7 @@ function App() {
           })
           .then(res => {
             console.log(res);
+            setReceived(true);
           })
           .catch(e => {
             console.log(e);
@@ -28,14 +29,13 @@ function App() {
   };
 
   const [locationState, setLocationState] = useState();
+  const [received, setReceived] = useState(false);
   return (
     <div className="App">
       <header className="App-header">
-        {locationState && (
-          <p>
-            {`Your latitude is ${locationState.latitude}, longitude is ${locationState.longitude}`}
-          </p>
-        )}
+        {received === true ? (
+          <p>Your request has been received,we will get back shortly</p>
+        ) : null}
         <div className="container">
           <div className="row">
             <div class="col-sm">
@@ -48,6 +48,8 @@ function App() {
                 <img
                   alt="food"
                   className="img img-icon"
+                  id="Food"
+                  name="Food"
                   src={`${process.env.PUBLIC_URL}/food.png`}
                 />
                 <h4>Food</h4>
@@ -61,6 +63,8 @@ function App() {
                 <img
                   alt="food"
                   className="img img-icon"
+                  name="Doctor"
+                  id="Doctor"
                   src={`${process.env.PUBLIC_URL}/doctor.png`}
                 />
                 <h4>Doctor</h4>
@@ -78,6 +82,8 @@ function App() {
                 <img
                   alt="food"
                   className="img img-icon"
+                  name="Medicine"
+                  id="Medicine"
                   src={`${process.env.PUBLIC_URL}/medicine.png`}
                 />
                 <h4>Medicine</h4>
@@ -91,6 +97,8 @@ function App() {
                 <img
                   alt="food"
                   className="img img-icon"
+                  name="Mental"
+                  id="Mental"
                   src={`${process.env.PUBLIC_URL}/psychology.png`}
                 />
                 <h4>Mental</h4>
