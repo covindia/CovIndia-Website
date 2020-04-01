@@ -36,46 +36,66 @@ function App() {
             {`Your latitude is ${locationState.latitude}, longitude is ${locationState.longitude}`}
           </p>
         )}
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
-            <div className="col-md-3">
+            <div className="col-md-6">
               <button
                 className="help-button"
                 id="Food"
                 name="Food"
                 onClick={getLocation}
               >
-                Food
+                <img
+                  alt="food"
+                  className="img img-icon"
+                  src={`${process.env.PUBLIC_URL}/food.png`}
+                />
+                <h4>Food</h4>
               </button>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-6">
               <button
                 className="help-button"
                 name="Doctor"
                 id="Doctor"
                 onClick={getLocation}
               >
-                Doctor
+                <img
+                  alt="food"
+                  className="img img-icon"
+                  src={`${process.env.PUBLIC_URL}/doctor.png`}
+                />
+                <h4>Doctor</h4>
               </button>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-6">
               <button
                 className="help-button"
                 name="Medicine"
                 id="Medicine"
                 onClick={getLocation}
               >
-                Medicine
+                <img
+                  alt="food"
+                  className="img img-icon"
+                  src={`${process.env.PUBLIC_URL}/medicine.png`}
+                />
+                <h4>Medicine</h4>
               </button>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-6">
               <button
                 className="help-button"
                 name="Mental"
                 id="Mental"
                 onClick={getLocation}
               >
-                Mental
+                <img
+                  alt="food"
+                  className="img img-icon"
+                  src={`${process.env.PUBLIC_URL}/psychology.png`}
+                />
+                <h4>Mental</h4>
               </button>
             </div>
           </div>

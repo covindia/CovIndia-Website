@@ -40,8 +40,8 @@
 
 
 .help-button {
-  height: 120px;
-  width: 120px;
+  height: 250px;
+  width: 250px;
   border-radius: 200px;
   font-size: 1.2rem;
   background-color: #EC4849;
@@ -50,26 +50,6 @@
   margin: 20px;
 }
 
-.upper_left {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.upper_right {
-  position: absolute;
-  top: 0;
-  right: 0%;
-}
-
-.lower_left {
-  position: absolute;
-  bottom: 0%;
-  left: 0;
-}
-
-.lower_right {
-  bottom: 0%;
-  right: 0%;
-  position: absolute;
+.img-icon {
+  height: 180px;
 }
