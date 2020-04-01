@@ -28,6 +28,7 @@ function App() {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const [locationState, setLocationState] = useState();
   const [received, setReceived] = useState(false);
   return (
