@@ -3,30 +3,29 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
-  const getLocation = () => {
+  const getLocation = e => {
+    let typeService = e.target.name;
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(getPosition);
+      navigator.geolocation.getCurrentPosition(position => {
+        setLocationState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        });
+        axios
+          .post("https://ach4l.pythonanywhere.com/sos", {
+            lat: position.coords.latitude,
+            long: position.coords.longitude,
+            type: typeService
+          })
+          .then(res => {
+            console.log(res);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      });
     }
   };
-
-  function getPosition(position) {
-    setLocationState({
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude
-    });
-    axios
-      .post("https://ach4l.pythonanywhere.com/sos", {
-        lat: position.coords.latitude,
-        long: position.coords.longitude
-      })
-      .then(res => {
-        console.log(res);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-    console.log(position.coords.latitude, position.coords.longitude);
-  }
 
   const [locationState, setLocationState] = useState();
   return (
@@ -37,9 +36,50 @@ function App() {
             {`Your latitude is ${locationState.latitude}, longitude is ${locationState.longitude}`}
           </p>
         )}
-        <button className="help-button" onClick={getLocation}>
-          Help !
-        </button>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-3">
+              <button
+                className="help-button"
+                id="Food"
+                name="Food"
+                onClick={getLocation}
+              >
+                Food
+              </button>
+            </div>
+            <div className="col-md-3">
+              <button
+                className="help-button"
+                name="Doctor"
+                id="Doctor"
+                onClick={getLocation}
+              >
+                Doctor
+              </button>
+            </div>
+            <div className="col-md-3">
+              <button
+                className="help-button"
+                name="Medicine"
+                id="Medicine"
+                onClick={getLocation}
+              >
+                Medicine
+              </button>
+            </div>
+            <div className="col-md-3">
+              <button
+                className="help-button"
+                name="Mental"
+                id="Mental"
+                onClick={getLocation}
+              >
+                Mental
+              </button>
+            </div>
+          </div>
+        </div>
       </header>
     </div>
   );
