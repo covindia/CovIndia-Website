@@ -22,25 +22,28 @@ const WorldGraphs = () => {
 
     return (
         <MDBContainer>
-            <MDBRow>
-                <MDBCol>
-                    <GraphTile
-                        data={dailyData}
-                        dataKey={confirmCount}
-                        stroke={"eada0a"}
-                        fill={"colorInfected"}
-                    />
-                </MDBCol>
+            {dailyData !== undefined ?
+                <MDBRow>
+                    <MDBCol>
+                        <h3>Total Confirmed Cases</h3>
+                        <GraphTile
+                            data={dailyData}
+                            dataKey={confirmCount}
+                            stroke={"eada0a"}
+                            fill={"colorInfected"}
+                        />
+                    </MDBCol>
 
-                <MDBCol>
-                <GraphTile
-                    data={dailyData}
-                    dataKey={deathCount}
-                    stroke={"958686"}
-                    fill={"colorDeath"}
-                />
-            </MDBCol>
-            </MDBRow>
+                    <MDBCol>
+                        <h3>Total Deaths</h3>
+                        <GraphTile
+                            data={dailyData}
+                            dataKey={deathCount}
+                            stroke={"958686"}
+                            fill={"colorDeath"}
+                        />
+                    </MDBCol>
+                </MDBRow> : null}
         </MDBContainer>
     );
 };
