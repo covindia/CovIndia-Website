@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./App.css";
 
 function App() {
@@ -13,6 +14,17 @@ function App() {
       latitude: position.coords.latitude,
       longitude: position.coords.longitude
     });
+    axios
+      .post("https://ach4l.pythonanywhere.com/sos", {
+        lat: position.coords.latitude,
+        long: position.coords.longitude
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(e => {
+        console.log(e);
+      });
     console.log(position.coords.latitude, position.coords.longitude);
   }
 
