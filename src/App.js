@@ -64,8 +64,13 @@ function App() {
           {localStorage.getItem("user_mobile") === null ? (
             <div className="row">
               <div className="col s12">
-                <input id="icon_telephone" type="tel" className="validate" />
-                <label htmlFor="icon_telephone">Phone</label>
+                <input
+                  placeholder="Enter your phone number"
+                  id="icon_telephone"
+                  type="tel"
+                  className="validate"
+                />
+                {/* <label htmlFor="icon_telephone">Phone</label> */}
                 <div className="col s12">
                   <button
                     className="waves-effect waves-light btn"
