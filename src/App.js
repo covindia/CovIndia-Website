@@ -3,28 +3,51 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
-  const getLocation = e => {
-    let typeService = e.target.name;
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        setLocationState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        });
-        axios
-          .post("https://ach4l.pythonanywhere.com/sos", {
-            lat: position.coords.latitude,
-            long: position.coords.longitude,
-            type: typeService
-          })
-          .then(res => {
-            console.log(res);
-            setReceived(true);
-          })
-          .catch(e => {
-            console.log(e);
-          });
+  const postToAchal = (lat, long, type) => {
+    axios
+      .post("https://ach4l.pythonanywhere.com/sos", {
+        lat: lat,
+        long: long,
+        type: type,
+        phone: localStorage.getItem("user_mobile")
+      })
+      .then(res => {
+        console.log(res);
+        setReceived(true);
+      })
+      .catch(e => {
+        console.log(e);
       });
+  };
+
+  const getLocation = e => {
+    if (localStorage.getItem("user_mobile") !== null) {
+      let typeService = e.target.name;
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          setLocationState({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          });
+          postToAchal(
+            position.coords.latitude,
+            position.coords.longitude,
+            typeService
+          );
+        });
+      }
+    } else {
+      alert("Please add mobile number before proceeding!");
+    }
+  };
+
+  const saveNumber = () => {
+    var MobNum = document.getElementById("icon_telephone");
+    if (window.confirm(`Are you sure you your number is ${MobNum.value} ?`)) {
+      localStorage.setItem("user_mobile", MobNum.value);
+      console.log(MobNum.value);
+    } else {
+      console.log("Exit Gilla");
     }
   };
 
@@ -35,11 +58,27 @@ function App() {
     <div className="App">
       <header className="App-header">
         {received === true ? (
-          <p>Your request has been received,we will get back shortly</p>
+          <p>Your request has been received, we will get back shortly</p>
         ) : null}
         <div className="container">
+          {localStorage.getItem("user_mobile") === null ? (
+            <div className="row">
+              <div className="col s12">
+                <input id="icon_telephone" type="tel" className="validate" />
+                <label htmlFor="icon_telephone">Phone</label>
+                <div className="col s12">
+                  <button
+                    className="waves-effect waves-light btn"
+                    onClick={saveNumber}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : null}
           <div className="row">
-            <div class="col-sm">
+            <div className="col s12">
               <button
                 className="help-button"
                 id="Food"
@@ -73,7 +112,7 @@ function App() {
             </div>
           </div>
           <div className="row">
-            <div class="col-sm">
+            <div className="col s12">
               <button
                 className="help-button"
                 name="Medicine"
