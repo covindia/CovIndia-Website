@@ -40,20 +40,21 @@
   }
 }
 
-
 .help-button {
   height: 250px;
   width: 250px;
   border-radius: 200px;
   font-size: 1.2rem;
-  background-color: #EC4849;
+  background-color: #ec4849;
   border: none;
   color: white;
   margin: 20px;
 }
 
 .img-icon {
-  height: 180px;
+  height: 160px;
+  padding-left: 30px;
+  margin-top: 15px;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -62,14 +63,16 @@
     width: 120px;
     border-radius: 120px;
     font-size: 1rem;
-    background-color: #EC4849;
+    background-color: #ec4849;
     border: none;
     color: white;
     margin: 10px;
   }
 
   .img-icon {
-    height: 80px;
+    height: 70px;
+    padding-left: 15px;
+    margin-top: 8px;
   }
 
   h4 {

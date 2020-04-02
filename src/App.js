@@ -87,7 +87,7 @@ function App() {
               >
                 <img
                   alt="food"
-                  className="img img-icon"
+                  className="img img-icon materialboxed"
                   id="Food"
                   name="Food"
                   src={`${process.env.PUBLIC_URL}/food.png`}
@@ -102,7 +102,7 @@ function App() {
               >
                 <img
                   alt="food"
-                  className="img img-icon"
+                  className="img img-icon materialboxed"
                   name="Doctor"
                   id="Doctor"
                   src={`${process.env.PUBLIC_URL}/doctor.png`}
@@ -121,7 +121,7 @@ function App() {
               >
                 <img
                   alt="food"
-                  className="img img-icon"
+                  className="img img-icon materialboxed"
                   name="Medicine"
                   id="Medicine"
                   src={`${process.env.PUBLIC_URL}/medicine.png`}
@@ -136,12 +136,46 @@ function App() {
               >
                 <img
                   alt="food"
-                  className="img img-icon"
+                  className="img img-icon materialboxed"
                   name="Mental"
                   id="Mental"
                   src={`${process.env.PUBLIC_URL}/psychology.png`}
                 />
                 <h4>Mental</h4>
+              </button>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col s12">
+              <button
+                className="help-button"
+                name="Water"
+                id="Water"
+                onClick={getLocation}
+              >
+                <img
+                  alt="food"
+                  className="img img-icon materialboxed"
+                  name="Water"
+                  id="Water"
+                  src={`${process.env.PUBLIC_URL}/water.png`}
+                />
+                <h4>Water</h4>
+              </button>
+              <button
+                className="help-button"
+                name="ambulance"
+                id="ambulance"
+                onClick={getLocation}
+              >
+                <img
+                  alt="food"
+                  className="img img-icon materialboxed"
+                  name="ambulance"
+                  id="ambulance"
+                  src={`${process.env.PUBLIC_URL}/ambulance.png`}
+                />
+                <h4>Ambulance</h4>
               </button>
             </div>
           </div>
