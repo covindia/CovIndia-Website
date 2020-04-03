@@ -58,6 +58,7 @@ function App() {
   return (
     <div className="App">
       <main className="App-header">
+        <h5>USE IN CASE OF EMERGENCY ONLY</h5>
         {received === true ? (
           <p>Your request has been received, we will get back shortly</p>
         ) : null}
@@ -82,7 +83,11 @@ function App() {
                 </div>
               </div>
             </div>
-          ) : null}
+          ) : (
+            <p>
+              Your registered number is {localStorage.getItem("user_mobile")}
+            </p>
+          )}
           <div className="row">
             <div className="col s12">
               <button
