@@ -7,7 +7,14 @@ const FooterComp = () => {
         <div class="row">
           <div class="footer-copyright">
             <div class="container">
-              To Volunteer to help, please mail achal.agarwal[at]mechyd.ac.in
+              <div className="row">
+                <div className="col s12">
+                  <p>
+                    To Volunteer to help, please mail
+                    achal.agarwal[at]mechyd.ac.in
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

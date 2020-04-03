@@ -58,6 +58,10 @@ function App() {
   return (
     <div className="App">
       <main className="App-header">
+        <a href="sms:+918790089990?body=this is the text message to send">
+          {" "}
+          Test{" "}
+        </a>
         {received === true ? (
           <p>Your request has been received, we will get back shortly</p>
         ) : null}
