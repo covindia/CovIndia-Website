@@ -105,3 +105,8 @@
 #icon_telephone {
   color: white;
 }
+
+.page-footer {
+  padding-top: 0px !important;
+  background-color: #282c34;
+}

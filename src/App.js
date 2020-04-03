@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FooterComp from "./components/FooterComp";
 import "./App.css";
 
 function App() {
@@ -56,7 +57,7 @@ function App() {
   const [received, setReceived] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
+      <main className="App-header">
         {received === true ? (
           <p>Your request has been received, we will get back shortly</p>
         ) : null}
@@ -186,7 +187,8 @@ function App() {
             </div>
           </div>
         </div>
-      </header>
+        <FooterComp />
+      </main>
     </div>
   );
 }
