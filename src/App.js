@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import FooterComp from "./components/FooterComp";
 import "./App.css";
 
 function App() {
@@ -263,7 +262,6 @@ function App() {
             </div>
           </div>
         </div>
-        {/* <FooterComp /> */}
       </main>
     </div>
   );
