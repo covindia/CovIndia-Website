@@ -134,7 +134,7 @@ function App() {
             <div className="row">
               <div className="col s12">
                 <input
-                  placeholder="Enter your phone number"
+                  placeholder="अपना फोन नंबर लिखें"
                   id="icon_telephone"
                   type="tel"
                   className="validate"
