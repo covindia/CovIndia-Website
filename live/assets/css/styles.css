@@ -548,3 +548,35 @@ a:hover {
   background: #00ff00;
   cursor: pointer;
 }
+
+.searchbar{
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 60px;
+  background-color: #3f0f3f;
+  border-radius: 30px;
+  border: 1px solid white;
+  padding: 10px;
+  }
+
+  .search_input{
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 450px;
+  line-height: 35px;
+  transition: width 0.4s linear;
+  }
+
+  .search_icon{
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color:white;
+  text-decoration:none;
+  }
