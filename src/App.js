@@ -85,16 +85,24 @@ function App() {
   return (
     <div className="App">
       <main className="App-header">
-        <h5>USE IN CASE OF EMERGENCY ONLY</h5>
-        <div className="right-align">
-          <span id="hindiToggler" onClick={changeLanguage}>
+        <div className="right-align" style={{ fontSize: 12, marginRight: 10 }}>
+          <span
+            id="hindiToggler"
+            style={{ margin: 5, padding: 5 }}
+            onClick={changeLanguage}
+          >
             हिन्दी
           </span>
           |
-          <span id="englishToggler" onClick={changeLanguage}>
+          <span
+            id="englishToggler"
+            style={{ margin: 5, padding: 5 }}
+            onClick={changeLanguage}
+          >
             English
           </span>
         </div>
+        <h5>USE IN CASE OF EMERGENCY ONLY</h5>
         {received === true ? (
           <p>Your request has been received, we will get back shortly</p>
         ) : null}
