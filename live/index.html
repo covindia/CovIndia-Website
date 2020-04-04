@@ -203,14 +203,16 @@
 
 					</div>
 					<div class="container" style="margin-top: 1em;" id="map">
-						<div>
-							<h4>Search for district</h4>
-							<div class="form form-inline"><input
-									style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;" type="text"
-									id="searchBar" class="form-control"><button class="btn btn-light" id="searchButton"
-									style="padding-left: 5px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;">SEARCH</button>
+						<div class="container h-100">
+							<div class="d-flex justify-content-center h-100">
+								<div class="searchbar">
+									<input class="search_input" type="text" name="" placeholder="Search for a district..."
+										style="padding-left: 15px;" id="searchBar">
+									<p class="search_icon"><i class="fas fa-search"></i></p>
+								</div>
 							</div>
 						</div>
+
 						<div class="row text-enter">
 							<!-- <div class="col">Last Updated</div> -->
 							<div class="col text-center" style="margin-bottom: 1em; color: #A9A9A9; font-style: italic;"></div>
@@ -3926,36 +3928,31 @@
 					$('#Kasargod').tooltip().mouseover();
 					$('#Delhi-Unique').tooltip().mouseover();
 
-					$("#searchButton").click(function () {
 
-						var value = $("#searchBar").val().toLowerCase();
-						console.log(value)
-						let results = []
-						distArray.map((district => {
-							if (district.toLowerCase().includes(value)) {
-								results.push(district)
-							}
-							$("#" + district).tooltip().mouseout()
-						}))
-						results.map(item => {
-							$("#" + item).tooltip().mouseover()
-						})
-						console.log(results)
-					})
 
 					$("#searchBar").on("keyup", function () {
 						var value = $(this).val().toLowerCase();
 						console.log(value)
+
+						let results = []
+						distArray.map((district) => {
+							if (district.toLowerCase().indexOf(value, 0) > -1) {
+								results.push(district)
+							}
+							$("#" + district).tooltip().mouseout()
+							$("#Mumbai-Unique").tooltip().mouseout()
+							$("#Delhi-Unique").tooltip().mouseout()
+						})
 						if (value.length >= 2) {
-							let results = []
-							distArray.map((district) => {
-								if (district.toLowerCase().includes(value)) {
-									results.push(district)
-								}
-								$("#" + district).tooltip().mouseout()
-							})
 							results.map(item => {
-								$("#" + item).tooltip().mouseover()
+
+								if (item === "Mumbai") {
+									$("#Mumbai-Unique").tooltip().mouseover()
+								} else if (item === "Delhi") {
+									$("#Delhi-Unique").tooltip().mouseover()
+								} else {
+									$("#" + item).tooltip().mouseover()
+								}
 							})
 							console.log(results)
 						}
