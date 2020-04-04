@@ -203,7 +203,7 @@
 
 					</div>
 					<div class="container" style="margin-top: 1em;" id="map">
-						<div style="display: none;">
+						<div>
 							<h4>Search for district</h4>
 							<div class="form form-inline"><input
 									style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;" type="text"
@@ -3941,6 +3941,25 @@
 							$("#" + item).tooltip().mouseover()
 						})
 						console.log(results)
+					})
+
+					$("#searchBar").on("keyup", function () {
+						var value = $(this).val().toLowerCase();
+						console.log(value)
+						if (value.length >= 2) {
+							let results = []
+							distArray.map((district) => {
+								if (district.toLowerCase().includes(value)) {
+									results.push(district)
+								}
+								$("#" + district).tooltip().mouseout()
+							})
+							results.map(item => {
+								$("#" + item).tooltip().mouseover()
+							})
+							console.log(results)
+						}
+
 					})
 				})
 			);
