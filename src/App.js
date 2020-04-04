@@ -10,25 +10,25 @@ function App() {
         lat: lat,
         long: long,
         type: type,
-        phone: localStorage.getItem("user_mobile")
+        phone: localStorage.getItem("user_mobile"),
       })
-      .then(res => {
+      .then((res) => {
         console.log(res);
         setReceived(true);
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
       });
   };
 
-  const getLocation = e => {
+  const getLocation = (e) => {
     if (localStorage.getItem("user_mobile") !== null) {
       let typeService = e.target.name;
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
+        navigator.geolocation.getCurrentPosition((position) => {
           setLocationState({
             latitude: position.coords.latitude,
-            longitude: position.coords.longitude
+            longitude: position.coords.longitude,
           });
           postToAchal(
             position.coords.latitude,
@@ -52,6 +52,33 @@ function App() {
     }
   };
 
+  const changeLanguage = (e) => {
+    const language = e.target.id;
+    const foodText = document.getElementById("foodText");
+    const waterText = document.getElementById("waterText");
+    const doctorText = document.getElementById("doctorText");
+    const medicineText = document.getElementById("medicineText");
+    const psychText = document.getElementById("psychText");
+    const ambulanceText = document.getElementById("ambulanceText");
+
+    if (language === "englishToggler") {
+      foodText.innerText = "Food";
+      waterText.innerText = "Water";
+      doctorText.innerText = "Doctor";
+      medicineText.innerText = "Medicine";
+      psychText.innerText = "Just Talk";
+      ambulanceText.innerText = "Ambulance";
+    }
+    if (language === "hindiToggler") {
+      foodText.innerText = "खाना";
+      waterText.innerText = "पानी";
+      doctorText.innerText = "डॉक्टर";
+      medicineText.innerText = "दवाई";
+      psychText.innerText = "बातचीत";
+      ambulanceText.innerText = "आंब्युलेन्स";
+    }
+  };
+
   // eslint-disable-next-line no-unused-vars
   const [locationState, setLocationState] = useState();
   const [received, setReceived] = useState(false);
@@ -59,6 +86,15 @@ function App() {
     <div className="App">
       <main className="App-header">
         <h5>USE IN CASE OF EMERGENCY ONLY</h5>
+        <div className="right-align">
+          <span id="hindiToggler" onClick={changeLanguage}>
+            हिन्दी
+          </span>
+          |
+          <span id="englishToggler" onClick={changeLanguage}>
+            English
+          </span>
+        </div>
         {received === true ? (
           <p>Your request has been received, we will get back shortly</p>
         ) : null}
@@ -103,7 +139,7 @@ function App() {
                   name="Food"
                   src={`${process.env.PUBLIC_URL}/food.png`}
                 />
-                <h4>Food</h4>
+                <h4 id="foodText">खाना</h4>
               </button>
               <button
                 className="help-button"
@@ -118,7 +154,7 @@ function App() {
                   id="Water"
                   src={`${process.env.PUBLIC_URL}/water.png`}
                 />
-                <h4>Water</h4>
+                <h4 id="waterText">पानी</h4>
               </button>
             </div>
           </div>
@@ -137,7 +173,7 @@ function App() {
                   id="Doctor"
                   src={`${process.env.PUBLIC_URL}/doctor.png`}
                 />
-                <h4>Doctor</h4>
+                <h4 id="doctorText">डॉक्टर</h4>
               </button>
 
               <button
@@ -153,7 +189,7 @@ function App() {
                   id="Medicine"
                   src={`${process.env.PUBLIC_URL}/medicine.png`}
                 />
-                <h4>Medicine</h4>
+                <h4 id="medicineText">दवाई</h4>
               </button>
             </div>
           </div>
@@ -172,7 +208,7 @@ function App() {
                   id="ambulance"
                   src={`${process.env.PUBLIC_URL}/ambulance.png`}
                 />
-                <h4>Ambulance</h4>
+                <h4 id="ambulanceText">आंब्युलेन्स</h4>
               </button>
               <button
                 className="help-button"
@@ -187,7 +223,7 @@ function App() {
                   id="Mental"
                   src={`${process.env.PUBLIC_URL}/psychology.png`}
                 />
-                <h4>Just Talk</h4>
+                <h4 id="psychText">बातचीत</h4>
               </button>
             </div>
           </div>
