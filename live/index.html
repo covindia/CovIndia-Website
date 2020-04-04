@@ -3891,9 +3891,9 @@
 					for (let key in districtData) {
 
 						distArray.push(key)
-						console.log(key)
+						// console.log(key)
 					}
-					console.log("MY ARRAY", distArray)
+					// console.log("MY ARRAY", distArray)
 					renderData(districtData);
 					$('.clickable').tooltip();
 
@@ -3932,7 +3932,7 @@
 
 					$("#searchBar").on("keyup", function () {
 						var value = $(this).val().toLowerCase();
-						console.log(value)
+						// console.log(value)
 
 						let results = []
 						distArray.map((district) => {
@@ -3954,7 +3954,7 @@
 									$("#" + item).tooltip().mouseover()
 								}
 							})
-							console.log(results)
+							// console.log(results)
 						}
 
 					})
@@ -4025,7 +4025,7 @@
 				for (let [key, value] of Object.entries(response)) {
 					tempArray.push([key, value])
 				}
-				console.log(tempArray[tempArray.length - 2][1])
+				// console.log(tempArray[tempArray.length - 2][1])
 				$("#additions")[0].innerText = "+" + tempArray[tempArray.length - 1][1]
 			}))
 	</script>

@@ -308,7 +308,7 @@ $.when(
               ticks: {
                 callback: function(value, index, values) {
                   if (value === values[values.length - 1]) {
-                    console.log(value);
+                    //console.log(value);
                     return value;
                   } else if (index % 4 === 0) {
                     return value;
