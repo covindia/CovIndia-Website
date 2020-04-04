@@ -60,6 +60,9 @@ function App() {
     const medicineText = document.getElementById("medicineText");
     const psychText = document.getElementById("psychText");
     const ambulanceText = document.getElementById("ambulanceText");
+    const emergencyText = document.getElementById("emergencyText");
+    const mobileText = document.getElementById("mobileText");
+    const placeholderText = document.getElementById("icon_telephone");
 
     if (language === "englishToggler") {
       foodText.innerText = "Food";
@@ -68,6 +71,15 @@ function App() {
       medicineText.innerText = "Medicine";
       psychText.innerText = "Just Talk";
       ambulanceText.innerText = "Ambulance";
+      emergencyText.innerText = "USE IN CASE OF EMERGENCY ONLY";
+      try {
+        mobileText.innerText = "Your registered number is";
+      } catch (error) {
+        console.log(error);
+      }
+      try {
+        placeholderText.placeholder = "Enter your phone number";
+      } catch (error) {}
     }
     if (language === "hindiToggler") {
       foodText.innerText = "खाना";
@@ -76,6 +88,17 @@ function App() {
       medicineText.innerText = "दवाई";
       psychText.innerText = "बातचीत";
       ambulanceText.innerText = "आंब्युलेन्स";
+      emergencyText.innerText = "केवल आपातकालीन स्थितियों के लिए उपयोग करें";
+      try {
+        mobileText.innerText = "आपके द्वारा दिया गया नंबर है";
+      } catch (error) {
+        console.log(error);
+      }
+      try {
+        placeholderText.placeholder = "अपना फोन नंबर लिखें";
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -102,7 +125,7 @@ function App() {
             English
           </span>
         </div>
-        <h5>USE IN CASE OF EMERGENCY ONLY</h5>
+        <h5 id="emergencyText">केवल आपातकालीन स्थितियों के लिए उपयोग करें </h5>
         {received === true ? (
           <p>Your request has been received, we will get back shortly</p>
         ) : null}
@@ -129,7 +152,8 @@ function App() {
             </div>
           ) : (
             <p>
-              Your registered number is {localStorage.getItem("user_mobile")}
+              <span id="mobileText">आपके द्वारा दिया गया नंबर है</span>{" "}
+              {localStorage.getItem("user_mobile")}
             </p>
           )}
           <div className="row">
@@ -236,7 +260,7 @@ function App() {
             </div>
           </div>
         </div>
-        <FooterComp />
+        {/* <FooterComp /> */}
       </main>
     </div>
   );
