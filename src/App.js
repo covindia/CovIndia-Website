@@ -63,6 +63,7 @@ function App() {
     const emergencyText = document.getElementById("emergencyText");
     const mobileText = document.getElementById("mobileText");
     const placeholderText = document.getElementById("icon_telephone");
+    const submitText = document.getElementById("submitText");
 
     if (language === "englishToggler") {
       foodText.innerText = "Food";
@@ -79,6 +80,7 @@ function App() {
       }
       try {
         placeholderText.placeholder = "Enter your phone number";
+        submitText.innerHTML = "Submit";
       } catch (error) {}
     }
     if (language === "hindiToggler") {
@@ -96,6 +98,7 @@ function App() {
       }
       try {
         placeholderText.placeholder = "अपना फोन नंबर लिखें";
+        submitText.innerHTML = "बटन दबाएं";
       } catch (error) {
         console.log(error);
       }
@@ -145,7 +148,7 @@ function App() {
                     className="waves-effect waves-light btn"
                     onClick={saveNumber}
                   >
-                    Submit
+                    <span id="submitText">बटन दबाएं</span>
                   </button>
                 </div>
               </div>
