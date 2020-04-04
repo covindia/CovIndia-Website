@@ -33,6 +33,7 @@
    <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap" rel="stylesheet">
 
+
    <script>
       // This is the "Offline page" service worker
 
@@ -855,44 +856,49 @@
    </nav>
 
 
-   <div style="padding: 100px;">
+   <div style="padding: 3rem; padding-top: 5rem">
       <form id="form">
-         <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="stateSelector" class="form-control">
-               <option value="" selected="selected">Select state </option>
-            </select>
+         <div class="row">
+            <div class="form-group col-md-3 form-inline">
+               <label for="inputState" style="padding-right: 10px;">State: </label>
+               <select id="stateSelector" class="form-control" required>
+                  <option value="" selected="selected">Select state </option>
+               </select>
+            </div>
+            <div class="form-group col-md-3 form-inline">
+               <label for="inputDistrict" style="padding-right:10px;">District</label>
+               <select id="districtSelector" class="form-control" required>
+                  <option value="" selected="selected">Select district </option>
+               </select>
+            </div>
+
+
+            <div class="form-group col-md-3 form-inline">
+               <label for="inputType" style="padding-right: 10px;">Type</label>
+               <select id="inputType" class="form-control" required>
+                  <option value="infected">Infected</option>
+                  <option value="dead">Dead</option>
+               </select>
+            </div>
          </div>
-         <div class="form-group col-md-4">
-            <label for="inputDistrict">District</label>
-            <select id="districtSelector" class="form-control">
-               <option value="" selected="selected">Select district </option>
-            </select>
+         <div class="form-group col-md-6">
+            <label for="value">Number of cases</label>
+            <input required type="number" min="0" class="form-control" id="valueProvided" autocomplete="off">
          </div>
-         <div class="form-group col-md-4">
-            <label for="inputType">Type</label>
-            <select id="inputType" class="form-control">
-               <option value="infected">Infected</option>
-               <option value="dead">Dead</option>
-            </select>
-         </div>
-         <div class="form-group">
-            <label for="value">Number</label>
-            <input type="text" class="form-control" id="valueProvided" autocomplete="off">
-         </div>
-         <div class="form-group">
+         <div class="form-group col-md-6">
             <label for="inputAddress2">Source Link</label>
-            <input type="text" class="form-control" id="sourceLink" autocomplete="off">
+            <input requiredtype="text" class="form-control" id="sourceLink" autocomplete="off">
          </div>
-         <div class="form-group">
-            <label for="inputAddress">Name</label>
+         <div class="form-group col-md-6">
+            <label for="inputAddress">Your name: </label>
             <input type="text" class="form-control" id="providerName" autocomplete="off">
          </div>
-         <div class="form-group">
+         <div class="form-group col-md-6">
             <label for="date">Date</label>
-            <input type="date" class="form-control" id="dateProvided" autocomplete="off">
+            <input required type="date" class="form-control" id="dateProvided" autocomplete="off">
          </div>
-         <input type="submit">
+         <input type="submit" class="btn btn-outline-secondary col-md-2 pl-2"
+            style="border: 1px solid white; color: white;">
       </form>
    </div>
 
@@ -900,17 +906,8 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-   <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-   <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-   <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-   <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
    <script>
 
       const formElem = document.getElementById("form")
@@ -933,7 +930,7 @@
          // $.when(
          //    $.ajax("http://localhost:5000").then(response => console.log(response))
          // )
-         $.post("https://test.api.covindia.com/report-numbers", {
+         $.post("https://v1.api.covindia.com/report-numbers", {
             state: state.value,
             district: district.value,
             infected: infected,
@@ -943,7 +940,8 @@
             source: source.value,
             name: name.value
          }).done(function (data) {
-            console.log(data)
+            alert('Thank you for your submission')
+            document.getElementById("form").reset()
          })
       }
    </script>
