@@ -9,27 +9,32 @@
 
 <url>
   <loc>https://covindia.com/</loc>
-  <lastmod>2020-03-24T20:19:32+00:00</lastmod>
+  <lastmod>2020-04-04T18:25:56+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://covindia.com/analytics</loc>
-  <lastmod>2020-03-24T20:19:32+00:00</lastmod>
+  <lastmod>2020-04-04T18:25:56+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://covindia.com/about</loc>
-  <lastmod>2020-03-24T20:19:32+00:00</lastmod>
+  <lastmod>2020-04-04T18:25:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://covindia.com/report</loc>
+  <lastmod>2020-04-04T18:25:56+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://covindia.com/donate</loc>
-  <lastmod>2020-03-24T20:19:32+00:00</lastmod>
+  <lastmod>2020-04-04T18:25:56+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://covindia.com/disclaimer</loc>
-  <lastmod>2020-03-24T20:19:32+00:00</lastmod>
+  <lastmod>2020-04-04T18:25:56+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
