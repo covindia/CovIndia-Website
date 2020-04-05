@@ -3928,9 +3928,10 @@
 					$('#Delhi-Unique').tooltip().mouseover();
 
 
-
+					let resultHist = []
 					$("#searchBar").on("keyup", function () {
 						var value = $(this).val().toLowerCase();
+
 						// console.log(value)
 
 						// let results = []
@@ -3943,14 +3944,24 @@
 						// 	$("#Delhi-Unique").tooltip().mouseout()
 						// })
 						let results = distArray.filter(district => {
+
+							return district.toLowerCase().includes(value, 0)
+						})
+						console.log("resultHist", resultHist)
+						console.log("results", results)
+						if (value.length === 1) {
+							resultHist = results
+						}
+						resultHist.map(district => {
 							$("#" + district).tooltip().mouseout()
 							$("#Mumbai-Unique").tooltip().mouseout()
 							$("#Delhi-Unique").tooltip().mouseout()
-							return district.toLowerCase().includes(value, 0)
 						})
 						if (value.length >= 2) {
-							results.map(item => {
+							console.log(resultHist)
+							console.log(results)
 
+							results.map(item => {
 								if (item === "Mumbai") {
 									$("#Mumbai-Unique").tooltip().mouseover()
 								} else if (item === "Delhi") {
@@ -3959,6 +3970,7 @@
 									$("#" + item).tooltip().mouseover()
 								}
 							})
+							resultHist = results
 							// console.log(results)
 						}
 

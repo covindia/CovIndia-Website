@@ -565,7 +565,7 @@ a:hover {
   border: 0;
   outline: 0;
   background: none;
-  width: 450px;
+  
   line-height: 35px;
   transition: width 0.4s linear;
   }
