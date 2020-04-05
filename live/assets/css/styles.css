@@ -557,6 +557,7 @@ a:hover {
   border-radius: 30px;
   border: 1px solid white;
   padding: 10px;
+  width: 100%
   }
 
   .search_input{
@@ -564,7 +565,7 @@ a:hover {
   border: 0;
   outline: 0;
   background: none;
-  width: 450px;
+  
   line-height: 35px;
   transition: width 0.4s linear;
   }
@@ -579,4 +580,11 @@ a:hover {
   border-radius: 50%;
   color:white;
   text-decoration:none;
+  }
+
+  @media(max-width: 600px) {
+    .search_input{
+      width: 200px;
+    }
+
   }
