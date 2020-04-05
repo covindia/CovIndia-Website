@@ -136,7 +136,7 @@
 										<span id="infected-desk" style="font-size: inherit;"></span>
 										<!-- <span id="additions" class="infected-desk"
 											style="font-style: inherit; font-size: 3rem; font-family: 'Poppins'; color: #A9A9A9;"></span> -->
-										<img src="assets/img/infected-resized.png.png" alt="infected" class="stat-image">
+										<img src="assets/img/infected-resized.png" alt="infected" class="stat-image">
 									</div>
 									<div class="container" style="text-align:left;">
 										<span id="infected-sub-title">
@@ -148,7 +148,7 @@
 									<span class="stat-title">Total Saved</span>
 									<div class="stat-wrapper">
 										<span id="cured-desk" style="font-size: inherit;"></span>
-										<img src="assets/img/cured-resized.png.png" alt="infected" class="stat-image">
+										<img src="assets/img/cured-resized.png" alt="infected" class="stat-image">
 									</div>
 									<div class="container" style="text-align:left;">
 										<span id="saved-sub-title">
@@ -202,7 +202,7 @@
 						</div>
 					</div>
 					<div class="container" style="margin-top: 1em;" id="map">
-						<div class="container h-100">
+						<!-- <div class="container h-100">
 							<div class="d-flex justify-content-center h-100">
 								<div class="searchbar">
 									<input class="search_input" type="text" name="" placeholder="Search for a district..."
@@ -210,7 +210,7 @@
 									<p class="search_icon"><i class="fas fa-search"></i></p>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="row text-enter">
 							<!-- <div class="col">Last Updated</div> -->
@@ -3558,7 +3558,7 @@
 						<p>Date: <span id="demo"></span></p>
 						<h3 class="text-right">Move the slider to see past information</h3>
 						<div class="alert alert-light text-center" style="font-size: 1.5em; ">Click <a
-								style="color: #3f0f3f; font-size: 1em;" href="report.html">here</a> to report new data
+								style="color: #3f0f3f; font-size: 1em;" href="report">here</a> to report new data
 						</div>
 					</div>
 				</div>
@@ -3890,9 +3890,9 @@
 					for (let key in districtData) {
 
 						distArray.push(key)
-						console.log(key)
+						// console.log(key)
 					}
-					console.log("MY ARRAY", distArray)
+					// console.log("MY ARRAY", distArray)
 					renderData(districtData);
 					$('.clickable').tooltip();
 
@@ -3931,7 +3931,7 @@
 
 					$("#searchBar").on("keyup", function () {
 						var value = $(this).val().toLowerCase();
-						console.log(value)
+						// console.log(value)
 
 						// let results = []
 						// distArray.map((district) => {
@@ -3959,7 +3959,7 @@
 									$("#" + item).tooltip().mouseover()
 								}
 							})
-							console.log(results)
+							// console.log(results)
 						}
 
 					})
@@ -4030,7 +4030,7 @@
 				for (let [key, value] of Object.entries(response)) {
 					tempArray.push([key, value])
 				}
-				console.log(tempArray[tempArray.length - 2][1])
+				// console.log(tempArray[tempArray.length - 2][1])
 				$("#additions")[0].innerText = "+" + tempArray[tempArray.length - 1][1]
 			}))
 	</script>

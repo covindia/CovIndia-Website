@@ -7,7 +7,7 @@ importScripts(
 );
 
 if (workbox) {
-  console.log(`Yay! Workbox is loaded 🎉`);
+  //console.log(`Yay! Workbox is loaded 🎉`);
   workbox.routing.registerRoute(
     new RegExp(".*.js"),
     new workbox.strategies.NetworkFirst()

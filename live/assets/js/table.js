@@ -2,7 +2,7 @@ var stateData = [];
 $.when(
   $.ajax("https://v1.api.covindia.com/daily-states-complete").then(
     response => {
-      console.log(response);
+      //console.log(response);
       stateData = response;
       const data = Object.keys(stateData).map(key => {
         return [

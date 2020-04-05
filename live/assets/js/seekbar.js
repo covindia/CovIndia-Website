@@ -33,7 +33,7 @@ async function playbutton() {
   var output = document.getElementById("demo");
   slider.value = 0;
   var sleepTimer = 10000 / slider.max;
-  console.log(sleepTimer);
+  //console.log(sleepTimer);
   for (var i = 0; i < slider.max; i++) {
     slider.stepUp();
     clearData(districtData);
