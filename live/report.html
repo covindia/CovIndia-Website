@@ -818,6 +818,10 @@
                districtSel.options[districtSel.options.length] = new Option(data[this.value][district], data[this.value][district])
             }
          }
+         var today = new Date();
+         var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear()
+         console.log(date)
+         document.getElementById("dateProvided").value = date
 
       }
    </script>
@@ -857,13 +861,13 @@
    <div style="padding: 3rem; padding-top: 5rem">
       <form id="form">
          <div class="row">
-            <div class="form-group col-md-3 form-inline">
+            <div class="form-group col-md-3">
                <label for="inputState" style="padding-right: 10px;">State: </label>
                <select id="stateSelector" class="form-control" required>
                   <option value="" selected="selected">Select state </option>
                </select>
             </div>
-            <div class="form-group col-md-3 form-inline">
+            <div class="form-group col-md-3 ">
                <label for="inputDistrict" style="padding-right:10px;">District</label>
                <select id="districtSelector" class="form-control" required>
                   <option value="" selected="selected">Select district </option>
@@ -871,7 +875,7 @@
             </div>
 
 
-            <div class="form-group col-md-3 form-inline">
+            <div class="form-group col-md-3">
                <label for="inputType" style="padding-right: 10px;">Type</label>
                <select id="inputType" class="form-control" required>
                   <option value="infected">Infected</option>
@@ -893,7 +897,8 @@
          </div>
          <div class="form-group col-md-6">
             <label for="date">Date</label>
-            <input required type="date" class="form-control" id="dateProvided" autocomplete="off">
+            <input required type="text" class="form-control" id="dateProvided" autocomplete="off" readonly
+               style="background-color: #bfbfbf;">
          </div>
          <input type="submit" class="btn btn-outline-secondary col-md-2 pl-2"
             style="border: 1px solid white; color: white;">
@@ -963,6 +968,8 @@
 
    <script>
 
+
+
       const formElem = document.getElementById("form")
       formElem.onsubmit = (e) => {
          e.preventDefault();
@@ -978,6 +985,7 @@
          }
          let number = document.getElementById("valueProvided")
          let date = document.getElementById("dateProvided")
+
          let source = document.getElementById("sourceLink")
          let name = document.getElementById("providerName")
          // $.when(
