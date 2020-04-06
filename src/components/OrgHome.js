@@ -30,6 +30,9 @@ const OrgHome = (props) => {
       })
       .then((res) => {
         console.log(res);
+        alert(
+          `We have received your request for ${type}. We will get back to you shortly.`
+        );
         setReceived(true);
       })
       .catch((e) => {
@@ -72,9 +75,6 @@ const OrgHome = (props) => {
   return (
     <div>
       <h3>{org.charAt(0).toUpperCase() + org.slice(1)}</h3>
-      {received === true ? (
-        <p>Your request has been received, we will get back shortly</p>
-      ) : null}
       <div className="container">
         {localStorage.getItem("user_mobile") === null ? (
           <div className="row">
