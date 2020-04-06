@@ -6,11 +6,13 @@ const OrgHome = (props) => {
   let { org } = useParams();
   const [services, setServices] = useState([]);
   useEffect(() => {
+    console.log(org);
     axios
       .post("https://ach4l.pythonanywhere.com/get_services", {
         org: org,
       })
       .then((res) => {
+        console.log(res);
         setServices(res.data);
       })
       .catch((e) => {
@@ -102,40 +104,38 @@ const OrgHome = (props) => {
           {services.length !== 0 ? (
             <>
               {console.log(services)}
-              <div className="col s6">
-                {services["food"] === "True" && (
+              {services["food"] === "True" && (
+                <div className="col s6">
                   <ServiceButton name="food" getLocation={getLocation} />
-                )}
-              </div>
-              <div className="col s6">
-                {services["water"] === "True" && (
+                </div>
+              )}
+              {services["water"] === "True" && (
+                <div className="col s6">
                   <ServiceButton name="water" getLocation={getLocation} />
-                )}
-              </div>
-              <div className="col s6">
-                {services["doctor"] === "True" && (
+                </div>
+              )}
+              {services["doctor"] === "True" && (
+                <div className="col s6">
                   <ServiceButton name="doctor" getLocation={getLocation} />
-                )}
-              </div>
-              <div className="col s6">
-                {services["medicine"] === "True" && (
+                </div>
+              )}
+              {services["medicine"] === "True" && (
+                <div className="col s6">
                   <ServiceButton name="medicine" getLocation={getLocation} />
-                )}
-              </div>
-              <div className="col s6">
-                {services["ambulance"] === "True" && (
+                </div>
+              )}
+              {services["ambulance"] === "True" && (
+                <div className="col s6">
                   <ServiceButton name="ambulance" getLocation={getLocation} />
-                )}
-              </div>
-              <div className="col s6">
-                {services["talk"] === "True" && (
+                </div>
+              )}
+              {services["talk"] === "True" && (
+                <div className="col s6">
                   <ServiceButton name="talk" getLocation={getLocation} />
-                )}
-              </div>
+                </div>
+              )}
             </>
-          ) : (
-            <h3>Looks like your Organisation isn't registered with us</h3>
-          )}
+          ) : null}
         </div>
       </div>
     </div>
