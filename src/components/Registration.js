@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -68,6 +68,7 @@ export default function Register() {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
+  const [orgUrl, setorgUrl] = useState("");
   const _onSubmit = (e) => {
     const name = document.getElementById("nameOrg").value;
     const email = document.getElementById("email").value;
@@ -75,6 +76,7 @@ export default function Register() {
     registerOrg(name, email, telephone, state);
     alert("Your org has ben registered successfully");
     var form = document.getElementById("registration");
+    setorgUrl(`https://help.covindia.com/${name}`);
     form.reset();
   };
 
@@ -83,6 +85,11 @@ export default function Register() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
+        {orgUrl !== "" && (
+          <h3>
+            You can find your Orgnisation at <a href={{ orgUrl }}>here</a>
+          </h3>
+        )}
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
