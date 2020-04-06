@@ -25,21 +25,6 @@ function App() {
         console.log(e);
       });
   };
-  useEffect(() => {
-    // if (!window.location.href.includes("registration"))
-    //   document.getElementById("englishToggler").click();
-    axios
-      .post("https://ach4l.pythonanywhere.com/get_services", {
-        org: "goonj",
-      })
-      .then((res) => {
-        console.log(res.data);
-        setServices(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, []);
   const getLocation = (e) => {
     if (localStorage.getItem("user_mobile") !== null) {
       let typeService = e.target.name;

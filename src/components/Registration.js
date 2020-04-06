@@ -73,6 +73,9 @@ export default function Register() {
     const email = document.getElementById("email").value;
     const telephone = document.getElementById("telephone").value;
     registerOrg(name, email, telephone, state);
+    alert("Your org has ben registered successfully");
+    var form = document.getElementById("registration");
+    form.reset();
   };
 
   const { food, medicine, doctor, ambulance, mental, water } = state;
@@ -86,7 +89,7 @@ export default function Register() {
         <Typography component="h1" variant="h5">
           Register
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate id="registration">
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
               <TextField
