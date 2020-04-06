@@ -10,6 +10,7 @@ function App() {
         long: long,
         type: type,
         phone: localStorage.getItem("user_mobile"),
+        org: window.location.href.split("/")[3],
       })
       .then((res) => {
         console.log(res);
