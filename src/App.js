@@ -110,6 +110,7 @@ function App() {
   return (
     <div className="App">
       <main className="App-header">
+        <h2>{window.location.href.split("/")[3].toUpperCase()}</h2>
         <div className="right-align" style={{ fontSize: 12, marginRight: 10 }}>
           <span
             id="hindiToggler"
