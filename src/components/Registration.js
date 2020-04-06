@@ -76,7 +76,7 @@ export default function Register() {
     if (name.includes(" ")) {
       alert("Please don't use spaces in org name, try using hyphens");
     } else {
-      registerOrg(name, email, telephone, state);
+      //   registerOrg(name, email, telephone, state);
       alert("Your org has ben registered successfully");
       var form = document.getElementById("registration");
       setorgUrl(`https://help.covindia.com/${name}`);
@@ -91,7 +91,8 @@ export default function Register() {
       <div className={classes.paper}>
         {orgUrl !== "" && (
           <h3>
-            You can find your Orgnisation at <a href={{ orgUrl }}>here</a>
+            You can find your Orgnisation at <a href={orgUrl}>here</a>
+            {console.log(orgUrl)}
           </h3>
         )}
         <Avatar className={classes.avatar}>

@@ -71,7 +71,6 @@ const OrgHome = (props) => {
   const [received, setReceived] = useState(false);
   return (
     <div>
-      {console.log(services)}
       <h3>{org.charAt(0).toUpperCase() + org.slice(1)}</h3>
       {received === true ? (
         <p>Your request has been received, we will get back shortly</p>
