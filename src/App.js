@@ -64,7 +64,7 @@ function App() {
       <div className="App">
         <main className="App-header">
           <Switch>
-            <Route path="/registration">
+            <Route path="/register">
               <Register />
             </Route>
             <Route path="/:org">
