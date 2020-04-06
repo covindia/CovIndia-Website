@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.btn-text {
+  font-size: 24px;
+  text-transform: capitalize !important;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -65,8 +70,9 @@
     margin-top: 8px;
   }
 
-  h4 {
+  .btn-text {
     font-size: 12px;
+    text-transform: capitalize !important;
   }
 
   /* .App-header {
@@ -99,4 +105,10 @@
 .page-footer {
   padding-top: 0px !important;
   background-color: #282c34;
+}
+
+input[type=text]:not(.browser-default),
+input[type=password]:not(.browser-default),
+input[type=tel]:not(.browser-default) {
+  border-bottom: none !important;
 }
