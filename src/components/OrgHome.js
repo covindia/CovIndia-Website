@@ -101,33 +101,34 @@ const OrgHome = (props) => {
         <div className="row">
           {services.length !== 0 ? (
             <>
+              {console.log(services)}
               <div className="col s6">
-                {services["food"] && (
+                {services["food"] === "True" && (
                   <ServiceButton name="food" getLocation={getLocation} />
                 )}
               </div>
               <div className="col s6">
-                {services["water"] && (
+                {services["water"] === "True" && (
                   <ServiceButton name="water" getLocation={getLocation} />
                 )}
               </div>
               <div className="col s6">
-                {services["doctor"] && (
+                {services["doctor"] === "True" && (
                   <ServiceButton name="doctor" getLocation={getLocation} />
                 )}
               </div>
               <div className="col s6">
-                {services["medicine"] && (
+                {services["medicine"] === "True" && (
                   <ServiceButton name="medicine" getLocation={getLocation} />
                 )}
               </div>
               <div className="col s6">
-                {services["ambulance"] && (
+                {services["ambulance"] === "True" && (
                   <ServiceButton name="ambulance" getLocation={getLocation} />
                 )}
               </div>
               <div className="col s6">
-                {services["talk"] && (
+                {services["talk"] === "True" && (
                   <ServiceButton name="talk" getLocation={getLocation} />
                 )}
               </div>
