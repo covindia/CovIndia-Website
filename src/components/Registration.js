@@ -73,11 +73,15 @@ export default function Register() {
     const name = document.getElementById("nameOrg").value;
     const email = document.getElementById("email").value;
     const telephone = document.getElementById("telephone").value;
-    registerOrg(name, email, telephone, state);
-    alert("Your org has ben registered successfully");
-    var form = document.getElementById("registration");
-    setorgUrl(`https://help.covindia.com/${name}`);
-    form.reset();
+    if (name.includes(" ")) {
+      alert("Please don't use spaces in org name, try using hyphens");
+    } else {
+      registerOrg(name, email, telephone, state);
+      alert("Your org has ben registered successfully");
+      var form = document.getElementById("registration");
+      setorgUrl(`https://help.covindia.com/${name}`);
+      form.reset();
+    }
   };
 
   const { food, medicine, doctor, ambulance, mental, water } = state;
@@ -96,7 +100,7 @@ export default function Register() {
         <Typography component="h1" variant="h5">
           Register
         </Typography>
-        <form className={classes.form} noValidate id="registration">
+        <form className={classes.form} id="registration">
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
               <TextField

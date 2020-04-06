@@ -73,6 +73,9 @@ const OrgHome = (props) => {
     <div>
       {console.log(services)}
       <h3>{org.charAt(0).toUpperCase() + org.slice(1)}</h3>
+      {received === true ? (
+        <p>Your request has been received, we will get back shortly</p>
+      ) : null}
       <div className="container">
         {localStorage.getItem("user_mobile") === null ? (
           <div className="row">
@@ -103,7 +106,6 @@ const OrgHome = (props) => {
         <div className="row">
           {services.length !== 0 ? (
             <>
-              {console.log(services)}
               {services["food"] === "True" && (
                 <div className="col s6">
                   <ServiceButton name="food" getLocation={getLocation} />
