@@ -73,14 +73,23 @@ export default function Register() {
     const name = document.getElementById("nameOrg").value;
     const email = document.getElementById("email").value;
     const telephone = document.getElementById("telephone").value;
+    if (name === "" || email === "" || telephone === "") {
+      alert("None of your fields can be empty");
+      return;
+    }
     if (name.includes(" ")) {
       alert("Please don't use spaces in org name, try using hyphens");
     } else {
-      registerOrg(name, email, telephone, state);
-      alert("Your org has ben registered successfully");
-      var form = document.getElementById("registration");
-      setorgUrl(`https://help.covindia.com/${name}`);
-      form.reset();
+      if (email.includes("@") && telephone.length === 10) {
+        // registerOrg(name, email, telephone, state);
+        alert("Your org has ben registered successfully");
+        var form = document.getElementById("registration");
+        setorgUrl(`https://help.covindia.com/${name}`);
+        form.reset();
+      } else {
+        alert("Please check entered email and number");
+        return;
+      }
     }
   };
 
