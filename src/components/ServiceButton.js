@@ -1,6 +1,9 @@
 import React from "react";
 import "../App.css";
 
+import { FormattedMessage } from "react-intl";
+import transalte from "../i18n/translate";
+
 const ServiceButton = (props) => {
   return (
     <button
@@ -16,7 +19,12 @@ const ServiceButton = (props) => {
         id={props.name}
         src={`${process.env.PUBLIC_URL}/${props.name}.png`}
       />
-      <span className="btn-text" id={`${props.name}Text`}>{props.name}</span>
+
+      {transalte(props.name)}
+      {/* <FormattedMessage id={props.name} className="btn-text" /> */}
+      {/* <span className="btn-text" id={`${props.name}Text`}>
+          {props.name}
+        </span> */}
     </button>
   );
 };

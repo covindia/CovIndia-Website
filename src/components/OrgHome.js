@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ServiceButton from "./ServiceButton";
+import { LOCALES, I18nProvider } from "../i18n";
+import transalte from "../i18n/translate";
+
 const OrgHome = (props) => {
   let { org } = useParams();
   const [services, setServices] = useState([]);
@@ -72,74 +75,85 @@ const OrgHome = (props) => {
   // eslint-disable-next-line no-unused-vars
   const [locationState, setLocationState] = useState();
   const [received, setReceived] = useState(false);
+  const [locale, setLocale] = useState(LOCALES.ENGLISH);
+
   return (
-    <div>
-      <h3>{org.charAt(0).toUpperCase() + org.slice(1)}</h3>
-      <div className="container">
-        {localStorage.getItem("user_mobile") === null ? (
-          <div className="row">
-            <div className="col s12">
-              <input
-                placeholder="Enter your phone number"
-                id="icon_telephone"
-                type="tel"
-                className="validate"
-              />
-              {/* <label htmlFor="icon_telephone">Phone</label> */}
+    <I18nProvider locale={locale}>
+      <div
+        className="right-align"
+        style={{ margin: 10, padding: 10, fontSize: 14 }}
+      >
+        <span onClick={() => setLocale(LOCALES.ENGLISH)}>English | </span>
+        <span onClick={() => setLocale(LOCALES.HINDI)}>हिन्दी</span>
+      </div>
+      <div>
+        <h3>{org.charAt(0).toUpperCase() + org.slice(1)}</h3>
+        <div className="container">
+          {localStorage.getItem("user_mobile") === null ? (
+            <div className="row">
               <div className="col s12">
-                <button
-                  className="waves-effect waves-light btn"
-                  onClick={saveNumber}
-                >
-                  <span id="submitText">Submit</span>
-                </button>
+                <input
+                  placeholder={"Enter your phone number"}
+                  id="icon_telephone"
+                  type="tel"
+                  className="validate"
+                />
+                {/* <label htmlFor="icon_telephone">Phone</label> */}
+                <div className="col s12">
+                  <button
+                    className="waves-effect waves-light btn"
+                    onClick={saveNumber}
+                  >
+                    <span id="submitText">{transalte("submitButton")}</span>
+                  </button>
+                </div>
               </div>
             </div>
+          ) : (
+            <p>
+              <span id="mobileText">{transalte("mobileText")}</span>{" "}
+              {localStorage.getItem("user_mobile")}
+            </p>
+          )}
+          <div className="row">
+            {services.length !== 0 ? (
+              <>
+                {services["food"] === "True" && (
+                  <div className="col s6">
+                    <ServiceButton name="food" getLocation={getLocation} />
+                  </div>
+                )}
+                {services["water"] === "True" && (
+                  <div className="col s6">
+                    <ServiceButton name="water" getLocation={getLocation} />
+                  </div>
+                )}
+                {services["doctor"] === "True" && (
+                  <div className="col s6">
+                    <ServiceButton name="doctor" getLocation={getLocation} />
+                  </div>
+                )}
+                {services["medicine"] === "True" && (
+                  <div className="col s6">
+                    <ServiceButton name="medicine" getLocation={getLocation} />
+                  </div>
+                )}
+                {services["ambulance"] === "True" && (
+                  <div className="col s6">
+                    <ServiceButton name="ambulance" getLocation={getLocation} />
+                  </div>
+                )}
+                {services["mental"] === "True" && (
+                  <div className="col s6">
+                    <ServiceButton name="talk" getLocation={getLocation} />
+                  </div>
+                )}
+              </>
+            ) : null}
           </div>
-        ) : (
-          <p>
-            <span id="mobileText">Your registered number is</span>{" "}
-            {localStorage.getItem("user_mobile")}
-          </p>
-        )}
-        <div className="row">
-          {services.length !== 0 ? (
-            <>
-              {services["food"] === "True" && (
-                <div className="col s6">
-                  <ServiceButton name="food" getLocation={getLocation} />
-                </div>
-              )}
-              {services["water"] === "True" && (
-                <div className="col s6">
-                  <ServiceButton name="water" getLocation={getLocation} />
-                </div>
-              )}
-              {services["doctor"] === "True" && (
-                <div className="col s6">
-                  <ServiceButton name="doctor" getLocation={getLocation} />
-                </div>
-              )}
-              {services["medicine"] === "True" && (
-                <div className="col s6">
-                  <ServiceButton name="medicine" getLocation={getLocation} />
-                </div>
-              )}
-              {services["ambulance"] === "True" && (
-                <div className="col s6">
-                  <ServiceButton name="ambulance" getLocation={getLocation} />
-                </div>
-              )}
-              {services["mental"] === "True" && (
-                <div className="col s6">
-                  <ServiceButton name="talk" getLocation={getLocation} />
-                </div>
-              )}
-            </>
-          ) : null}
         </div>
       </div>
-    </div>
+    </I18nProvider>
   );
 };
 
