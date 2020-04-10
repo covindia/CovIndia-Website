@@ -130,7 +130,7 @@ const OrgHome = (props) => {
                   <ServiceButton name="ambulance" getLocation={getLocation} />
                 </div>
               )}
-              {services["talk"] === "True" && (
+              {services["mental"] === "True" && (
                 <div className="col s6">
                   <ServiceButton name="talk" getLocation={getLocation} />
                 </div>
