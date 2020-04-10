@@ -9,7 +9,6 @@ const OrgHome = (props) => {
   let { org } = useParams();
   const [services, setServices] = useState([]);
   useEffect(() => {
-    console.log(org);
     axios
       .post("https://ach4l.pythonanywhere.com/get_services", {
         org: org,
@@ -84,7 +83,8 @@ const OrgHome = (props) => {
         style={{ margin: 10, padding: 10, fontSize: 14 }}
       >
         <span onClick={() => setLocale(LOCALES.ENGLISH)}>English | </span>
-        <span onClick={() => setLocale(LOCALES.HINDI)}>हिन्दी</span>
+        <span onClick={() => setLocale(LOCALES.HINDI)}>हिन्दी | </span>
+        <span onClick={() => setLocale(LOCALES.TAMIL)}>தமிழ் </span>
       </div>
       <div>
         <h3>{org.charAt(0).toUpperCase() + org.slice(1)}</h3>
