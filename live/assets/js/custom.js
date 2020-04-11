@@ -135,7 +135,7 @@ $.when(
           title: {
             display: true,
             text: "Most affected states",
-            fontSize: 16
+            fontSize: 20
           },
           animation: {
             duration: 2000,
@@ -146,15 +146,17 @@ $.when(
               {
                 scaleLabel: {
                   display: true,
-                  labelString: "State"
+                  labelString: "State",
                 },
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 2
+                  zeroLineWidth: 2,
+
                 },
                 ticks: {
-                  autoSkip: true
+                  autoSkip: true,
+
                 }
               }
             ],
