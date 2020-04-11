@@ -162,7 +162,7 @@
 					</div>
 					<div class="grad_card" style="padding: 10px;">
 						<div class="wrapper">
-							<canvas id="myChart" width="100%" height="350px"></canvas>
+							<canvas id="myChart" width="100%" height="300px"></canvas>
 						</div>
 					</div>
 				</div>
@@ -181,7 +181,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col">
 								<div class="text-left">
 									<button class="btn btn-outline-success donate" onclick="playbutton()">Play
 										<i class="fa fa-play" aria-hidden="true"></i>
@@ -189,7 +189,7 @@
 								</div>
 							</div>
 
-							<div class="col-md-6 pt-3">
+							<div class="col">
 								<div class="flex flex-wrap">
 									<div class="desktop-wrapper" style="text-align: right; ">
 										<svg id="legend" width="205" height="60">
@@ -3581,12 +3581,12 @@
 				<div class="col-md-3 ">
 					<div class="grad_card" style="padding: 10px; ">
 						<div class="wrapper">
-							<canvas id="newDailyCases" width="100%" height="350px"></canvas>
+							<canvas id="newDailyCases" width="100%" height="300px"></canvas>
 						</div>
 					</div>
 					<div class="grad_card" style="padding: 10px; margin-top: 30px">
 						<div class="wrapper">
-							<canvas id="stateCases" width="100%" height="350px"></canvas>
+							<canvas id="stateCases" width="100%" height="300px"></canvas>
 						</div>
 					</div>
 				</div>
@@ -4697,7 +4697,7 @@
 				$("#cured")[0].innerText = response.totalCured;
 				$("#deaths")[0].innerText = response.deathTotal;
 				$("#infected")[0].innerText = response.infectedTotal;
-				//$("#max-infected")[0].innerText = response.infectedMax;
+				$("#max-infected")[0].innerText = response.infectedMax;
 				$("#cured-desk")[0].innerText = `0${response.totalCured}`;
 				$("#deaths-desk")[0].innerText = `0${response.deathTotal}`;
 				$("#infected-desk")[0].innerText = response.infectedTotal;
