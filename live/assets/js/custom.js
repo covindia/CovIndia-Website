@@ -156,6 +156,7 @@ $.when(
                 },
                 ticks: {
                   autoSkip: true,
+                  fontSize: 10
 
                 }
               }
