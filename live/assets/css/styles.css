@@ -367,9 +367,6 @@ a:hover {
     border-radius: 10px;
   }
 
-  #legend {
-    height: 15px;
-  }
 
   #max-infected {
     font-size: 12px;
@@ -591,5 +588,14 @@ a:hover {
     .search_input{
       width: 200px;
     }
+    .max_inf {
+      padding-top: 0px !important;
+      font-size: 14px !important;
+    }
 
+  }
+
+  .max_inf {
+    margin-left:5px; font-family: 'Quicksand'; float: right;
+    padding-top: 5px;
   }
