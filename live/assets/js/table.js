@@ -29,7 +29,7 @@ $.when(
       console.log(data)
       const options = [
         {
-          text: "Select a state",
+          text: "Select a state...",
           selected: true
         }
       ]
