@@ -33,9 +33,7 @@ try {
     .getElementById("newDailyCasesMobile")
     .getContext("2d");
 
-  var stateCtxMobile = document
-    .getElementById("stateGraphMobile")
-    .getContext("2d");
+
 } catch (err) {
   console.log(err);
 }

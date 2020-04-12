@@ -41,7 +41,11 @@ $.when(
       })
       console.log(options)
       let optionList = document.getElementById('stateDropdown')
-      options.forEach(option => optionList.add(new Option(option.text, option.value, option.selected)))
+      let optionListMob = document.getElementById("stateDropdownMob")
+      options.forEach(option => {
+        optionList.add(new Option(option.text, option.value, option.selected))
+        optionListMob.add(new Option(option.text, option.value, option.selected))
+      })
     }
   )
 );
