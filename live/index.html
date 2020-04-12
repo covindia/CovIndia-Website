@@ -51,7 +51,7 @@
 			} else {
 				// Register the service worker
 				navigator.serviceWorker
-					.register("assets/js/sw.js", {
+					.register("sw.js", {
 						scope: "./"
 					})
 					.then(function (reg) {
@@ -4663,6 +4663,9 @@
 							//let stateCharts = {}
 							let counter = 0
 							let dataArray = []
+
+							let max = 0
+							let sum = 0
 							for (let [curDate, data] of Object.entries(response)) {
 								for (let [state, value] of Object.entries(data)) {
 									// if (counter === 0) {
@@ -4672,8 +4675,13 @@
 									// }
 
 									if (state === $(this).val()) {
-										console.log(curDate)
-										dataArray.push({ x: curDate, y: value })
+										sum = sum - value
+										console.log(value)
+										console.log(sum)
+										dataArray.push({ x: curDate, y: sum })
+									}
+									if (counter === 39) {
+										max = sum
 									}
 								}
 								counter += 1
@@ -4693,7 +4701,7 @@
 										{
 											label: "Total Cases",
 											data: dataArray.map(function (e) {
-												return e.y;
+												return e.y - max;
 											}),
 											backgroundColor: "rgba(240, 223, 135, 0.5)",
 											borderColor: "#FFF222",
