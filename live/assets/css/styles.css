@@ -345,6 +345,8 @@ a:hover {
 .wrapper {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -548,7 +550,7 @@ a:hover {
   cursor: pointer;
 }
 
-.searchbar{
+.searchbar {
   margin-bottom: auto;
   margin-top: auto;
   height: 60px;
@@ -560,9 +562,9 @@ a:hover {
   min-width: 50%;
   display: flex;
   justify-content: space-between;
-  }
+}
 
-  .search_input{
+.search_input {
   color: white;
   border: 0;
   outline: 0;
@@ -570,9 +572,9 @@ a:hover {
   line-height: 35px;
   transition: width 0.4s linear;
   width: 100%;
-  }
+}
 
-  .search_icon{
+.search_icon {
   height: 40px;
   width: 40px;
   float: right;
@@ -580,22 +582,25 @@ a:hover {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color:white;
-  text-decoration:none;
-  }
+  color: white;
+  text-decoration: none;
+}
 
-  @media(max-width: 600px) {
-    .search_input{
-      width: 200px;
-    }
-    .max_inf {
-      padding-top: 0px !important;
-      font-size: 14px !important;
-    }
-
+@media(max-width: 600px) {
+  .search_input {
+    width: 200px;
   }
 
   .max_inf {
-    margin-left:5px; font-family: 'Quicksand'; float: right;
-    padding-top: 5px;
+    padding-top: 0px !important;
+    font-size: 14px !important;
   }
+
+}
+
+.max_inf {
+  margin-left: 5px;
+  font-family: 'Quicksand';
+  float: right;
+  padding-top: 5px;
+}
