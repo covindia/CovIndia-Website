@@ -3880,7 +3880,7 @@
 			$("#of41").attr("stop-color", gradient(1 - of41, GRADIENT))
 			$("#of42").attr("stop-color", gradient(1 - of42, GRADIENT))
 			$("#of43").attr("stop-color", gradient(1 - of43, GRADIENT))
-			$("#leg1")[0].innerHTML = "1 - 919"
+
 
 		}
 		function renderData(data) {
@@ -4657,61 +4657,124 @@
 						}
 
 					})
+					var ctx = document.getElementById("stateHist").getContext('2d')
+					var myChart = new Chart(ctx, {})
 					$('#stateDropdown').change(function () {
-						console.log($(this).val())
-						$.when($.ajax("https://v1.api.covindia.com/state-date-total-data").then(response => {
-							//let stateCharts = {}
-							let counter = 0
-							let dataArray = []
+						try {
+							myChart.destroy()
+						} finally {
+							console.log($(this).val())
+							$.when($.ajax("https://v1.api.covindia.com/state-date-total-data").then(response => {
+								//let stateCharts = {}
+								let counter = 0
+								let dataArray = []
 
-							let max = 0
-							let sum = 0
-							for (let [curDate, data] of Object.entries(response)) {
-								for (let [state, value] of Object.entries(data)) {
-									// if (counter === 0) {
-									// 	stateCharts[state] = [{ [curDate]: value }]
-									// } else {
-									// 	stateCharts[state].push({ [curDate]: value })
-									// }
+								let max = 0
+								let sum = 0
+								for (let [curDate, data] of Object.entries(response)) {
+									for (let [state, value] of Object.entries(data)) {
+										// if (counter === 0) {
+										// 	stateCharts[state] = [{ [curDate]: value }]
+										// } else {
+										// 	stateCharts[state].push({ [curDate]: value })
+										// }
 
-									if (state === $(this).val()) {
-										sum = sum - value
-										console.log(value)
-										console.log(sum)
-										dataArray.push({ x: curDate, y: sum })
-									}
-									if (counter === 39) {
-										max = sum
-									}
-								}
-								counter += 1
-							}
+										if (state === $(this).val()) {
+											sum = sum - value
 
-							console.log(dataArray)
-							dataArray = dataArray.reverse()
-
-							var ctx = document.getElementById("stateHist").getContext('2d')
-							var myChart = new Chart(ctx, {
-								type: 'line',
-								data: {
-									labels: dataArray.map(function (e) {
-										return e.x;
-									}),
-									datasets: [
-										{
-											label: "Total Cases",
-											data: dataArray.map(function (e) {
-												return e.y - max;
-											}),
-											backgroundColor: "rgba(240, 223, 135, 0.5)",
-											borderColor: "#FFF222",
-											borderWidth: 1
+											dataArray.push({ x: curDate, y: sum })
 										}
-									]
-								},
+										if (counter === 39) {
+											max = sum
+										}
+									}
+									counter += 1
+								}
 
-							})
-						}))
+
+								dataArray = dataArray.reverse()
+
+
+
+								myChart = new Chart(ctx, {
+									type: 'line',
+									data: {
+										labels: dataArray.map(function (e) {
+											return e.x;
+										}),
+										datasets: [
+											{
+												label: "Total Cases",
+												data: dataArray.map(function (e) {
+													return e.y - max;
+												}),
+												backgroundColor: "rgba(240, 223, 135, 0.5)",
+												borderColor: "#FFF222",
+												borderWidth: 1
+											}
+										]
+									},
+									scaleFontColor: "#FFFFFF",
+									options: {
+										// responsive: true,
+										maintainAspectRatio: false,
+										title: {
+											display: true,
+											text: $(this).val(),
+											fontSize: 20
+										},
+										animation: {
+											duration: 2000,
+											easing: "linear"
+										},
+										scales: {
+											xAxes: [
+												{
+													scaleLabel: {
+														display: true,
+														labelString: "Date"
+													},
+													gridLines: {
+														color: "#660066",
+														zeroLineColor: "white",
+														zeroLineWidth: 2,
+														drawTicks: true
+													},
+													ticks: {
+														callback: function (value, index, values) {
+															if (value === values[values.length - 1]) {
+																//console.log(value);
+																return value;
+															} else if (index % 4 === 0) {
+																return value;
+															}
+														}
+													}
+												}
+											],
+											yAxes: [
+												{
+													gridLines: {
+														color: "#660066",
+														zeroLineColor: "white",
+														zeroLineWidth: 2
+													},
+													scaleLabel: {
+														display: true,
+														labelString: "Total Cases"
+													},
+													ticks: {
+														autoSkip: true,
+														maxTicksLimit: 4
+													}
+												}
+											]
+										}
+									}
+								})
+							}))
+						}
+
 					})
 				})
 			);
