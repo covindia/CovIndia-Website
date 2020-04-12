@@ -26,7 +26,26 @@ $.when(
         .buttons()
         .container()
         .appendTo("#states_wrapper .col-md-6:eq(0)");
-
+      console.log(data)
+      const options = [
+        {
+          text: "Select a state...",
+          selected: true
+        }
+      ]
+      data.map(item => {
+        options.push({
+          text: item[0],
+          value: item[0]
+        })
+      })
+      console.log(options)
+      let optionList = document.getElementById('stateDropdown')
+      let optionListMob = document.getElementById("stateDropdownMob")
+      options.forEach(option => {
+        optionList.add(new Option(option.text, option.value, option.selected))
+        optionListMob.add(new Option(option.text, option.value, option.selected))
+      })
     }
   )
 );
