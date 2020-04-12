@@ -604,3 +604,14 @@ a:hover {
   float: right;
   padding-top: 5px;
 }
+
+.custom-select{
+  background: transparent;
+  border-radius: 30px;
+  padding-top: 5px;
+  color: white;
+  background-image: url("../img/caret.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+
+}
