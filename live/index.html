@@ -201,24 +201,20 @@
 										<svg id="legend" width="205" height="55" viewBox="20 -5 225 30">
 											<defs>
 												<linearGradient id="RYG">
-													<stop offset="5%" stop-color="#0f0" id="of1"></stop>
-													<stop offset="33%" stop-color="#0f0" id="of2"></stop>
-													<stop offset="66%" stop-color="#0f0" id="of3"></stop>
-													<stop offset="99%" stop-color="#0f0" id="of4"></stop>
-
-
+													<stop offset="5%" stop-color="#0f0"></stop>
+													<stop offset="50%" stop-color="#ff0"></stop>
+													<stop offset="95%" stop-color="#f00"></stop>
 												</linearGradient>
-
 											</defs>
 											<rect x="50" y="0" width="150" height="20" fill="url(#RYG)" rx="10" ry="10"
 												stroke="white" stroke-width="2px"></rect>
 
 											<text id="hi" x="45" y="16" text-anchor="end" fill="white"
 												style="font-family: 'Quicksand';">1</text>
-											<text id="md" x="80" y="37" text-anchor="middle" fill="white"
+											<text id="md" x="100" y="37" text-anchor="middle" fill="white"
 												style="font-family: 'Quicksand';">10</text>
-											<text x="78" y="23" fill="white" style="font-size: 8px; font-weight: 800">|</text>
-											<text id="low" x="145" y="37" text-anchor="start" fill="white"
+											<text x="98" y="23" fill="white" style="font-size: 8px; font-weight: 800">|</text>
+											<text id="low" x="150" y="37" text-anchor="start" fill="white"
 												style="font-family: 'Quicksand';">112</text>
 											<text x="150" y="23" fill="white" style="font-size: 8px; font-weight: 800">|</text>
 											<text x="205" y="16" fill="white" style="font-family: 'Quicksand';"
@@ -5068,7 +5064,7 @@
 				var strDate = response.lastUpdatedTime;
 				//console.log(response.lastUpdatedTime)
 				var objDate = new Date(strDate);
-				legend(response.infectedMax)
+				// legend(response.infectedMax)
 				// TODO: add div with latest updates and parse time
 
 			})
