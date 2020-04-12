@@ -14,7 +14,7 @@ $.when(
       slider.max = sliderData.length - 1;
       output.innerHTML = sliderData[slider.max].date;
 
-      slider.oninput = function() {
+      slider.oninput = function () {
         clearData(districtData);
         renderData(sliderData[this.value].data);
         setMaxLegend(sliderData[this.value].data["max-legend-value"]);
@@ -45,7 +45,10 @@ async function playbutton() {
 }
 
 function setMaxLegend(val) {
-  $("#max-infected")[0].innerText = val;
+  $("#max-infected").text(val)
+  let decibel = (Math.log10(val) / 3)
+  $("#md").text(Math.floor(Math.pow(10, decibel)))
+  $("#low").text(Math.floor(Math.pow(10, 2 * decibel)))
 }
 
 function clearData(data) {
