@@ -3590,8 +3590,11 @@
 						</div>
 					</div>
 					<div class="grad_card" style="padding: 10px; margin-top: 30px">
+						<select class="custom-select" id="stateDropdown">
+
+						</select>
 						<div class="wrapper">
-							<canvas id="stateCases" width="100%" height="100%"></canvas>
+							<canvas id="stateHist" width="100%" height="100%"></canvas>
 						</div>
 					</div>
 				</div>
@@ -3848,6 +3851,8 @@
 		var GRADIENT = GRADIENTS.increasing;
 
 		// SPECIAL BOI - Data
+
+
 
 		function legend(max_inf) {
 			const of1 = Math.log(0 * max_inf) / Math.log(max_inf)
@@ -4651,6 +4656,54 @@
 							// console.log(results)
 						}
 
+					})
+					$('#stateDropdown').change(function () {
+						console.log($(this).val())
+						$.when($.ajax("https://v1.api.covindia.com/state-date-total-data").then(response => {
+							//let stateCharts = {}
+							let counter = 0
+							let dataArray = []
+							for (let [curDate, data] of Object.entries(response)) {
+								for (let [state, value] of Object.entries(data)) {
+									// if (counter === 0) {
+									// 	stateCharts[state] = [{ [curDate]: value }]
+									// } else {
+									// 	stateCharts[state].push({ [curDate]: value })
+									// }
+
+									if (state === $(this).val()) {
+										console.log(curDate)
+										dataArray.push({ x: curDate, y: value })
+									}
+								}
+								counter += 1
+							}
+
+							console.log(dataArray)
+							dataArray = dataArray.reverse()
+
+							var ctx = document.getElementById("stateHist").getContext('2d')
+							var myChart = new Chart(ctx, {
+								type: 'line',
+								data: {
+									labels: dataArray.map(function (e) {
+										return e.x;
+									}),
+									datasets: [
+										{
+											label: "Total Cases",
+											data: dataArray.map(function (e) {
+												return e.y;
+											}),
+											backgroundColor: "rgba(240, 223, 135, 0.5)",
+											borderColor: "#FFF222",
+											borderWidth: 1
+										}
+									]
+								},
+
+							})
+						}))
 					})
 				})
 			);
