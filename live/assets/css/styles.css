@@ -615,3 +615,7 @@ a:hover {
   background-position: right center;
 
 }
+
+.custom-select option {
+  color: black;
+}
