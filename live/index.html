@@ -30,6 +30,7 @@
 
 	<!-- Custom Imports -->
 	<link rel="stylesheet" href="assets/css/styles.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Mina&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap" rel="stylesheet">
@@ -107,18 +108,6 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-3">
-					<div class="grad_card p-3">
-						<h5 style="font-weight: 600;">Timelapse of Corona</h5>
-						<img class="img gif-card img-fluid" src="assets/img/16-29March.gif" alt="GIF"
-							style=" margin-left:auto; margin-right: auto;display: block; height:80%;">
-					</div>
-					<div class="grad_card">
-						<div class="wrapper">
-							<canvas id="myChart" width="100%" height="300px"></canvas>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 ">
 					<div id="total-number-infected ">
 						<div class="container d-block d-md-none" style="margin-top: 1em; text-align: center;">
 							<h6 style="font-size: bold; font-size: 2em; color: #ffffff">Infected: <span id="infected"
@@ -130,12 +119,13 @@
 						</div>
 						<div class="container d-none d-md-block">
 							<div class="row stats">
-								<div class="stat-card">
+
+								<div class=" stat-card col">
 									<span class="stat-title">Total Cases</span>
 									<div class="stat-wrapper">
-										<span id="infected-desk" style="font-size: inherit;"></span>
+										<span id="infected-desk" style="font-size: inherit;">0000</span>
 										<!-- <span id="additions" class="infected-desk"
-											style="font-style: inherit; font-size: 3rem; font-family: 'Poppins'; color: #A9A9A9;"></span> -->
+												style="font-style: inherit; font-size: 3rem; font-family: 'Poppins'; color: #A9A9A9;"></span> -->
 										<img src="assets/img/infected-resized.png" alt="infected" class="stat-image">
 									</div>
 									<div class="container" style="text-align:left;">
@@ -144,10 +134,12 @@
 										</span>
 									</div>
 								</div>
-								<div class="stat-card">
+
+
+								<div class="stat-card col">
 									<span class="stat-title">Total Saved</span>
 									<div class="stat-wrapper">
-										<span id="cured-desk" style="font-size: inherit;"></span>
+										<span id="cured-desk" style="font-size: inherit;">0000</span>
 										<img src="assets/img/cured-resized.png" alt="infected" class="stat-image">
 									</div>
 									<div class="container" style="text-align:left;">
@@ -156,10 +148,10 @@
 										</span>
 									</div>
 								</div>
-								<div class="stat-card">
+								<div class="stat-card col">
 									<span class="death-title">Total Deaths</span>
 									<div class="stat-wrapper death-extra">
-										<span id="deaths-desk" style="font-size: inherit;"></span>
+										<span id="deaths-desk" style="font-size: inherit;">0000</span>
 										<!-- <span class="stat-death">*</span> -->
 									</div>
 									<div class="container" style="text-align:left;">
@@ -168,9 +160,20 @@
 										</span>
 									</div>
 								</div>
+
+
+
 							</div>
 						</div>
 					</div>
+					<div class="grad_card" style="padding: 10px;">
+						<div class="wrapper">
+							<canvas id="myChart" width="100%" height="100%"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 ">
+
 					<div class="container" id="legend-colorbar">
 						<div class="row p-3">
 							<div class="container h-100">
@@ -184,7 +187,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col">
 								<div class="text-left">
 									<button class="btn btn-outline-success donate" onclick="playbutton()">Play
 										<i class="fa fa-play" aria-hidden="true"></i>
@@ -192,34 +195,48 @@
 								</div>
 							</div>
 
-							<div class="col-md-6 pt-3">
-								<div class="desktop-wrapper" style="text-align: right;">
-									<svg id="legend" width="200" height="30">
-										<defs>
-											<linearGradient id="RYG">
-												<stop offset="5%" stop-color="#0f0"></stop>
-												<stop offset="50%" stop-color="#ff0"></stop>
-												<stop offset="95%" stop-color="#f00"></stop>
-											</linearGradient>
-										</defs>
-										<rect x="50" y="0" width="150" height="20" fill="url(#RYG)"></rect>
-										<text id="hi" x="45" y="18" text-anchor="end" fill="white">1</text>
-										<text id="md" x="100" y="27" text-anchor="middle"></text>
-										<text x="125" y="30" font-weight="bold" text-anchor="start"></text>
+							<div class="col">
+								<div class="flex flex-wrap" style="height: 100%;">
+									<div class="desktop-wrapper" style="text-align: right; height: 100%; ">
+										<svg id="legend" width="205" height="35" viewBox="0 -5 205 30">
+											<defs>
+												<linearGradient id="RYG">
+													<stop offset="30%" stop-color="#0f0" id="of1"></stop>
+													<stop offset="35%" stop-color="#0f0" id="of2"></stop>
+													<stop offset="40%" stop-color="#0f0" id="of3"></stop>
+													<stop offset="45%" stop-color="#0f0" id="of21"></stop>
+													<stop offset="50%" stop-color="#0f0" id="of22"></stop>
+													<stop offset="55%" stop-color="#0f0" id="of23"></stop>
+													<stop offset="60%" stop-color="#0f0" id="of31"></stop>
+													<stop offset="65%" stop-color="#0f0" id="of32"></stop>
+													<stop offset="70%" stop-color="#0f0" id="of33"></stop>
+													<stop offset="75%" stop-color="#0f0" id="of41"></stop>
+													<stop offset="85%" stop-color="#0f0" id="of42"></stop>
+													<stop offset="95%" stop-color="#0f0" id="of43"></stop>
 
-									</svg>
-									<p style="float: right;"><span id="max-infected" style="margin-left:5px"></span></p>
+												</linearGradient>
+
+											</defs>
+											<rect x="50" y="0" width="150" height="20" fill="url(#RYG)" rx="10" ry="10"
+												stroke="white" stroke-width="2px"></rect>
+											<!-- <text id="hi" x="45" y="18" text-anchor="end" fill="white">1</text>
+												<text id="md" x="100" y="27" text-anchor="middle"></text>
+												<text x="125" y="30" font-weight="bold" text-anchor="start"></text> -->
+
+										</svg>
+										<span id="max-infected" class="max_inf"></span>
+									</div>
+
 								</div>
+
+
 							</div>
 						</div>
 					</div>
 					<div class="container" style="margin-top: 1em;" id="map">
 
 
-						<div class="row text-enter">
-							<!-- <div class="col">Last Updated</div> -->
-							<div class="col text-center" style="margin-bottom: 1em; color: #A9A9A9; font-style: italic;"></div>
-						</div>
+
 
 						<div style="padding:0.5em;">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="50 200 950 1100">
@@ -3566,15 +3583,15 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
-					<div class="grad_card">
+				<div class="col-md-3 ">
+					<div class="grad_card" style="padding: 10px; ">
 						<div class="wrapper">
-							<canvas id="newDailyCases" width="100%" height="300px"></canvas>
+							<canvas id="newDailyCases" width="100%" height="100%"></canvas>
 						</div>
 					</div>
-					<div class="grad_card">
+					<div class="grad_card" style="padding: 10px; margin-top: 30px">
 						<div class="wrapper">
-							<canvas id="stateCases" width="100%" height="300px"></canvas>
+							<canvas id="stateCases" width="100%" height="100%"></canvas>
 						</div>
 					</div>
 				</div>
@@ -3590,14 +3607,7 @@
 			<div class="row" style="margin-top: 15px;">
 				<div class="row">
 					<div class="col-md-4"></div>
-					<div class="col-md-4 ">
-						<p>The coronavirus in India over the past few days</p>
-						<img class="img" src="assets/img/16-29March.gif" alt="GIF"
-							style="height:300px !important; margin-left:auto; margin-right: auto;display: block;">
-						<div class="row">
-						</div>
 
-					</div>
 					<div class="col-md-4"></div>
 				</div>
 				<div class="col-md-12">
@@ -3839,6 +3849,35 @@
 
 		// SPECIAL BOI - Data
 
+		function legend(max_inf) {
+			const of1 = Math.log(0 * max_inf) / Math.log(max_inf)
+			const of2 = Math.log(0.002 * max_inf) / Math.log(max_inf)
+			const of3 = Math.log(0.004 * max_inf) / Math.log(max_inf)
+
+			$("#of1").attr("stop-color", gradient(1 - of1, GRADIENT))
+			$("#of2").attr("stop-color", gradient(1 - of2, GRADIENT))
+			$("#of3").attr("stop-color", gradient(1 - of3, GRADIENT))
+			const of21 = Math.log(0.01 * max_inf) / Math.log(max_inf)
+			const of22 = Math.log(0.05 * max_inf) / Math.log(max_inf)
+			const of23 = Math.log(0.1 * max_inf) / Math.log(max_inf)
+			$("#of21").attr("stop-color", gradient(1 - of21, GRADIENT))
+			$("#of22").attr("stop-color", gradient(1 - of22, GRADIENT))
+			$("#of23").attr("stop-color", gradient(1 - of23, GRADIENT))
+			const of31 = Math.log(0.2 * max_inf) / Math.log(max_inf)
+			const of32 = Math.log(0.35 * max_inf) / Math.log(max_inf)
+			const of33 = Math.log(0.5 * max_inf) / Math.log(max_inf)
+			$("#of31").attr("stop-color", gradient(1 - of31, GRADIENT))
+			$("#of32").attr("stop-color", gradient(1 - of32, GRADIENT))
+			$("#of33").attr("stop-color", gradient(1 - of33, GRADIENT))
+			const of41 = Math.log(0.5 * max_inf) / Math.log(max_inf)
+			const of42 = Math.log(0.75 * max_inf) / Math.log(max_inf)
+			const of43 = Math.log(0.95 * max_inf) / Math.log(max_inf)
+			$("#of41").attr("stop-color", gradient(1 - of41, GRADIENT))
+			$("#of42").attr("stop-color", gradient(1 - of42, GRADIENT))
+			$("#of43").attr("stop-color", gradient(1 - of43, GRADIENT))
+			$("#leg1")[0].innerHTML = "1 - 919"
+
+		}
 		function renderData(data) {
 			for (var key in data) {
 				var modKey = String(key);
@@ -4671,18 +4710,12 @@
 				var strDate = response.lastUpdatedTime;
 				//console.log(response.lastUpdatedTime)
 				var objDate = new Date(strDate);
+				legend(response.infectedMax)
 				// TODO: add div with latest updates and parse time
+
 			})
 		);
-		$.when(
-			$.ajax("https://v1.api.covindia.com/daily-dates").then(response => {
-				let tempArray = []
-				for (let [key, value] of Object.entries(response)) {
-					tempArray.push([key, value])
-				}
-				// console.log(tempArray[tempArray.length - 2][1])
-				$("#additions")[0].innerText = "+" + tempArray[tempArray.length - 1][1]
-			}))
+
 	</script>
 	<script src="assets/js/custom.js"></script>
 	<script src="assets/js/table.js"></script>

@@ -52,7 +52,7 @@ const createTempGraph = () => {
 };
 
 const sort_by_key = (array, key) => {
-  return array.sort(function(a, b) {
+  return array.sort(function (a, b) {
     var x = a[key];
     var y = b[key];
     return x < y ? -1 : x > y ? 1 : 0;
@@ -113,13 +113,13 @@ $.when(
       var barGraph = new Chart(stateCtx, {
         type: "bar",
         data: {
-          labels: stateCases.map(function(e) {
+          labels: stateCases.map(function (e) {
             return e.x;
           }),
           datasets: [
             {
               label: "Total Cases",
-              data: stateCases.map(function(e) {
+              data: stateCases.map(function (e) {
                 return e.y;
               }),
               backgroundColor: "rgba(240, 223, 135, 0.5)",
@@ -146,15 +146,18 @@ $.when(
               {
                 scaleLabel: {
                   display: true,
-                  labelString: "State"
+                  labelString: "State",
                 },
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 2
+                  zeroLineWidth: 2,
+
                 },
                 ticks: {
-                  autoSkip: true
+                  autoSkip: true,
+                  fontSize: 10
+
                 }
               }
             ],
@@ -182,13 +185,13 @@ $.when(
         var barGraph = new Chart(stateGraphMobile, {
           type: "bar",
           data: {
-            labels: stateCases.map(function(e) {
+            labels: stateCases.map(function (e) {
               return e.x;
             }),
             datasets: [
               {
                 label: "Total Cases",
-                data: stateCases.map(function(e) {
+                data: stateCases.map(function (e) {
                   return e.y;
                 }),
                 backgroundColor: "rgba(240, 223, 135, 0.5)",
@@ -264,13 +267,13 @@ $.when(
     var myLineChart = new Chart(ctx, {
       type: "line",
       data: {
-        labels: mapTotalData.map(function(e) {
+        labels: mapTotalData.map(function (e) {
           return e.x;
         }),
         datasets: [
           {
             label: "Total Cases",
-            data: mapTotalData.map(function(e) {
+            data: mapTotalData.map(function (e) {
               return e.y;
             }),
             backgroundColor: "rgba(240, 223, 135, 0.5)",
@@ -306,7 +309,7 @@ $.when(
                 drawTicks: true
               },
               ticks: {
-                callback: function(value, index, values) {
+                callback: function (value, index, values) {
                   if (value === values[values.length - 1]) {
                     //console.log(value);
                     return value;
@@ -341,13 +344,13 @@ $.when(
       var myLineChart = new Chart(ctxMob, {
         type: "line",
         data: {
-          labels: mapTotalData.map(function(e) {
+          labels: mapTotalData.map(function (e) {
             return e.x;
           }),
           datasets: [
             {
               label: "Total Cases",
-              data: mapTotalData.map(function(e) {
+              data: mapTotalData.map(function (e) {
                 return e.y;
               }),
               backgroundColor: "rgba(240, 223, 135, 0.5)",
@@ -383,7 +386,7 @@ $.when(
                   drawTicks: true
                 },
                 ticks: {
-                  callback: function(value, index, values) {
+                  callback: function (value, index, values) {
                     if (index + 1 === values.length) {
                       return value;
                     }
@@ -420,13 +423,13 @@ $.when(
     var dailyChart = new Chart(ctxDaily, {
       type: "line",
       data: {
-        labels: dailyCases.map(function(e) {
+        labels: dailyCases.map(function (e) {
           return e.x;
         }),
         datasets: [
           {
             label: "Daily New Cases",
-            data: dailyCases.map(function(e) {
+            data: dailyCases.map(function (e) {
               return e.y;
             }),
             backgroundColor: "rgba(240, 223, 135, 0.5)",
@@ -455,7 +458,7 @@ $.when(
                 zeroLineWidth: 2
               },
               ticks: {
-                callback: function(value, index, values) {
+                callback: function (value, index, values) {
                   if (index + 1 === values.length) {
                     return value;
                   }
@@ -494,13 +497,13 @@ $.when(
       var dailyChart = new Chart(ctxDailyMobile, {
         type: "line",
         data: {
-          labels: dailyCases.map(function(e) {
+          labels: dailyCases.map(function (e) {
             return e.x;
           }),
           datasets: [
             {
               label: "Daily New Cases",
-              data: dailyCases.map(function(e) {
+              data: dailyCases.map(function (e) {
                 return e.y;
               }),
               backgroundColor: "rgba(240, 223, 135, 0.5)",
@@ -529,7 +532,7 @@ $.when(
                   zeroLineWidth: 2
                 },
                 ticks: {
-                  callback: function(value, index, values) {
+                  callback: function (value, index, values) {
                     if (index + 1 === values.length) {
                       return value;
                     }
