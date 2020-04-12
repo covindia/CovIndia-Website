@@ -24,7 +24,7 @@ var millisTill20 =
 
 var ctx = document.getElementById("myChart").getContext("2d");
 
-var stateCtx = document.getElementById("stateCases").getContext("2d");
+
 var ctxDaily = document.getElementById("newDailyCases").getContext("2d");
 
 try {
@@ -33,9 +33,7 @@ try {
     .getElementById("newDailyCasesMobile")
     .getContext("2d");
 
-  var stateCtxMobile = document
-    .getElementById("stateGraphMobile")
-    .getContext("2d");
+
 } catch (err) {
   console.log(err);
 }
@@ -103,159 +101,159 @@ const createStateArr = () => {
 
 Chart.defaults.global.defaultFontColor = "white";
 
-$.when(
-  $.ajax("https://v1.api.covindia.com/states-affected-numbers").then(
-    response => {
-      hardStateCases = response;
-      stateCases = createTempGraph();
-      stateCases = sort_by_key(stateCases, "y");
-      stateCases.splice(0, 14);
-      var barGraph = new Chart(stateCtx, {
-        type: "bar",
-        data: {
-          labels: stateCases.map(function (e) {
-            return e.x;
-          }),
-          datasets: [
-            {
-              label: "Total Cases",
-              data: stateCases.map(function (e) {
-                return e.y;
-              }),
-              backgroundColor: "rgba(240, 223, 135, 0.5)",
-              borderColor: "#FFF222",
-              borderWidth: 1
-            }
-          ]
-        },
-        scaleFontColor: "#FFFFFF",
-        options: {
-          // responsive: false,
-          maintainAspectRatio: false,
-          title: {
-            display: true,
-            text: "Most affected states",
-            fontSize: 20
-          },
-          animation: {
-            duration: 2000,
-            easing: "linear"
-          },
-          scales: {
-            xAxes: [
-              {
-                scaleLabel: {
-                  display: true,
-                  labelString: "State",
-                },
-                gridLines: {
-                  color: "#660066",
-                  zeroLineColor: "white",
-                  zeroLineWidth: 2,
+// $.when(
+//   $.ajax("https://v1.api.covindia.com/states-affected-numbers").then(
+//     response => {
+//       hardStateCases = response;
+//       stateCases = createTempGraph();
+//       stateCases = sort_by_key(stateCases, "y");
+//       stateCases.splice(0, 14);
+//       var barGraph = new Chart(stateCtx, {
+//         type: "bar",
+//         data: {
+//           labels: stateCases.map(function (e) {
+//             return e.x;
+//           }),
+//           datasets: [
+//             {
+//               label: "Total Cases",
+//               data: stateCases.map(function (e) {
+//                 return e.y;
+//               }),
+//               backgroundColor: "rgba(240, 223, 135, 0.5)",
+//               borderColor: "#FFF222",
+//               borderWidth: 1
+//             }
+//           ]
+//         },
+//         scaleFontColor: "#FFFFFF",
+//         options: {
+//           // responsive: false,
+//           maintainAspectRatio: false,
+//           title: {
+//             display: true,
+//             text: "Most affected states",
+//             fontSize: 20
+//           },
+//           animation: {
+//             duration: 2000,
+//             easing: "linear"
+//           },
+//           scales: {
+//             xAxes: [
+//               {
+//                 scaleLabel: {
+//                   display: true,
+//                   labelString: "State",
+//                 },
+//                 gridLines: {
+//                   color: "#660066",
+//                   zeroLineColor: "white",
+//                   zeroLineWidth: 2,
 
-                },
-                ticks: {
-                  autoSkip: true,
-                  fontSize: 10
+//                 },
+//                 ticks: {
+//                   autoSkip: true,
+//                   fontSize: 10
 
-                }
-              }
-            ],
-            yAxes: [
-              {
-                gridLines: {
-                  color: "#660066",
-                  zeroLineColor: "white",
-                  zeroLineWidth: 2
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: "Total Cases"
-                },
-                ticks: {
-                  autoSkip: true,
-                  maxTicksLimit: 4
-                }
-              }
-            ]
-          }
-        }
-      });
-      try {
-        var barGraph = new Chart(stateGraphMobile, {
-          type: "bar",
-          data: {
-            labels: stateCases.map(function (e) {
-              return e.x;
-            }),
-            datasets: [
-              {
-                label: "Total Cases",
-                data: stateCases.map(function (e) {
-                  return e.y;
-                }),
-                backgroundColor: "rgba(240, 223, 135, 0.5)",
-                borderColor: "#FFF222",
-                borderWidth: 1
-              }
-            ]
-          },
-          scaleFontColor: "#FFFFFF",
-          options: {
-            // responsive: false,
-            maintainAspectRatio: false,
-            title: {
-              display: true,
-              text: "Most affected states",
-              fontSize: 20
-            },
-            animation: {
-              duration: 2000,
-              easing: "linear"
-            },
-            scales: {
-              xAxes: [
-                {
-                  scaleLabel: {
-                    display: true,
-                    labelString: "State"
-                  },
-                  gridLines: {
-                    color: "#660066",
-                    zeroLineColor: "white",
-                    zeroLineWidth: 2
-                  },
-                  ticks: {
-                    autoSkip: true
-                  }
-                }
-              ],
-              yAxes: [
-                {
-                  gridLines: {
-                    color: "#660066",
-                    zeroLineColor: "white",
-                    zeroLineWidth: 2
-                  },
-                  scaleLabel: {
-                    display: true,
-                    labelString: "Total Cases"
-                  },
-                  ticks: {
-                    autoSkip: true,
-                    maxTicksLimit: 4
-                  }
-                }
-              ]
-            }
-          }
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  )
-);
+//                 }
+//               }
+//             ],
+//             yAxes: [
+//               {
+//                 gridLines: {
+//                   color: "#660066",
+//                   zeroLineColor: "white",
+//                   zeroLineWidth: 2
+//                 },
+//                 scaleLabel: {
+//                   display: true,
+//                   labelString: "Total Cases"
+//                 },
+//                 ticks: {
+//                   autoSkip: true,
+//                   maxTicksLimit: 4
+//                 }
+//               }
+//             ]
+//           }
+//         }
+//       });
+//       try {
+//         var barGraph = new Chart(stateGraphMobile, {
+//           type: "bar",
+//           data: {
+//             labels: stateCases.map(function (e) {
+//               return e.x;
+//             }),
+//             datasets: [
+//               {
+//                 label: "Total Cases",
+//                 data: stateCases.map(function (e) {
+//                   return e.y;
+//                 }),
+//                 backgroundColor: "rgba(240, 223, 135, 0.5)",
+//                 borderColor: "#FFF222",
+//                 borderWidth: 1
+//               }
+//             ]
+//           },
+//           scaleFontColor: "#FFFFFF",
+//           options: {
+//             // responsive: false,
+//             maintainAspectRatio: false,
+//             title: {
+//               display: true,
+//               text: "Most affected states",
+//               fontSize: 20
+//             },
+//             animation: {
+//               duration: 2000,
+//               easing: "linear"
+//             },
+//             scales: {
+//               xAxes: [
+//                 {
+//                   scaleLabel: {
+//                     display: true,
+//                     labelString: "State"
+//                   },
+//                   gridLines: {
+//                     color: "#660066",
+//                     zeroLineColor: "white",
+//                     zeroLineWidth: 2
+//                   },
+//                   ticks: {
+//                     autoSkip: true
+//                   }
+//                 }
+//               ],
+//               yAxes: [
+//                 {
+//                   gridLines: {
+//                     color: "#660066",
+//                     zeroLineColor: "white",
+//                     zeroLineWidth: 2
+//                   },
+//                   scaleLabel: {
+//                     display: true,
+//                     labelString: "Total Cases"
+//                   },
+//                   ticks: {
+//                     autoSkip: true,
+//                     maxTicksLimit: 4
+//                   }
+//                 }
+//               ]
+//             }
+//           }
+//         });
+//       } catch (err) {
+//         console.log(err);
+//       }
+//     }
+//   )
+// );
 
 $.when(
   $.ajax("https://v1.api.covindia.com/daily-dates").then(response => {
