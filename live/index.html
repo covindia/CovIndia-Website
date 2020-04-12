@@ -3594,7 +3594,7 @@
 
 						</select>
 						<div class="wrapper">
-							<canvas id="stateHist" width="100%" height="100%"></canvas>
+							<canvas id="stateHist" width="100%" height="100%" style="max-height: 100% !important"></canvas>
 						</div>
 					</div>
 				</div>
@@ -3618,18 +3618,23 @@
 				<div class="col-md-12">
 					<div class="slick-wrapper">
 						<div>
-							<canvas id="myChartMobile" width="100%" height="250px"></canvas>
+							<canvas id="myChartMobile" width="100%" height="250px" style="height: 250px !important;"></canvas>
 						</div>
 						<div>
-							<canvas id="newDailyCasesMobile" width="100%" height="250px"></canvas>
+							<canvas id="newDailyCasesMobile" width="100%" height="250px"
+								style="height: 250px !important;"></canvas>
 						</div>
 						<div>
 							<select class="custom-select " id="stateDropdownMob">
 
 							</select>
-							<canvas id="stateGraphMobile" width="100%" height="250px"
-								style="height: 250px !important;"></canvas>
+							<div class="wrapper">
+								<canvas id="stateGraphMobile" width="100%" height="250px"></canvas>
+							</div>
+
+
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -4660,233 +4665,375 @@
 						}
 
 					})
+					var stateHistorics;
+
+					fetch("https://v1.api.covindia.com/state-date-total-data").then(response => response.json()).then(success => stateHistorics = success)
 					var ctx = document.getElementById("stateHist").getContext('2d')
-					var myChart = new Chart(ctx, {})
+					var myChart = new Chart(ctx, {
+						type: 'line',
+						data: {
+							labels: [].map(function (e) {
+								return e.x;
+							}),
+							datasets: [
+								{
+									label: "Total Cases",
+									data: [].map(function (e) {
+										return e.y - max;
+									}),
+									backgroundColor: "rgba(240, 223, 135, 0.5)",
+									borderColor: "#FFF222",
+									borderWidth: 1
+								}
+							]
+						},
+						scaleFontColor: "#FFFFFF",
+						options: {
+							// responsive: true,
+							maintainAspectRatio: false,
+							title: {
+								display: true,
+								text: "State",
+								fontSize: 20
+							},
+							animation: {
+								duration: 2000,
+								easing: "linear"
+							},
+							scales: {
+								xAxes: [
+									{
+										scaleLabel: {
+											display: true,
+											labelString: "Date"
+										},
+										gridLines: {
+											color: "#660066",
+											zeroLineColor: "white",
+											zeroLineWidth: 2,
+											drawTicks: true
+										},
+										ticks: {
+											callback: function (value, index, values) {
+												if (value === values[values.length - 1]) {
+													//console.log(value);
+													return value;
+												} else if (index % 4 === 0) {
+													return value;
+												}
+											}
+										}
+									}
+								],
+								yAxes: [
+									{
+										gridLines: {
+											color: "#660066",
+											zeroLineColor: "white",
+											zeroLineWidth: 2
+										},
+										scaleLabel: {
+											display: true,
+											labelString: "Total Cases"
+										},
+										ticks: {
+											autoSkip: true,
+											maxTicksLimit: 4
+										}
+									}
+								]
+							}
+						}
+					})
+					console.log(myChart, "INIT")
 					$('#stateDropdown').change(function () {
 						try {
 							myChart.destroy()
 						} finally {
 							console.log($(this).val())
-							$.when($.ajax("https://v1.api.covindia.com/state-date-total-data").then(response => {
-								//let stateCharts = {}
-								let counter = 0
-								let dataArray = []
+							let counter = 0
+							let dataArray = []
 
-								let max = 0
-								let sum = 0
-								for (let [curDate, data] of Object.entries(response)) {
-									for (let [state, value] of Object.entries(data)) {
-										// if (counter === 0) {
-										// 	stateCharts[state] = [{ [curDate]: value }]
-										// } else {
-										// 	stateCharts[state].push({ [curDate]: value })
-										// }
+							let max = 0
+							let sum = 0
+							for (let [curDate, data] of Object.entries(stateHistorics)) {
+								for (let [state, value] of Object.entries(data)) {
+									// if (counter === 0) {
+									// 	stateCharts[state] = [{ [curDate]: value }]
+									// } else {
+									// 	stateCharts[state].push({ [curDate]: value })
+									// }
 
-										if (state === $(this).val()) {
-											sum = sum - value
+									if (state === $(this).val()) {
+										sum = sum - value
 
-											dataArray.push({ x: curDate, y: sum })
-										}
-										if (counter === 39) {
-											max = sum
-										}
+										dataArray.push({ x: curDate, y: sum })
 									}
-									counter += 1
+									if (counter === 39) {
+										max = sum
+									}
 								}
+								counter += 1
+							}
 
 
-								dataArray = dataArray.reverse()
+							dataArray = dataArray.reverse()
 
 
 
-								myChart = new Chart(ctx, {
-									type: 'line',
-									data: {
-										labels: dataArray.map(function (e) {
-											return e.x;
-										}),
-										datasets: [
-											{
-												label: "Total Cases",
-												data: dataArray.map(function (e) {
-													return e.y - max;
-												}),
-												backgroundColor: "rgba(240, 223, 135, 0.5)",
-												borderColor: "#FFF222",
-												borderWidth: 1
-											}
-										]
+							myChart = new Chart(ctx, {
+								type: 'line',
+								data: {
+									labels: dataArray.map(function (e) {
+										return e.x;
+									}),
+									datasets: [
+										{
+											label: "Total Cases",
+											data: dataArray.map(function (e) {
+												return e.y - max;
+											}),
+											backgroundColor: "rgba(240, 223, 135, 0.5)",
+											borderColor: "#FFF222",
+											borderWidth: 1
+										}
+									]
+								},
+								scaleFontColor: "#FFFFFF",
+								options: {
+									// responsive: true,
+									maintainAspectRatio: false,
+									title: {
+										display: true,
+										text: $(this).val(),
+										fontSize: 20
 									},
-									scaleFontColor: "#FFFFFF",
-									options: {
-										// responsive: true,
-										maintainAspectRatio: false,
-										title: {
-											display: true,
-											text: $(this).val(),
-											fontSize: 20
-										},
-										animation: {
-											duration: 2000,
-											easing: "linear"
-										},
-										scales: {
-											xAxes: [
-												{
-													scaleLabel: {
-														display: true,
-														labelString: "Date"
-													},
-													gridLines: {
-														color: "#660066",
-														zeroLineColor: "white",
-														zeroLineWidth: 2,
-														drawTicks: true
-													},
-													ticks: {
-														callback: function (value, index, values) {
-															if (value === values[values.length - 1]) {
-																//console.log(value);
-																return value;
-															} else if (index % 4 === 0) {
-																return value;
-															}
+									animation: {
+										duration: 2000,
+										easing: "linear"
+									},
+									scales: {
+										xAxes: [
+											{
+												scaleLabel: {
+													display: true,
+													labelString: "Date"
+												},
+												gridLines: {
+													color: "#660066",
+													zeroLineColor: "white",
+													zeroLineWidth: 2,
+													drawTicks: true
+												},
+												ticks: {
+													callback: function (value, index, values) {
+														if (value === values[values.length - 1]) {
+															//console.log(value);
+															return value;
+														} else if (index % 4 === 0) {
+															return value;
 														}
 													}
 												}
-											],
-											yAxes: [
-												{
-													gridLines: {
-														color: "#660066",
-														zeroLineColor: "white",
-														zeroLineWidth: 2
-													},
-													scaleLabel: {
-														display: true,
-														labelString: "Total Cases"
-													},
-													ticks: {
-														autoSkip: true,
-														maxTicksLimit: 4
-													}
+											}
+										],
+										yAxes: [
+											{
+												gridLines: {
+													color: "#660066",
+													zeroLineColor: "white",
+													zeroLineWidth: 2
+												},
+												scaleLabel: {
+													display: true,
+													labelString: "Total Cases"
+												},
+												ticks: {
+													autoSkip: true,
+													maxTicksLimit: 4
 												}
-											]
-										}
+											}
+										]
 									}
-								})
-							}))
+								}
+							})
 						}
 
 					})
 					var stateHistCtx = document.getElementById("stateGraphMobile")
-					var myChartMob = new Chart(stateHistCtx, {})
+					var myChartMob = new Chart(stateHistCtx, {
+						type: 'line',
+						data: {
+							labels: [].map(function (e) {
+								return e.x;
+							}),
+							datasets: [
+								{
+									label: "Total Cases",
+									data: [].map(function (e) {
+										return e.y - max;
+									}),
+									backgroundColor: "rgba(240, 223, 135, 0.5)",
+									borderColor: "#FFF222",
+									borderWidth: 1
+								}
+							]
+						},
+						scaleFontColor: "#FFFFFF",
+						options: {
+							responsive: false,
+							maintainAspectRatio: false,
+							title: {
+								display: true,
+								text: "Most affected states",
+								fontSize: 20
+							},
+							animation: {
+								duration: 2000,
+								easing: "linear"
+							},
+							scales: {
+								xAxes: [
+									{
+										scaleLabel: {
+											display: true,
+											labelString: "State"
+										},
+										gridLines: {
+											color: "#660066",
+											zeroLineColor: "white",
+											zeroLineWidth: 2
+										},
+										ticks: {
+											autoSkip: true
+										}
+									}
+								],
+								yAxes: [
+									{
+										gridLines: {
+											color: "#660066",
+											zeroLineColor: "white",
+											zeroLineWidth: 2
+										},
+										scaleLabel: {
+											display: true,
+											labelString: "Total Cases"
+										},
+										ticks: {
+											autoSkip: true,
+											maxTicksLimit: 4
+										}
+									}
+								]
+							}
+						}
+					})
+
+
 					$('#stateDropdownMob').change(function () {
 						try {
 							myChartMob.destroy()
 						} finally {
 							console.log($(this).val())
-							$.when($.ajax("https://v1.api.covindia.com/state-date-total-data").then(response => {
-								//let stateCharts = {}
-								let counter = 0
-								let dataArray = []
+							let counter = 0
+							let dataArray = []
 
-								let max = 0
-								let sum = 0
-								for (let [curDate, data] of Object.entries(response)) {
-									for (let [state, value] of Object.entries(data)) {
-										// if (counter === 0) {
-										// 	stateCharts[state] = [{ [curDate]: value }]
-										// } else {
-										// 	stateCharts[state].push({ [curDate]: value })
-										// }
+							let max = 0
+							let sum = 0
+							for (let [curDate, data] of Object.entries(stateHistorics)) {
+								for (let [state, value] of Object.entries(data)) {
+									// if (counter === 0) {
+									// 	stateCharts[state] = [{ [curDate]: value }]
+									// } else {
+									// 	stateCharts[state].push({ [curDate]: value })
+									// }
 
-										if (state === $(this).val()) {
-											sum = sum - value
+									if (state === $(this).val()) {
+										sum = sum - value
 
-											dataArray.push({ x: curDate, y: sum })
-										}
-										if (counter === 39) {
-											max = sum
-										}
+										dataArray.push({ x: curDate, y: sum })
 									}
-									counter += 1
+									if (counter === 39) {
+										max = sum
+									}
 								}
+								counter += 1
+							}
 
 
-								dataArray = dataArray.reverse()
+							dataArray = dataArray.reverse()
 
 
 
-								myChartMob = new Chart(stateHistCtx, {
-									type: 'line',
-									data: {
-										labels: dataArray.map(function (e) {
-											return e.x;
-										}),
-										datasets: [
+							myChartMob = new Chart(stateHistCtx, {
+								type: 'line',
+								data: {
+									labels: dataArray.map(function (e) {
+										return e.x;
+									}),
+									datasets: [
+										{
+											label: "Total Cases",
+											data: dataArray.map(function (e) {
+												return e.y - max;
+											}),
+											backgroundColor: "rgba(240, 223, 135, 0.5)",
+											borderColor: "#FFF222",
+											borderWidth: 1
+										}
+									]
+								},
+								scaleFontColor: "#FFFFFF",
+								options: {
+									responsive: false,
+									maintainAspectRatio: false,
+									title: {
+										display: true,
+										text: "Most affected states",
+										fontSize: 20
+									},
+									animation: {
+										duration: 2000,
+										easing: "linear"
+									},
+									scales: {
+										xAxes: [
 											{
-												label: "Total Cases",
-												data: dataArray.map(function (e) {
-													return e.y - max;
-												}),
-												backgroundColor: "rgba(240, 223, 135, 0.5)",
-												borderColor: "#FFF222",
-												borderWidth: 1
+												scaleLabel: {
+													display: true,
+													labelString: "State"
+												},
+												gridLines: {
+													color: "#660066",
+													zeroLineColor: "white",
+													zeroLineWidth: 2
+												},
+												ticks: {
+													autoSkip: true
+												}
+											}
+										],
+										yAxes: [
+											{
+												gridLines: {
+													color: "#660066",
+													zeroLineColor: "white",
+													zeroLineWidth: 2
+												},
+												scaleLabel: {
+													display: true,
+													labelString: "Total Cases"
+												},
+												ticks: {
+													autoSkip: true,
+													maxTicksLimit: 4
+												}
 											}
 										]
-									},
-									scaleFontColor: "#FFFFFF",
-									options: {
-										responsive: false,
-										maintainAspectRatio: false,
-										title: {
-											display: true,
-											text: "Most affected states",
-											fontSize: 20
-										},
-										animation: {
-											duration: 2000,
-											easing: "linear"
-										},
-										scales: {
-											xAxes: [
-												{
-													scaleLabel: {
-														display: true,
-														labelString: "State"
-													},
-													gridLines: {
-														color: "#660066",
-														zeroLineColor: "white",
-														zeroLineWidth: 2
-													},
-													ticks: {
-														autoSkip: true
-													}
-												}
-											],
-											yAxes: [
-												{
-													gridLines: {
-														color: "#660066",
-														zeroLineColor: "white",
-														zeroLineWidth: 2
-													},
-													scaleLabel: {
-														display: true,
-														labelString: "Total Cases"
-													},
-													ticks: {
-														autoSkip: true,
-														maxTicksLimit: 4
-													}
-												}
-											]
-										}
 									}
-								})
-							}))
+								}
+							})
 						}
 
 					})
