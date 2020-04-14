@@ -4599,6 +4599,25 @@
 					$('#Delhi-Unique').tooltip().mouseover();
 
 
+					var target = document.getElementById("searchResult");
+
+					var observer = new MutationObserver(function (mutations) {
+						mutations.forEach(function (mutation) {
+							console.log(target.innerText)
+							if (target.innerText === "") {
+								target.innerText = "Please enter a valid district name!"
+							}
+						});
+					});
+
+					var config = {
+						childList: true,
+						subtree: true,
+						characterData: true
+					};
+
+					observer.observe(target, config);
+
 					let resultHist = []
 					let results = []
 					$("#searchBar").on("keyup", function () {
@@ -4649,7 +4668,7 @@
 								}
 							})
 
-							if (results.length <= 5) {
+							if (results.length <= 10) {
 								let uniqueResult = results[0].charAt(0).toUpperCase() + results[0].slice(1)
 								console.log(uniqueResult)
 								uniqueResult = districtData[uniqueResult]
