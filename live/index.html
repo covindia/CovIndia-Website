@@ -185,6 +185,12 @@
 									</div>
 								</div>
 							</div>
+							<div class="container h-100 text-center p-3 d-flex justify-content-center">
+								<p id="searchResult" class="p-3"
+									style=" max-width: 50%; font-family: 'Poppins'; border-radius: 3px 3px; border: 1px solid white; background-color: rgba(38,38,38,0.8); min-width: 50%;">
+									Please search for a district above ...
+								</p>
+							</div>
 						</div>
 						<div class="row">
 							<div class="col">
@@ -3574,9 +3580,10 @@
 						<input type="range" class="slider" id="myRange">
 						<p>Date: <span id="demo"></span></p>
 						<h3 class="text-right">Move the slider to see past information</h3>
-						<div class="alert alert-light text-center" style="font-size: 1.5em; ">Click <a
-								style="color: #3f0f3f; font-size: 1em;" href="report">here</a> to report new data
-						</div>
+						<a style="color: #3f0f3f; font-size: 1em;" href="report">
+							<div class="alert alert-light text-center" style="font-size: 1.5em; ">Click here to report new data
+							</div>
+						</a>
 					</div>
 				</div>
 				<div class="col-md-3 ">
@@ -4555,7 +4562,7 @@
 				$.ajax("https://v1.api.covindia.com/district-values").then(response => {
 					districtData = response
 
-
+					console.log(districtData)
 					// console.log("MY ARRAY", distArray)
 					renderData(districtData);
 					$('.clickable').tooltip();
@@ -4595,6 +4602,7 @@
 					let resultHist = []
 					let results = []
 					$("#searchBar").on("keyup", function () {
+
 						var value = $(this).val().toLowerCase();
 
 						// console.log(value)
@@ -4610,6 +4618,7 @@
 						// })
 						if (value.length >= 1) {
 							results = distArray.filter(district => {
+								document.getElementById("searchResult").innerText = ""
 
 								return district.toLowerCase().startsWith(value)
 							})
@@ -4639,6 +4648,25 @@
 									$("#" + item).tooltip().mouseover()
 								}
 							})
+
+							if (results.length <= 5) {
+								let uniqueResult = results[0].charAt(0).toUpperCase() + results[0].slice(1)
+								console.log(uniqueResult)
+								uniqueResult = districtData[uniqueResult]
+								if (!uniqueResult) {
+
+
+									document.getElementById("searchResult").innerText = `${results[0]} - Infected: 0 | Deaths: 0`
+								} else {
+
+									document.getElementById("searchResult").innerText = `${results[0]} - Infected: ${uniqueResult.infected} | Deaths: ${uniqueResult.dead}`
+								}
+							}
+							if (results.length === 0) {
+								document.getElementById("searchResult").innerText = "Please enter a valid district name!"
+							}
+
+
 							resultHist = results
 							// console.log(results)
 						}
