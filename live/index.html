@@ -175,20 +175,20 @@
 				<div class="col-md-6 ">
 
 					<div class="container" id="legend-colorbar">
-						<div class="row p-3">
-							<div class="container h-100">
-								<div class="d-flex justify-content-center h-100">
-									<div class="searchbar">
+						<div class="row p-3 justify-content-center">
+							<div class="h-100 p-3" style="min-width: 40%;">
+								<div class="d-flex justify-content-center h-100 ">
+									<div class="searchbar  neon-wrapper " style="min-width: 100%;">
 										<input class="search_input" type="text" name="" placeholder="Search for a district..."
 											id="searchBar">
 										<p class="search_icon"><i class="fas fa-search"></i></p>
 									</div>
 								</div>
 							</div>
-							<div class="container h-100 text-center p-3 d-flex justify-content-center">
+							<div class="h-100 text-center p-3 d-flex justify-content-center">
 								<p id="searchResult" class="p-3"
-									style=" max-width: 50%; font-family: 'Poppins'; border-radius: 3px 3px; border: 1px solid white; background-color: rgba(38,38,38,0.8); min-width: 50%;">
-									Please search for a district above ...
+									style=" font-family: 'Poppins'; border-radius: 3px 3px; border: 1px solid white; background-color: rgba(38,38,38,0.8); ">
+									Please enter a district...
 								</p>
 							</div>
 						</div>
@@ -3593,7 +3593,7 @@
 						</div>
 					</div>
 					<div class="grad_card" style="padding: 10px; margin-top: 30px">
-						<select class="custom-select" id="stateDropdown">
+						<select class="custom-select neon-wrapper" id="stateDropdown">
 
 						</select>
 						<div class="wrapper">
@@ -4562,7 +4562,6 @@
 				$.ajax("https://v1.api.covindia.com/district-values").then(response => {
 					districtData = response
 
-					console.log(districtData)
 					// console.log("MY ARRAY", distArray)
 					renderData(districtData);
 					$('.clickable').tooltip();
@@ -4603,7 +4602,7 @@
 
 					var observer = new MutationObserver(function (mutations) {
 						mutations.forEach(function (mutation) {
-							console.log(target.innerText)
+
 							if (target.innerText === "") {
 								target.innerText = "Please enter a valid district name!"
 							}
@@ -4643,8 +4642,7 @@
 							})
 						}
 
-						console.log("resultHist", resultHist)
-						console.log("results", results)
+
 
 						if (value.length === 1) {
 							resultHist = results
@@ -4655,8 +4653,7 @@
 							$("#Delhi-Unique").tooltip().mouseout()
 						})
 						if (value.length >= 2) {
-							console.log(resultHist)
-							console.log(results)
+
 
 							results.map(item => {
 								if (item === "Mumbai") {
@@ -4670,7 +4667,7 @@
 
 							if (results.length <= 10) {
 								let uniqueResult = results[0].charAt(0).toUpperCase() + results[0].slice(1)
-								console.log(uniqueResult)
+
 								uniqueResult = districtData[uniqueResult]
 								if (!uniqueResult) {
 
@@ -4691,10 +4688,28 @@
 						}
 
 					})
-					var stateHistorics;
+					var stateHistorics = [];
+					var temp = {}
 
 					fetch("https://v1.api.covindia.com/state-date-total-data").then(response => response.json())
-						.then(success => stateHistorics = success)
+						.then(success => {
+
+							for (let [key, value] of Object.entries(success)) {
+								temp[Date.parse(key.split("/").reverse().join("-"))] = value
+							}
+
+							temp = Object.fromEntries(Object.entries(temp).sort())
+							console.log(temp)
+							for (let [key, value] of Object.entries(temp)) {
+								var date = new Date(+key)
+								console.log(date)
+								stateHistorics.push({
+									[date.getDate() + "/" + (+date.getMonth() + 1)]: value
+								})
+							}
+							console.log(stateHistorics)
+						})
+
 					var ctx = document.getElementById("stateHist").getContext('2d')
 					var myChart = new Chart(ctx, {
 						type: 'line',
@@ -4766,42 +4781,35 @@
 							}
 						}
 					})
-					console.log(myChart, "INIT")
+
 					$('#stateDropdown').change(function () {
 						try {
 							myChart.destroy()
 						} finally {
-							console.log($(this).val())
+
 							let counter = 0
 							let dataArray = []
 
 							let max = 0
 							let sum = 0
-							for (let [curDate, data] of Object.entries(stateHistorics)) {
-								for (let [state, value] of Object.entries(data)) {
-									// if (counter === 0) {
-									// 	stateCharts[state] = [{ [curDate]: value }]
-									// } else {
-									// 	stateCharts[state].push({ [curDate]: value })
-									// }
+							stateHistorics.map(date => {
 
-									if (state === $(this).val()) {
-										sum = sum - value
-
-										dataArray.push({
-											x: curDate,
-											y: sum
-										})
-									}
-									if (counter === 39) {
-										max = sum
+								for (let [key, value] of Object.entries(date)) {
+									for (let [state, number] of Object.entries(value)) {
+										if (state === $(this).val()) {
+											sum = sum + number
+											dataArray.push({
+												x: key,
+												y: sum
+											})
+										}
 									}
 								}
-								counter += 1
-							}
+							})
+							console.log(dataArray)
 
 
-							dataArray = dataArray.reverse()
+
 
 
 
@@ -4949,7 +4957,7 @@
 						try {
 							myChartMob.destroy()
 						} finally {
-							console.log($(this).val())
+
 							let counter = 0
 							let dataArray = []
 
@@ -5101,7 +5109,7 @@
 				$("#infected")[0].innerText = response.infectedTotal;
 				$("#max-infected").text(response.infectedMax)
 				let decibel = (Math.log10(response.infectedMax) / 3)
-				console.log(decibel)
+
 				$("#md").text(Math.floor(Math.pow(10, decibel)))
 				$("#low").text(Math.floor(Math.pow(10, 2 * decibel)))
 				$("#cured-desk")[0].innerText = `0${response.totalCured}`;
