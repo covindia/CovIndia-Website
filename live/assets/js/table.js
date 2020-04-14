@@ -26,7 +26,7 @@ $.when(
         .buttons()
         .container()
         .appendTo("#states_wrapper .col-md-6:eq(0)");
-      console.log(data)
+
       const options = [
         {
           text: "Select a state...",
@@ -39,7 +39,7 @@ $.when(
           value: item[0]
         })
       })
-      console.log(options)
+
       let optionList = document.getElementById('stateDropdown')
       let optionListMob = document.getElementById("stateDropdownMob")
       options.forEach(option => {
