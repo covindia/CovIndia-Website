@@ -613,6 +613,7 @@ a:hover {
   background-image: url("../img/caret.png");
   background-repeat: no-repeat;
   background-position: right center;
+  border: 2px solid white
 
 }
 
