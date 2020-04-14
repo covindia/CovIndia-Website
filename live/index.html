@@ -4807,12 +4807,6 @@
 								}
 							})
 							console.log(dataArray)
-
-
-
-
-
-
 							myChart = new Chart(ctx, {
 								type: 'line',
 								data: {
@@ -4963,31 +4957,22 @@
 
 							let max = 0
 							let sum = 0
-							for (let [curDate, data] of Object.entries(stateHistorics)) {
-								for (let [state, value] of Object.entries(data)) {
-									// if (counter === 0) {
-									// 	stateCharts[state] = [{ [curDate]: value }]
-									// } else {
-									// 	stateCharts[state].push({ [curDate]: value })
-									// }
+							stateHistorics.map(date => {
 
-									if (state === $(this).val()) {
-										sum = sum - value
-
-										dataArray.push({
-											x: curDate,
-											y: sum
-										})
-									}
-									if (counter === 39) {
-										max = sum
+								for (let [key, value] of Object.entries(date)) {
+									for (let [state, number] of Object.entries(value)) {
+										if (state === $(this).val()) {
+											sum = sum + number
+											dataArray.push({
+												x: key,
+												y: sum
+											})
+										}
 									}
 								}
-								counter += 1
-							}
+							})
 
 
-							dataArray = dataArray.reverse()
 
 
 
