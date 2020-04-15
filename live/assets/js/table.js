@@ -22,7 +22,6 @@ $.when(
         ];
       });
       data.unshift(["India", countryTotal, countryNew, countryDeaths, countryNewDeaths])
-      console.log(data)
       var table = $("#states").DataTable({
         data: data,
         pageLength: 5,
@@ -46,10 +45,14 @@ $.when(
           }
         ]
       });
+
+
+
       table
         .buttons()
         .container()
         .appendTo("#states_wrapper .col-md-6:eq(0)");
+
 
       const options = [
         {

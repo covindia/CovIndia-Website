@@ -4699,15 +4699,15 @@
 							}
 
 							temp = Object.fromEntries(Object.entries(temp).sort())
-							console.log(temp)
+
 							for (let [key, value] of Object.entries(temp)) {
 								var date = new Date(+key)
-								console.log(date)
+
 								stateHistorics.push({
 									[date.getDate() + "/" + (+date.getMonth() + 1)]: value
 								})
 							}
-							console.log(stateHistorics)
+
 						})
 
 					var ctx = document.getElementById("stateHist").getContext('2d')
@@ -4806,7 +4806,7 @@
 									}
 								}
 							})
-							console.log(dataArray)
+
 							myChart = new Chart(ctx, {
 								type: 'line',
 								data: {
