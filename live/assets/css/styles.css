@@ -631,3 +631,9 @@ a:hover {
   inset 0 0 1px  1px #fff7f7;
   
 }
+
+
+.tableTotal {
+  background-color: rgba(105,1,105,0.61) !important;
+  font-weight: 800;
+}

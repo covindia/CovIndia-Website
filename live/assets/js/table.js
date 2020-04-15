@@ -4,7 +4,15 @@ $.when(
     response => {
       //console.log(response);
       stateData = response;
+      countryTotal = 0
+      countryNew = 0
+      countryDeaths = 0
+      countryNewDeaths = 0
       const data = Object.keys(stateData).map(key => {
+        countryTotal += stateData[key].TotalCases
+        countryNew += stateData[key].NewCases
+        countryDeaths += stateData[key].TotalDeaths
+        countryNewDeaths += stateData[key].NewDeaths
         return [
           key,
           stateData[key].TotalCases,
@@ -13,6 +21,8 @@ $.when(
           stateData[key].NewDeaths
         ];
       });
+      data.unshift(["India", countryTotal, countryNew, countryDeaths, countryNewDeaths])
+      console.log(data)
       var table = $("#states").DataTable({
         data: data,
         pageLength: 5,
@@ -20,7 +30,21 @@ $.when(
         buttons: ["copyHtml5", "csvHtml5", "pdfHtml5", "excelHtml5"],
         paging: false,
         title: "Confirmed Cases and Deaths by state in India",
-        "order": [[1, "desc"]]
+        "order": [[1, "desc"]],
+        columnDefs: [
+          {
+            "targets": 0,
+            render: function (data, type, full, meta) {
+              if (type === 'display' && data == 'India') {
+                var rowIndex = meta.row + 1;
+                $('#states tbody tr:nth-child(' + rowIndex + ')').addClass('tableTotal');
+                return data;
+              } else {
+                return data;
+              }
+            }
+          }
+        ]
       });
       table
         .buttons()
