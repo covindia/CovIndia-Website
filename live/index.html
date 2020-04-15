@@ -4593,8 +4593,7 @@
 					}
 					let lmao = 'Mumbai-Unique'
 					$('#' + lmao).tooltip().mouseover();
-					$('#Ladakh').tooltip().mouseover();
-					$('#Kasargod').tooltip().mouseover();
+					$("#Chennai").tooltip().mouseover()
 					$('#Delhi-Unique').tooltip().mouseover();
 
 
@@ -4651,6 +4650,7 @@
 							$("#" + district).tooltip().mouseout()
 							$("#Mumbai-Unique").tooltip().mouseout()
 							$("#Delhi-Unique").tooltip().mouseout()
+							$("#Chennai").tooltip().mouseout()
 						})
 						if (value.length >= 2) {
 
@@ -4699,15 +4699,15 @@
 							}
 
 							temp = Object.fromEntries(Object.entries(temp).sort())
-							console.log(temp)
+
 							for (let [key, value] of Object.entries(temp)) {
 								var date = new Date(+key)
-								console.log(date)
+
 								stateHistorics.push({
 									[date.getDate() + "/" + (+date.getMonth() + 1)]: value
 								})
 							}
-							console.log(stateHistorics)
+
 						})
 
 					var ctx = document.getElementById("stateHist").getContext('2d')
@@ -4806,7 +4806,7 @@
 									}
 								}
 							})
-							console.log(dataArray)
+
 							myChart = new Chart(ctx, {
 								type: 'line',
 								data: {
@@ -5062,8 +5062,7 @@
 			if (initLoadTooltip == false) {
 				$('#Mumbai-Unique').tooltip().mouseout();
 				$('#Delhi-Unique').tooltip().mouseout();
-				$('#Ladakh').tooltip().mouseout();
-				$('#Kasargod').tooltip().mouseout();
+				$("#Chennai").tooltip().mouseout()
 				initLoadTooltip = true;
 			}
 		});
