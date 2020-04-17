@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col">
                 <div class="flex flex-wrap" style="height: 100%;">
-                    <div class="desktop-wrapper" style="text-align: right; height: 100%; ">
+                    <div class="desktop-wrapper" style="text-align: right; height: 100%; margin-right: 20%; ">
                         <svg id="legend" width="205" height="55" viewBox="20 -5 225 30">
                             <defs>
                                 <linearGradient id="RYG">
@@ -4007,24 +4007,7 @@
             let finalStr = dateString + " " + timeString
             var finalDate = new Date(finalStr)
             finalStr = finalStr.split(" ").reverse().join(", ")
-            $("#last-updated")[0].innerText = "Last updated: " + finalStr
-            $("#cured")[0].innerText = response.totalCured;
-            $("#deaths")[0].innerText = response.deathTotal;
-            $("#infected")[0].innerText = response.infectedTotal;
             $("#max-infected").text(response.infectedMax)
-            let decibel = (Math.log10(response.infectedMax) / 3)
-            console.log(decibel)
-            $("#md").text(Math.floor(Math.pow(10, decibel)))
-            $("#low").text(Math.floor(Math.pow(10, 2 * decibel)))
-            $("#cured-desk")[0].innerText = `0${response.totalCured}`;
-            $("#deaths-desk")[0].innerText = `0${response.deathTotal}`;
-            $("#infected-desk")[0].innerText = response.infectedTotal;
-            // $("#max-infected-desk")[0].innerText = response.infectedMax;
-            var strDate = response.lastUpdatedTime;
-            //console.log(response.lastUpdatedTime)
-            var objDate = new Date(strDate);
-            // legend(response.infectedMax)
-            // TODO: add div with latest updates and parse time
 
         })
     );
