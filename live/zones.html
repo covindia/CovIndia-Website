@@ -109,10 +109,13 @@
          <div style="width: 100%; margin: 0 auto; padding: 1rem;">
             <select class="custom-select" id="districtZoneList" style="width: 100%; margin: 0 auto"></select>
          </div>
-
-
-         <div id="districtZones" style="width: 100%; padding: 20px">
-
+         <div id="districtZones"
+            style="width: 100%; padding: 20px; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;"
+            class="districtZones">
+            <div id="zone1" style="margin: 5px 5px;"></div>
+            <div id="zone2" style="margin: 5px 5px;"></div>
+            <div id="zone3" style="margin: 5px 5px;"></div>
+            <div id="zone4" style="margin: 5px 5px;"></div>
          </div>
       </div>
 
@@ -228,7 +231,10 @@
          })
 
          $("#districtZoneList").change(function () {
-            $("#districtZones").empty()
+            $("#zone1").empty()
+            $("#zone2").empty()
+            $("#zone3").empty()
+            $("#zone4").empty()
             console.log($(this).val())
 
             zoneData.map(item => {
@@ -241,25 +247,26 @@
                   var span = document.createElement("DIV")
                   span.className = "districtZoneItem"
                   span.style.maxWidth = "200px"
-                  if (item.values.value === 1) {
-                     span.style.backgroundColor = "rgb(255, 0, 0)"
-                  } else if (item.values.value === 2) {
-                     span.style.backgroundImage = "linear-gradient(45deg, #ff5500 6.52%, #ff0000 6.52%, #ff0000 50%, #ff5500 50%, #ff5500 56.52%, #ff0000 56.52%, #ff0000 100%)"
-                     span.style.backgroundSize = "32.53px 32.53px"
-                  } else if (item.values.value === 3) {
-                     span.style.backgroundColor = "#ff5500"
-                  } else {
-                     span.style.backgroundColor = "rgb(0, 255, 0)"
-                  }
                   span.style.margin = "0 auto"
                   var textnode = document.createTextNode(item.district + "|" + item.values.value);         // Create a text node
                   span.appendChild(textnode);                              // Append the text to <li>
                   node.appendChild(span)
                   node.style.margin = "0 auto"
                   span.style.textAlign = 'center'
-
-                  document.getElementById("districtZones").appendChild(node);
-
+                  if (item.values.value === 1) {
+                     span.style.backgroundColor = "rgb(255, 0, 0)"
+                     document.getElementById("zone1").appendChild(node);
+                  } else if (item.values.value === 2) {
+                     span.style.backgroundImage = "linear-gradient(45deg, #ff5500 6.52%, #ff0000 6.52%, #ff0000 50%, #ff5500 50%, #ff5500 56.52%, #ff0000 56.52%, #ff0000 100%)"
+                     span.style.backgroundSize = "32.53px 32.53px"
+                     document.getElementById("zone2").appendChild(node);
+                  } else if (item.values.value === 3) {
+                     span.style.backgroundColor = "#ff5500"
+                     document.getElementById("zone3").appendChild(node);
+                  } else {
+                     span.style.backgroundColor = "rgb(0, 255, 0)"
+                     document.getElementById("zone4").appendChild(node);
+                  }
                }
             })
          })
