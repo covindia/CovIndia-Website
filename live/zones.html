@@ -1,0 +1,271 @@
+<html lang="en">
+
+<head>
+   <link rel="manifest" href="/manifest.json">
+   <link rel="canonical" href="https://covindia.com/">
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+   <meta name="description" content="We provide reliable and live DISTRICT-WISE visualisations for Corona-Virus (CoVid 19) . Be Safe. Be Calm.
+		Stay Informed.">
+   <meta name="keywords" content="Mahindra Ecole Centrale Coronavirus, Coronavirus Visualizer India, Coronavirus India District, Coronavirus India District,
+	Covid-19 Visualizer India, Covid-19 Visualizer India District, Corona India District Wise, Corona India Live, Covid India Live, Corona India Detailed, Maharastra Covid,
+	Maharastra Corona, Virus, Live Tracking, Mahindra Ecole Centrale Koronavirus, Koronavirus Visualizer India, Koronavirus India District, Koronavirus India District,
+	Covid-19 Visualizer India, Covid-19 Visualizer India District, Korona India District Wise, Korona India Live, Covid India Live, Korona India Detailed, Maharastra Covid,
+	Maharastra Korona, Virus, Live Tracking" />
+   <meta name="author" content="Covindia">
+
+
+   <title>Covindia</title>
+
+   <!-- Standard Includes -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"> -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
+   <link rel="shortcut icon" href="assets/img/icons/icon.png">
+
+   <!-- Custom Imports -->
+   <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
+   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Mina&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap" rel="stylesheet">
+   <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"
+      type="text/css" />
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+   <script>
+      // This is the "Offline page" service worker
+
+      // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+
+      // Check compatibility for the browser we're running this in
+      if ("serviceWorker" in navigator) {
+         if (navigator.serviceWorker.controller) {
+            console.log("[PWA Builder] active service worker found, no need to register");
+         } else {
+            // Register the service worker
+            navigator.serviceWorker
+               .register("sw.js", {
+                  scope: "./"
+               })
+               .then(function (reg) {
+                  console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+               });
+         }
+      }
+   </script>
+
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160619251-1"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+         dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-160619251-1');
+   </script>
+</head>
+
+<body>
+   <nav class="navbar navbar-custom navbar-expand-md fixed-top " style="align-content: space-between;">
+      <a class="navbar-brand" style="font-family: 'Poppins', sans-serifs;padding-bottom: 0;" href="/">
+         <span style="color: #CC99CC; font-size: 1.3em;font-family: Poppins;">Cov</span><span
+            style="font-size: 1.3em; font-family: 'Poppins';">India</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+         style="color: white;">
+         <span style="padding-top:7px;padding-left:0;"><b>Menu</b></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+         <ul class="nav navbar-nav navbar-item-center">
+            <li class="nav-item" role="presentation"><a class="nav-link active"
+                  style="padding-bottom:4px; font-family: 'Poppins'; font-weight: 100 !important;"
+                  href="analytics">Analytics</a>
+            </li>
+            <li class="nav-item" role="presentation"><a class="nav-link active"
+                  style=" font-family: 'Poppins';padding-bottom:4px;" href="#latest-update">Sources</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link active"
+                  style=" font-family: 'Poppins';padding-bottom:4px;" href="about">About</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link active"
+                  style=" font-family: 'Poppins';padding-bottom:4px;" href="zones">Zones</a></li>
+            <li class="nav-item float-right"><span class="nav-link" id="last-updated"
+                  style="font-style: italic; font-family: 'Poppins'; color: #8c598c !important; font-size: 1em; font-weight: lighter;"></span>
+            </li>
+         </ul>
+
+      </div>
+   </nav>
+   <div style="padding-top: 5rem;">
+
+      <div style="width: 100%;">
+         <div style="width: 100%; margin: 0 auto; padding: 1rem;">
+            <select class="custom-select" id="districtZoneList" style="width: 100%; margin: 0 auto"></select>
+         </div>
+
+
+         <div id="districtZones" style="width: 100%; padding: 20px">
+
+         </div>
+      </div>
+
+   </div>
+   <div class="container-fluid footer-dark" style="color: rgb(170, 170, 170);">
+      <div class="row ">
+         <div class="col-md-4"></div>
+         <div class="col-md-4 text-center">
+
+            <br>
+            <div class="row">
+               <div class="col-md-4"></div>
+               <div class="col-md-4 footer-navigation add-footer-margin-below">
+                  <a href="about">
+                     <h3 style="font-weight: 600">About</h3>
+                  </a><br>
+               </div>
+               <div class="col-md-4"></div>
+            </div>
+         </div>
+         <div class="col-md-4"></div>
+      </div>
+      <div class="row">
+         <div class="col-md-2"></div>
+         <div class="col-md-8" style="text-align: center;">
+
+            In case you find any error, please tweet out to: <a href="https://twitter.com/covindia"
+               style="color:#CC99CC">covindia</a>.<br><br>
+            This is a visualization of the Covid-19 (Coronavirus) pandemic by district in India. This website is
+            updated regularly
+            by a group of volunteer students. Our sources are The Ministry of Health and trustworthy news articles.
+            We do not believe in spreading speculations by news outlets.
+            <br>
+            We are a group of dedicated students trying to keep everyone as informed as possible. We pledge to
+            <strong>NEVER SELL</strong> your data and keep the site <strong>FREE FOREVER.</strong> If you would like
+            to help us out: <br><br><a href="donate"><button type="button" class="btn btn-outline-success donate">
+                  <strong>DONATE </strong><span class="badge badge-light">₹</span>
+               </button></a><br><br>
+
+            Click here for: <a href="disclaimer" style="color: #CC99CC;">Disclaimer</a><br><br>
+
+            <a href="https://www.mohfw.gov.in/" style="color: #CC99CC;">https://www.mohfw.gov.in/</a><br>
+            The Helpline Number for corona-virus : +91-11-23978046
+         </div>
+         <div class="col-md-2"></div>
+      </div>
+      <div class="row flex-column" style="margin-top: 3em;">
+         <div class="col">
+            <h2 class="footer-dark-heading" style="font-family: 'Poppins', sans-serif;"><span
+                  style="color: #cc99cc; font-size: 1em; font-family: Poppins;">Cov</span>India</h2>
+         </div>
+         <div class="col text-center">
+            <a href="https://www.netlify.com" style="margin-left: auto;margin-right: auto;display: block;">
+               <img src="https://www.netlify.com/img/global/badges/netlify-light.svg" alt="Deploys by Netlify" />
+            </a>
+         </div>
+
+      </div>
+   </div>
+
+   <script>
+      $.when($.ajax("https://v1.api.covindia.com/daily-states-complete").then(response => {
+         stateData = response;
+         countryTotal = 0
+         countryNew = 0
+         countryDeaths = 0
+         countryNewDeaths = 0
+         const data = Object.keys(stateData).map(key => {
+            countryTotal += stateData[key].TotalCases
+            countryNew += stateData[key].NewCases
+            countryDeaths += stateData[key].TotalDeaths
+            countryNewDeaths += stateData[key].NewDeaths
+            return [
+               key,
+               stateData[key].TotalCases,
+               stateData[key].NewCases,
+               stateData[key].TotalDeaths,
+               stateData[key].NewDeaths
+            ];
+         });
+         const options = [
+            {
+               text: "Select a state...",
+               selected: true
+            }
+         ]
+         data.map(item => {
+            options.push({
+               text: item[0],
+               value: item[0]
+            })
+         })
+         let districtZoneList = document.getElementById("districtZoneList")
+         options.forEach(option => {
+
+            districtZoneList.add(new Option(option.text, option.value, option.selected))
+         })
+      }))
+   </script>
+   <script>
+      window.onload = function () {
+         let zoneData
+
+         fetch("https://v1.api.covindia.com/zone-data").then(response => response.json()).then(obj => {
+            var keysSorted = Object.keys(obj).sort(function (a, b) {
+               return obj[a].value - obj[b].value
+            });
+            var objSorted = [];
+            for (var i = 0; i < keysSorted.length; i++) {
+               objSorted.push({ district: keysSorted[i], values: obj[keysSorted[i]] })
+            }
+            zoneData = objSorted
+         })
+
+         $("#districtZoneList").change(function () {
+            $("#districtZones").empty()
+            console.log($(this).val())
+
+            zoneData.map(item => {
+
+
+               if (item.values.state === $(this).val()) {
+                  var node = document.createElement("DIV");                 // Create a <li> node
+                  node.className = "districtList"
+
+                  var span = document.createElement("DIV")
+                  span.className = "districtZoneItem"
+                  span.style.maxWidth = "200px"
+                  if (item.values.value === 1) {
+                     span.style.backgroundColor = "rgb(255, 0, 0)"
+                  } else if (item.values.value === 2) {
+                     span.style.backgroundImage = "linear-gradient(45deg, #ff5500 6.52%, #ff0000 6.52%, #ff0000 50%, #ff5500 50%, #ff5500 56.52%, #ff0000 56.52%, #ff0000 100%)"
+                     span.style.backgroundSize = "32.53px 32.53px"
+                  } else if (item.values.value === 3) {
+                     span.style.backgroundColor = "#ff5500"
+                  } else {
+                     span.style.backgroundColor = "rgb(0, 255, 0)"
+                  }
+                  span.style.margin = "0 auto"
+                  var textnode = document.createTextNode(item.district + "|" + item.values.value);         // Create a text node
+                  span.appendChild(textnode);                              // Append the text to <li>
+                  node.appendChild(span)
+                  node.style.margin = "0 auto"
+                  span.style.textAlign = 'center'
+
+                  document.getElementById("districtZones").appendChild(node);
+
+               }
+            })
+         })
+      }
+   </script>
+
+</body>
+
+</html>

@@ -637,3 +637,7 @@ a:hover {
   background-color: rgba(105,1,105,0.61) !important;
   font-weight: 800;
 }
+
+.districtZoneItem {
+  padding: 5px
+}

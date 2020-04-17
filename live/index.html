@@ -96,6 +96,8 @@
 						style=" font-family: 'Poppins';padding-bottom:4px;" href="#latest-update">Sources</a></li>
 				<li class="nav-item" role="presentation"><a class="nav-link active"
 						style=" font-family: 'Poppins';padding-bottom:4px;" href="about">About</a></li>
+				<li class="nav-item" role="presentation"><a class="nav-link active"
+						style=" font-family: 'Poppins';padding-bottom:4px;" href="zones">Zones</a></li>
 
 				<li class="nav-item float-right"><span class="nav-link" id="last-updated"
 						style="font-style: italic; font-family: 'Poppins'; color: #8c598c !important; font-size: 1em; font-weight: lighter;"></span>
@@ -198,6 +200,7 @@
 									<button class="btn btn-outline-success donate" onclick="playbutton()">Play
 										<i class="fa fa-play" aria-hidden="true"></i>
 									</button>
+
 								</div>
 							</div>
 
@@ -3584,6 +3587,7 @@
 							<div class="alert alert-light text-center" style="font-size: 1.5em; ">Click here to report new data
 							</div>
 						</a>
+
 					</div>
 				</div>
 				<div class="col-md-3 ">
@@ -3876,7 +3880,6 @@
 			$("#of3").attr("stop-color", gradient(1 - of3, GRADIENT))
 			$("#of4").attr("stop-color", gradient(1 - of4, GRADIENT))
 		}
-
 		function renderData(data) {
 			for (var key in data) {
 				var modKey = String(key);
@@ -4688,6 +4691,8 @@
 						}
 
 					})
+
+
 					var stateHistorics = [];
 					var temp = {}
 

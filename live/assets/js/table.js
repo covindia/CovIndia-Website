@@ -69,9 +69,11 @@ $.when(
 
       let optionList = document.getElementById('stateDropdown')
       let optionListMob = document.getElementById("stateDropdownMob")
+
       options.forEach(option => {
         optionList.add(new Option(option.text, option.value, option.selected))
         optionListMob.add(new Option(option.text, option.value, option.selected))
+
       })
     }
   )
