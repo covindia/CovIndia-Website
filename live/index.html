@@ -187,11 +187,14 @@
 									</div>
 								</div>
 							</div>
-							<div class="h-100 text-center p-3 d-flex justify-content-center">
-								<p id="searchResult" class="p-3"
-									style=" font-family: 'Poppins'; border-radius: 3px 3px; border: 1px solid white; background-color: rgba(38,38,38,0.8); display: none; ">
-									Please enter a district...
-								</p>
+							<div class="h-100 text-center p-3 d-flex justify-content-center" style="width: 100%;">
+								<a href="zones" style="text-decoration: none; color: white;" class="grow">
+									<div
+										style="background-color: #8c598c; padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
+										Click here for
+										ZONES after April 20
+									</div>
+								</a>
 							</div>
 						</div>
 						<div class="row">
@@ -4602,22 +4605,9 @@
 
 					var target = document.getElementById("searchResult");
 
-					var observer = new MutationObserver(function (mutations) {
-						mutations.forEach(function (mutation) {
 
-							if (target.innerText === "") {
-								target.innerText = "Please enter a valid district name!"
-							}
-						});
-					});
 
-					var config = {
-						childList: true,
-						subtree: true,
-						characterData: true
-					};
 
-					observer.observe(target, config);
 
 					let resultHist = []
 					let results = []
