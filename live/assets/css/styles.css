@@ -596,6 +596,9 @@ a:hover {
     font-size: 14px !important;
   }
   
+  .custom-select{
+    width: 100% !important;
+  }
 
 }
 
