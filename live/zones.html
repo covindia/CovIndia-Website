@@ -114,7 +114,7 @@
          </h5>
          <div style="width: 100%; margin: 0 auto; padding: 1rem; text-align: center;">
             <select class="custom-select" id="districtZoneList"
-               style="width: 80%; margin: 0 auto; font-size: larger; font-family: 'Poppins';"></select>
+               style="width: 50%; margin: 0 auto; font-size: larger; font-family: 'Poppins';"></select>
          </div>
          <div id="districtZones"
             style="width: 100%; padding: 20px; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly; font-family: 'Poppins' !important;"
@@ -184,32 +184,22 @@
    </div>
 
    <script>
-      $.when($.ajax("https://v1.api.covindia.com/daily-states-complete").then(response => {
+      $.when($.ajax("https://v1.api.covindia.com/zone-data").then(response => {
          stateData = response;
-         countryTotal = 0
-         countryNew = 0
-         countryDeaths = 0
-         countryNewDeaths = 0
-         const data = Object.keys(stateData).map(key => {
-            countryTotal += stateData[key].TotalCases
-            countryNew += stateData[key].NewCases
-            countryDeaths += stateData[key].TotalDeaths
-            countryNewDeaths += stateData[key].NewDeaths
-            return [
-               key,
-               stateData[key].TotalCases,
-               stateData[key].NewCases,
-               stateData[key].TotalDeaths,
-               stateData[key].NewDeaths
-            ];
-         });
+         const dataObj = {}
+
+         for (let [key, value] of Object.entries(stateData)) {
+
+            dataObj[value.state] = 1
+         }
+         const data = Object.keys(dataObj)
          const options = [
 
          ]
          data.map(item => {
             options.push({
-               text: item[0],
-               value: item[0]
+               text: item,
+               value: item
             })
          })
          function compare(a, b) {
@@ -243,6 +233,7 @@
          let zoneData
 
          fetch("https://v1.api.covindia.com/zone-data").then(response => response.json()).then(obj => {
+
             var keysSorted = Object.keys(obj).sort(function (a, b) {
                return obj[a].value - obj[b].value
             });
@@ -251,6 +242,7 @@
                objSorted.push({ district: keysSorted[i], values: obj[keysSorted[i]] })
             }
             zoneData = objSorted
+            console.log(zoneData)
          })
 
          $("#districtZoneList").change(function () {
