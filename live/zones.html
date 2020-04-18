@@ -198,16 +198,32 @@
             ];
          });
          const options = [
-            {
-               text: "Select a state...",
-               selected: true
-            }
+
          ]
          data.map(item => {
             options.push({
                text: item[0],
                value: item[0]
             })
+         })
+         function compare(a, b) {
+            // Use toUpperCase() to ignore character casing
+            const bandA = a.text.toUpperCase();
+            const bandB = b.text.toUpperCase();
+
+            let comparison = 0;
+            if (bandA > bandB) {
+               comparison = 1;
+            } else if (bandA < bandB) {
+               comparison = -1;
+            }
+            return comparison;
+         }
+
+         options.sort(compare)
+         options.unshift({
+            text: "Select a state...",
+            selected: true
          })
          let districtZoneList = document.getElementById("districtZoneList")
          options.forEach(option => {
