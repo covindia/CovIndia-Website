@@ -643,3 +643,13 @@ a:hover {
   padding: 5px
 }
 
+.zoneLink {
+  font-size: 1em;
+  color: white;
+  font-family: 'Poppins';
+  text-decoration: underline;
+}
+
+.zoneLink:hover {
+  color: rgba(105,1,105,0.61);
+}

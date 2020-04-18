@@ -105,10 +105,16 @@
    </nav>
    <div style="padding-top: 5rem;">
 
-      <div style="width: 100%;">
+      <div style="width: 100%; text-align: center;">
+         <h5 style="width: 100%; text-align: center; font-family: 'Poppins';"><span
+               style="color: #888888; font-size: 1em; font-family: 'Poppins';">Sources:
+            </span><a class="zoneLink"
+               href="https://m.republicworld.com/india-news/general-news/coronavirus-health-ministry-red-zones-and-non-hotspot-districts.html">Republic</a>
+            | MOHFW
+         </h5>
          <div style="width: 100%; margin: 0 auto; padding: 1rem; text-align: center;">
             <select class="custom-select" id="districtZoneList"
-               style="width: 50%; margin: 0 auto; font-size: larger; font-family: 'Poppins';"></select>
+               style="width: 80%; margin: 0 auto; font-size: larger; font-family: 'Poppins';"></select>
          </div>
          <div id="districtZones"
             style="width: 100%; padding: 20px; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly; font-family: 'Poppins' !important;"
@@ -351,7 +357,7 @@
                      document.getElementById("zone1d1").style.display = "none"
                   } else if (item.values.value === 2) {
                      document.getElementById("zone2d1").style.display = "none"
-                     span.style.backgroundImage = "linear-gradient(45deg, #ff5500 6.52%, #ff0000 6.52%, #ff0000 50%, #ff5500 50%, #ff5500 56.52%, #ff0000 56.52%, #ff0000 100%)"
+                     span.style.backgroundImage = "linear-gradient(45deg, #3d3d3d 6.52%, #ff0000 6.52%, #ff0000 50%, #3d3d3d 50%, #3d3d3d 56.52%, #ff0000 56.52%, #ff0000 100%)"
                      span.style.backgroundSize = "32.53px 32.53px"
                      document.getElementById("zone2").appendChild(node);
                      var textnode = document.createTextNode(item.district);         // Create a text node
