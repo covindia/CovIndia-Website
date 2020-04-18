@@ -44,6 +44,8 @@ async function playbutton() {
   }
 }
 
+
+
 function setMaxLegend(val) {
   $("#max-infected").text(val)
   let decibel = (Math.log10(val) / 3)

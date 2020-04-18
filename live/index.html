@@ -96,6 +96,8 @@
 						style=" font-family: 'Poppins';padding-bottom:4px;" href="#latest-update">Sources</a></li>
 				<li class="nav-item" role="presentation"><a class="nav-link active"
 						style=" font-family: 'Poppins';padding-bottom:4px;" href="about">About</a></li>
+				<li class="nav-item" role="presentation"><a class="nav-link active"
+						style=" font-family: 'Poppins';padding-bottom:4px;" href="zones">Zones</a></li>
 
 				<li class="nav-item float-right"><span class="nav-link" id="last-updated"
 						style="font-style: italic; font-family: 'Poppins'; color: #8c598c !important; font-size: 1em; font-weight: lighter;"></span>
@@ -175,16 +177,26 @@
 				<div class="col-md-6 ">
 
 					<div class="container" id="legend-colorbar">
-						<div class="row p-3">
-							<div class="container h-100">
-								<div class="d-flex justify-content-center h-100">
-									<div class="searchbar">
+						<div class="h-100 text-center p-3 d-flex justify-content-center">
+							<a href="zones" style="text-decoration: none; color: white;" class="grow">
+								<div
+									style="background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
+									Click for
+									ZONES after April 20
+								</div>
+							</a>
+						</div>
+						<div class="row p-3 justify-content-center">
+							<div class="h-100 p-3" style="min-width: 60%;">
+								<div class="d-flex justify-content-center h-100 ">
+									<div class="searchbar " style="min-width: 100%;">
 										<input class="search_input" type="text" name="" placeholder="Search for a district..."
 											id="searchBar">
 										<p class="search_icon"><i class="fas fa-search"></i></p>
 									</div>
 								</div>
 							</div>
+
 						</div>
 						<div class="row">
 							<div class="col">
@@ -192,6 +204,7 @@
 									<button class="btn btn-outline-success donate" onclick="playbutton()">Play
 										<i class="fa fa-play" aria-hidden="true"></i>
 									</button>
+
 								</div>
 							</div>
 
@@ -3574,9 +3587,11 @@
 						<input type="range" class="slider" id="myRange">
 						<p>Date: <span id="demo"></span></p>
 						<h3 class="text-right">Move the slider to see past information</h3>
-						<div class="alert alert-light text-center" style="font-size: 1.5em; ">Click <a
-								style="color: #3f0f3f; font-size: 1em;" href="report">here</a> to report new data
-						</div>
+						<a style="color: #3f0f3f; font-size: 1em;" href="report">
+							<div class="alert alert-light text-center" style="font-size: 1.5em; ">Click here to report new data
+							</div>
+						</a>
+
 					</div>
 				</div>
 				<div class="col-md-3 ">
@@ -3869,7 +3884,6 @@
 			$("#of3").attr("stop-color", gradient(1 - of3, GRADIENT))
 			$("#of4").attr("stop-color", gradient(1 - of4, GRADIENT))
 		}
-
 		function renderData(data) {
 			for (var key in data) {
 				var modKey = String(key);
@@ -4555,7 +4569,6 @@
 				$.ajax("https://v1.api.covindia.com/district-values").then(response => {
 					districtData = response
 
-
 					// console.log("MY ARRAY", distArray)
 					renderData(districtData);
 					$('.clickable').tooltip();
@@ -4587,14 +4600,20 @@
 					}
 					let lmao = 'Mumbai-Unique'
 					$('#' + lmao).tooltip().mouseover();
-					$('#Ladakh').tooltip().mouseover();
-					$('#Kasargod').tooltip().mouseover();
+					$("#Chennai").tooltip().mouseover()
 					$('#Delhi-Unique').tooltip().mouseover();
+
+
+					var target = document.getElementById("searchResult");
+
+
+
 
 
 					let resultHist = []
 					let results = []
 					$("#searchBar").on("keyup", function () {
+
 						var value = $(this).val().toLowerCase();
 
 						// console.log(value)
@@ -4610,13 +4629,13 @@
 						// })
 						if (value.length >= 1) {
 							results = distArray.filter(district => {
+								document.getElementById("searchResult").innerText = ""
 
 								return district.toLowerCase().startsWith(value)
 							})
 						}
 
-						console.log("resultHist", resultHist)
-						console.log("results", results)
+
 
 						if (value.length === 1) {
 							resultHist = results
@@ -4625,10 +4644,10 @@
 							$("#" + district).tooltip().mouseout()
 							$("#Mumbai-Unique").tooltip().mouseout()
 							$("#Delhi-Unique").tooltip().mouseout()
+							$("#Chennai").tooltip().mouseout()
 						})
 						if (value.length >= 2) {
-							console.log(resultHist)
-							console.log(results)
+
 
 							results.map(item => {
 								if (item === "Mumbai") {
@@ -4639,15 +4658,54 @@
 									$("#" + item).tooltip().mouseover()
 								}
 							})
+
+							if (results.length <= 10) {
+								let uniqueResult = results[0].charAt(0).toUpperCase() + results[0].slice(1)
+
+								uniqueResult = districtData[uniqueResult]
+								if (!uniqueResult) {
+
+
+									document.getElementById("searchResult").innerText = `${results[0]} - Infected: 0 | Deaths: 0`
+								} else {
+
+									document.getElementById("searchResult").innerText = `${results[0]} - Infected: ${uniqueResult.infected} | Deaths: ${uniqueResult.dead}`
+								}
+							}
+							if (results.length === 0) {
+								document.getElementById("searchResult").innerText = "Please enter a valid district name!"
+							}
+
+
 							resultHist = results
 							// console.log(results)
 						}
 
 					})
-					var stateHistorics;
+
+
+					var stateHistorics = [];
+					var temp = {}
 
 					fetch("https://v1.api.covindia.com/state-date-total-data").then(response => response.json())
-						.then(success => stateHistorics = success)
+						.then(success => {
+
+							for (let [key, value] of Object.entries(success)) {
+								temp[Date.parse(key.split("/").reverse().join("-"))] = value
+							}
+
+							temp = Object.fromEntries(Object.entries(temp).sort())
+
+							for (let [key, value] of Object.entries(temp)) {
+								var date = new Date(+key)
+
+								stateHistorics.push({
+									[date.getDate() + "/" + (+date.getMonth() + 1)]: value
+								})
+							}
+
+						})
+
 					var ctx = document.getElementById("stateHist").getContext('2d')
 					var myChart = new Chart(ctx, {
 						type: 'line',
@@ -4719,44 +4777,31 @@
 							}
 						}
 					})
-					console.log(myChart, "INIT")
+
 					$('#stateDropdown').change(function () {
 						try {
 							myChart.destroy()
 						} finally {
-							console.log($(this).val())
+
 							let counter = 0
 							let dataArray = []
 
 							let max = 0
 							let sum = 0
-							for (let [curDate, data] of Object.entries(stateHistorics)) {
-								for (let [state, value] of Object.entries(data)) {
-									// if (counter === 0) {
-									// 	stateCharts[state] = [{ [curDate]: value }]
-									// } else {
-									// 	stateCharts[state].push({ [curDate]: value })
-									// }
+							stateHistorics.map(date => {
 
-									if (state === $(this).val()) {
-										sum = sum - value
-
-										dataArray.push({
-											x: curDate,
-											y: sum
-										})
-									}
-									if (counter === 39) {
-										max = sum
+								for (let [key, value] of Object.entries(date)) {
+									for (let [state, number] of Object.entries(value)) {
+										if (state === $(this).val()) {
+											sum = sum + number
+											dataArray.push({
+												x: key,
+												y: sum
+											})
+										}
 									}
 								}
-								counter += 1
-							}
-
-
-							dataArray = dataArray.reverse()
-
-
+							})
 
 							myChart = new Chart(ctx, {
 								type: 'line',
@@ -4902,37 +4947,28 @@
 						try {
 							myChartMob.destroy()
 						} finally {
-							console.log($(this).val())
+
 							let counter = 0
 							let dataArray = []
 
 							let max = 0
 							let sum = 0
-							for (let [curDate, data] of Object.entries(stateHistorics)) {
-								for (let [state, value] of Object.entries(data)) {
-									// if (counter === 0) {
-									// 	stateCharts[state] = [{ [curDate]: value }]
-									// } else {
-									// 	stateCharts[state].push({ [curDate]: value })
-									// }
+							stateHistorics.map(date => {
 
-									if (state === $(this).val()) {
-										sum = sum - value
-
-										dataArray.push({
-											x: curDate,
-											y: sum
-										})
-									}
-									if (counter === 39) {
-										max = sum
+								for (let [key, value] of Object.entries(date)) {
+									for (let [state, number] of Object.entries(value)) {
+										if (state === $(this).val()) {
+											sum = sum + number
+											dataArray.push({
+												x: key,
+												y: sum
+											})
+										}
 									}
 								}
-								counter += 1
-							}
+							})
 
 
-							dataArray = dataArray.reverse()
 
 
 
@@ -5022,8 +5058,7 @@
 			if (initLoadTooltip == false) {
 				$('#Mumbai-Unique').tooltip().mouseout();
 				$('#Delhi-Unique').tooltip().mouseout();
-				$('#Ladakh').tooltip().mouseout();
-				$('#Kasargod').tooltip().mouseout();
+				$("#Chennai").tooltip().mouseout()
 				initLoadTooltip = true;
 			}
 		});
@@ -5054,7 +5089,7 @@
 				$("#infected")[0].innerText = response.infectedTotal;
 				$("#max-infected").text(response.infectedMax)
 				let decibel = (Math.log10(response.infectedMax) / 3)
-				console.log(decibel)
+
 				$("#md").text(Math.floor(Math.pow(10, decibel)))
 				$("#low").text(Math.floor(Math.pow(10, 2 * decibel)))
 				$("#cured-desk")[0].innerText = `0${response.totalCured}`;

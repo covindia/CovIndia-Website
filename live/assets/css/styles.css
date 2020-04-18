@@ -556,7 +556,7 @@ a:hover {
   height: 60px;
   background-color: #3f0f3f;
   border-radius: 30px;
-  border: 1px solid white;
+  border: 2px solid white;
   padding: 10px;
   max-width: 100%;
   min-width: 50%;
@@ -595,6 +595,7 @@ a:hover {
     padding-top: 0px !important;
     font-size: 14px !important;
   }
+  
 
 }
 
@@ -607,11 +608,38 @@ a:hover {
 
 .custom-select{
   background: transparent;
-  border-radius: 30px;
+  border-radius: 10px;
   padding-top: 5px;
   color: white;
   background-image: url("../img/caret.png");
   background-repeat: no-repeat;
   background-position: right center;
+  border: 2px solid white
 
 }
+
+.custom-select option {
+  color: black;
+}
+
+.neon-wrapper {
+  box-shadow:
+  0 0 2px  1px #fff7f7,   
+  0 0 10px  2px #d374d3, 
+  0 0   2px  1px #3f0f3f,
+  inset 0 0 2px  1px #3f0f3f,
+  inset 0 0 1px  1px #d374d3,
+  inset 0 0 1px  1px #fff7f7;
+  
+}
+
+
+.tableTotal {
+  background-color: rgba(105,1,105,0.61) !important;
+  font-weight: 800;
+}
+
+.districtZoneItem {
+  padding: 5px
+}
+
