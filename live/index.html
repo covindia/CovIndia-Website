@@ -96,6 +96,8 @@
 						style=" font-family: 'Poppins';padding-bottom:4px;" href="#latest-update">Sources</a></li>
 				<li class="nav-item" role="presentation"><a class="nav-link active"
 						style=" font-family: 'Poppins';padding-bottom:4px;" href="about">About</a></li>
+				<li class="nav-item" role="presentation"><a class="nav-link active"
+						style=" font-family: 'Poppins';padding-bottom:4px;" href="zones">Zones</a></li>
 
 				<li class="nav-item float-right"><span class="nav-link" id="last-updated"
 						style="font-style: italic; font-family: 'Poppins'; color: #8c598c !important; font-size: 1em; font-weight: lighter;"></span>
@@ -175,6 +177,15 @@
 				<div class="col-md-6 ">
 
 					<div class="container" id="legend-colorbar">
+						<div class="h-100 text-center p-3 d-flex justify-content-center">
+							<a href="zones" style="text-decoration: none; color: white;" class="grow">
+								<div
+									style="background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
+									Click for
+									ZONES after April 20
+								</div>
+							</a>
+						</div>
 						<div class="row p-3 justify-content-center">
 							<div class="h-100 p-3" style="min-width: 60%;">
 								<div class="d-flex justify-content-center h-100 ">
@@ -185,12 +196,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="h-100 text-center p-3 d-flex justify-content-center">
-								<p id="searchResult" class="p-3"
-									style=" font-family: 'Poppins'; border-radius: 3px 3px; border: 1px solid white; background-color: rgba(38,38,38,0.8); display: none; ">
-									Please enter a district...
-								</p>
-							</div>
+
 						</div>
 						<div class="row">
 							<div class="col">
@@ -198,6 +204,7 @@
 									<button class="btn btn-outline-success donate" onclick="playbutton()">Play
 										<i class="fa fa-play" aria-hidden="true"></i>
 									</button>
+
 								</div>
 							</div>
 
@@ -3584,6 +3591,7 @@
 							<div class="alert alert-light text-center" style="font-size: 1.5em; ">Click here to report new data
 							</div>
 						</a>
+
 					</div>
 				</div>
 				<div class="col-md-3 ">
@@ -3876,7 +3884,6 @@
 			$("#of3").attr("stop-color", gradient(1 - of3, GRADIENT))
 			$("#of4").attr("stop-color", gradient(1 - of4, GRADIENT))
 		}
-
 		function renderData(data) {
 			for (var key in data) {
 				var modKey = String(key);
@@ -4599,22 +4606,9 @@
 
 					var target = document.getElementById("searchResult");
 
-					var observer = new MutationObserver(function (mutations) {
-						mutations.forEach(function (mutation) {
 
-							if (target.innerText === "") {
-								target.innerText = "Please enter a valid district name!"
-							}
-						});
-					});
 
-					var config = {
-						childList: true,
-						subtree: true,
-						characterData: true
-					};
 
-					observer.observe(target, config);
 
 					let resultHist = []
 					let results = []
@@ -4688,6 +4682,8 @@
 						}
 
 					})
+
+
 					var stateHistorics = [];
 					var temp = {}
 
