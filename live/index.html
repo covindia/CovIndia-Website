@@ -97,7 +97,7 @@
 				<li class="nav-item" role="presentation"><a class="nav-link active"
 						style=" font-family: 'Poppins';padding-bottom:4px;" href="about">About</a></li>
 				<li class="nav-item" role="presentation"><a class="nav-link active"
-						style=" font-family: 'Poppins';padding-bottom:4px;" href="zones">Zones</a></li>
+						style=" font-family: 'Poppins';padding-bottom:4px;" href="maintenance">Zones</a></li>
 
 				<li class="nav-item float-right"><span class="nav-link" id="last-updated"
 						style="font-style: italic; font-family: 'Poppins'; color: #8c598c !important; font-size: 1em; font-weight: lighter;"></span>
@@ -177,15 +177,7 @@
 				<div class="col-md-6 ">
 
 					<div class="container" id="legend-colorbar">
-						<div class="h-100 text-center p-3 d-flex justify-content-center">
-							<a href="zones" style="text-decoration: none; color: white;" class="grow">
-								<div
-									style="background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
-									Click for
-									ZONES after April 20
-								</div>
-							</a>
-						</div>
+
 						<div class="row p-3 justify-content-center">
 							<div class="h-100 p-3" style="min-width: 60%;">
 								<div class="d-flex justify-content-center h-100 ">
@@ -196,16 +188,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="h-100 text-center p-3 d-flex justify-content-center" id="searchResult"
-								style="display: none !important;">
-								<a href="zones" style="text-decoration: none; color: white;" class="grow">
-									<div
-										style="background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
-										Click for
-										ZONES after April 20
-									</div>
-								</a>
-							</div>
+
 						</div>
 						<div class="row">
 							<div class="col">
@@ -3597,6 +3580,16 @@
 						<p>Date: <span id="demo"></span></p>
 						<h3 class="text-right">Move the slider to see past information</h3>
 						<a style="color: #3f0f3f; font-size: 1em;" href="report">
+							<div class="h-100 text-center p-3 d-flex justify-content-center" id="searchResult"
+								style="width: 100%;">
+								<a href="maintenance" style="text-decoration: none; color: white;" class="grow">
+									<div
+										style="background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
+										Click for
+										ZONES after April 20
+									</div>
+								</a>
+							</div>
 							<div class="alert alert-light text-center" style="font-size: 1.5em; ">Click here to report new data
 							</div>
 						</a>
@@ -3659,8 +3652,10 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
 	<div class="container" style="text-align: center;">
+
 		<div class="row">
 			<div class="col-md-12 mt-3 pt-3">
 				<h2>Confirmed Cases and Deaths by state in India</h2>
@@ -3742,6 +3737,7 @@
 
 
 	<div class='container' style="margin-top: 2em; text-align: center">
+
 		<h3 style="font-weight:600;">How we do it</h3><br>
 		<p>We use <strong style=" color: #cc99cc">Artificial intelligence</strong> to retrieve the relevant information
 			as <strong style="color: #cc99cc">quickly</strong> as possible and use <strong style="color: #00ffff">Human
