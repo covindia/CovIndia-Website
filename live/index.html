@@ -187,8 +187,10 @@
 									</div>
 								</div>
 							</div>
-
+							<span style="font-family: 'Poppins';">Colors on the map show number of cases.
+								NOT government classified zones.</span>
 						</div>
+
 						<div class="row">
 							<div class="col">
 								<div class="text-left">
@@ -200,8 +202,10 @@
 							</div>
 
 							<div class="col">
+
 								<div class="flex flex-wrap" style="height: 100%;">
 									<div class="desktop-wrapper" style="text-align: right; height: 100%; ">
+
 										<svg id="legend" width="205" height="55" viewBox="20 -5 225 30">
 											<defs>
 												<linearGradient id="RYG">
@@ -3579,18 +3583,15 @@
 						<p>Date: <span id="demo"></span></p>
 						<h3 class="text-right">Move the slider to see past information</h3>
 						<a style="color: #3f0f3f; font-size: 1em;" href="report">
-							<div class="h-100 text-center p-3 d-flex justify-content-center" id="searchResult"
-								style="width: 100%;">
-								<a href="maintenance" style="text-decoration: none; color: white;" class="grow">
+							<div class="h-100 text-center p-3 d-flex justify-content-center" style="width: 100%;">
+								<a href="report" style="text-decoration: none; color: white;" class="grow">
 									<div
 										style="background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
-										Click for
-										ZONES after April 20
+										Click here to report new data
 									</div>
 								</a>
 							</div>
-							<div class="alert alert-light text-center" style="font-size: 1.5em; ">Click here to report new data
-							</div>
+							<div id="searchResult" style="display: none;"></div>
 						</a>
 
 					</div>
