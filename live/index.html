@@ -3629,7 +3629,7 @@
 					<h4 style="color: #ffffff"><strong>Swipe to see more</strong></h4>
 				</div>
 				<div class="col-md-12">
-					<div class="slick-wrapper">
+					<div class="slick-wrapper" style="padding: 5px !important;">
 						<div>
 							<canvas id="myChartMobile" width="100%" height="250px" style="height: 250px !important;"></canvas>
 						</div>
@@ -3848,7 +3848,9 @@
 		$(document).ready(function(){
 			$(".slick-wrapper").slick({
 				autoplay: true,
-				autoplaySpeed: 2000
+				autoplaySpeed: 5000,
+				arrows: false,
+				dots: true
 			})
 		})
 		function _colornum(color) {

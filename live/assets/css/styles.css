@@ -469,8 +469,13 @@ a:hover {
   color: #cc99cc;
 }
 
+.slick-active {
+  color: white;
+}
+
 .slick-wrapper {
   margin-top: 10px;
+  padding: 5px
 }
 
 .slick-next:before,
