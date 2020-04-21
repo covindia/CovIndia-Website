@@ -26,7 +26,7 @@ $.when(
         data: data,
         pageLength: 5,
         dom: "Bfrtip",
-        buttons: ["copyHtml5", "csvHtml5", "pdfHtml5", "excelHtml5"],
+        buttons: [],
         paging: false,
         title: "Confirmed Cases and Deaths by state in India",
         "order": [[1, "desc"]],
