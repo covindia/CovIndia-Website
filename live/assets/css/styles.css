@@ -560,9 +560,9 @@ a:hover {
   margin-bottom: auto;
   margin-top: auto;
   height: 60px;
-  background-color: #3f0f3f;
+  background-color: #580053;
   border-radius: 30px;
-  border: 2px solid white;
+  
   padding: 10px;
   max-width: 100%;
   min-width: 50%;
@@ -595,6 +595,17 @@ a:hover {
 @media(max-width: 600px) {
   .search_input {
     width: 200px;
+    line-height: 25px;
+  }
+
+  .searchbar {
+    height: 50px;
+    font-size: small;
+  }
+
+  .search_icon{
+    height: 30px;
+    width: 40px;
   }
 
   .max_inf {
