@@ -3845,6 +3845,12 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
 	<script>
+		$(document).ready(function(){
+			$(".slick-wrapper").slick({
+				autoplay: true,
+				autoplaySpeed: 1000
+			})
+		})
 		function _colornum(color) {
 			var l = color.length;
 			return [
