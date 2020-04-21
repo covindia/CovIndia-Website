@@ -82,7 +82,7 @@
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
 			style="color: white;">
-			<span style="padding-top:7px;padding-left:0;"><b>Menu</b></span>
+			<span style="padding-top:7px;padding-left:0;"><b><i class="fa fa-bars" style="font-size:36px;color:white"></i></b></span>
 		</button>
 
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -109,14 +109,14 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-3">
-					<div id="total-number-infected ">
-						<div class="container d-block d-md-none" style="margin-top: 1em; text-align: center;">
-							<h6 style="font-size: bold; font-size: 2em; color: #ffffff">Infected: <span id="infected"
-									style="font-size: inherit;"></span>
-								<br><span style="font-size:0.725em;"> Cured: <span id="cured"
-										style="font-size: inherit;"></span> <span style="color: #A9A9A9">|</span>
-									Deaths: <span id="deaths" style="font-size: inherit;"></span></span></h6>
-							<a href="#latest-update" style="color: #c297cc; font-size:1.2rem">[Our Sources]</a>
+					<div id="total-number-infected" class="row justify-content-center" style="margin-left: 8px; margin-top: 10px; margin-bottom: 5px;">
+						<div class="container row d-md-none" style="margin-top: 1em; text-align: center; width: 100%;">
+							<div class= "col text-left" style="color: #ffffff; border-right: 1px solid white;">Infected<div id="infected"
+									style="font-size: 1.35em; color:#d6df43"></div></div>
+								<br><div class="col text-left" style="border-right: 1px solid white;"> Cured<div id="cured"
+										style="font-size: 1.35em;color: #00ff4e;"></div></div>
+									<div class="col text-left" >Deaths<div id="deaths" style="font-size: 1.35em;color: #f62840; ;"></div></div>
+							<div class="row justify-content-center" style="width: 100%;  margin-top: 25px; font-size: 0.75em; margin-bottom: 10px;" id = "last-updated2"></div>
 						</div>
 						<div class="container d-none d-md-block">
 							<div class="row stats">
@@ -177,8 +177,8 @@
 
 					<div class="container" id="legend-colorbar">
 
-						<div class="row p-3 justify-content-start">
-							<div class="h-100 p-3" style="min-width: 30%;">
+						<div class="row p-3 justify-content-center" style="padding-top: 5px !important;">
+							<div class="h-100 p-3" style="min-width: 30%; padding-top: 10px !important;">
 								<div class="d-flex justify-content-center h-100 ">
 									<div class="searchbar " style="min-width: 100%;">
 										<input class="search_input" type="text" name="" placeholder="Search for a district..."
@@ -188,7 +188,7 @@
 								</div>
 							</div>
 							<div id="searchResult" style="min-width: 80%;" class="searchResult pt-3"></div>
-							<span style="font-family: 'Poppins';">Colors on the map show number of cases,
+							<span style="font-family: 'Quicksand';" class="text-center">Colors on the map show number of cases,
 								NOT government classified zones.</span>
 						</div>
 
@@ -5129,6 +5129,7 @@
 				var finalDate = new Date(finalStr)
 				finalStr = finalStr.split(" ").reverse().join(", ")
 				$("#last-updated")[0].innerText = "Last updated: " + finalStr
+				$("#last-updated2")[0].innerText = "Last updated: " + finalStr
 				$("#cured")[0].innerText = response.totalCured;
 				$("#deaths")[0].innerText = response.deathTotal;
 				$("#infected")[0].innerText = response.infectedTotal;
