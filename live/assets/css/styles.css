@@ -596,6 +596,9 @@ a:hover {
     font-size: 14px !important;
   }
   
+  .custom-select{
+    width: 100% !important;
+  }
 
 }
 
@@ -641,5 +644,47 @@ a:hover {
 
 .districtZoneItem {
   padding: 5px
+}
+
+.zoneLink {
+  font-size: 1em;
+  color: white;
+  font-family: 'Poppins';
+  text-decoration: underline;
+}
+
+.zoneLink:hover {
+  color: rgba(105,1,105,0.61);
+}
+
+/* Team */
+.team-photo-card{
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.team-photo-card img{
+  width: 100px;
+  border-radius: 10px;
+}
+
+.team-photo-card h6{
+  padding-top: 5px;
+  font-size: 0.95em;
+}
+
+.team-photo-card a:hover{
+  text-decoration: none;
+}
+
+.team-photo-card h5{
+  font-size: 0.95em;
+  color: white;
+}
+
+.image-center{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
