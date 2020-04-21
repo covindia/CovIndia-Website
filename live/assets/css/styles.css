@@ -469,9 +469,10 @@ a:hover {
   color: #cc99cc;
 }
 
-.slick-active {
+.slick-dots li button:after{
   color: white;
 }
+
 
 .slick-wrapper {
   margin-top: 10px;
