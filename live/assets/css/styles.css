@@ -608,6 +608,11 @@ a:hover {
     width: 40px;
   }
 
+  .playbut{
+    padding: 5px !important;
+    font-size: 10px !important;
+  }
+
   .max_inf {
     padding-top: 0px !important;
     font-size: 14px !important;
