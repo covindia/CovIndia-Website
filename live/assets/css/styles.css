@@ -469,8 +469,14 @@ a:hover {
   color: #cc99cc;
 }
 
+.slick-dots li button:after{
+  color: white;
+}
+
+
 .slick-wrapper {
   margin-top: 10px;
+  padding: 5px
 }
 
 .slick-next:before,
@@ -554,9 +560,9 @@ a:hover {
   margin-bottom: auto;
   margin-top: auto;
   height: 60px;
-  background-color: #3f0f3f;
+  background-color: #580053;
   border-radius: 30px;
-  border: 2px solid white;
+  
   padding: 10px;
   max-width: 100%;
   min-width: 50%;
@@ -589,6 +595,22 @@ a:hover {
 @media(max-width: 600px) {
   .search_input {
     width: 200px;
+    line-height: 25px;
+  }
+
+  .searchbar {
+    height: 50px;
+    font-size: small;
+  }
+
+  .search_icon{
+    height: 30px;
+    width: 40px;
+  }
+
+  .playbut{
+    padding: 5px !important;
+    font-size: 10px !important;
   }
 
   .max_inf {
@@ -688,3 +710,10 @@ a:hover {
 	margin-right: auto;
 }
 
+/* .searchResult {
+  background: linear-gradient(#20033c 0%, #303 100%);
+  border-radius: 50px;
+  margin: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+} */
