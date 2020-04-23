@@ -683,11 +683,36 @@ a:hover {
 .team-photo-card{
   text-align: center;
   margin-bottom: 15px;
+  min-width: 185px;
 }
 
-.team-photo-card img{
+.team-photo-card .pfp{
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
   width: 100px;
+  transition: .2s ease;
   border-radius: 10px;
+}
+
+.team-photo-card:hover .pfp{
+  -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(0%);
+  opacity: 0.7;
+}
+
+.team-card-image .link-thing{
+  opacity: 0;
+  width: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transition: .2s ease;
+  position: absolute;
+}
+
+.team-card-image:hover .link-thing{
+  opacity: 1;
 }
 
 .team-photo-card h6{
