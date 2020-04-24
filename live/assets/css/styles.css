@@ -469,7 +469,7 @@ a:hover {
   color: #cc99cc;
 }
 
-.slick-dots li button:after{
+.slick-dots li button:after {
   color: white;
 }
 
@@ -562,7 +562,7 @@ a:hover {
   height: 60px;
   background-color: #580053;
   border-radius: 30px;
-  
+
   padding: 10px;
   max-width: 100%;
   min-width: 50%;
@@ -603,12 +603,12 @@ a:hover {
     font-size: small;
   }
 
-  .search_icon{
+  .search_icon {
     height: 30px;
     width: 40px;
   }
 
-  .playbut{
+  .playbut {
     padding: 5px !important;
     font-size: 10px !important;
   }
@@ -617,8 +617,8 @@ a:hover {
     padding-top: 0px !important;
     font-size: 14px !important;
   }
-  
-  .custom-select{
+
+  .custom-select {
     width: 100% !important;
   }
 
@@ -631,7 +631,7 @@ a:hover {
   padding-top: 5px;
 }
 
-.custom-select{
+.custom-select {
   background: transparent;
   border-radius: 10px;
   padding-top: 5px;
@@ -640,7 +640,6 @@ a:hover {
   background-repeat: no-repeat;
   background-position: right center;
   border: 2px solid white
-
 }
 
 .custom-select option {
@@ -649,18 +648,18 @@ a:hover {
 
 .neon-wrapper {
   box-shadow:
-  0 0 2px  1px #fff7f7,   
-  0 0 10px  2px #d374d3, 
-  0 0   2px  1px #3f0f3f,
-  inset 0 0 2px  1px #3f0f3f,
-  inset 0 0 1px  1px #d374d3,
-  inset 0 0 1px  1px #fff7f7;
-  
+    0 0 2px 1px #fff7f7,
+    0 0 10px 2px #d374d3,
+    0 0 2px 1px #3f0f3f,
+    inset 0 0 2px 1px #3f0f3f,
+    inset 0 0 1px 1px #d374d3,
+    inset 0 0 1px 1px #fff7f7;
+
 }
 
 
 .tableTotal {
-  background-color: rgba(105,1,105,0.61) !important;
+  background-color: rgba(105, 1, 105, 0.61) !important;
   font-weight: 800;
 }
 
@@ -676,17 +675,17 @@ a:hover {
 }
 
 .zoneLink:hover {
-  color: rgba(105,1,105,0.61);
+  color: rgba(105, 1, 105, 0.61);
 }
 
 /* Team */
-.team-photo-card{
+.team-photo-card {
   text-align: center;
   margin-bottom: 15px;
   min-width: 185px;
 }
 
-.team-photo-card .pfp{
+.team-photo-card img {
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
   width: 100px;
@@ -694,7 +693,8 @@ a:hover {
   border-radius: 10px;
 }
 
-.team-photo-card:hover .pfp{
+
+.team-photo-card h6 {
   -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
   filter: grayscale(0%);
   opacity: 0.7;
@@ -720,19 +720,19 @@ a:hover {
   font-size: 0.95em;
 }
 
-.team-photo-card a:hover{
+.team-photo-card a:hover {
   text-decoration: none;
 }
 
-.team-photo-card h5{
+.team-photo-card h5 {
   font-size: 0.95em;
   color: white;
 }
 
-.image-center{
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+.image-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* .searchResult {
@@ -742,3 +742,14 @@ a:hover {
   margin-bottom: 5px;
   margin-top: 5px;
 } */
+
+.today {
+  color: white !important;
+  height: 24px !important;
+  display: block;
+  font-weight: 300;  
+}
+
+.today>span {
+  margin: 5px;
+}
