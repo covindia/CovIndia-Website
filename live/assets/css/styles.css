@@ -719,6 +719,9 @@ a:hover {
 
 .today {
   color: white !important;
+  height: 24px !important;
+  display: block;
+  font-weight: 300;  
 }
 
 .today>span {
