@@ -211,8 +211,6 @@
 								</div>
 							</div>
 							<div id="searchResult" style="min-width: 80%;" class="searchResult pt-3"></div>
-							<span style="font-family: 'Quicksand';" class="text-center">Colors on the map show number of
-								cases.</span>
 						</div>
 
 						<div class="row">
@@ -3700,6 +3698,16 @@
 							<canvas id="newDailyCases" width="100%" height="100%"></canvas>
 						</div>
 					</div>
+					<div class="grad_card" style="padding: 10px; ">
+						<div class="wrapper">
+							<canvas id="testGraph" width="100%" height="100%"></canvas>
+						</div>
+						<a style="color: #CC99CC;"
+							href="https://github.com/datameet/covid19/tree/master/icmr-backup">Source : ICMR
+							(Missing
+							data has been
+							interpolated)</a>
+					</div>
 					<div class="grad_card" style="padding: 10px; margin-top: 30px">
 						<select class="custom-select" id="stateDropdown">
 
@@ -3728,8 +3736,12 @@
 				<div class="col-md-12">
 					<div style="padding: 5px !important;">
 						<div style="padding-bottom: 15px;">
-							<canvas id="myChartMobile" width="100%" height="250px"
+							<canvas id="testingMobile" width="100%" height="250px"
 								style="height: 250px !important;"></canvas>
+						</div>
+						<div style="padding-bottom: 15px;">
+							<canvas id="myChartMobile" width="100%" height="250px"
+								style="height: 250px !important;"></canvas>							
 						</div>
 						<div style="padding-bottom: 15px;">
 							<canvas id="newDailyCasesMobile" width="100%" height="250px"
@@ -5261,6 +5273,8 @@
 	<script src="assets/js/custom.js"></script>
 	<script src="assets/js/table.js"></script>
 	<script src="assets/js/seekbar.js"></script>
+	<script src="assets/js/graphs.js"></script>
+
 </body>
 
 </html>
