@@ -186,7 +186,10 @@ const options = {
           fontColor: '#cc99cc'
         },
        ticks: {
-         fontColor: '#cc99cc'
+         fontColor: '#cc99cc',
+         callback: function(value, index, values) {
+          return value + '%';
+      }
        }
       }
     ],
