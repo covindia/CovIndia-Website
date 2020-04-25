@@ -211,8 +211,6 @@
 								</div>
 							</div>
 							<div id="searchResult" style="min-width: 80%;" class="searchResult pt-3"></div>
-							<span style="font-family: 'Quicksand';" class="text-center">Colors on the map show number of
-								cases.</span>
 						</div>
 
 						<div class="row">
@@ -3680,17 +3678,6 @@
 						<input type="range" class="slider" id="myRange">
 						<p>Date: <span id="demo"></span></p>
 						<h3 class="text-right">Move the slider to see past information</h3>
-						<a style="color: #3f0f3f; font-size: 1em;" href="report">
-							<div class="h-100 text-center p-3 d-flex justify-content-center" style="width: 100%;">
-								<a href="report" style="text-decoration: none; color: white;" class="grow">
-									<div
-										style="background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
-										Click here to report new data
-									</div>
-								</a>
-							</div>
-
-						</a>
 
 					</div>
 				</div>
@@ -3699,6 +3686,14 @@
 						<div class="wrapper">
 							<canvas id="newDailyCases" width="100%" height="100%"></canvas>
 						</div>
+					</div>
+					<div class="grad_card" style="padding: 10px; ">
+						<div class="wrapper">
+							<canvas id="testGraph" width="100%" height="100%"></canvas>
+						</div>
+						<a style="color: #CC99CC;"
+							href="https://github.com/datameet/covid19/tree/master/icmr-backup">Source for testing data :
+							ICMR</a>
 					</div>
 					<div class="grad_card" style="padding: 10px; margin-top: 30px">
 						<select class="custom-select" id="stateDropdown">
@@ -3728,6 +3723,13 @@
 				<div class="col-md-12">
 					<div style="padding: 5px !important;">
 						<div style="padding-bottom: 15px;">
+							<canvas id="testingMobile" width="100%" height="250px"
+								style="height: 250px !important;"></canvas>
+						</div>
+						<a style="color: #CC99CC;"
+							href="https://github.com/datameet/covid19/tree/master/icmr-backup">Source for testing
+							data : ICMR</a>
+						<div style="padding-bottom: 15px;">
 							<canvas id="myChartMobile" width="100%" height="250px"
 								style="height: 250px !important;"></canvas>
 						</div>
@@ -3750,6 +3752,17 @@
 				</div>
 			</div>
 		</div>
+		<a style="color: #3f0f3f; font-size: 1em;" href="report">
+			<div class="h-100 text-center p-3 d-flex justify-content-center" style="width: 100%;">
+				<a href="report" style="text-decoration: none; color: white;" class="grow">
+					<div
+						style="background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
+						Click here to report new data
+					</div>
+				</a>
+			</div>
+
+		</a>
 
 	</div>
 	<div class="container" style="text-align: center;">
@@ -4764,7 +4777,7 @@
 							})
 						}
 
-						console.log(results)
+						// console.log(results)
 
 						if (value.length === 1) {
 							resultHist = results
@@ -5261,6 +5274,8 @@
 	<script src="assets/js/custom.js"></script>
 	<script src="assets/js/table.js"></script>
 	<script src="assets/js/seekbar.js"></script>
+	<script src="assets/js/graphs.js"></script>
+
 </body>
 
 </html>
