@@ -18,8 +18,8 @@ $.when(
           data: percentagePositive,
           type: "line",
           yAxisID: 'right',
-          borderColor: "#cecece",
-          borderWidth: 2,
+          borderColor: "#cc99cc",
+          borderWidth: 3,
           pointRadius: 2,
           pointBackgroundColor: "#cecece"
         },
@@ -125,7 +125,7 @@ const options = {
                 
                 else if (body[0].split(":")[0].trim() === "Positive"){
                   count = positive.findIndex(item => item == body[0].split(":")[1].trim())
-                  innerHtml += '<tr><td>' + body + '</td></tr><tr><td>' + percentagePositive[count] +'%' + '</td></tr>';
+                  innerHtml += "<tr><td>" + body + '</td></tr><tr><td>' + percentagePositive[count] +'%' + '</td></tr>';
                 }
                 else {
                   innerHtml += '<tr><td>' + body + '</td></tr><tr><td>'
@@ -149,7 +149,7 @@ const options = {
         tooltipEl.style.left = position.left + window.pageXOffset + tooltipModel.caretX + 'px';
         tooltipEl.style.top = position.top + window.pageYOffset + tooltipModel.caretY + 'px';
         tooltipEl.style.fontFamily = tooltipModel._bodyFontFamily;
-        tooltipEl.style.fontSize = 2 + 'px'
+        tooltipEl.style.fontSize = tooltipModel.bodyFontSize + 'px'
         tooltipEl.style.fontStyle = tooltipModel._bodyFontStyle;
         tooltipEl.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px';
         tooltipEl.style.pointerEvents = 'none';
@@ -182,9 +182,12 @@ const options = {
         position: 'right',
         scaleLabel: {
           display: true,
-          labelString: "Percentage Positive"
-        }
-        
+          labelString: "Percentage Positive",
+          fontColor: '#cc99cc'
+        },
+       ticks: {
+         fontColor: '#cc99cc'
+       }
       }
     ],
   },
