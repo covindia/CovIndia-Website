@@ -3934,8 +3934,27 @@
 						href="https://twitter.com/covindia/status/1240565650495377410"
 						style="color:#CC99CC; font-size: 1em;">here</a>.
 
-				</div>
-				<div class="col-md-3"></div>
+	</div>
+	<div class="container" style="text-align: center;">
+
+		<div class="row">
+			<div class="col-md-12 mt-3 pt-3">
+				<h2 style="margin-bottom: 15px;">Confirmed Cases and Deaths by state in India</h2>
+				<table id="states" class="table table-striped" style="color:white;">
+					<thead>
+						<tr>
+							<th>State Name</th>
+							<th>Total Cases</th>
+							<th>New Cases</th>
+							<th>Total Deaths</th>
+							<th>New Deaths</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
+				*Disclaimer : West Bengal death figures include the 39 deaths with co-morbid symptoms, just like other states. <a style="color:#CC99CC" href="https://www.deccanherald.com/national/east-and-northeast/57-covid-19-patients-died-in-bengal-18-directly-due-to-the-virus-bengal-audit-committee-829435.html?fbclid=IwAR0Dh3opls1VJtnfXd7xFK2rq73dxb-FOPFP6H5dE86V3QrGHBi321AYoQc">[Source]</a>.
 			</div>
 		</div>
 
@@ -5343,43 +5362,43 @@
 					for (i in response) {
 						$("#latest-updates")[0].innerHTML += response[i];
 
-					}
-				})
-			);
-			$.when(
-				$.ajax("https://v1.api.covindia.com/general").then(response => {
-					let rawDate = response.lastUpdatedTime
-					let parsedString = rawDate.split(" ")
-					let dateString = parsedString[0]
-					dateString = dateString.split("-").reverse().join("/")
-					let timeString = parsedString[1].split(":")
-					timeString.pop()
-					timeString = timeString.join(":")
-					let finalStr = dateString + " " + timeString
-					var finalDate = new Date(finalStr)
-					finalStr = finalStr.split(" ").reverse().join(", ")
-					$("#last-updated")[0].innerText = "Last updated: " + finalStr
-					$("#last-updated2")[0].innerText = "Last updated: " + finalStr
-					$("#cured")[0].innerText = response.totalCured;
-					$("#deaths")[0].innerText = response.deathTotal;
-					$("#infected")[0].innerText = response.infectedTotal;
-					$("#max-infected").text(response.infectedMax)
-					let decibel = (Math.log10(response.infectedMax) / 3)
+				}
+			})
+		);
+		$.when(
+			$.ajax("https://v1.api.covindia.com/general").then(response => {
+				let rawDate = response.lastUpdatedTime
+				let parsedString = rawDate.split(" ")
+				let dateString = parsedString[0]
+				dateString = dateString.split("-").reverse().join("/")
+				let timeString = parsedString[1].split(":")
+				timeString.pop()
+				timeString = timeString.join(":")
+				let finalStr = dateString + " " + timeString
+				var finalDate = new Date(finalStr)
+				finalStr = finalStr.split(" ").reverse().join(", ")
+				$("#last-updated")[0].innerText = "Last updated: " + finalStr
+				$("#last-updated2")[0].innerText = "Last updated: " + finalStr
+				$("#cured")[0].innerText = response.totalCured;
+				$("#deaths")[0].innerText = response.deathTotal+'*';
+				$("#infected")[0].innerText = response.infectedTotal;
+				$("#max-infected").text(response.infectedMax)
+				let decibel = (Math.log10(response.infectedMax) / 3)
 
-					$("#md").text(Math.floor(Math.pow(10, decibel)))
-					$("#low").text(Math.floor(Math.pow(10, 2 * decibel)))
-					$("#cured-desk")[0].innerText = `0${response.totalCured}`;
-					$("#deaths-desk")[0].innerText = `0${response.deathTotal}`;
-					$("#infected-desk")[0].innerText = `${response.infectedTotal}`;
-					$("#infectedToday")[0].innerText = `↑ ${response.infectedToday}`;
-					$("#deathsToday")[0].innerText = `↑ ${response.deadToday}`;
-					// $("#max-infected-desk")[0].innerText = response.infectedMax;
-					var strDate = response.lastUpdatedTime;
-					//console.log(response.lastUpdatedTime)
-					var objDate = new Date(strDate);
-					$(".today").show()
-					// legend(response.infectedMax)
-					// TODO: add div with latest updates and parse time
+				$("#md").text(Math.floor(Math.pow(10, decibel)))
+				$("#low").text(Math.floor(Math.pow(10, 2 * decibel)))
+				$("#cured-desk")[0].innerText = `0${response.totalCured}`;
+				$("#deaths-desk")[0].innerText = `0${response.deathTotal}*`;
+				$("#infected-desk")[0].innerText = `${response.infectedTotal}`;
+				$("#infectedToday")[0].innerText = `↑ ${response.infectedToday}`;
+				$("#deathsToday")[0].innerText = `↑ ${response.deadToday}`;
+				// $("#max-infected-desk")[0].innerText = response.infectedMax;
+				var strDate = response.lastUpdatedTime;
+				//console.log(response.lastUpdatedTime)
+				var objDate = new Date(strDate);
+				$(".today").show()
+				// legend(response.infectedMax)
+				// TODO: add div with latest updates and parse time
 
 				})
 			);
