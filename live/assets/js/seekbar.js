@@ -3,18 +3,18 @@ var slider = document.getElementById("myRange");
 
 $.when(
   $.ajax("https://v1.api.covindia.com/district-date-total-data").then(
-    response => {
+    (response) => {
       var slider = document.getElementById("myRange");
       var output = document.getElementById("demo");
       sliderData = response;
-      sliderData = Object.keys(sliderData).map(key => {
+      sliderData = Object.keys(sliderData).map((key) => {
         return { data: sliderData[key], date: key };
       });
       slider.min = 0;
       slider.max = sliderData.length - 1;
       output.innerHTML = sliderData[slider.max].date;
 
-      slider.oninput = function() {
+      slider.oninput = function () {
         clearData(districtData);
         renderData(sliderData[this.value].data);
         setMaxLegend(sliderData[this.value].data["max-legend-value"]);
@@ -25,10 +25,11 @@ $.when(
 );
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function playbutton() {
+  $(".playbut").prop("disabled", true);
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
   slider.value = 0;
@@ -42,10 +43,14 @@ async function playbutton() {
     output.innerHTML = sliderData[i].date;
     await sleep(sleepTimer);
   }
+  $(".playbut").prop("disabled", false);
 }
 
 function setMaxLegend(val) {
-  $("#max-infected")[0].innerText = val;
+  $("#max-infected").text(val);
+  let decibel = Math.log10(val) / 3;
+  $("#md").text(Math.floor(Math.pow(10, decibel)));
+  $("#low").text(Math.floor(Math.pow(10, 2 * decibel)));
 }
 
 function clearData(data) {

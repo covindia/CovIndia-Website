@@ -61,7 +61,7 @@ body {
   color: white !important;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1100px) {
   .navbar-item-center {
     margin-left: 2em;
     margin-right: 3em;
@@ -329,12 +329,13 @@ a:hover {
   background: linear-gradient(#20033c 0%, #303 100%);
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.53);
   margin: 10px;
-  height: 450px;
   display: flex;
+  height: 370px;
   align-items: center;
   flex-direction: column;
   align-items: center !important;
   justify-content: center !important;
+  padding-bottom: 10px;
 }
 
 .gif-card {
@@ -343,6 +344,9 @@ a:hover {
 
 .wrapper {
   width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -354,7 +358,9 @@ a:hover {
   #newDailyCases,
   #myChartMobile,
   #newDailyCasesMobile,
-  #stateGraphMobile {
+  #stateGraphMobile,
+  #barChartRace,
+  #testingMobile {
     background: linear-gradient(#20033c 0%, #303 100%);
     box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.53);
     border-radius: 10px;
@@ -365,9 +371,6 @@ a:hover {
     border-radius: 10px;
   }
 
-  #legend {
-    height: 15px;
-  }
 
   #max-infected {
     font-size: 12px;
@@ -388,9 +391,9 @@ a:hover {
   border-radius: 20px;
   background: linear-gradient(#20033c 0%, #070000 100%);
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.53);
-  /* height: 160px; */
+
   margin: 10px;
-  width: 272px;
+  width: 95%
 }
 
 .stat-title {
@@ -468,8 +471,14 @@ a:hover {
   color: #cc99cc;
 }
 
+.slick-dots li button:after {
+  color: white;
+}
+
+
 .slick-wrapper {
   margin-top: 10px;
+  padding: 5px
 }
 
 .slick-next:before,
@@ -549,28 +558,31 @@ a:hover {
   cursor: pointer;
 }
 
-.searchbar{
+.searchbar {
   margin-bottom: auto;
   margin-top: auto;
   height: 60px;
-  background-color: #3f0f3f;
+  background-color: #580053;
   border-radius: 30px;
-  border: 1px solid white;
-  padding: 10px;
-  width: 100%
-  }
 
-  .search_input{
+  padding: 10px;
+  max-width: 100%;
+  min-width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search_input {
   color: white;
   border: 0;
   outline: 0;
   background: none;
-  
   line-height: 35px;
   transition: width 0.4s linear;
-  }
+  width: 100%;
+}
 
-  .search_icon{
+.search_icon {
   height: 40px;
   width: 40px;
   float: right;
@@ -578,13 +590,170 @@ a:hover {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color:white;
-  text-decoration:none;
+  color: white;
+  text-decoration: none;
+}
+
+@media(max-width: 600px) {
+  .search_input {
+    width: 200px;
+    line-height: 25px;
   }
 
-  @media(max-width: 600px) {
-    .search_input{
-      width: 200px;
-    }
-
+  .searchbar {
+    height: 50px;
+    font-size: small;
   }
+
+  .search_icon {
+    height: 30px;
+    width: 40px;
+  }
+
+  .playbut {
+    padding: 5px !important;
+    font-size: 10px !important;
+  }
+
+  .max_inf {
+    padding-top: 0px !important;
+    font-size: 14px !important;
+  }
+
+  .custom-select {
+    width: 100% !important;
+  }
+
+}
+
+.max_inf {
+  margin-left: 5px;
+  font-family: 'Quicksand';
+  float: right;
+  padding-top: 5px;
+}
+
+.custom-select {
+  background: transparent;
+  border-radius: 10px;
+  padding-top: 5px;
+  color: white;
+  background-image: url("../img/caret.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  border: 2px solid white
+}
+
+.custom-select option {
+  color: black;
+}
+
+.neon-wrapper {
+  box-shadow:
+    0 0 2px 1px #fff7f7,
+    0 0 10px 2px #d374d3,
+    0 0 2px 1px #3f0f3f,
+    inset 0 0 2px 1px #3f0f3f,
+    inset 0 0 1px 1px #d374d3,
+    inset 0 0 1px 1px #fff7f7;
+
+}
+
+
+.tableTotal {
+  background-color: rgba(105, 1, 105, 0.61) !important;
+  font-weight: 800;
+}
+
+.districtZoneItem {
+  padding: 5px
+}
+
+.zoneLink {
+  font-size: 1em;
+  color: white;
+  font-family: 'Poppins';
+  text-decoration: underline;
+}
+
+.zoneLink:hover {
+  color: rgba(105, 1, 105, 0.61);
+}
+
+/* Team */
+.team-photo-card {
+  text-align: center;
+  margin-bottom: 15px;
+  min-width: 185px;
+}
+
+.team-photo-card img {
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  width: 100px;
+  transition: .2s ease;
+  border-radius: 10px;
+}
+
+
+.team-photo-card h6 {
+  -webkit-filter: grayscale(0%);
+  /* Safari 6.0 - 9.0 */
+  filter: grayscale(0%);
+  opacity: 0.7;
+}
+
+.team-card-image .link-thing {
+  opacity: 0;
+  width: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transition: .2s ease;
+  position: absolute;
+}
+
+.team-card-image:hover .link-thing {
+  opacity: 1;
+}
+
+.team-photo-card h6 {
+  padding-top: 5px;
+  font-size: 0.95em;
+}
+
+.team-photo-card a:hover {
+  text-decoration: none;
+}
+
+.team-photo-card h5 {
+  font-size: 0.95em;
+  color: white;
+}
+
+.image-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* .searchResult {
+  background: linear-gradient(#20033c 0%, #303 100%);
+  border-radius: 50px;
+  margin: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+} */
+
+.today {
+  color: white !important;
+  height: 24px !important;
+  display: block;
+  font-weight: 300;
+}
+
+.today>span {
+  margin: 5px;
+}
