@@ -115,7 +115,7 @@
 					<div id="total-number-infected" class="row justify-content-center"
 						style="margin-left: 8px; margin-top: 10px; margin-bottom: 5px;">
 						<div class="container row d-md-none" style="margin-top: 1em; text-align: center; width: 100%;">
-							<div class="col text-left"
+							<div class="col mob-wrapper"
 								style=" color:#d6df43; border-right: 1px solid white; font-family: 'Poppins'; font-weight: 400;">
 								Infected
 								<div class="today"><span id="infectedToday"></span></div>
@@ -124,7 +124,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="col text-left"
+							<div class="col mob-wrapper"
 								style="color: #00ff4e; border-right: 1px solid white; font-family: 'Poppins';font-weight: 400;">
 								Cured
 								<div class="today"></div>
@@ -132,7 +132,8 @@
 									style="font-size: 1.75em;color: #00ff4e;font-weight: 700;font-family: 'Poppins'">
 								</div>
 							</div>
-							<div class="col text-left" style="color: #f62840;font-family: 'Poppins';font-weight: 400;">
+							<div class="col mob-wrapper"
+								style="color: #f62840;font-family: 'Poppins';font-weight: 400;">
 								Deaths
 								<div class="today"><span id="deathsToday"></span></div>
 								<div id="deaths"
@@ -141,7 +142,13 @@
 							</div>
 							<div class="row justify-content-center"
 								style="width: 100%;  margin-top: 25px; font-size: 0.75em; margin-bottom: 10px;"
-								id="last-updated2"></div>
+								id="last-updated2">
+							</div>
+							<div class="row justify-content-center" style="width:100%"><a style="color: #CC99CC;"
+									href="#states">
+									<span>[State-wise table]</span>
+								</a>
+							</div>
 						</div>
 						<div class="container d-none d-md-block">
 							<div class="row stats">
@@ -3719,7 +3726,17 @@
 		<div class="container d-block d-md-none" style="text-align: center;color:rgb(170, 170, 170);">
 
 			<h4 style="color: #ffffff"><strong>Zoom and Tap on the district to get more information.</strong></h4>
-
+			<a style="color: #3f0f3f; font-size: 1em;" href="analytics">
+				<div class="h-100 text-center p-3 d-flex justify-content-center" style="width: 100%;">
+					<a href="analytics" style="text-decoration: none; color: white;" class="grow">
+						<div
+							style="font-size:12px; background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
+							To see deeper analysis of district level risk factors, click
+							here
+						</div>
+					</a>
+				</div>
+			</a>
 			<!-- LAST UPDATED TIME -->
 			<div class="row" style="margin-top: 15px;">
 				<div class="row">
@@ -3738,11 +3755,11 @@
 							href="https://github.com/datameet/covid19/tree/master/icmr-backup">Source for testing
 							data : ICMR</a>
 						<div style="padding-bottom: 15px;">
-							<canvas id="myChartMobile" width="100%" height="250px"
+							<canvas id="newDailyCasesMobile" width="100%" height="250px"
 								style="height: 250px !important;"></canvas>
 						</div>
 						<div style="padding-bottom: 15px;">
-							<canvas id="newDailyCasesMobile" width="100%" height="250px"
+							<canvas id="myChartMobile" width="100%" height="250px"
 								style="height: 250px !important;"></canvas>
 						</div>
 						<div style="padding-bottom: 15px;">
@@ -3771,16 +3788,15 @@
 					</div>
 				</div>
 			</div>
-			<a style="color: #3f0f3f; font-size: 1em;" href="report">
+			<a style="color: #3f0f3f; font-size: 1em;" href="analytics">
 				<div class="h-100 text-center p-3 d-flex justify-content-center" style="width: 100%;">
-					<a href="report" style="text-decoration: none; color: white;" class="grow">
+					<a href="analytics" style="text-decoration: none; color: white;" class="grow">
 						<div
 							style="background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
-							Click here to report new data
+							Click here for more in-depth analysis - New
 						</div>
 					</a>
 				</div>
-
 			</a>
 
 		</div>
@@ -3806,6 +3822,16 @@
 					*Disclaimer : West Bengal death figures include the 39 deaths with co-morbid symptoms, just like
 					other states. <a style="color:#CC99CC"
 						href="https://www.deccanherald.com/national/east-and-northeast/57-covid-19-patients-died-in-bengal-18-directly-due-to-the-virus-bengal-audit-committee-829435.html?fbclid=IwAR0Dh3opls1VJtnfXd7xFK2rq73dxb-FOPFP6H5dE86V3QrGHBi321AYoQc">[Source]</a>.
+					<a style="color: #3f0f3f; font-size: 1em;" href="report">
+						<div class="h-100 text-center p-3 d-flex justify-content-center" style="width: 100%;">
+							<a href="report" style="text-decoration: none; color: white;" class="grow">
+								<div
+									style="background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
+									Click here to report new data
+								</div>
+							</a>
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>
