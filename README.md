@@ -1,5 +1,5 @@
-# CoronaVisualizer - DEPRECATED.
+# CoronaVisualizer
 
-For the latest updates check: [CovIndia](https://github.com/covindia/)
-  - [Front-End](https://github.com/covindia/CovIndia-Website)
-  - [Back-End](https://github.com/covindia/CovIndia-BigDataBox)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c6d65259-b62e-4e78-ac63-81b6df831fd4/deploy-status)](https://app.netlify.com/sites/covindia/deploys)
+
+CovIndia's Website. Deployed on Netlify.
