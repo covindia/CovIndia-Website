@@ -13,3 +13,4 @@ rick*son
 __pycache__/
 *__pycache__*
 *.pyc
+yarn-error.log
