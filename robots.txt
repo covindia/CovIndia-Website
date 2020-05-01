@@ -1,4 +1,5 @@
-User-Agent: *
-Disallow: /Testing/
-Disallow: /BDB/
-Disallow: /.git/
+---
+layout: none
+---
+User-agent: *
+Sitemap: {{ site.url }}/sitemap.xml
