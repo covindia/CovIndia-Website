@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description"
+		content="We provide reliable and live DISTRICT-WISE visualisations for Corona-Virus (CoVid 19) . Be Safe. Keep yourself informed">
+	<meta name="keywords" content="Mahindra Ecole Centrale Coronavirus, Coronavirus Visualizer India, Coronavirus India District, Coronavirus India District,
+	Covid-19 Visualizer India, Covid-19 Visualizer India District, Corona India District Wise, Corona India Live, Covid India Live, Corona India Detailed, Maharastra Covid,
+	Maharastra Corona, Virus, Live Tracking, Mahindra Ecole Centrale Koronavirus, Koronavirus Visualizer India, Koronavirus India District, Koronavirus India District,
+	Covid-19 Visualizer India, Covid-19 Visualizer India District, Korona India District Wise, Korona India Live, Covid India Live, Korona India Detailed, Maharastra Covid,
+	Maharastra Korona, Virus, Live Tracking" />
+	<meta http-equiv="refresh" content="900">
+	<meta name="author" content="Covindia">
+
+
+
+	<title>Covindia</title>
+
+	<!-- Standard Includes -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+	<link rel="shortcut icon" href="assets/img/icons/icon.png">
+
+	<!-- Custom Imports -->
+	<link rel="stylesheet" href="assets/css/styles.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Mina&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap" rel="stylesheet">
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160619251-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'UA-160619251-1');
+	</script>
+</head>
+
+<nav class="navbar navbar-custom navbar-expand-md fixed-top " style="align-content: space-between;">
+	<a class="navbar-brand" style="font-family: 'Poppins', sans-serifs;padding-bottom: 0;" href="/">
+		<span style="color: #CC99CC; font-size: 1.3em;font-family: Poppins;">Cov</span><span
+			style="font-size: 1.3em; font-family: 'Poppins';">India</span>
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+		style="color: white;">
+		<span style="padding-top:7px;padding-left:0;"><b>Menu</b></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+		<ul class="nav navbar-nav navbar-item-center">
+			<li class="nav-item" role="presentation"><a class="nav-link active"
+					style="padding-bottom:4px; font-family: 'Poppins'; font-weight: 100 !important;"
+					href="analytics">Analytics</a>
+			</li>
+			<li class="nav-item" role="presentation"><a class="nav-link active"
+					style=" font-family: 'Poppins';padding-bottom:4px;" href="about">About</a></li>
+
+					<li class="nav-item" role="presentation"><a class="nav-link active"
+						style=" font-family: 'Poppins';padding-bottom:4px;" href="zones">Zones</a></li>
+			<li class="nav-item float-right"><span class="nav-link" id="last-updated"
+					style="font-style: italic; font-family: 'Poppins'; color: #8c598c !important; font-size: 1em; font-weight: lighter;"></span>
+			</li>
+
+		</ul>
+
+	</div>
+</nav>
+
+<a href="whatsapp://send?text=CovIndia provides the latest district-wise updates on the spead of the coronavirus in India. Stay Safe. Stay Calm. Be Informed.   https://covindia.com/"
+	data-action="share/whatsapp/share" class="float grow">
+	<i class="fab fa-whatsapp my-float"></i>
+</a>
+<a href="https://twitter.com/intent/tweet?text=https://covindia.com/ CovIndia provides the latest district-wise updates on the spead of the coronavirus in India. Stay Safe. Stay Calm. Be Informed #COVID2019india #coronavirusindia."
+	data-action="share/whatsapp/share" class="float-twitter grow">
+	<i class="fab fa-twitter my-float"></i>
+</a>
+<a href="https://www.instagram.com/covindia/" class="float-insta grow">
+	<i class="fab fa-instagram my-float"></i>
+</a>
+<div class="container" style="margin-top: 5em;text-align:justify;" id="body-about">
+	<h1 style="border-bottom:solid;">About Us</h1>
+
+	<p>
+		We are a dedicated team of students and professors from Mahindra Ecole Centrale who are committed to keeping
+		everyone as informed as we possibly can. We do not make any profit from this and hence are totally commited to
+		not
+		spreading false news. This is why <span style='color: #dba6db'><strong>ALL OUR UPDATES</strong></span> are
+		backed
+		by news articles from trustworthy sources like :
+		<br>
+		<ul>
+			<li><a href="https://www.mohfw.gov.in/"> Ministry of Health and Family Welfare</a></li>
+			<!-- <li><a href="https://www.pharmaceutical-technology.com/news/india-covid-19-coronavirus-updates-status-by-state/">Pharmaceutical Technology</a></li> -->
+			<li><a href="http://dhs.kerala.gov.in/">Directorate of Health Services, Kerala</a></li>
+			<li><a href="https://www.livemint.com/">Livemint</a></li>
+			<li><a
+					href="https://www.deccanherald.com/national/coronavirus-live-updates-bbmp-orders-closure-of-air-conditioned-supermarkets-across-bengaluru-799686.html#2">Deccan
+					Herald</a></li>
+			<li><a href="https://economictimes.indiatimes.com/">Economic Times</a></li>
+			<li><a href="https://www.thehindu.com/">The Hindu</a></li>
+		</ul>
+
+		In case you find any error, please tweet out to: <a href="https://twitter.com/covindia">covindia</a>.
+		<br><br>
+
+		If you like our visualisations and need help to make your data talk, drop a mail to
+		achal.agarwal[at]mechyd.ac.in
+		or raghav170555[at]mechyd.ac.in
+		<br><br>
+	</p>
+</div>
+
+	<div class="container" style="margin-top: 2em;text-align:justify;" id="body-about">
+		<h1 style="border-bottom:solid;">Meet The Team</h1>
+	
+		<div class="container" style="margin-top:20px;">
+			<div class="row">
+				<div class="col-xl-3"></div>
+				<div class="col-xl-3 team-photo-card">
+					<a href="https://www.linkedin.com/in/achal-agrawal-phd-42331855/">
+					<div class="team-card-image">
+						<img class="pfp image-center" src="assets/img/Team/dr_achal.png" alt="Dr. Achal Agrawal">
+						<img class="link-thing" src="assets/img/linkedin.svg" alt="LinkedIn">
+					</div>
+					<h6>Dr. Achal Agrawal</h6>
+					<h5>Co-Founder</h5>
+					</a>
+				</div>
+				<div class="col-xl-3 team-photo-card">
+					<a href="https://IceCereal.github.io/">
+					<div class="team-card-image">
+						<img src="assets/img/Team/raghav.jpg" alt="Raghav NS" class="pfp image-center">
+						<img class="link-thing" src="assets/img/code.png" alt="Website">
+					</div>
+					<h6>Raghav NS</h6>
+					<h5>Co-Founder | Maintainer</h5>
+					</a>
+				</div>
+				<div class="col-xl-3"></div>
+			</div>
+			<div class="row">
+				<div class="col-xl-1"></div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://github.com/AnantaSrikar">
+					<div class="team-card-image">
+						<img src="assets/img/Team/srikar.jpeg" alt="Ananta Srikar" class="pfp image-center">
+						<img class="link-thing" src="assets/img/github.svg" alt="Github">
+					</div>
+					<h6>Ananta Srikar</h6>
+					<h5>Data Acquisition</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://www.linkedin.com/in/rishab-ramanathan-625609153/">
+					<div class="team-card-image">
+						<img src="assets/img/Team/rishab.jpg" alt="Rishab Ramanathan" class="pfp image-center">
+						<img class="link-thing" src="assets/img/linkedin.svg" alt="LinkedIn">
+					</div>
+					<h6>Rishab Ramanathan</h6>
+					<h5>Data Acquisition</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://www.mahindraecolecentrale.edu.in/faculty/bharghava-rajaram">
+					<div class="team-card-image">
+						<img src="assets/img/Team/dr_bharghava.jpg" alt="Dr. Bhargava Rajaram" class="pfp image-center">
+						<img class="link-thing" src="assets/img/code.png" alt="Website">
+					</div>
+					<h6>Dr. Bharghava</h6>
+					<h5>Sage | Cartographer</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://github.com/Rohithgilla12">
+					<div class="team-card-image">
+						<img src="assets/img/Team/rohith_gilla.jpg" alt="Rohith Gilla" class="pfp image-center">
+						<img class="link-thing" src="assets/img/github.svg" alt="Github">
+					</div>
+					<h6>Rohith Gilla</h6>
+					<h5>Front-End Dev</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://www.linkedin.com/in/aman-agrawal-b15846157/">
+					<div class="team-card-image">
+						<img src="assets/img/Team/aman.jpeg" alt="Aman Agrawal" class="pfp image-center">
+						<img class="link-thing" src="assets/img/linkedin.svg" alt="Website">
+					</div>
+					<h6>Aman Agrawal</h6>
+					<h5>Data Acquisition</h5>
+					</a>
+				</div>
+				<div class="col-xl-1"></div>
+			</div>
+			<div class="row">
+
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://qurram-zaheer.github.io/portfolio_v2/">
+					<div class="team-card-image">
+						<img src="assets/img/Team/qurram_z.jpeg" alt="Qurram Zaheer" class="pfp image-center">
+						<img class="link-thing" src="assets/img/code.png" alt="Website">
+					</div>
+					<h6>Qurram Zaheer</h6>
+					<h5>Front-End Dev</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="http://sudoforlunch.org/">
+					<div class="team-card-image">
+						<img src="assets/img/Team/aditya.jpeg" alt="Aditya Goturu" class="pfp image-center">
+						<img class="link-thing" src="assets/img/code.png" alt="Website">
+					</div>
+					<h6>Aditya Goturu</h6>
+					<h5>SysAdmin</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://www.linkedin.com/in/mayankdeshpande/">
+					<div class="team-card-image">
+						<img src="assets/img/Team/mayank.jpeg" alt="Mayank Deshpande" class="pfp image-center">
+						<img class="link-thing" src="assets/img/linkedin.svg" alt="LinkedIn">
+					</div>
+					<h6>Mayank Deshpande</h6>
+					<h5>Data Scientist</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://www.linkedin.com/in/jayeshjain-77/">
+					<div class="team-card-image">
+						<img src="assets/img/Team/jayesh.jpeg" alt="Jayesh Jain" class="pfp image-center">
+						<img class="link-thing" src="assets/img/linkedin.svg" alt="LinkedIn">
+					</div>
+					<h6>Jayesh Jain</h6>
+					<h5>Back-End Dev</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://www.linkedin.com/in/yukta-karkera-8556b4182/">
+					<div class="team-card-image">
+						<img src="assets/img/Team/yukta_k.jpeg" alt="Yukta Karkera" class="pfp image-center">
+						<img class="link-thing" src="assets/img/linkedin.svg" alt="LinkedIn">
+					</div>
+					<h6>Yukta Karkera</h6>
+					<h5>Design</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://www.linkedin.com/in/01rajnarayanan/">
+					<div class="team-card-image">
+						<img src="assets/img/Team/mr_raj.png" alt="Mr. Raj Narayanan" class="pfp image-center">
+						<img class="link-thing" src="assets/img/linkedin.svg" alt="LinkedIn">
+					</div>
+					<h6>Mr. Raj Narayanan</h6>
+					<h5>Design</h5>
+					</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://linkedin.com/in/hari-kiran-4a5a78138">
+					<div class="team-card-image">
+						<img src="assets/img/Team/harikiran.jpg" alt="Harikiran Vallabhajyosula" class="pfp image-center">
+						<img class="link-thing" src="assets/img/linkedin.svg" alt="LinkedIn">
+					</div>
+					<h6>Harikiran V</h6>
+					<h5>Marketing</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://linkedin.com/in/kritvi-mittal-069127174">
+					<div class="team-card-image">
+						<img src="assets/img/Team/kritvi.jpg" alt="Kritvi Mittal" class="pfp image-center">
+						<img class="link-thing" src="assets/img/linkedin.svg" alt="LinkedIn">
+					</div>
+					<h6>Kritvi Mittal</h6>
+					<h5>Marketing</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="https://www.linkedin.com/in/dhruv-s-57979a135/">
+					<div class="team-card-image">
+						<img src="assets/img/Team/dhruv.jpg" alt="Dhruv Srivatsava" class="pfp image-center">
+						<img class="link-thing" src="assets/img/linkedin.svg" alt="LinkedIn">
+					</div>
+					<h6>Dhruv Srivatsava</h6>
+					<h5>Marketing</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="#">
+					<div class="team-card-image">
+						<img src="assets/img/Team/somasai.jpg" alt="Soma Sai" class="pfp image-center">
+					</div>
+					<h6>Soma Sai</h6>
+					<h5>Marketing</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="#">
+					<div class="team-card-image">
+						<img src="assets/img/Team/srivatsa.jpg" alt="KB Srivatsa" class="pfp image-center">
+					</div>
+					<h6>KB Srivatsa</h6>
+					<h5>Marketing</h5>
+					</a>
+				</div>
+				<div class="col-xl-2 team-photo-card">
+					<a href="#">
+					<div class="team-card-image">
+						<img src="assets/img/Team/sujay.jpg" alt="Sai Sujay Masina" class="pfp image-center">
+					</div>
+					<h6>Sai Sujay Masina</h6>
+					<h5>Marketing</h5>
+					</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xl-3"></div>
+				<div class="col-xl-3 team-photo-card">
+					<a href="http://anurag2402.herokuapp.com">
+					<div class="team-card-image">
+						<img src="assets/img/Team/anurag.jpg" alt="Anurag Tekale" class="pfp image-center">
+						<img class="link-thing" src="assets/img/code.png" alt="Website">
+					</div>
+					<h6>Anurag Tekale</h6>
+					<h5>Data Acquisition</h5>
+					</a>
+				</div>
+				<div class="col-xl-3 team-photo-card">
+					<a href="https://www.instagram.com/v_mar_2001/">
+					<div class="team-card-image">
+						<img src="assets/img/Team/vaibhav.jpg" alt="Vaibhav Marwaha" class="pfp image-center">
+						<img class="link-thing" src="assets/img/instagram.png" alt="Instagram">
+					</div>
+					<h6>Vaibhav Marwaha</h6>
+					<h5>Data Acquisition</h5>
+					</a>
+				</div>
+				<div class="col-xl-3"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row" style="margin-top: 50px;">
+		<div class="col-md-5">
+		</div>
+		<div class="col-md-2">
+			<div>
+				<a href="https://www.mahindraecolecentrale.edu.in/">
+					<img src="assets/img/MECLogo.png" width="80%" class="image-center">
+				</a>
+			</div>
+		</div>
+		<div class="col-md-5">
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid footer-dark" style="color: rgb(170, 170, 170);">
+	<div class="row ">
+		<div class="col-md-4"></div>
+		<div class="col-md-4 text-center">
+
+			<br>
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4 footer-navigation add-footer-margin-below">
+					<a href="about">
+						<h3 style="font-weight: 600">About</h3>
+					</a><br>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8" style="text-align: center;">
+
+			In case you find any error, please tweet out to: <a href="https://twitter.com/covindia"
+				style="color:#CC99CC">covindia</a>.<br><br>
+			This is a visualization of the Covid-19 (Coronavirus) pandemic by district in India. This website is
+			updated regularly
+			by a group of volunteer students. Our sources are The Ministry of Health and trustworthy news articles.
+			We do not believe in spreading speculations by news outlets.
+			<br>
+			We are a group of dedicated students trying to keep everyone as informed as possible. We pledge to
+			<strong>NEVER SELL</strong> your data and keep the site <strong>FREE FOREVER.</strong> If you would like
+			to help us out: <br><br><a href="donate"><button type="button" class="btn btn-outline-success donate">
+					<strong>DONATE </strong><span class="badge badge-light">₹</span>
+				</button></a><br><br>
+
+			Click here for: <a href="disclaimer" style="color: #CC99CC;">Disclaimer</a><br><br>
+
+			<a href="https://www.mohfw.gov.in/" style="color: #CC99CC;">https://www.mohfw.gov.in/</a><br>
+			The Helpline Number for corona-virus : +91-11-23978046
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	<div class="row flex-column" style="margin-top: 3em;">
+		<div class="col">
+			<h2 class="footer-dark-heading" style="font-family: 'Poppins', sans-serif;"><span
+					style="color: #cc99cc; font-size: 1em; font-family: Poppins;">Cov</span>India</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-1 text-center" style="margin-top: 16px;">
+			<a href="https://github.com/covindia" style="margin-left: auto;margin-right: auto;display: block;">
+				<img src="assets/img/github.svg" alt="Github Link" width="50px">
+			</a>
+		</div>
+		<div class="col-md-2 text-center" style="margin-top: 16px;">
+			<a href="https://www.netlify.com" style="margin-left: auto;margin-right: auto;display: block;">
+				<img src="https://www.netlify.com/img/global/badges/netlify-light.svg" alt="Deploys by Netlify" />
+			</a>
+		</div>
+		<div class="col-md-1 text-center" style="margin-top: 16px;">
+			<a href="https://covindia-api-docs.readthedocs.io/en/latest/" style="margin-left: auto;margin-right: auto;display: block;">
+				<img src="assets/img/readthedocs.svg" alt="Github Link" width="50px">
+			</a>
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>
