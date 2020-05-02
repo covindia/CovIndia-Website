@@ -207,7 +207,7 @@ layout: default
               node.style.margin = "0 auto";
               span.style.textAlign = "center";
               if (item.values.value === 1) {
-                span.style.backgroundColor = "rgb(255, 0, 0)";
+                span.style.backgroundColor = "#C20000";
                 document.getElementById("zone1").appendChild(node);
                 var textnode = document.createTextNode(item.district); // Create a text node
                 span.appendChild(textnode); // Append the text to <li>
@@ -215,14 +215,14 @@ layout: default
                 document.getElementById("zone1d1").style.display = "none";
               } else if (item.values.value === 2) {
                 document.getElementById("zone2d1").style.display = "none";
-                span.style.backgroundColor = "#C68023";
+                span.style.backgroundColor = "#98621B";
                 document.getElementById("zone2").appendChild(node);
                 var textnode = document.createTextNode(item.district); // Create a text node
                 span.appendChild(textnode); // Append the text to <li>
                 node.appendChild(span);
               } else {
                 document.getElementById("zone3d1").style.display = "none";
-                span.style.backgroundColor = "rgb(0, 255, 0)";
+                span.style.backgroundColor = "006600";
                 document.getElementById("zone3").appendChild(node);
                 var textnode = document.createTextNode(item.district); // Create a text node
                 span.appendChild(textnode); // Append the text to <li>
