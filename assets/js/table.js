@@ -49,9 +49,9 @@ $.when(
           {
             "targets": [1, 2],
             render: function (data, type, full, meta) {
-              var increseInfo = '<span class="increase">' + full[meta.col + 2]  + '</span>';
+              var increaseInfo = '<span class="increase">' + full[meta.col + 2]  + '</span>';
               var totalCases = '<span>' + data + '</span>';
-              return type === 'display' ? increseInfo + totalCases : data;
+              return type === 'display' ? increaseInfo + totalCases : data;
             }
           }
         ]
