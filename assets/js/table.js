@@ -16,12 +16,12 @@ $.when(
         return [
           key,
           stateData[key].TotalCases,
-          stateData[key].NewCases,
           stateData[key].TotalDeaths,
+          stateData[key].NewCases,
           stateData[key].NewDeaths
         ];
       });
-      data.unshift(["India", countryTotal, countryNew, countryDeaths, countryNewDeaths])
+      data.unshift(["India", countryTotal, countryDeaths, countryNew, countryNewDeaths])
       var table = $("#states").DataTable({
         data: data,
         pageLength: 5,
@@ -44,6 +44,14 @@ $.when(
               } else {
                 return data;
               }
+            }
+          },
+          {
+            "targets": [1, 2],
+            render: function (data, type, full, meta) {
+              var increseInfo = '<span class="increase">' + full[meta.col + 2]  + '</span>';
+              var totalCases = '<span>' + data + '</span>';
+              return type === 'display' ? increseInfo + totalCases : data;
             }
           }
         ]
