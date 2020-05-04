@@ -762,3 +762,20 @@ a:hover {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+
+.increase {
+  font-size: 12px;
+  margin-right: 4px;
+}
+
+.increase::before {
+  content: "\2191";
+}
+
+#states tbody tr td:nth-child(2) .increase {
+  color: #eada0a;
+}
+
+#states tbody tr td:nth-child(3) .increase {
+  color: #f62840;
+}
