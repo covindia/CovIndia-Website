@@ -3721,9 +3721,9 @@ layout: index_layout
 
 						</tbody>
 					</table>
-					*Disclaimer : West Bengal death figures include the 39 deaths with co-morbid symptoms, just like
+					*Disclaimer : West Bengal death figures include the 72 deaths with co-morbid symptoms, just like
 					other states. <a style="color:#CC99CC"
-						href="https://www.deccanherald.com/national/east-and-northeast/57-covid-19-patients-died-in-bengal-18-directly-due-to-the-virus-bengal-audit-committee-829435.html?fbclid=IwAR0Dh3opls1VJtnfXd7xFK2rq73dxb-FOPFP6H5dE86V3QrGHBi321AYoQc">[Source]</a>.
+						href="https://www.hindustantimes.com/india-news/105-covid-patients-dead-in-w-bengal/story-ibgojGgKXZR0zLGqH1VC0K.html">[Source]</a>.
 					<a style="color: #3f0f3f; font-size: 1em;" href="report">
 						<div class="text-center p-3 d-flex justify-content-center" style="width: 100%;">
 							<a href="report" style="text-decoration: none; color: white;" class="grow">
@@ -5127,8 +5127,8 @@ layout: index_layout
 
 				$("#md").text(Math.floor(Math.pow(10, decibel)))
 				$("#low").text(Math.floor(Math.pow(10, 2 * decibel)))
-				$("#cured-desk")[0].innerText = `0${response.totalCured}`;
-				$("#deaths-desk")[0].innerText = `0${response.deathTotal}*`;
+				$("#cured-desk")[0].innerText = `${response.totalCured}`;
+				$("#deaths-desk")[0].innerText = `${response.deathTotal}*`;
 				$("#infected-desk")[0].innerText = `${response.infectedTotal}`;
 				$("#infectedToday")[0].innerText = `↑ ${response.infectedToday}`;
 				$("#deathsToday")[0].innerText = `↑ ${response.deadToday}`;
