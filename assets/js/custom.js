@@ -24,7 +24,6 @@ var millisTill20 =
 
 var ctx = document.getElementById("myChart").getContext("2d");
 
-
 var ctxDaily = document.getElementById("newDailyCases").getContext("2d");
 
 try {
@@ -32,8 +31,6 @@ try {
   var ctxDailyMobile = document
     .getElementById("newDailyCasesMobile")
     .getContext("2d");
-
-
 } catch (err) {
   console.log(err);
 }
@@ -43,7 +40,7 @@ const createTempGraph = () => {
   for (state in hardStateCases) {
     localMapData.push({
       x: state,
-      y: hardStateCases[state]
+      y: hardStateCases[state],
     });
   }
   return localMapData;
@@ -57,12 +54,12 @@ const sort_by_key = (array, key) => {
   });
 };
 
-const createMapArr = queryParam => {
+const createMapArr = (queryParam) => {
   var localMapData = [];
   for (dataPoint in apiData) {
     localMapData.push({
       x: dataPoint.replace("/2020", ""),
-      y: apiData[dataPoint]
+      y: apiData[dataPoint],
     });
   }
   return localMapData;
@@ -73,7 +70,7 @@ const createNewaDailyArr = () => {
   var localCounter = [];
   var pureVals = [];
   objOfObjs = apiData;
-  const arrayOfObj = Object.entries(objOfObjs).map(e => ({ [e[0]]: e[1] }));
+  const arrayOfObj = Object.entries(objOfObjs).map((e) => ({ [e[0]]: e[1] }));
   arrayOfObj.forEach((item, index) => {
     localCounter.push(Object.values(item)[0]);
     pureVals.push(localCounter.reduce((a, b) => a + b, 0));
@@ -81,7 +78,7 @@ const createNewaDailyArr = () => {
   arrayOfObj.forEach((item, index) => {
     localMapData.push({
       x: Object.keys(item)[0].replace("/2020", ""),
-      y: pureVals[index]
+      y: pureVals[index],
     });
   });
   return localMapData;
@@ -93,7 +90,7 @@ const createStateArr = () => {
     let data = apiStateData[dataPoint];
     localData.push({
       x: data.loc,
-      y: data.confirmedCasesIndian + data.confirmedCasesForeign
+      y: data.confirmedCasesIndian + data.confirmedCasesForeign,
     });
   }
   return localData;
@@ -102,7 +99,7 @@ const createStateArr = () => {
 Chart.defaults.global.defaultFontColor = "white";
 
 // $.when(
-//   $.ajax("https://v1.api.covindia.com/states-affected-numbers").then(
+//   $.ajax("https://v2.api.covindia.com/present-states-infected").then(
 //     response => {
 //       hardStateCases = response;
 //       stateCases = createTempGraph();
@@ -256,90 +253,14 @@ Chart.defaults.global.defaultFontColor = "white";
 // );
 
 $.when(
-  $.ajax("https://v1.api.covindia.com/daily-dates").then(response => {
-    apiData = response;
-    dailyCases = createMapArr();
-    mapTotalData = createNewaDailyArr();
-    // dailyCases.pop();
-    // mapTotalData.pop();
-    var myLineChart = new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: mapTotalData.map(function (e) {
-          return e.x;
-        }),
-        datasets: [
-          {
-            label: "Total Cases",
-            data: mapTotalData.map(function (e) {
-              return e.y;
-            }),
-            backgroundColor: "rgba(240, 223, 135, 0.5)",
-            borderColor: "#FFF222",
-            borderWidth: 1
-          }
-        ]
-      },
-      scaleFontColor: "#FFFFFF",
-      options: {
-        // responsive: true,
-        maintainAspectRatio: false,
-        title: {
-          display: true,
-          text: "Total Cases in India",
-          fontSize: 20
-        },
-        animation: {
-          duration: 2000,
-          easing: "linear"
-        },
-        scales: {
-          xAxes: [
-            {
-              scaleLabel: {
-                display: true,
-                labelString: "Date"
-              },
-              gridLines: {
-                color: "#660066",
-                zeroLineColor: "white",
-                zeroLineWidth: 2,
-                drawTicks: true
-              },
-              ticks: {
-                callback: function (value, index, values) {
-                  if (value === values[values.length - 1]) {
-                    //console.log(value);
-                    return value;
-                  } else if (index % 4 === 0) {
-                    return value;
-                  }
-                }
-              }
-            }
-          ],
-          yAxes: [
-            {
-              gridLines: {
-                color: "#660066",
-                zeroLineColor: "white",
-                zeroLineWidth: 2
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Total Cases"
-              },
-              ticks: {
-                autoSkip: true,
-                maxTicksLimit: 4
-              }
-            }
-          ]
-        }
-      }
-    });
-    try {
-      var myLineChart = new Chart(ctxMob, {
+  $.ajax("https://v2.api.covindia.com/history-infected-daily").then(
+    (response) => {
+      apiData = response;
+      dailyCases = createMapArr();
+      mapTotalData = createNewaDailyArr();
+      // dailyCases.pop();
+      // mapTotalData.pop();
+      var myLineChart = new Chart(ctx, {
         type: "line",
         data: {
           labels: mapTotalData.map(function (e) {
@@ -353,9 +274,9 @@ $.when(
               }),
               backgroundColor: "rgba(240, 223, 135, 0.5)",
               borderColor: "#FFF222",
-              borderWidth: 1
-            }
-          ]
+              borderWidth: 1,
+            },
+          ],
         },
         scaleFontColor: "#FFFFFF",
         options: {
@@ -364,135 +285,138 @@ $.when(
           title: {
             display: true,
             text: "Total Cases in India",
-            fontSize: 20
+            fontSize: 20,
           },
           animation: {
             duration: 2000,
-            easing: "linear"
+            easing: "linear",
           },
           scales: {
             xAxes: [
               {
                 scaleLabel: {
                   display: true,
-                  labelString: "Date"
+                  labelString: "Date",
                 },
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
                   zeroLineWidth: 2,
-                  drawTicks: true
+                  drawTicks: true,
                 },
                 ticks: {
                   callback: function (value, index, values) {
-                    if (index + 1 === values.length) {
+                    if (value === values[values.length - 1]) {
+                      //console.log(value);
+                      return value;
+                    } else if (index % 4 === 0) {
                       return value;
                     }
-                    if (index % 4 === 0) {
-                      return value;
-                    }
-                  }
-                }
-              }
+                  },
+                },
+              },
             ],
             yAxes: [
               {
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 2
+                  zeroLineWidth: 2,
                 },
                 scaleLabel: {
                   display: true,
-                  labelString: "Total Cases"
+                  labelString: "Total Cases",
                 },
                 ticks: {
                   autoSkip: true,
-                  maxTicksLimit: 4
-                }
-              }
-            ]
-          }
-        }
+                  maxTicksLimit: 4,
+                },
+              },
+            ],
+          },
+        },
       });
-    } catch (error) {
-      console.log(error);
-    }
-    var dailyChart = new Chart(ctxDaily, {
-      type: "line",
-      data: {
-        labels: dailyCases.map(function (e) {
-          return e.x;
-        }),
-        datasets: [
-          {
-            label: "Daily New Cases",
-            data: dailyCases.map(function (e) {
-              return e.y;
+      try {
+        var myLineChart = new Chart(ctxMob, {
+          type: "line",
+          data: {
+            labels: mapTotalData.map(function (e) {
+              return e.x;
             }),
-            backgroundColor: "rgba(240, 223, 135, 0.5)",
-            borderColor: "#FFF222",
-            borderWidth: 1
-          }
-        ]
-      },
-      options: {
-        maintainAspectRatio: false,
-        title: {
-          display: true,
-          text: "Daily new cases in India",
-          fontSize: 20
-        },
-        animation: {
-          duration: 2000,
-          easing: "linear"
-        },
-        scales: {
-          xAxes: [
-            {
-              gridLines: {
-                color: "#660066",
-                zeroLineColor: "white",
-                zeroLineWidth: 2
+            datasets: [
+              {
+                label: "Total Cases",
+                data: mapTotalData.map(function (e) {
+                  return e.y;
+                }),
+                backgroundColor: "rgba(240, 223, 135, 0.5)",
+                borderColor: "#FFF222",
+                borderWidth: 1,
               },
-              ticks: {
-                callback: function (value, index, values) {
-                  if (index + 1 === values.length) {
-                    return value;
-                  }
-                  if (index % 4 === 0) {
-                    return value;
-                  }
-                }
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Date"
-              }
-            }
-          ],
-          yAxes: [
-            {
-              gridLines: {
-                color: "#660066",
-                zeroLineColor: "white",
-                zeroLineWidth: 2
-              },
-              ticks: {
-                autoSkip: true,
-                maxTicksLimit: 4
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Daily Cases"
-              }
-            }
-          ]
-        }
+            ],
+          },
+          scaleFontColor: "#FFFFFF",
+          options: {
+            // responsive: true,
+            maintainAspectRatio: false,
+            title: {
+              display: true,
+              text: "Total Cases in India",
+              fontSize: 20,
+            },
+            animation: {
+              duration: 2000,
+              easing: "linear",
+            },
+            scales: {
+              xAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Date",
+                  },
+                  gridLines: {
+                    color: "#660066",
+                    zeroLineColor: "white",
+                    zeroLineWidth: 2,
+                    drawTicks: true,
+                  },
+                  ticks: {
+                    callback: function (value, index, values) {
+                      if (index + 1 === values.length) {
+                        return value;
+                      }
+                      if (index % 4 === 0) {
+                        return value;
+                      }
+                    },
+                  },
+                },
+              ],
+              yAxes: [
+                {
+                  gridLines: {
+                    color: "#660066",
+                    zeroLineColor: "white",
+                    zeroLineWidth: 2,
+                  },
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Total Cases",
+                  },
+                  ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 4,
+                  },
+                },
+              ],
+            },
+          },
+        });
+      } catch (error) {
+        console.log(error);
       }
-    });
-    try {
-      var dailyChart = new Chart(ctxDailyMobile, {
+      var dailyChart = new Chart(ctxDaily, {
         type: "line",
         data: {
           labels: dailyCases.map(function (e) {
@@ -506,20 +430,20 @@ $.when(
               }),
               backgroundColor: "rgba(240, 223, 135, 0.5)",
               borderColor: "#FFF222",
-              borderWidth: 1
-            }
-          ]
+              borderWidth: 1,
+            },
+          ],
         },
         options: {
           maintainAspectRatio: false,
           title: {
             display: true,
             text: "Daily new cases in India",
-            fontSize: 20
+            fontSize: 20,
           },
           animation: {
             duration: 2000,
-            easing: "linear"
+            easing: "linear",
           },
           scales: {
             xAxes: [
@@ -527,7 +451,7 @@ $.when(
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 2
+                  zeroLineWidth: 2,
                 },
                 ticks: {
                   callback: function (value, index, values) {
@@ -537,49 +461,124 @@ $.when(
                     if (index % 4 === 0) {
                       return value;
                     }
-                  }
+                  },
                 },
                 scaleLabel: {
                   display: true,
-                  labelString: "Date"
-                }
-              }
+                  labelString: "Date",
+                },
+              },
             ],
             yAxes: [
               {
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
-                  zeroLineWidth: 2
+                  zeroLineWidth: 2,
                 },
                 ticks: {
                   autoSkip: true,
-                  maxTicksLimit: 4
+                  maxTicksLimit: 4,
                 },
                 scaleLabel: {
                   display: true,
-                  labelString: "Daily Cases"
-                }
-              }
-            ]
-          }
-        }
+                  labelString: "Daily Cases",
+                },
+              },
+            ],
+          },
+        },
       });
-      $(".slick-wrapper").slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        cssEase: "linear",
-        arrows: false,
-        centerMode: true
-        // autoplay: true,
-        // autoplaySpeed: 1500
-      });
-    } catch (error) {
-      console.log(error);
+      try {
+        var dailyChart = new Chart(ctxDailyMobile, {
+          type: "line",
+          data: {
+            labels: dailyCases.map(function (e) {
+              return e.x;
+            }),
+            datasets: [
+              {
+                label: "Daily New Cases",
+                data: dailyCases.map(function (e) {
+                  return e.y;
+                }),
+                backgroundColor: "rgba(240, 223, 135, 0.5)",
+                borderColor: "#FFF222",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            maintainAspectRatio: false,
+            title: {
+              display: true,
+              text: "Daily new cases in India",
+              fontSize: 20,
+            },
+            animation: {
+              duration: 2000,
+              easing: "linear",
+            },
+            scales: {
+              xAxes: [
+                {
+                  gridLines: {
+                    color: "#660066",
+                    zeroLineColor: "white",
+                    zeroLineWidth: 2,
+                  },
+                  ticks: {
+                    callback: function (value, index, values) {
+                      if (index + 1 === values.length) {
+                        return value;
+                      }
+                      if (index % 4 === 0) {
+                        return value;
+                      }
+                    },
+                  },
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Date",
+                  },
+                },
+              ],
+              yAxes: [
+                {
+                  gridLines: {
+                    color: "#660066",
+                    zeroLineColor: "white",
+                    zeroLineWidth: 2,
+                  },
+                  ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 4,
+                  },
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Daily Cases",
+                  },
+                },
+              ],
+            },
+          },
+        });
+        $(".slick-wrapper").slick({
+          dots: true,
+          infinite: true,
+          speed: 500,
+          fade: true,
+          cssEase: "linear",
+          arrows: false,
+          centerMode: true,
+          // autoplay: true,
+          // autoplaySpeed: 1500
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
-  })
+  )
 );
 
 function iOS() {
@@ -589,7 +588,7 @@ function iOS() {
     "iPod Simulator",
     "iPad",
     "iPhone",
-    "iPod"
+    "iPod",
   ];
 
   if (!!navigator.platform) {

@@ -3522,7 +3522,7 @@
     var districtData = {};
     window.onload = function () {
         $.when(
-            $.ajax("https://v1.api.covindia.com/district-values").then(response => {
+            $.ajax("https://v2.api.covindia.com/present-district-values").then(response => {
                 districtData = response
 
 
@@ -3629,7 +3629,7 @@
         }
     });
     $.when(
-        $.ajax("https://v1.api.covindia.com/general").then(response => {
+        $.ajax("https://v2.api.covindia.com/general").then(response => {
             $("#max-infected").text(response.infectedMax)
 
         })

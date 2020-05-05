@@ -2,7 +2,7 @@ var sliderData = {};
 var slider = document.getElementById("myRange");
 
 $.when(
-  $.ajax("https://v1.api.covindia.com/district-date-total-data").then(
+  $.ajax("https://v2.api.covindia.com/history-district-values").then(
     (response) => {
       var slider = document.getElementById("myRange");
       var output = document.getElementById("demo");
