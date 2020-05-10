@@ -65,8 +65,7 @@ $.when(
         ],
       });
 
-      table.buttons().container().appendTo("#states_wrapper .col-md-6:eq(0)");
-
+      console.log("WOE");
       const options = [
         {
           text: "Select a state...",
@@ -82,8 +81,9 @@ $.when(
 
       let optionList = document.getElementById("stateDropdown");
       let optionListMob = document.getElementById("stateDropdownMob");
-
+      console.log("I AM HERE");
       options.forEach((option) => {
+        console.log(option);
         optionList.add(new Option(option.text, option.value, option.selected));
         optionListMob.add(
           new Option(option.text, option.value, option.selected)
