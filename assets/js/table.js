@@ -65,7 +65,6 @@ $.when(
         ],
       });
 
-      console.log("WOE");
       const options = [
         {
           text: "Select a state...",
@@ -81,7 +80,7 @@ $.when(
 
       let optionList = document.getElementById("stateDropdown");
       let optionListMob = document.getElementById("stateDropdownMob");
-      console.log("I AM HERE");
+
       options.forEach((option) => {
         console.log(option);
         optionList.add(new Option(option.text, option.value, option.selected));
