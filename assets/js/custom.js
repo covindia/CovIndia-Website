@@ -469,7 +469,8 @@ $.when(
               ticks: {
                 max : 4400,
                 autoSkip: true,
-                maxTicksLimit: 4,
+                maxTicksLimit: 5,
+                stepSize: 1000,
               },              
             },
           ],
@@ -538,7 +539,8 @@ $.when(
                 ticks: {
                   max : 4400,
                   autoSkip: true,
-                  maxTicksLimit: 4,
+                  maxTicksLimit: 5,
+                  stepSize: 1000,
                 },                
               },
             ],
