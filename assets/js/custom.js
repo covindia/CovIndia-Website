@@ -633,7 +633,8 @@ function run() {
       "Hyderabad",
       "Raipur",
       "Patna",
-      "Indore"
+      "Indore",
+      "Search your district here"
   ];
 
   printPhrases(phrases, $('#searchBar'));
