@@ -417,10 +417,7 @@ $.when(
     }
     var dailyChart = new Chart(ctxDaily, {
       type: "line",
-      data: {
-        labels: dailyCases.map(function (e) {
-          return e.x;
-        }),
+      data: {        
         datasets: [
           {
             data: dailyCases.map(function (e) {
