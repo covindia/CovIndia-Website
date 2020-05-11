@@ -447,7 +447,7 @@ $.when(
                 zeroLineColor: "white",
                 zeroLineWidth: 2,
               },
-              ticks: {
+              ticks: {                
                 callback: function (value, index, values) {
                   if (index + 1 === values.length) {
                     return value;
@@ -467,6 +467,7 @@ $.when(
                 zeroLineWidth: 2,
               },
               ticks: {
+                suggestedMax: 4400,
                 autoSkip: true,
                 maxTicksLimit: 4,
               },              
@@ -535,6 +536,7 @@ $.when(
                   zeroLineWidth: 2,
                 },
                 ticks: {
+                  suggestedMax: 4400,
                   autoSkip: true,
                   maxTicksLimit: 4,
                 },                
