@@ -467,7 +467,7 @@ $.when(
                 zeroLineWidth: 2,
               },
               ticks: {
-                suggestedMax: 4400,
+                max : 4400,
                 autoSkip: true,
                 maxTicksLimit: 4,
               },              
@@ -536,7 +536,7 @@ $.when(
                   zeroLineWidth: 2,
                 },
                 ticks: {
-                  suggestedMax: 4400,
+                  max : 4400,
                   autoSkip: true,
                   maxTicksLimit: 4,
                 },                
