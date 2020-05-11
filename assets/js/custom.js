@@ -281,6 +281,9 @@ $.when(
       options: {
         // responsive: true,
         maintainAspectRatio: false,
+        legend: {
+          display: false
+       },
         title: {
           display: true,
           text: "Total Cases in India",
@@ -357,7 +360,13 @@ $.when(
         scaleFontColor: "#FFFFFF",
         options: {
           // responsive: true,
+          legend: {
+            display: false
+         },
           maintainAspectRatio: false,
+          legend: {
+            display: false
+         },
           title: {
             display: true,
             text: "Total Cases in India",
@@ -434,6 +443,9 @@ $.when(
       },
       options: {
         maintainAspectRatio: false,
+        legend: {
+          display: false
+       },
         title: {
           display: true,
           text: "Daily new cases in India",
@@ -503,6 +515,9 @@ $.when(
         },
         options: {
           maintainAspectRatio: false,
+          legend: {
+            display: false
+         },
           title: {
             display: true,
             text: "Daily new cases in India",
