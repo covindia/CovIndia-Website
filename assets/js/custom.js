@@ -295,11 +295,7 @@ $.when(
         },
         scales: {
           xAxes: [
-            {
-              scaleLabel: {
-                display: true,
-                labelString: "Date",
-              },
+            {              
               gridLines: {
                 color: "#660066",
                 zeroLineColor: "white",
@@ -324,11 +320,7 @@ $.when(
                 color: "#660066",
                 zeroLineColor: "white",
                 zeroLineWidth: 2,
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Total Cases",
-              },
+              },              
               ticks: {
                 autoSkip: true,
                 maxTicksLimit: 4,
@@ -378,11 +370,7 @@ $.when(
           },
           scales: {
             xAxes: [
-              {
-                scaleLabel: {
-                  display: true,
-                  labelString: "Date",
-                },
+              {                
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
@@ -407,11 +395,7 @@ $.when(
                   color: "#660066",
                   zeroLineColor: "white",
                   zeroLineWidth: 2,
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: "Total Cases",
-                },
+                },                
                 ticks: {
                   autoSkip: true,
                   maxTicksLimit: 4,
@@ -472,11 +456,7 @@ $.when(
                     return value;
                   }
                 },
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Date",
-              },
+              },              
             },
           ],
           yAxes: [
@@ -544,11 +524,7 @@ $.when(
                       return value;
                     }
                   },
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: "Date",
-                },
+                },                
               },
             ],
             yAxes: [
