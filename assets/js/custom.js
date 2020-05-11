@@ -546,11 +546,7 @@ $.when(
                 ticks: {
                   autoSkip: true,
                   maxTicksLimit: 4,
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: "Daily Cases",
-                },
+                },                
               },
             ],
           },
