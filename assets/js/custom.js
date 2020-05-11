@@ -286,7 +286,7 @@ $.when(
        },
         title: {
           display: true,
-          text: "Total Cases in India",
+          text: "Total Cases",
           fontSize: 20,
         },
         animation: {
@@ -361,7 +361,7 @@ $.when(
          },
           title: {
             display: true,
-            text: "Total Cases in India",
+            text: "Total Cases",
             fontSize: 20,
           },
           animation: {
@@ -432,7 +432,7 @@ $.when(
        },
         title: {
           display: true,
-          text: "Daily new cases in India",
+          text: "Daily new cases",
           fontSize: 20,
         },
         animation: {
@@ -501,7 +501,7 @@ $.when(
          },
           title: {
             display: true,
-            text: "Daily new cases in India",
+            text: "Daily new cases",
             fontSize: 20,
           },
           animation: {
