@@ -423,7 +423,6 @@ $.when(
         }),
         datasets: [
           {
-            label: "Daily New Cases",
             data: dailyCases.map(function (e) {
               return e.y;
             }),
@@ -478,11 +477,7 @@ $.when(
               ticks: {
                 autoSkip: true,
                 maxTicksLimit: 4,
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Daily Cases",
-              },
+              },              
             },
           ],
         },
