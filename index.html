@@ -5107,7 +5107,7 @@ layout: index_layout
 				$("#last-updated")[0].innerText = "Last updated: " + finalStr
 				$("#last-updated2")[0].innerText = "Last updated: " + finalStr
 				$("#cured")[0].innerText = response.totalCured;
-				$("#deaths")[0].innerText = response.deathTotal + '*';
+				$("#deaths")[0].innerText = response.deathTotal;
 				$("#infected")[0].innerText = response.infectedTotal;
 				$("#max-infected").text(response.infectedMax)
 				let decibel = (Math.log10(response.infectedMax) / 3)
@@ -5115,7 +5115,7 @@ layout: index_layout
 				$("#md").text(Math.floor(Math.pow(10, decibel)))
 				$("#low").text(Math.floor(Math.pow(10, 2 * decibel)))
 				$("#cured-desk")[0].innerText = `${response.totalCured}`;
-				$("#deaths-desk")[0].innerText = `${response.deathTotal}*`;
+				$("#deaths-desk")[0].innerText = `${response.deathTotal}`;
 				$("#infected-desk")[0].innerText = `${response.infectedTotal}`;
 				$("#infectedToday")[0].innerText = `↑ ${response.infectedToday}`;
 				$("#deathsToday")[0].innerText = `↑ ${response.deadToday}`;
