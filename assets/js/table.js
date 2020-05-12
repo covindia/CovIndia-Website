@@ -66,7 +66,7 @@ $.when(
             render: function (data, type, full, meta) {
               console.log(full);
               var increaseInfo =
-                '<span class="increase">' + full[meta.col + 3] + "</span>";
+                '<span class="increase">' + full[meta.col + 2] + "</span>";
               var totalCases = "<span>" + data + "</span>";
               return type === "display" ? increaseInfo + totalCases : data;
             },
