@@ -116,15 +116,7 @@ layout: index_layout
 				<div class="col-md-6 ">
 
 					<div class="container" id="legend-colorbar">
-						<div class="h-100 text-center p-3 d-flex justify-content-center">
-							<a href="zones" style="text-decoration: none; color: white;" class="grow">
-								<div
-									style="background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
-									Click for
-									ZONES after May 3
-								</div>
-							</a>
-						</div>
+						
 
 						<div class="row p-3 justify-content-center" style="padding-top: 5px !important;">
 							<div class="h-100 p-3" style="min-width: 30%; padding-top: 10px !important;">
@@ -3603,6 +3595,7 @@ layout: index_layout
 
 					</div>
 				</div>
+				
 				<div class="col-md-3 ">
 					<div class="grad_card" style="padding: 10px; ">
 						<div class="wrapper">
@@ -3693,11 +3686,12 @@ layout: index_layout
 				</div>
 			</div>
 			<a style="color: #3f0f3f; font-size: 1em;" href="analytics">
-				<div class="h-100 text-center p-3 d-flex justify-content-center" style="width: 100%;">
-					<a href="analytics" style="text-decoration: none; color: white;" class="grow">
+				<div class="h-100 text-center p-3 d-flex justify-content-center">
+					<a href="zones" style="text-decoration: none; color: white;" class="grow">
 						<div
 							style="background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
-							Click here for more in-depth analysis - New
+							Click for
+							ZONES after May 3
 						</div>
 					</a>
 				</div>
@@ -5107,7 +5101,7 @@ layout: index_layout
 				$("#last-updated")[0].innerText = "Last updated: " + finalStr
 				$("#last-updated2")[0].innerText = "Last updated: " + finalStr
 				$("#cured")[0].innerText = response.totalCured;
-				$("#deaths")[0].innerText = response.deathTotal + '*';
+				$("#deaths")[0].innerText = response.deathTotal;
 				$("#infected")[0].innerText = response.infectedTotal;
 				$("#max-infected").text(response.infectedMax)
 				let decibel = (Math.log10(response.infectedMax) / 3)
@@ -5115,7 +5109,7 @@ layout: index_layout
 				$("#md").text(Math.floor(Math.pow(10, decibel)))
 				$("#low").text(Math.floor(Math.pow(10, 2 * decibel)))
 				$("#cured-desk")[0].innerText = `${response.totalCured}`;
-				$("#deaths-desk")[0].innerText = `${response.deathTotal}*`;
+				$("#deaths-desk")[0].innerText = `${response.deathTotal}`;
 				$("#infected-desk")[0].innerText = `${response.infectedTotal}`;
 				$("#infectedToday")[0].innerText = `↑ ${response.infectedToday}`;
 				$("#deathsToday")[0].innerText = `↑ ${response.deadToday}`;

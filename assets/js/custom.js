@@ -281,9 +281,12 @@ $.when(
       options: {
         // responsive: true,
         maintainAspectRatio: false,
+        legend: {
+          display: false
+       },
         title: {
           display: true,
-          text: "Total Cases in India",
+          text: "Total Cases",
           fontSize: 20,
         },
         animation: {
@@ -292,11 +295,7 @@ $.when(
         },
         scales: {
           xAxes: [
-            {
-              scaleLabel: {
-                display: true,
-                labelString: "Date",
-              },
+            {              
               gridLines: {
                 color: "#660066",
                 zeroLineColor: "white",
@@ -321,11 +320,7 @@ $.when(
                 color: "#660066",
                 zeroLineColor: "white",
                 zeroLineWidth: 2,
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Total Cases",
-              },
+              },              
               ticks: {
                 autoSkip: true,
                 maxTicksLimit: 4,
@@ -357,10 +352,16 @@ $.when(
         scaleFontColor: "#FFFFFF",
         options: {
           // responsive: true,
+          legend: {
+            display: false
+         },
           maintainAspectRatio: false,
+          legend: {
+            display: false
+         },
           title: {
             display: true,
-            text: "Total Cases in India",
+            text: "Total Cases",
             fontSize: 20,
           },
           animation: {
@@ -369,11 +370,7 @@ $.when(
           },
           scales: {
             xAxes: [
-              {
-                scaleLabel: {
-                  display: true,
-                  labelString: "Date",
-                },
+              {                
                 gridLines: {
                   color: "#660066",
                   zeroLineColor: "white",
@@ -398,11 +395,7 @@ $.when(
                   color: "#660066",
                   zeroLineColor: "white",
                   zeroLineWidth: 2,
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: "Total Cases",
-                },
+                },                
                 ticks: {
                   autoSkip: true,
                   maxTicksLimit: 4,
@@ -423,7 +416,6 @@ $.when(
         }),
         datasets: [
           {
-            label: "Daily New Cases",
             data: dailyCases.map(function (e) {
               return e.y;
             }),
@@ -435,9 +427,12 @@ $.when(
       },
       options: {
         maintainAspectRatio: false,
+        legend: {
+          display: false
+       },
         title: {
           display: true,
-          text: "Daily new cases in India",
+          text: "Daily new cases",
           fontSize: 20,
         },
         animation: {
@@ -452,7 +447,7 @@ $.when(
                 zeroLineColor: "white",
                 zeroLineWidth: 2,
               },
-              ticks: {
+              ticks: {                
                 callback: function (value, index, values) {
                   if (index + 1 === values.length) {
                     return value;
@@ -461,11 +456,7 @@ $.when(
                     return value;
                   }
                 },
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Date",
-              },
+              },              
             },
           ],
           yAxes: [
@@ -476,13 +467,11 @@ $.when(
                 zeroLineWidth: 2,
               },
               ticks: {
+                max : 4400,
                 autoSkip: true,
-                maxTicksLimit: 4,
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Daily Cases",
-              },
+                maxTicksLimit: 5,
+                stepSize: 1000,
+              },              
             },
           ],
         },
@@ -496,8 +485,7 @@ $.when(
             return e.x;
           }),
           datasets: [
-            {
-              label: "Daily New Cases",
+            {              
               data: dailyCases.map(function (e) {
                 return e.y;
               }),
@@ -509,9 +497,12 @@ $.when(
         },
         options: {
           maintainAspectRatio: false,
+          legend: {
+            display: false
+         },
           title: {
             display: true,
-            text: "Daily new cases in India",
+            text: "Daily new cases",
             fontSize: 20,
           },
           animation: {
@@ -535,11 +526,7 @@ $.when(
                       return value;
                     }
                   },
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: "Date",
-                },
+                },                
               },
             ],
             yAxes: [
@@ -550,13 +537,11 @@ $.when(
                   zeroLineWidth: 2,
                 },
                 ticks: {
+                  max : 4400,
                   autoSkip: true,
-                  maxTicksLimit: 4,
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: "Daily Cases",
-                },
+                  maxTicksLimit: 5,
+                  stepSize: 1000,
+                },                
               },
             ],
           },
@@ -597,3 +582,62 @@ function iOS() {
 //     );
 //   });
 // }
+
+// Add something to given element placeholder
+function addToPlaceholder(toAdd, el) {
+  el.attr('placeholder', el.attr('placeholder') + toAdd);
+  // Delay between symbols "typing" 
+  return new Promise(resolve => setTimeout(resolve, 100));
+}
+
+// Cleare placeholder attribute in given element
+function clearPlaceholder(el) {
+  el.attr("placeholder", "");
+}
+
+// Print one phrase
+function printPhrase(phrase, el) {
+  return new Promise(resolve => {
+      // Clear placeholder before typing next phrase
+      clearPlaceholder(el);
+      let letters = phrase.split('');
+      // For each letter in phrase
+      letters.reduce(
+          (promise, letter, index) => promise.then(_ => {
+              // Resolve promise when all letters are typed
+              if (index === letters.length - 1) {
+                  // Delay before start next phrase "typing"
+                  setTimeout(resolve, 1000);
+              }
+              return addToPlaceholder(letter, el);
+          }),
+          Promise.resolve()
+      );
+  });
+} 
+
+// Print given phrases to element
+function printPhrases(phrases, el) {
+  // For each phrase
+  // wait for phrase to be typed
+  // before start typing next
+  phrases.reduce(
+      (promise, phrase) => promise.then(_ => printPhrase(phrase, el)), 
+      Promise.resolve()
+  );
+}
+
+// Start typing
+function run() {
+  let phrases = [
+      "Hyderabad",
+      "Raipur",
+      "Patna",
+      "Indore",
+      "Search your district here"
+  ];
+
+  printPhrases(phrases, $('#searchBar'));
+}
+
+run();
