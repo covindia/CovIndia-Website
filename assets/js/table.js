@@ -8,17 +8,20 @@ $.when(
       countryNew = 0;
       countryDeaths = 0;
       countryNewDeaths = 0;
+      countryCuredTotal = 0;
       const data = Object.keys(stateData).map((key) => {
         countryTotal += stateData[key].TotalCases;
         countryNew += stateData[key].NewCases;
         countryDeaths += stateData[key].TotalDeaths;
         countryNewDeaths += stateData[key].NewDeaths;
+        countryCuredTotal += stateData[key].curedTotal;
         return [
           key,
           stateData[key].TotalCases,
           stateData[key].TotalDeaths,
           stateData[key].NewCases,
           stateData[key].NewDeaths,
+          stateData[key].curedTotal,
         ];
       });
       data.unshift([
@@ -27,6 +30,7 @@ $.when(
         countryDeaths,
         countryNew,
         countryNewDeaths,
+        countryCuredTotal,
       ]);
       var table = $("#states").DataTable({
         data: data,
@@ -36,7 +40,7 @@ $.when(
         scrollCollapse: true,
         scrollX: false,
         paging: false,
-        title: "Confirmed Cases and Deaths by state in India",
+        title: "State-Wise Table",
         order: [[1, "desc"]],
         columnDefs: [
           {

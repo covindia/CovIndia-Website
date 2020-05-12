@@ -631,10 +631,10 @@ function printPhrases(phrases, el) {
 function run() {
   let phrases = [
       "Hyderabad",
-      "Raipur",
+      "Jaipur",
       "Patna",
       "Indore",
-      "Search your district here"
+      "Search your district ..."
   ];
 
   printPhrases(phrases, $('#searchBar'));
