@@ -9,19 +9,23 @@ $.when(
       countryDeaths = 0;
       countryNewDeaths = 0;
       countryCuredTotal = 0;
+      countryCuredNew = 0;
       const data = Object.keys(stateData).map((key) => {
         countryTotal += stateData[key].TotalCases;
         countryNew += stateData[key].NewCases;
         countryDeaths += stateData[key].TotalDeaths;
         countryNewDeaths += stateData[key].NewDeaths;
         countryCuredTotal += stateData[key].curedTotal;
+        countryCuredNew += stateData[key].curedToday;
         return [
           key,
           stateData[key].TotalCases,
           stateData[key].TotalDeaths,
+          stateData[key].curedTotal,
           stateData[key].NewCases,
           stateData[key].NewDeaths,
-          stateData[key].curedTotal,
+          stateData[key].curedToday,
+          
         ];
       });
       data.unshift([
@@ -58,10 +62,11 @@ $.when(
             },
           },
           {
-            targets: [1, 2],
+            targets: [1, 2, 3],
             render: function (data, type, full, meta) {
+              console.log(full);
               var increaseInfo =
-                '<span class="increase">' + full[meta.col + 2] + "</span>";
+                '<span class="increase">' + full[meta.col + 3] + "</span>";
               var totalCases = "<span>" + data + "</span>";
               return type === "display" ? increaseInfo + totalCases : data;
             },
