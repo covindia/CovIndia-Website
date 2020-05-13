@@ -57,13 +57,14 @@ async function playbutton() {
 
 
 async function last2weeks() {
+  $(".twoweeksbut").prop("disabled", true);
   var twoweeksData = {};
   $.ajax("https://v1.api.covindia.com/past-two-weeks").then(
     (response) => {
       twoweeksData = response;
     }
   );
-  $(".twoweeksbut").prop("disabled", true);
+  console.log(twoweeksData)  
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
   slider.value = 0;
