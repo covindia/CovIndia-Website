@@ -76,7 +76,7 @@ function last2weeks() {
   slider.stepUp();
   clearData(districtData);
   renderData(twoweeksData);
-  setMaxLegend(twoweeksData["splitPoints"].eq(4));  
+  setMaxLegend(twoweeksData.splitPoints[3]);  
   $(".twoweeksbut").prop("disabled", false);
 }
 
