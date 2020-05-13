@@ -25,13 +25,13 @@ $.when(
   )
 );
 
-// $.when(
-//   $.ajax("https://v1.api.covindia.com/past-two-weeks").then(
-//     (response) => {
-//       twoweeksData = response;
-//     }
-//   )
-// );
+$.when(
+  $.ajax("https://v1.api.covindia.com/past-two-weeks").then(
+    (response) => {
+      twoweeksData = response;
+    }
+  )
+);
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -56,15 +56,16 @@ async function playbutton() {
 }
 
 
-async function last2weeks() {
+function last2weeks() {
   $(".twoweeksbut").prop("disabled", true);
-  var twoweeksData = {};
+  // var twoweeksData = {};
   $.ajax("https://v1.api.covindia.com/past-two-weeks").then(
     (response) => {
       twoweeksData = response;
     }
   );
-  console.log(twoweeksData)  
+  console.log(twoweeksData);
+  console.log("Here");
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
   slider.value = 0;
