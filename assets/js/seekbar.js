@@ -64,7 +64,7 @@ function last2weeks() {
       twoweeksData = response;
     }
   );
-  console.log(twoweeksData);
+  console.log(twoweeksData.data);
   console.log("Here");
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
@@ -74,7 +74,7 @@ function last2weeks() {
   slider.stepUp();
   clearData(districtData);
   renderData(twoweeksData.data);
-  setMaxLegend(twoweeksData.data["splitPoints"].eq(4));  
+  setMaxLegend(twoweeksData["splitPoints"].eq(4));  
   $(".twoweeksbut").prop("disabled", false);
 }
 
