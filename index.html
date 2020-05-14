@@ -2,7 +2,12 @@
 title: Homepage
 layout: index_layout
 ---
-
+	<script>
+		$.getJSON('https://json.geoiplookup.io/api?callback=?', function(data) {
+		  console.log(JSON.stringify(data, null, 2));
+		  console.log("IP Lookup done")
+		});
+	</script>
 	<div id="text-data" style="margin-top: 45px;    padding-top: 30px;">
 		<div class="container-fluid">
 			<div class="row">
