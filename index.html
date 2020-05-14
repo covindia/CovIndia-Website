@@ -4612,7 +4612,8 @@ layout: index_layout
 					}
 					// Raghav check here
 					$.getJSON('https://json.geoiplookup.io', function(data) {
-  					var user_district = JSON.stringify(data.district, null, 2);
+					  var user_district = JSON.stringify(data.district, null, 2);
+					  return user_district
 					});
 					let lmao = 'Mumbai-Unique'
 					$('#' + lmao).tooltip().mouseover();
