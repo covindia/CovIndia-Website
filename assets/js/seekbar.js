@@ -1,5 +1,6 @@
 var sliderData = {};
 var slider = document.getElementById("myRange");
+var twoweeksData = {};
 
 $.when(
   $.ajax("https://v1.api.covindia.com/district-date-total-data").then(
@@ -20,6 +21,14 @@ $.when(
         setMaxLegend(sliderData[this.value].data["max-legend-value"]);
         output.innerHTML = sliderData[this.value].date;
       };
+    }
+  )
+);
+
+$.when(
+  $.ajax("https://v1.api.covindia.com/past-two-weeks").then(
+    (response) => {
+      twoweeksData = response;
     }
   )
 );
@@ -45,6 +54,33 @@ async function playbutton() {
   }
   $(".playbut").prop("disabled", false);
 }
+
+
+function last2weeks() {
+  $(".twoweeksbut").prop("disabled", true);
+  // var twoweeksData = {};
+  $.ajax("https://v1.api.covindia.com/past-two-weeks").then(
+    (response) => {
+      twoweeksData = response;
+    }
+  );
+  console.log(twoweeksData);
+  console.log(twoweeksData["splitPoints"]);
+  console.log(twoweeksData.splitPoints);
+  console.log("Here");
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  slider.value = 0;
+  
+  
+  slider.stepUp();
+  clearData(districtData);
+  renderData(twoweeksData);
+  setMaxLegend(twoweeksData.splitPoints[3]);  
+  $(".twoweeksbut").prop("disabled", false);
+}
+
+
 
 function setMaxLegend(val) {
   $("#max-infected").text(val);
