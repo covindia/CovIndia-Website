@@ -2,11 +2,6 @@
 title: Homepage
 layout: index_layout
 ---
-	<script>
-		$.getJSON('https://json.geoiplookup.io', function(data) {
-  		console.log(JSON.stringify(data.district, null, 2));
-		});
-	</script>
 	<div id="text-data" style="margin-top: 45px;    padding-top: 30px;">
 		<div class="container-fluid">
 			<div class="row">
@@ -4615,10 +4610,15 @@ layout: index_layout
 					} catch {
 						var a = 1;
 					}
+					// Raghav check here
+					$.getJSON('https://json.geoiplookup.io', function(data) {
+  					var user_district = JSON.stringify(data.district, null, 2);
+					});
 					let lmao = 'Mumbai-Unique'
 					$('#' + lmao).tooltip().mouseover();
 					$("#Chennai").tooltip().mouseover()
 					$('#Delhi-Unique').tooltip().mouseover();
+					$('#' + user_district).tooltip().mouseover();
 
 
 					var target = document.getElementById("searchResult");
