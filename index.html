@@ -2,6 +2,7 @@
 title: Homepage
 layout: index_layout
 ---
+
 	<div id="text-data" style="margin-top: 45px;    padding-top: 30px;">
 		<div class="container-fluid">
 			<div class="row">
@@ -139,15 +140,6 @@ layout: index_layout
 
 								</div>
 							</div>
-
-							<!-- <div class="col">
-								<div class="text-left">
-									<button class="btn btn-outline-success donate twoweeksbut" onclick="last2weeks()">Last 2 weeks
-										<i class="fa fa-play" aria-hidden="true" style="font-size: inherit;"></i>
-									</button>
-
-								</div>
-							</div> -->
 
 							<div class="col">
 
@@ -3636,18 +3628,8 @@ layout: index_layout
 					<a href="analytics" style="text-decoration: none; color: white;" class="grow">
 						<div
 							style="font-size:12px; background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
-							Deep Dive - District level Health infrastructure
-						</div>
-					</a>
-				</div>
-			</a>
-
-			<a style="color: #3f0f3f; font-size: 1em;" href="https://medium.com/analytics-vidhya/effect-of-weather-factors-on-covid-19-4346e79036b7">
-				<div class="h-100 text-center p-3 d-flex justify-content-center" style="width: 100%;">
-					<a href="https://medium.com/analytics-vidhya/effect-of-weather-factors-on-covid-19-4346e79036b7" style="text-decoration: none; color: white;" class="grow">
-						<div
-							style="font-size:12px; background-color: rgba(105,1,105,0.61); padding: 16px; font-family: 'Poppins'; border-radius: 3px 3px; border: 3px solid #cecece;">
-							WEATHER EFFECT on Covid Spread
+							To see deeper analysis of district level risk factors, click
+							here
 						</div>
 					</a>
 				</div>
@@ -3703,7 +3685,7 @@ layout: index_layout
 					</div>
 				</div>
 			</div>
-			<a style="color: #3f0f3f; font-size: 1em;" href="zones">
+			<a style="color: #3f0f3f; font-size: 1em;" href="analytics">
 				<div class="h-100 text-center p-3 d-flex justify-content-center">
 					<a href="zones" style="text-decoration: none; color: white;" class="grow">
 						<div
@@ -4610,15 +4592,10 @@ layout: index_layout
 					} catch {
 						var a = 1;
 					}
-					// Raghav check here
-					$.getJSON('https://json.geoiplookup.io', function(data) {
-  					var user_district = JSON.stringify(data.district, null, 2);
-					});
 					let lmao = 'Mumbai-Unique'
 					$('#' + lmao).tooltip().mouseover();
 					$("#Chennai").tooltip().mouseover()
 					$('#Delhi-Unique').tooltip().mouseover();
-					$('#' + user_district).tooltip().mouseover();
 
 
 					var target = document.getElementById("searchResult");
