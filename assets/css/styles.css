@@ -792,3 +792,9 @@ a:hover {
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: whitesmoke;
 }
+
+.pinkText
+    {
+        color: #CC99CC;       
+    }
+
