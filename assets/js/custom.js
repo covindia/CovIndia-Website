@@ -290,7 +290,7 @@ $.when(
           fontSize: 20,
         },
         animation: {
-          duration: 2000,
+          duration: 1000,
           easing: "linear",
         },
         scales: {
@@ -365,7 +365,7 @@ $.when(
             fontSize: 20,
           },
           animation: {
-            duration: 2000,
+            duration: 1000,
             easing: "linear",
           },
           scales: {
@@ -436,7 +436,7 @@ $.when(
           fontSize: 20,
         },
         animation: {
-          duration: 2000,
+          duration: 1000,
           easing: "linear",
         },
         scales: {
@@ -467,7 +467,7 @@ $.when(
                 zeroLineWidth: 2,
               },
               ticks: {
-                max : 4400,
+                max : 5000,
                 autoSkip: true,
                 maxTicksLimit: 5,
                 stepSize: 1000,
@@ -506,7 +506,7 @@ $.when(
             fontSize: 20,
           },
           animation: {
-            duration: 2000,
+            duration: 1000,
             easing: "linear",
           },
           scales: {
