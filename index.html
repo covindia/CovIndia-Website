@@ -1174,6 +1174,9 @@ layout: index_layout
 			"Delhi",
 			"PoK"
 		]
+		$('#map').ready(function(){
+    	loadDistrictData();
+		});
 		function loadDistrictData () {
 			$.when(
 				$.ajax("https://v1.api.covindia.com/district-values").then(response => {
