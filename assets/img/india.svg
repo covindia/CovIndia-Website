@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="50 200 950 1100">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="50 200 950 1100" onload="loadDistrictData()">
 
 								<g xmlns="http://www.w3.org/2000/svg" title="Bihar" stroke="#F2B955">
 									<path id="Paschim_Champaran" title="Paschim Champaran" data-clipboard-text=""
