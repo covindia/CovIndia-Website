@@ -419,7 +419,7 @@ $.when(
             data: dailyCases.map(function (e) {
               return e.y;
             }),
-            backgroundColor: "rgba(240, 223, 135, 0.5)",            
+            backgroundColor: "#00ffff",            
           },
         ],
       },
@@ -487,7 +487,7 @@ $.when(
               data: dailyCases.map(function (e) {
                 return e.y;
               }),
-              backgroundColor: "rgba(240, 223, 135, 0.5)",              
+              backgroundColor: "#00ffff",              
             },
           ],
         },
