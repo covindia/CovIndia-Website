@@ -780,6 +780,10 @@ a:hover {
   color: #f62840;
 }
 
+#states tbody tr td:nth-child(4) .increase {
+  color: #03fd44;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: whitesmoke;
   opacity: 1; /* Firefox */
