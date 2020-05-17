@@ -187,7 +187,7 @@ layout: index_layout
 					</div>
 					<div class="container" style="margin-top: 1em;" id="map">
 						<div style="padding:0.5em;">
-							<object type="image/svg+xml" data="assets/img/india.svg">
+							<object onload="loadDistrictData()" type="image/svg+xml" data="assets/img/india.svg">
 								Your browser does not support SVG
 							</object>
 						</div>
@@ -1174,7 +1174,7 @@ layout: index_layout
 			"Delhi",
 			"PoK"
 		]
-		window.onload = function () {
+		function loadDistrictData () {
 			$.when(
 				$.ajax("https://v1.api.covindia.com/district-values").then(response => {
 					districtData = response
