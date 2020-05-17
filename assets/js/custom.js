@@ -537,7 +537,7 @@ $.when(
                   zeroLineWidth: 2,
                 },
                 ticks: {
-                  max : 4400,
+                  max : 5000,
                   autoSkip: true,
                   maxTicksLimit: 5,
                   stepSize: 1000,
