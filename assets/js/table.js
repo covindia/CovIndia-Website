@@ -7,21 +7,18 @@ $.when(
       countryTotal = 0;
       countryNew = 0;
       countryDeaths = 0;
-      countryNewDeaths = 0;
-      countryCured = 0;
+      countryNewDeaths = 0;      
       const data = Object.keys(stateData).map((key) => {
         countryTotal += stateData[key].TotalCases;
         countryNew += stateData[key].NewCases;
         countryDeaths += stateData[key].TotalDeaths;
-        countryNewDeaths += stateData[key].NewDeaths;
-        countryCured += stateData[key].curedTotal;
+        countryNewDeaths += stateData[key].NewDeaths;        
         return [
           key,
           stateData[key].TotalCases,
           stateData[key].TotalDeaths,
           stateData[key].NewCases,
-          stateData[key].NewDeaths,
-          stateData[key].curedTotal,
+          stateData[key].NewDeaths,          
         ];
       });
       data.unshift([
@@ -29,8 +26,7 @@ $.when(
         countryTotal,
         countryDeaths,
         countryNew,
-        countryNewDeaths,
-        countryCured,
+        countryNewDeaths,        
       ]);
       var table = $("#states").DataTable({
         data: data,
