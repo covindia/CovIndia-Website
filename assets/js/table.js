@@ -3,6 +3,7 @@ $.when(
   $.ajax("https://v1.api.covindia.com/table-data").then(
     (response) => {
       //console.log(response);
+      console.log("Dummy")
       stateData = response;
       countryTotal = 0;
       countryNew = 0;
