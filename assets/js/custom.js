@@ -409,7 +409,7 @@ $.when(
       console.log(error);
     }
     var dailyChart = new Chart(ctxDaily, {
-      type: "line",
+      type: "bar",
       data: {
         labels: dailyCases.map(function (e) {
           return e.x;
@@ -419,9 +419,7 @@ $.when(
             data: dailyCases.map(function (e) {
               return e.y;
             }),
-            backgroundColor: "rgba(240, 223, 135, 0.5)",
-            borderColor: "#FFF222",
-            borderWidth: 1,
+            backgroundColor: "#9a8a0e",            
           },
         ],
       },
@@ -469,7 +467,7 @@ $.when(
               ticks: {
                 max : 5000,
                 autoSkip: true,
-                maxTicksLimit: 5,
+                maxTicksLimit: 6,
                 stepSize: 1000,
               },              
             },
@@ -479,7 +477,7 @@ $.when(
     });
     try {
       var dailyChart = new Chart(ctxDailyMobile, {
-        type: "line",
+        type: "bar",
         data: {
           labels: dailyCases.map(function (e) {
             return e.x;
@@ -489,9 +487,7 @@ $.when(
               data: dailyCases.map(function (e) {
                 return e.y;
               }),
-              backgroundColor: "rgba(240, 223, 135, 0.5)",
-              borderColor: "#FFF222",
-              borderWidth: 1,
+              backgroundColor: "#9a8a0e",              
             },
           ],
         },
@@ -539,7 +535,7 @@ $.when(
                 ticks: {
                   max : 5000,
                   autoSkip: true,
-                  maxTicksLimit: 5,
+                  maxTicksLimit: 6,
                   stepSize: 1000,
                 },                
               },
@@ -641,3 +637,5 @@ function run() {
 }
 
 run();
+
+

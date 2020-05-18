@@ -3,22 +3,23 @@ $.when(
   $.ajax("https://v1.api.covindia.com/daily-states-complete").then(
     (response) => {
       //console.log(response);
+      console.log("Dummy")
       stateData = response;
       countryTotal = 0;
       countryNew = 0;
       countryDeaths = 0;
-      countryNewDeaths = 0;
+      countryNewDeaths = 0;      
       const data = Object.keys(stateData).map((key) => {
         countryTotal += stateData[key].TotalCases;
         countryNew += stateData[key].NewCases;
         countryDeaths += stateData[key].TotalDeaths;
-        countryNewDeaths += stateData[key].NewDeaths;
+        countryNewDeaths += stateData[key].NewDeaths;        
         return [
           key,
           stateData[key].TotalCases,
           stateData[key].TotalDeaths,
           stateData[key].NewCases,
-          stateData[key].NewDeaths,
+          stateData[key].NewDeaths,          
         ];
       });
       data.unshift([
@@ -26,7 +27,7 @@ $.when(
         countryTotal,
         countryDeaths,
         countryNew,
-        countryNewDeaths,
+        countryNewDeaths,        
       ]);
       var table = $("#states").DataTable({
         data: data,
@@ -36,7 +37,7 @@ $.when(
         scrollCollapse: true,
         scrollX: false,
         paging: false,
-        title: "Confirmed Cases and Deaths by state in India",
+        title: "State-Wise Table",
         order: [[1, "desc"]],
         columnDefs: [
           {
