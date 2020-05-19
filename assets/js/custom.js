@@ -653,52 +653,52 @@ function indiancomma(x){
 }
 
 
-async function last2weeks() {
-  var twoweeksData = {};
-  $.ajax("https://v1.api.covindia.com/past-two-weeks").then(
-    (response) => {
-      twoweeksData = response;
-      console.log(twoweeksData);
-      console.log(twoweeksData["splitPoints"][3]);
-      console.log("here 2 weeks"); 
-      clearData(districtData);
-      renderData(twoweeksData);
-      $('.clickable').tooltip();
+// async function last2weeks() {
+//   var twoweeksData = {};
+//   $.ajax("https://v1.api.covindia.com/past-two-weeks").then(
+//     (response) => {
+//       twoweeksData = response;
+//       console.log(twoweeksData);
+//       console.log(twoweeksData["splitPoints"][3]);
+//       console.log("here 2 weeks"); 
+//       clearData(districtData);
+//       renderData(twoweeksData);
+//       $('.clickable').tooltip();
 
-      $('.clickable').tooltip({
-        open: function (e, o) {
-          $(o.tooltip).mouseover(function (e) {
-            $('.clickable').tooltip('close');
-          });
-          $(o.tooltip).mouseout(function (e) {});
-        },
-        close: function (e, o) {},
-        show: {
-          duration: 800
-        }
-      });
+//       $('.clickable').tooltip({
+//         open: function (e, o) {
+//           $(o.tooltip).mouseover(function (e) {
+//             $('.clickable').tooltip('close');
+//           });
+//           $(o.tooltip).mouseout(function (e) {});
+//         },
+//         close: function (e, o) {},
+//         show: {
+//           duration: 800
+//         }
+//       });
 
-      try {
-        $(".Delhi").attr('data-original-title', 'Delhi' + ' | Infected: ' + districtData['Delhi']
-          .infected + ' | Deaths: ' + districtData['Delhi'].dead);
-      } catch {
-        var a = 1;
-      }
-      try {
-        $(".Mumbai").attr('data-original-title', 'Mumbai' + ' | Infected: ' + districtData[
-          'Mumbai'].infected + ' | Deaths: ' + districtData['Mumbai'].dead);
-      } catch {
-        var a = 1;
-      }
-      let lmao = 'Mumbai-Unique'
-      $('#' + lmao).tooltip().mouseover();
-      $("#Chennai").tooltip().mouseover()
-      $('#Delhi-Unique').tooltip().mouseover();
-      setMaxLegend(twoweeksData["splitPoints"][3]);
-    }
-  );
-  $(".twoweeksbut").prop("disabled", true);  
-}
+//       try {
+//         $(".Delhi").attr('data-original-title', 'Delhi' + ' | Infected: ' + twoweeksData['Delhi']
+//           .infected + ' | Deaths: ' + twoweeksData['Delhi'].dead);
+//       } catch {
+//         var a = 1;
+//       }
+//       try {
+//         $(".Mumbai").attr('data-original-title', 'Mumbai' + ' | Infected: ' + twoweeksData[
+//           'Mumbai'].infected + ' | Deaths: ' + twoweeksData['Mumbai'].dead);
+//       } catch {
+//         var a = 1;
+//       }
+//       let lmao = 'Mumbai-Unique'
+//       $('#' + lmao).tooltip().mouseover();
+//       $("#Chennai").tooltip().mouseover()
+//       $('#Delhi-Unique').tooltip().mouseover();
+//       setMaxLegend(twoweeksData["splitPoints"][3]);
+//     }
+//   );
+//   $(".twoweeksbut").prop("disabled", true);  
+// }
 
 
 
