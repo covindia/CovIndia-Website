@@ -5120,7 +5120,7 @@ layout: index_layout
 				$("#last-updated2")[0].innerText = "Last updated: " + finalStr
 				$("#cured")[0].innerText = response.totalCured;
 				$("#deaths")[0].innerText = response.deathTotal;
-				$("#infected")[0].innerText = response.infectedTotal;
+				$("#infected")[0].innerText = indiancomma(response.infectedTotal);
 				$("#max-infected").text(response.infectedMax)
 				let decibel = (Math.log10(response.infectedMax) / 3)
 
