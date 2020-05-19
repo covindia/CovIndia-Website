@@ -658,12 +658,13 @@ async function last2weeks() {
   $.ajax("https://v1.api.covindia.com/past-two-weeks").then(
     (response) => {
       twoweeksData = response;
+      console.log(twoweeksData);
     }
   );
   $(".twoweeksbut").prop("disabled", true);
   console.log(twoweeksData);
-  console.log(twoweeksData.splitPoints);
-  console.log("here 2 weeks")  
+  //console.log(twoweeksData.splitPoints);
+  console.log("here 2 weeks");  
   clearData(districtData);
   renderData(twoweeksData);
   setMaxLegend(twoweeksData["splitPoints"].eq(4));  
