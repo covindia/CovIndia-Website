@@ -279,6 +279,14 @@ $.when(
       },
       scaleFontColor: "#FFFFFF",
       options: {
+        tooltips: {
+          mode: 'index',
+          intersect: false
+       },
+       hover: {
+          mode: 'index',
+          intersect: false
+       },
         // responsive: true,
         maintainAspectRatio: false,
         legend: {
@@ -352,6 +360,14 @@ $.when(
         scaleFontColor: "#FFFFFF",
         options: {
           // responsive: true,
+          tooltips: {
+            mode: 'index',
+            intersect: false
+         },
+         hover: {
+            mode: 'index',
+            intersect: false
+         },
           legend: {
             display: false
          },
@@ -424,6 +440,14 @@ $.when(
         ],
       },
       options: {
+        tooltips: {
+          mode: 'index',
+          intersect: false
+       },
+       hover: {
+          mode: 'index',
+          intersect: false
+       },
         maintainAspectRatio: false,
         legend: {
           display: false
@@ -492,6 +516,14 @@ $.when(
           ],
         },
         options: {
+          tooltips: {
+            mode: 'index',
+            intersect: false
+         },
+         hover: {
+            mode: 'index',
+            intersect: false
+         },
           maintainAspectRatio: false,
           legend: {
             display: false
