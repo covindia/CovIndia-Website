@@ -647,6 +647,8 @@ function indiancomma(x){
   if(otherNumbers != '')
       lastThree = ',' + lastThree;
   var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+  console.log("Comma Here")
+  console.log(res)
   return res;
 }
 
