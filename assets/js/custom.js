@@ -652,5 +652,24 @@ function indiancomma(x){
   return res;
 }
 
+var twoweeksData = {};
+async function last2weeks() {
+  var twoweeksData = {};
+  $.ajax("https://v1.api.covindia.com/past-two-weeks").then(
+    (response) => {
+      twoweeksData = response;
+    }
+  );
+  $(".twoweeksbut").prop("disabled", true);
+  console.log(twoweeksData);
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  
+  clearData(districtData);
+  renderData(twoweeksData.data);
+  setMaxLegend(twoweeksData.data["splitPoints"].eq(4));  
+  $(".twoweeksbut").prop("disabled", false);
+}
+
 
 
