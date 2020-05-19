@@ -339,6 +339,7 @@ a:hover {
 }
 
 .grad_card:hover{
+  left: -170px;
   width: 370px;
 }
 
