@@ -659,11 +659,11 @@ async function last2weeks() {
     (response) => {
       twoweeksData = response;
       console.log(twoweeksData);
-      console.log(twoweeksData.splitPoints);
+      console.log(twoweeksData["splitPoints"][3]);
       console.log("here 2 weeks"); 
       clearData(districtData);
       renderData(twoweeksData);
-      setMaxLegend(twoweeksData["splitPoints"].eq(4));
+      setMaxLegend(twoweeksData["splitPoints"][3]);
     }
   );
   $(".twoweeksbut").prop("disabled", true);  
