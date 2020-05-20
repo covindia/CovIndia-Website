@@ -7,6 +7,66 @@ layout: index_layout
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-3">
+					<div class="grad_card">
+						
+						<span class="stat-title" style="color: #d6df43;">Infected</span>
+						<div class="stat-wrapper">
+							<span id="infected-desk" style="font-size: inherit; color: #d6df43;">0000</span>
+							<span id="infected-desk-today" style="font-size: inherit; "></span>
+							<!-- <span id="additions" class="infected-desk"
+									style="font-style: inherit; font-size: 3rem; font-family: 'Poppins'; color: #A9A9A9;"></span> -->
+							<!-- <img src="assets/img/infected-resized.png" alt="infected" class="stat-image"> -->
+						</div>							
+					
+
+					
+						<span class="stat-title" style="color: #00ff4e">Cured</span>
+						<div class="stat-wrapper">
+							<span id="cured-desk" style="font-size: inherit; color: #00ff4e">0000</span>
+							<!-- <img src="assets/img/cured-resized.png" alt="infected" class="stat-image"> -->
+						</div>							
+					
+					
+					
+						<span class="death-title" style="color: #f62840;">Deaths</span>
+						<div class="stat-wrapper death-extra">
+							<span id="deaths-desk" style="font-size: inherit; color:#f62840">0000</span>
+							<span id="deaths-desk-today" style="font-size: inherit;"></span>
+							<!-- <span class="stat-death">*</span> -->
+						</div>
+						
+						<a style="color: #ffffff;"  
+							href="https://thejeshgn.com/projects/covid19-india/non-virus-deaths/">
+							<span style="font-size: small;"> Lockdown Deaths : 650 </span>  <span class='pinkText' style="font-size: small;">[Source - Thejesh]</span>								
+						</a>
+					
+					
+				</div>
+
+				<div class="grad_card" style="padding: 10px">
+					<iframe src='https://flo.uri.sh/visualisation/2102233/embed' frameborder='0' scrolling='no'
+						style='width:100%;height:600px;'></iframe>
+					<div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a
+							class='flourish-credit'
+							href='https://public.flourish.studio/visualisation/2102233/?utm_source=embed&utm_campaign=visualisation/2102233'
+							target='_top' style='text-decoration:none!important'><img alt='Made with Flourish'
+								src='https://public.flourish.studio/resources/made_with_flourish.svg'
+								style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
+						</a>
+					</div>
+					<p>Dynamic State Viz - <a style="color: #CC99CC;" href="https://github.com/goutamenara">Goutam
+							Enara</a </p> </div> 
+							<div class="grad_card" style="padding: 10px">
+						<select class="custom-select" id="stateDropdown">
+
+						</select>
+						<div class="wrapper">
+							<canvas id="stateHist" width="100%" height="100%"
+								style="max-height: 100% !important"></canvas>
+						</div>
+				</div>
+
+
 					<div id="total-number-infected" class="row justify-content-center"
 						style="margin-left: 8px; margin-top: 10px; margin-bottom: 5px;">
 						<div class="container row d-md-none" style="margin-top: 1em; text-align: center; width: 100%;">
@@ -98,64 +158,7 @@ layout: index_layout
 						</div> -->
 					</div>
 					<!-- Adding total stats in one card for desktop -->
-					<div class="grad_card">
-						
-							<span class="stat-title" style="color: #d6df43;">Infected</span>
-							<div class="stat-wrapper">
-								<span id="infected-desk" style="font-size: inherit; color: #d6df43;">0000</span>
-								<span id="infected-desk-today" style="font-size: inherit; "></span>
-								<!-- <span id="additions" class="infected-desk"
-										style="font-style: inherit; font-size: 3rem; font-family: 'Poppins'; color: #A9A9A9;"></span> -->
-								<!-- <img src="assets/img/infected-resized.png" alt="infected" class="stat-image"> -->
-							</div>							
-						
-
-						
-							<span class="stat-title" style="color: #00ff4e">Cured</span>
-							<div class="stat-wrapper">
-								<span id="cured-desk" style="font-size: inherit; color: #00ff4e">0000</span>
-								<!-- <img src="assets/img/cured-resized.png" alt="infected" class="stat-image"> -->
-							</div>							
-						
-						
-						
-							<span class="death-title" style="color: #f62840;">Deaths</span>
-							<div class="stat-wrapper death-extra">
-								<span id="deaths-desk" style="font-size: inherit; color:#f62840">0000</span>
-								<span id="deaths-desk-today" style="font-size: inherit;"></span>
-								<!-- <span class="stat-death">*</span> -->
-							</div>
-							
-							<a style="color: #ffffff;"  
-								href="https://thejeshgn.com/projects/covid19-india/non-virus-deaths/">
-								<span style="font-size: small;"> Lockdown Deaths : 650 </span>  <span class='pinkText' style="font-size: small;">[Source - Thejesh]</span>								
-							</a>
-						
-						
-					</div>
-
-					<div class="grad_card" style="padding: 10px">
-						<iframe src='https://flo.uri.sh/visualisation/2102233/embed' frameborder='0' scrolling='no'
-							style='width:100%;height:600px;'></iframe>
-						<div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a
-								class='flourish-credit'
-								href='https://public.flourish.studio/visualisation/2102233/?utm_source=embed&utm_campaign=visualisation/2102233'
-								target='_top' style='text-decoration:none!important'><img alt='Made with Flourish'
-									src='https://public.flourish.studio/resources/made_with_flourish.svg'
-									style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
-							</a>
-						</div>
-						<p>Dynamic State Viz - <a style="color: #CC99CC;" href="https://github.com/goutamenara">Goutam
-								Enara</a </p> </div> 
-								<div class="grad_card" style="padding: 10px">
-							<select class="custom-select" id="stateDropdown">
-
-							</select>
-							<div class="wrapper">
-								<canvas id="stateHist" width="100%" height="100%"
-									style="max-height: 100% !important"></canvas>
-							</div>
-					</div>
+					
 				</div>
 				<div class="col-md-6 ">
 
