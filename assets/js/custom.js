@@ -489,9 +489,9 @@ $.when(
                 zeroLineWidth: 2,
               },
               ticks: {
-                max : 6000,
+                max : 7000,
                 autoSkip: true,
-                maxTicksLimit: 7,
+                maxTicksLimit: 8,
                 stepSize: 1000,
               },              
             },
@@ -565,9 +565,9 @@ $.when(
                   zeroLineWidth: 2,
                 },
                 ticks: {
-                  max : 6000,
+                  max : 7000,
                   autoSkip: true,
-                  maxTicksLimit: 7,
+                  maxTicksLimit: 8,
                   stepSize: 1000,
                 },                
               },
