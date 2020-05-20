@@ -279,6 +279,14 @@ $.when(
       },
       scaleFontColor: "#FFFFFF",
       options: {
+        tooltips: {
+          mode: 'index',
+          intersect: false
+       },
+       hover: {
+          mode: 'index',
+          intersect: false
+       },
         // responsive: true,
         maintainAspectRatio: false,
         legend: {
@@ -352,6 +360,14 @@ $.when(
         scaleFontColor: "#FFFFFF",
         options: {
           // responsive: true,
+          tooltips: {
+            mode: 'index',
+            intersect: false
+         },
+         hover: {
+            mode: 'index',
+            intersect: false
+         },
           legend: {
             display: false
          },
@@ -424,6 +440,14 @@ $.when(
         ],
       },
       options: {
+        tooltips: {
+          mode: 'index',
+          intersect: false
+       },
+       hover: {
+          mode: 'index',
+          intersect: false
+       },
         maintainAspectRatio: false,
         legend: {
           display: false
@@ -465,9 +489,9 @@ $.when(
                 zeroLineWidth: 2,
               },
               ticks: {
-                max : 5000,
+                max : 7000,
                 autoSkip: true,
-                maxTicksLimit: 6,
+                maxTicksLimit: 8,
                 stepSize: 1000,
               },              
             },
@@ -492,6 +516,14 @@ $.when(
           ],
         },
         options: {
+          tooltips: {
+            mode: 'index',
+            intersect: false
+         },
+         hover: {
+            mode: 'index',
+            intersect: false
+         },
           maintainAspectRatio: false,
           legend: {
             display: false
@@ -533,9 +565,9 @@ $.when(
                   zeroLineWidth: 2,
                 },
                 ticks: {
-                  max : 5000,
+                  max : 7000,
                   autoSkip: true,
-                  maxTicksLimit: 6,
+                  maxTicksLimit: 8,
                   stepSize: 1000,
                 },                
               },
@@ -637,5 +669,68 @@ function run() {
 }
 
 run();
+
+
+// Function to add commas in numbers Indian style \m/
+function indiancomma(x){
+  x=x.toString();
+  var lastThree = x.substring(x.length-3);
+  var otherNumbers = x.substring(0,x.length-3);
+  if(otherNumbers != '')
+      lastThree = ',' + lastThree;
+  var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+  console.log("Comma Here")
+  console.log(res)
+  return res;
+}
+
+
+// async function last2weeks() {
+//   var twoweeksData = {};
+//   $.ajax("https://v1.api.covindia.com/past-two-weeks").then(
+//     (response) => {
+//       twoweeksData = response;
+//       console.log(twoweeksData);
+//       console.log(twoweeksData["splitPoints"][3]);
+//       console.log("here 2 weeks"); 
+//       clearData(districtData);
+//       renderData(twoweeksData);
+//       $('.clickable').tooltip();
+
+//       $('.clickable').tooltip({
+//         open: function (e, o) {
+//           $(o.tooltip).mouseover(function (e) {
+//             $('.clickable').tooltip('close');
+//           });
+//           $(o.tooltip).mouseout(function (e) {});
+//         },
+//         close: function (e, o) {},
+//         show: {
+//           duration: 800
+//         }
+//       });
+
+//       try {
+//         $(".Delhi").attr('data-original-title', 'Delhi' + ' | Infected: ' + twoweeksData['Delhi']
+//           .infected + ' | Deaths: ' + twoweeksData['Delhi'].dead);
+//       } catch {
+//         var a = 1;
+//       }
+//       try {
+//         $(".Mumbai").attr('data-original-title', 'Mumbai' + ' | Infected: ' + twoweeksData[
+//           'Mumbai'].infected + ' | Deaths: ' + twoweeksData['Mumbai'].dead);
+//       } catch {
+//         var a = 1;
+//       }
+//       let lmao = 'Mumbai-Unique'
+//       $('#' + lmao).tooltip().mouseover();
+//       $("#Chennai").tooltip().mouseover()
+//       $('#Delhi-Unique').tooltip().mouseover();
+//       setMaxLegend(twoweeksData["splitPoints"][3]);
+//     }
+//   );
+//   $(".twoweeksbut").prop("disabled", true);  
+// }
+
 
 

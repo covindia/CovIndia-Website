@@ -338,6 +338,11 @@ a:hover {
   padding-bottom: 10px;
 }
 
+/* .grad_card:hover{
+  left: -170px;
+  width: 370px;
+} */
+
 .gif-card {
   padding: 15px;
 }
@@ -611,6 +616,11 @@ a:hover {
   }
 
   .playbut {
+    padding: 5px !important;
+    font-size: 10px !important;
+  }
+
+  .twoweeksbut {
     padding: 5px !important;
     font-size: 10px !important;
   }

@@ -7,6 +7,66 @@ layout: index_layout
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-3">
+					<div class="grad_card">
+						
+						<span class="stat-title" style="color: #d6df43;">Infected</span>
+						<div class="stat-wrapper">
+							<span id="infected-desk" style="font-size: inherit; color: #d6df43;">0000</span>
+							<span id="infected-desk-today" style="font-size: inherit; "></span>
+							<!-- <span id="additions" class="infected-desk"
+									style="font-style: inherit; font-size: 3rem; font-family: 'Poppins'; color: #A9A9A9;"></span> -->
+							<!-- <img src="assets/img/infected-resized.png" alt="infected" class="stat-image"> -->
+						</div>							
+					
+
+					
+						<span class="stat-title" style="color: #00ff4e">Cured</span>
+						<div class="stat-wrapper">
+							<span id="cured-desk" style="font-size: inherit; color: #00ff4e">0000</span>
+							<!-- <img src="assets/img/cured-resized.png" alt="infected" class="stat-image"> -->
+						</div>							
+					
+					
+					
+						<span class="death-title" style="color: #f62840;">Deaths</span>
+						<div class="stat-wrapper death-extra">
+							<span id="deaths-desk" style="font-size: inherit; color:#f62840">0000</span>
+							<span id="deaths-desk-today" style="font-size: inherit;"></span>
+							<!-- <span class="stat-death">*</span> -->
+						</div>
+						
+						<a style="color: #ffffff;"  
+							href="https://thejeshgn.com/projects/covid19-india/non-virus-deaths/">
+							<span style="font-size: small;"> Lockdown Deaths : 650 </span>  <span class='pinkText' style="font-size: small;">[Source - Thejesh]</span>								
+						</a>
+					
+					
+				</div>
+
+				<div class="grad_card" style="padding: 10px">
+					<iframe src='https://flo.uri.sh/visualisation/2102233/embed' frameborder='0' scrolling='no'
+						style='width:100%;height:600px;'></iframe>
+					<div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a
+							class='flourish-credit'
+							href='https://public.flourish.studio/visualisation/2102233/?utm_source=embed&utm_campaign=visualisation/2102233'
+							target='_top' style='text-decoration:none!important'><img alt='Made with Flourish'
+								src='https://public.flourish.studio/resources/made_with_flourish.svg'
+								style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
+						</a>
+					</div>
+					<p>Dynamic State Viz - <a style="color: #CC99CC;" href="https://github.com/goutamenara">Goutam
+							Enara</a </p> </div> 
+							<div class="grad_card" style="padding: 10px">
+						<select class="custom-select" id="stateDropdown">
+
+						</select>
+						<div class="wrapper">
+							<canvas id="stateHist" width="100%" height="100%"
+								style="max-height: 100% !important"></canvas>
+						</div>
+				</div>
+
+
 					<div id="total-number-infected" class="row justify-content-center"
 						style="margin-left: 8px; margin-top: 10px; margin-bottom: 5px;">
 						<div class="container row d-md-none" style="margin-top: 1em; text-align: center; width: 100%;">
@@ -15,7 +75,7 @@ layout: index_layout
 								Infected
 								<div class="today"><span id="infectedToday"></span></div>
 								<div id="infected"
-									style="font-size: 1.75em; color:#d6df43; font-weight: 700;font-family: 'Poppins'">
+									style="font-size: 1.5em; color:#d6df43; font-weight: 700;font-family: 'Poppins'">
 								</div>
 							</div>
 							<br>
@@ -24,7 +84,7 @@ layout: index_layout
 								Cured
 								<div class="today"></div>
 								<div id="cured"
-									style="font-size: 1.75em;color: #00ff4e;font-weight: 700;font-family: 'Poppins'">
+									style="font-size: 1.5em;color: #00ff4e;font-weight: 700;font-family: 'Poppins'">
 								</div>
 							</div>
 							<div class="col mob-wrapper"
@@ -32,7 +92,7 @@ layout: index_layout
 								Deaths
 								<div class="today"><span id="deathsToday"></span></div>
 								<div id="deaths"
-									style="font-size: 1.75em;color: #f62840;font-weight: 700;font-family: 'Poppins'">
+									style="font-size: 1.5em;color: #f62840;font-weight: 700;font-family: 'Poppins'">
 								</div>
 							</div>
 							<div class="row justify-content-center"
@@ -41,7 +101,7 @@ layout: index_layout
 							</div>
 							<div class="row justify-content-center" style="width:100%; "><a style="color: #ffffff; margin-bottom: 15px;"  
 								href="https://thejeshgn.com/projects/covid19-india/non-virus-deaths/">
-								<span>Non Virus Deaths : 615 </span>  <span class='pinkText'>[Source - Thejesh]</span>								
+								<span>Non Virus Deaths : 650 </span>  <span class='pinkText'>[Source - Thejesh]</span>								
 							</a>
 							</div>
 													
@@ -51,15 +111,15 @@ layout: index_layout
 								</a>
 							</div>
 						</div>
-						<div class="container d-none d-md-block">
-							<div class="row stats">
+						<!-- <div class="container d-none d-md-block">
+							<div class="row stats"> -->
 
-								<div class=" stat-card col">
+								<!-- <div class=" stat-card col">
 									<span class="stat-title">Total Cases</span>
 									<div class="stat-wrapper">
 										<span id="infected-desk" style="font-size: inherit;">0000</span>
 										<!-- <span id="additions" class="infected-desk"
-												style="font-style: inherit; font-size: 3rem; font-family: 'Poppins'; color: #A9A9A9;"></span> -->
+												style="font-style: inherit; font-size: 3rem; font-family: 'Poppins'; color: #A9A9A9;"></span> 
 										<img src="assets/img/infected-resized.png" alt="infected" class="stat-image">
 									</div>
 									<div class="container" style="text-align:left;">
@@ -86,38 +146,19 @@ layout: index_layout
 									<span class="death-title">Total Deaths</span>
 									<div class="stat-wrapper death-extra">
 										<span id="deaths-desk" style="font-size: inherit;">0000</span>
-										<!-- <span class="stat-death">*</span> -->
+									 <span class="stat-death">*</span> 
 									</div>
 									<div class="container" style="text-align:left;">
 										<span id="informed-sub-title">
 											Stay Informed
 										</span>
 									</div>
-								</div>
-							</div>
-						</div>
+								</div> -->
+							<!-- </div>
+						</div> -->
 					</div>
-					<div class="grad_card" style="padding: 10px; margin-top: 30px">
-						<iframe src='https://flo.uri.sh/visualisation/2102233/embed' frameborder='0' scrolling='no'
-							style='width:100%;height:600px;'></iframe>
-						<div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a
-								class='flourish-credit'
-								href='https://public.flourish.studio/visualisation/2102233/?utm_source=embed&utm_campaign=visualisation/2102233'
-								target='_top' style='text-decoration:none!important'><img alt='Made with Flourish'
-									src='https://public.flourish.studio/resources/made_with_flourish.svg'
-									style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
-							</a>
-						</div>
-						<p>Dynamic State Viz - <a style="color: #CC99CC;" href="https://github.com/goutamenara">Goutam
-								Enara</a </p> </div> <div class="grad_card" style="padding: 10px; margin-top: 30px">
-							<select class="custom-select" id="stateDropdown">
-
-							</select>
-							<div class="wrapper">
-								<canvas id="stateHist" width="100%" height="100%"
-									style="max-height: 100% !important"></canvas>
-							</div>
-					</div>
+					<!-- Adding total stats in one card for desktop -->
+					
 				</div>
 				<div class="col-md-6 ">
 
@@ -146,6 +187,15 @@ layout: index_layout
 
 								</div>
 							</div>
+
+							<!-- <div class="col">
+								<div class="text-left">
+									<button class="btn btn-outline-success donate twoweeksbut" onclick="last2weeks()">Last 2 weeks
+										<i class="fa fa-play" aria-hidden="true" style="font-size: inherit;"></i>
+									</button>
+
+								</div>
+							</div> -->
 
 							<div class="col">
 
@@ -5118,19 +5168,21 @@ layout: index_layout
 				finalStr = finalStr.split(" ").reverse().join(", ")
 				$("#last-updated")[0].innerText = "Last updated: " + finalStr
 				$("#last-updated2")[0].innerText = "Last updated: " + finalStr
-				$("#cured")[0].innerText = response.totalCured;
-				$("#deaths")[0].innerText = response.deathTotal;
-				$("#infected")[0].innerText = response.infectedTotal;
+				$("#cured")[0].innerText = indiancomma(response.totalCured);
+				$("#deaths")[0].innerText = indiancomma(response.deathTotal);
+				$("#infected")[0].innerText = indiancomma(response.infectedTotal);
 				$("#max-infected").text(response.infectedMax)
 				let decibel = (Math.log10(response.infectedMax) / 3)
 
 				$("#md").text(Math.floor(Math.pow(10, decibel)))
 				$("#low").text(Math.floor(Math.pow(10, 2 * decibel)))
-				$("#cured-desk")[0].innerText = `${response.totalCured}`;
-				$("#deaths-desk")[0].innerText = `${response.deathTotal}`;
-				$("#infected-desk")[0].innerText = `${response.infectedTotal}`;
-				$("#infectedToday")[0].innerText = `↑ ${response.infectedToday}`;
-				$("#deathsToday")[0].innerText = `↑ ${response.deadToday}`;
+				$("#cured-desk")[0].innerText = `${indiancomma(response.totalCured)}`;
+				$("#deaths-desk")[0].innerText = `${indiancomma(response.deathTotal)}`;
+				$("#deaths-desk-today")[0].innerText = `↑ ${indiancomma(response.deadToday)}`;
+				$("#infected-desk")[0].innerText = `${indiancomma(response.infectedTotal)}`;
+				$("#infected-desk-today")[0].innerText = `↑ ${indiancomma(response.infectedToday)}`;
+				$("#infectedToday")[0].innerText = `↑ ${indiancomma(response.infectedToday)}`;
+				$("#deathsToday")[0].innerText = `↑ ${indiancomma(response.deadToday)}`;
 				// $("#max-infected-desk")[0].innerText = response.infectedMax;
 				var strDate = response.lastUpdatedTime;
 				//console.log(response.lastUpdatedTime)
