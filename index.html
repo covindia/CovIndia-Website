@@ -103,6 +103,7 @@ layout: index_layout
 							<span class="stat-title" style="color: #d6df43;">Infected</span>
 							<div class="stat-wrapper">
 								<span id="infected-desk" style="font-size: inherit; color: #d6df43;">0000</span>
+								<span id="infected-desk-today" style="font-size: inherit; ">0</span>
 								<!-- <span id="additions" class="infected-desk"
 										style="font-style: inherit; font-size: 3rem; font-family: 'Poppins'; color: #A9A9A9;"></span> -->
 								<!-- <img src="assets/img/infected-resized.png" alt="infected" class="stat-image"> -->
@@ -121,6 +122,7 @@ layout: index_layout
 							<span class="death-title" style="color: #f62840;">Deaths</span>
 							<div class="stat-wrapper death-extra">
 								<span id="deaths-desk" style="font-size: inherit; color:#f62840">0000</span>
+								<span id="deaths-desk-today" style="font-size: inherit;">0</span>
 								<!-- <span class="stat-death">*</span> -->
 							</div>							
 						
@@ -5168,7 +5170,9 @@ layout: index_layout
 				$("#low").text(Math.floor(Math.pow(10, 2 * decibel)))
 				$("#cured-desk")[0].innerText = `${indiancomma(response.totalCured)}`;
 				$("#deaths-desk")[0].innerText = `${indiancomma(response.deathTotal)}`;
+				$("#deaths-desk-today")[0].innerText = `↑ ${indiancomma(response.deadToday)}`;
 				$("#infected-desk")[0].innerText = `${indiancomma(response.infectedTotal)}`;
+				$("#infected-desk-today")[0].innerText = `↑ ${indiancomma(response.infectedToday)}`;
 				$("#infectedToday")[0].innerText = `↑ ${indiancomma(response.infectedToday)}`;
 				$("#deathsToday")[0].innerText = `↑ ${indiancomma(response.deadToday)}`;
 				// $("#max-infected-desk")[0].innerText = response.infectedMax;
