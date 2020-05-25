@@ -18,8 +18,8 @@ $.when(
           data: percentagePositive,
           type: "line",
           yAxisID: 'right',
-          borderColor: "#cc99cc",
-          borderWidth: 3,
+          borderColor: "#660066",
+          borderWidth: 1,
           pointRadius: 2,
           pointBackgroundColor: "#cecece"
         },
@@ -183,10 +183,11 @@ const options = {
         scaleLabel: {
           display: true,
           labelString: "Percentage Positive",
-          fontColor: '#cc99cc'
+          fontColor: '#660066'
         },
        ticks: {
-         fontColor: '#cc99cc',
+         fontColor: '#660066',
+         beginAtZero: true,
          callback: function(value, index, values) {
           return value + '%';
       }
