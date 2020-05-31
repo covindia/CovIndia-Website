@@ -220,7 +220,6 @@ body {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 50px;
-
 }
 
 .fa-instagram {
@@ -256,7 +255,6 @@ body {
   cursor: pointer;
   border-radius: 50px;
 }
-
 
 .float-2 {
   width: 40px;
@@ -376,7 +374,6 @@ a:hover {
     border-radius: 10px;
   }
 
-
   #max-infected {
     font-size: 12px;
   }
@@ -398,7 +395,7 @@ a:hover {
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.53);
 
   margin: 10px;
-  width: 95%
+  width: 95%;
 }
 
 .stat-title {
@@ -480,10 +477,9 @@ a:hover {
   color: white;
 }
 
-
 .slick-wrapper {
   margin-top: 10px;
-  padding: 5px
+  padding: 5px;
 }
 
 .slick-next:before,
@@ -541,8 +537,8 @@ a:hover {
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
 }
 
 .slider::-webkit-slider-thumb {
@@ -599,7 +595,7 @@ a:hover {
   text-decoration: none;
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .search_input {
     width: 200px;
     line-height: 25px;
@@ -633,12 +629,11 @@ a:hover {
   .custom-select {
     width: 100% !important;
   }
-
 }
 
 .max_inf {
   margin-left: 5px;
-  font-family: 'Quicksand';
+  font-family: "Quicksand";
   float: right;
   padding-top: 5px;
 }
@@ -651,7 +646,7 @@ a:hover {
   background-image: url("../img/caret.png");
   background-repeat: no-repeat;
   background-position: right center;
-  border: 2px solid white
+  border: 2px solid white;
 }
 
 .custom-select option {
@@ -659,16 +654,10 @@ a:hover {
 }
 
 .neon-wrapper {
-  box-shadow:
-    0 0 2px 1px #fff7f7,
-    0 0 10px 2px #d374d3,
-    0 0 2px 1px #3f0f3f,
-    inset 0 0 2px 1px #3f0f3f,
-    inset 0 0 1px 1px #d374d3,
+  box-shadow: 0 0 2px 1px #fff7f7, 0 0 10px 2px #d374d3, 0 0 2px 1px #3f0f3f,
+    inset 0 0 2px 1px #3f0f3f, inset 0 0 1px 1px #d374d3,
     inset 0 0 1px 1px #fff7f7;
-
 }
-
 
 .tableTotal {
   background-color: rgba(105, 1, 105, 0.61) !important;
@@ -676,13 +665,13 @@ a:hover {
 }
 
 .districtZoneItem {
-  padding: 5px
+  padding: 5px;
 }
 
 .zoneLink {
   font-size: 1em;
   color: white;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   text-decoration: underline;
 }
 
@@ -702,10 +691,9 @@ a:hover {
   /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
   width: 100px;
-  transition: .2s ease;
+  transition: 0.2s ease;
   border-radius: 10px;
 }
-
 
 .team-photo-card h6 {
   -webkit-filter: grayscale(0%);
@@ -721,7 +709,7 @@ a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  transition: .2s ease;
+  transition: 0.2s ease;
   position: absolute;
 }
 
@@ -764,7 +752,7 @@ a:hover {
   font-weight: 300;
 }
 
-.today>span {
+.today > span {
   margin: 5px;
 }
 
@@ -794,21 +782,22 @@ a:hover {
   color: #03fd44;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: whitesmoke;
   opacity: 1; /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
   color: whitesmoke;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
+::-ms-input-placeholder {
+  /* Microsoft Edge */
   color: whitesmoke;
 }
 
-.pinkText
-    {
-        color: #CC99CC;       
-    }
-
+.pinkText {
+  color: #cc99cc;
+}
