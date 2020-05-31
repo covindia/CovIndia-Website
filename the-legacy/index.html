@@ -5286,6 +5286,11 @@
 				}
 
 			})
+
+			latest_updates = {"0":"<b>118</b> confirmed cases reported in <b>Haryana</b> | Source: <a href=\"https://pbs.twimg.com/media/EZVPeoQWAAUyQTf.jpg\">[Link]</a><br>","1":"<b>56</b> confirmed cases reported in <b>Assam</b> | Source: <a href=\"https://twitter.com/himantabiswa/status/1267006019432931328\">[Link]</a><br>","2":"<b>2</b> confirmed cases reported in <b>Chandigarh</b> | Source: <a href=\"https://twitter.com/ANI/status/1266994504336150528\">[Link]</a><br>","3":"<b>11</b> confirmed cases reported in <b>Tripura</b> | Source: <a href=\"https://twitter.com/BjpBiplab/status/1266992775268098048?s=20\">[Link]</a><br>","4":"<b>7</b> confirmed cases reported in <b>Nagaland</b> | Source: <a href=\"https://twitter.com/PIBKohima/status/1266916286002532353?s=20\">[Link]</a><br>"}
+			for (i in latest_updates) {
+				$("#latest-updates")[0].innerHTML += latest_updates[i];
+			}
 		};
 
 
@@ -5309,14 +5314,6 @@
 			}
 		});
 
-		$.when(
-			$.ajax("https://v1.api.covindia.com/latest-updates").then(response => {
-				for (i in response) {
-					$("#latest-updates")[0].innerHTML += response[i];
-
-				}
-			})
-		);
 		$.when(
 			$.ajax("https://v1.api.covindia.com/general").then(response => {
 				let rawDate = response.lastUpdatedTime
