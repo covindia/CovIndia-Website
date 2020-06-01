@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="manifest" href="manifest.json">
+	<link rel="canonical" href="https://covindia.com/">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description"
+		content="Live DISTRICT-WISE tracker for Corona-Virus (CoVid 19) in India. Be Safe. Be Calm. Stay Informed.">
+	<meta name="keywords" content="Mahindra Ecole Centrale Coronavirus, Coronavirus Visualizer India, Coronavirus India District, Coronavirus India District,
+	Covid-19 Visualizer India, Covid-19 Visualizer India District, Corona India District Wise, Corona India Live, Covid India Live, Corona India Detailed, Maharastra Covid,
+	Maharastra Corona, Virus, Live Tracking, Mahindra Ecole Centrale Koronavirus, Koronavirus Visualizer India, Koronavirus India District, Koronavirus India District,
+	Covid-19 Visualizer India, Covid-19 Visualizer India District, Korona India District Wise, Korona India Live, Covid India Live, Korona India Detailed, Maharastra Covid,
+	Maharastra Korona, Virus, Live Tracking" />
+	<meta name="author" content="Covindia">
+
+	<title>Covindia</title>
+
+	<!-- Standard Includes -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+	<link rel="stylesheet" href="assets/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
+	<link rel="shortcut icon" href="assets/img/icons/icon.png">
+
+	<!-- Custom Imports -->
+	<link rel="stylesheet" href="assets/css/styles.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Mina&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/jquery-ui.css">
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery-ui.min.js"></script>
+
+	<script>
+		// This is the "Offline page" service worker
+
+		// Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+
+		// Check compatibility for the browser we're running this in
+		if ("serviceWorker" in navigator) {
+			if (navigator.serviceWorker.controller) {
+				console.log("[PWA Builder] active service worker found, no need to register");
+			} else {
+				// Register the service worker
+				navigator.serviceWorker
+					.register("sw.js", {
+						scope: "./"
+					})
+					.then(function (reg) {
+						console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+					});
+			}
+		}
+	</script>
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160619251-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'UA-160619251-1');
+	</script>
+</head>
+
+<body>
+	<nav class="navbar navbar-custom navbar-expand-md fixed-top " style="align-content: space-between;">
+		<a class="navbar-brand" style="font-family: 'Poppins', sans-serifs;padding-bottom: 0;" href="index.html">
+			<span style="color: #CC99CC; font-size: 1.3em;font-family: Poppins;">Cov</span><span
+				style="font-size: 1.3em; font-family: 'Poppins';">India</span>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+			style="color: white;">
+			<span style="padding-top:7px;padding-left:0;"><b>Menu</b></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+			<ul class="nav navbar-nav navbar-item-center">
+				<li class="nav-item" role="presentation"><a class="nav-link active"
+						style="padding-bottom:4px; font-family: 'Poppins'; font-weight: 100 !important;"
+						href="analytics.html">Analytics</a>
+				</li>
+				<li class="nav-item" role="presentation"><a class="nav-link active"
+						style=" font-family: 'Poppins';padding-bottom:4px;" href="about.html">About</a></li>
+			</ul>
+
+		</div>
+	</nav>
+	<a href="whatsapp://send?text=CovIndia provides the latest district-wise updates on the spead of the coronavirus in India. Stay Safe. Stay Calm. Be Informed.   https://covindia.com/"
+	data-action="share/whatsapp/share" class="float grow">
+		<i class="fab fa-whatsapp my-float"></i>
+	</a>
+	<a href="https://twitter.com/intent/tweet?text=https://covindia.com/ CovIndia provides the latest district-wise updates on the spead of the coronavirus in India. Stay Safe. Stay Calm. Be Informed #COVID2019india #coronavirusindia."
+	data-action="share/whatsapp/share" class="float-twitter grow">
+		<i class="fab fa-twitter my-float"></i>
+	</a>
+	<a href="https://www.instagram.com/covindia/" class="float-insta grow">
+		<i class="fab fa-instagram my-float"></i>
+	</a>
+
+	<div style="margin-top: 5em;text-align:center;">
+		<h3>THIS IS LAST SNAPSHOT OF COVINDIA WHICH WAS LAST UPDATED ON 2020-May-31 16:00 IST</h3>
+		<b><h2>DO <u style="font-size:1em;">NOT</u> USE THIS FOR CHECKING INFORMATION</h2></b>
+	</div>
+
+    <div class="container" style="margin-top: 5em;text-align:justify;">
+        <div class="row" style="text-align: center;">
+            <div class="col-md-12 text-center p-3">
+                Click on the legends tab, and choose the parameters you would like to see. Risk factor is calculated based on the number of cases in the district and its health infrastructure. If the health infrastructure is bad, then even fewer cases could be very risky.
+            </div>
+            <div class="col-md-12">
+                <iframe width="100%" height="520" frameborder="0"
+                    src="https://bharghavarajaram.carto.com/builder/4c5f31af-ea65-4425-816c-e8d66f20d3f6/embed"
+                    allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen
+                    msallowfullscreen></iframe>
+            </div>
+            <div class="col-md-12 text-center p-3">
+                Health Infra data provided by <a style="color:#CC99CC"
+                    href="https://sites.google.com/view/madhulika-khanna/home">Madhulika
+                    Khanna </a> and
+                <a style="color:#CC99CC" href="https://sites.google.com/view/nishthakochhar"> Nishtha
+                    Kochhar</a>
+            </div>
+
+            <div class="col-md-12">
+                <a href="https://medium.com/analytics-vidhya/effect-of-weather-factors-on-covid-19-4346e79036b7">
+                <img border="0" alt="Weather Analysis" src="assets/img/weather.png" width="100%">
+                </a>
+                
+            </div>
+            <div class="col-md-12 text-center p-3">
+                <a style="color:#CC99CC"
+                    href="https://medium.com/analytics-vidhya/effect-of-weather-factors-on-covid-19-4346e79036b7">Click here to see complete analysis of impact of weather on Covid Spread </a> 
+            </div>
+            
+
+
+            
+
+        </div>
+<script src="assets/js/custom.js"> </script>
+<div class="container-fluid footer-dark" style="color: rgb(170, 170, 170);">
+	<div class="row ">
+		<div class="col-md-4"></div>
+		<div class="col-md-4 text-center">
+
+			<br>
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4 footer-navigation add-footer-margin-below">
+					<a href="about.html">
+						<h3 style="font-weight: 600">About</h3>
+					</a><br>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8" style="text-align: center;">
+
+			In case you find any error, please tweet out to: <a href="https://twitter.com/covindia"
+				style="color:#CC99CC">covindia</a>.<br><br>
+			This is a visualization of the Covid-19 (Coronavirus) pandemic by district in India. This website is
+			updated regularly
+			by a group of volunteer students. Our sources are The Ministry of Health and trustworthy news
+			articles.
+			We do not believe in spreading speculations by news outlets.
+			<br>
+			We are a group of dedicated students trying to keep everyone as informed as possible. We pledge to
+			<strong>NEVER SELL</strong> your data and keep the site <strong>FREE FOREVER.</strong> If you would
+			like
+			to help us out: <br><br><a href="donate.html"><button type="button" class="btn btn-outline-success donate">
+					<strong>DONATE </strong><span class="badge badge-light">₹</span>
+				</button></a><br><br>
+
+			Click here for: <a href="disclaimer.html" style="color: #CC99CC;">Disclaimer</a><br><br>
+
+			<a href="https://www.mohfw.gov.in/" style="color: #CC99CC;">https://www.mohfw.gov.in/</a><br>
+			The Helpline Number for corona-virus : +91-11-23978046
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	<div class="row flex-column" style="margin-top: 3em;">
+		<div class="col">
+			<h2 class="footer-dark-heading" style="font-family: 'Poppins', sans-serif;"><span
+					style="color: #cc99cc; font-size: 1em; font-family: Poppins;">Cov</span>India</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-1 text-center" style="margin-top: 16px;">
+			<a href="https://github.com/covindia" style="margin-left: auto;margin-right: auto;display: block;">
+				<img src="assets/img/github.svg" alt="Github Link" width="50px">
+			</a>
+		</div>
+		<div class="col-md-2 text-center" style="margin-top: 16px;">
+			<a href="https://www.netlify.com" style="margin-left: auto;margin-right: auto;display: block;">
+				<img src="https://www.netlify.com/img/global/badges/netlify-light.svg" alt="Deploys by Netlify" />
+			</a>
+		</div>
+		<div class="col-md-1 text-center" style="margin-top: 16px;">
+			<a href="https://covindia-api-docs.readthedocs.io/en/latest/"
+				style="margin-left: auto;margin-right: auto;display: block;">
+				<img src="assets/img/readthedocs.svg" alt="Github Link" width="50px">
+			</a>
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+</div>
+</body>
+</html>
